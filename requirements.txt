@@ -1,0 +1,13 @@
+# Home Assistant
+homeassistant>=2024.4
+home-assistant-frontend
+numpy
+PyTurboJPEG
+
+# Integration
+aiohttp
+
+# Development
+colorlog
+pip>=21.0
+ruff

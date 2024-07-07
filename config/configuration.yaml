@@ -1,0 +1,24 @@
+# Limited configuration instead of default_config
+# https://www.home-assistant.io/integrations/default_config
+automation:
+dhcp:
+frontend:
+history:
+logbook:
+media_source:
+
+logger:
+  default: info
+  logs:
+    custom_components.oasis_mini: debug
+
+homeassistant:
+  name: HACS-Oasis Mini
+  auth_providers:
+    - type: trusted_networks
+      trusted_networks:
+        - 127.0.0.1
+        - 192.0.0.0/8
+        - ::1
+      allow_bypass_login: true
+    - type: homeassistant
