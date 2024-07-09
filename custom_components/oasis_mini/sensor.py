@@ -49,11 +49,6 @@ DESCRIPTORS = {
         name="Download progress",
         state_class=SensorStateClass.TOTAL_INCREASING,
     ),
-    OasisMiniSensorEntityDescription(
-        key="playlist",
-        name="Playlist",
-        lookup_fn=lambda device: ",".join(map(str, device.playlist)),
-    ),
 }
 
 OTHERS = {

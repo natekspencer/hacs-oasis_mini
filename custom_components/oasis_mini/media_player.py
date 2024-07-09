@@ -20,6 +20,7 @@ from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from .const import DOMAIN
 from .coordinator import OasisMiniCoordinator
 from .entity import OasisMiniEntity
+from .pyoasismini.const import TRACKS
 
 BRIGHTNESS_SCALE = (1, 200)
 
@@ -44,18 +45,18 @@ class OasisMiniMediaPlayerEntity(OasisMiniEntity, MediaPlayerEntity):
     def media_duration(self) -> int:
         """Duration of current playing media in seconds."""
         if (
-            track_details := self.device._current_track_details
-        ) and "reduced_svg_content" in track_details:
-            return track_details["reduced_svg_content"].get("1")
+            track := self.device._current_track_details
+        ) and "reduced_svg_content" in track:
+            return track["reduced_svg_content"].get("1")
         return math.ceil(self.media_position / 0.99)
 
     @property
     def media_image_url(self) -> str | None:
         """Image url of current playing media."""
-        if (
-            track_details := self.device._current_track_details
-        ) and "image" in track_details:
-            return f"https://app.grounded.so/uploads/{track_details['image']}"
+        if not (track := self.device._current_track_details):
+            track = TRACKS.get(str(self.device.current_track_id))
+        if track and "image" in track:
+            return f"https://app.grounded.so/uploads/{track['image']}"
         return None
 
     @property
@@ -71,9 +72,9 @@ class OasisMiniMediaPlayerEntity(OasisMiniEntity, MediaPlayerEntity):
     @property
     def media_title(self) -> str:
         """Title of current playing media."""
-        if track_details := self.device._current_track_details:
-            return track_details.get("name", self.device.current_track_id)
-        return f"Unknown Title (#{self.device.current_track_id})"
+        if not (track := self.device._current_track_details):
+            track = TRACKS.get(str(self.device.current_track_id), {})
+        return track.get("name", f"Unknown Title (#{self.device.current_track_id})")
 
     @property
     def repeat(self) -> RepeatMode:
@@ -116,7 +117,8 @@ class OasisMiniMediaPlayerEntity(OasisMiniEntity, MediaPlayerEntity):
         """Send next track command."""
         if (index := self.device.playlist_index + 1) >= len(self.device.playlist):
             index = 0
-        return await self.device.async_change_track(index)
+        await self.device.async_change_track(index)
+        await self.coordinator.async_request_refresh()
 
 
 DESCRIPTOR = MediaPlayerEntityDescription(key="oasis_mini", name=None)

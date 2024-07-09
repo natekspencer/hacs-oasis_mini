@@ -39,7 +39,7 @@ class OasisMiniCoordinator(DataUpdateCoordinator[str]):
                 data = await self.device.async_get_status()
                 await self.device.async_get_current_track_details()
         except Exception as ex:
-            raise UpdateFailed("Couldn't read oasis_mini") from ex
+            raise UpdateFailed("Couldn't read from the Oasis Mini") from ex
         if data is None:
             raise ConfigEntryAuthFailed
         if data != self.data:
