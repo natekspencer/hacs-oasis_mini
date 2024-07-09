@@ -4,16 +4,15 @@ import logging
 import math
 from xml.etree.ElementTree import Element, SubElement, tostring
 
-# import re
-
 _LOGGER = logging.getLogger(__name__)
 
-COLOR_DARK = "#28292E"
-COLOR_LIGHT = "#FFFFFF"
-COLOR_LIGHT_SHADE = "#FFFFFF"
-COLOR_MEDIUM_SHADE = "#E5E2DE"
-COLOR_MEDIUM_TINT = "#B8B8B8"
-FILL_SVG_STATUS = "#CCC9C4"
+
+BACKGROUND_FILL = ("#CCC9C4", "#28292E")
+COLOR_DARK = ("#28292E", "#F4F5F8")
+COLOR_LIGHT = ("#FFFFFF", "#222428")
+COLOR_LIGHT_SHADE = ("#FFFFFF", "#86888F")
+COLOR_MEDIUM_SHADE = ("#E5E2DE", "#86888F")
+COLOR_MEDIUM_TINT = ("#B8B8B8", "#FFFFFF")
 
 
 def _bit_to_bool(val: str) -> bool:
@@ -27,7 +26,6 @@ def draw_svg(track: dict, progress: int, model_id: str) -> str | None:
         try:
             if progress is not None:
                 paths = svg_content.split("L")
-                # paths=re.findall('([a-zA-Z][^a-zA-Z]+)',svg_content)
                 total = track.get("reduced_svg_content", {}).get(model_id, len(paths))
                 percent = (100 * progress) / total
                 progress = math.floor((percent / 100) * len(paths))
@@ -42,15 +40,24 @@ def draw_svg(track: dict, progress: int, model_id: str) -> str | None:
                         "class": "svg-status",
                     },
                 )
-                # style = SubElement(svg, "style")
-                # style.text = """
-                #     .progress_arc_incomplete {
-                #         stroke: #E5E2DE;
-                #     }
-                #     circle.circleClass {
-                #         stroke: #006600;
-                #         fill:   #cc0000;
-                #     }"""
+
+                style = SubElement(svg, "style")
+                style.text = f"""
+                    circle.background {{ fill: {BACKGROUND_FILL[0]}; }}
+                    circle.ball {{ stroke: {COLOR_DARK[0]}; fill: {COLOR_LIGHT[0]}; }}
+                    path.progress_arc {{ stroke: {COLOR_MEDIUM_SHADE[0]}; }}
+                    path.progress_arc_complete {{ stroke: {COLOR_DARK[0]}; }}
+                    path.track {{ stroke: {COLOR_LIGHT_SHADE[0]}; }}
+                    path.track_complete {{ stroke: {COLOR_MEDIUM_TINT[0]}; }}
+                    @media (prefers-color-scheme: dark) {{
+                        circle.background {{ fill: {BACKGROUND_FILL[1]}; }}
+                        circle.ball {{ stroke: {COLOR_DARK[1]}; fill: {COLOR_LIGHT[1]}; }}
+                        path.progress_arc {{ stroke: {COLOR_MEDIUM_SHADE[1]}; }}
+                        path.progress_arc_complete {{ stroke: {COLOR_DARK[1]}; }}
+                        path.track {{ stroke: {COLOR_LIGHT_SHADE[1]}; }}
+                        path.track_complete {{ stroke: {COLOR_MEDIUM_TINT[1]}; }}
+                    }}"""
+
                 group = SubElement(
                     svg,
                     "g",
@@ -63,8 +70,7 @@ def draw_svg(track: dict, progress: int, model_id: str) -> str | None:
                     group,
                     "path",
                     {
-                        "class": "progress_arc_incomplete",
-                        "stroke": COLOR_MEDIUM_SHADE,
+                        "class": "progress_arc",
                         "stroke-width": "2",
                         "d": progress_arc,
                     },
@@ -76,7 +82,7 @@ def draw_svg(track: dict, progress: int, model_id: str) -> str | None:
                     group,
                     "path",
                     {
-                        "stroke": COLOR_DARK,
+                        "class": "progress_arc_complete",
                         "stroke-width": "4",
                         "d": "L".join(progress_arc_paths[:paths_to_draw]),
                     },
@@ -86,8 +92,8 @@ def draw_svg(track: dict, progress: int, model_id: str) -> str | None:
                     group,
                     "circle",
                     {
+                        "class": "background",
                         "r": "100",
-                        "fill": FILL_SVG_STATUS,
                         "cx": "100",
                         "cy": "100",
                         "opacity": "0.3",
@@ -98,7 +104,7 @@ def draw_svg(track: dict, progress: int, model_id: str) -> str | None:
                     group,
                     "path",
                     {
-                        "stroke": COLOR_LIGHT_SHADE,
+                        "class": "track",
                         "stroke-width": "1.4",
                         "d": svg_content,
                     },
@@ -108,7 +114,7 @@ def draw_svg(track: dict, progress: int, model_id: str) -> str | None:
                     group,
                     "path",
                     {
-                        "stroke": COLOR_MEDIUM_TINT,
+                        "class": "track_complete",
                         "stroke-width": "1.8",
                         "d": "L".join(paths[:progress]),
                     },
@@ -119,9 +125,8 @@ def draw_svg(track: dict, progress: int, model_id: str) -> str | None:
                     group,
                     "circle",
                     {
-                        "stroke": COLOR_DARK,
+                        "class": "ball",
                         "stroke-width": "1",
-                        "fill": COLOR_LIGHT,
                         "cx": f"{_cx:.2f}",
                         "cy": f"{_cy:.2f}",
                         "r": "5",
@@ -131,3 +136,4 @@ def draw_svg(track: dict, progress: int, model_id: str) -> str | None:
                 return tostring(svg).decode()
         except Exception as e:
             _LOGGER.exception(e)
+    return None

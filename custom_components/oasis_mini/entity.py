@@ -26,7 +26,7 @@ class OasisMiniEntity(CoordinatorEntity[OasisMiniCoordinator]):
         entry: ConfigEntry,
         description: EntityDescription,
     ) -> None:
-        """Construct a Oasis Mini entity."""
+        """Construct an Oasis Mini entity."""
         super().__init__(coordinator)
         self.entity_description = description
         serial_number = coordinator.device.serial_number

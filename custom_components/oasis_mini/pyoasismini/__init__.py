@@ -1,7 +1,8 @@
 """Oasis Mini API client."""
 
+import asyncio
 import logging
-from typing import Any, Callable, Final
+from typing import Any, Awaitable, Callable, Final
 from urllib.parse import urljoin
 
 from aiohttp import ClientSession
@@ -21,7 +22,7 @@ STATUS_CODE_MAP = {
 
 ATTRIBUTES: Final[list[tuple[str, Callable[[str], Any]]]] = [
     ("status_code", int),  # see status code map
-    ("error", str),  # error, 0 = none, and 10 = ?
+    ("error", str),  # error, 0 = none, and 10 = ?, 18 = can't download?
     ("ball_speed", int),  # 200 - 800
     ("playlist", lambda value: [int(track) for track in value.split(",")]),  # noqa: E501 # comma separated track ids
     ("playlist_index", int),  # index of above
@@ -162,6 +163,18 @@ class OasisMini:
     async def async_play(self) -> None:
         """Send play command."""
         await self._async_command(params={"CMDPLAY": ""})
+
+    async def async_reboot(self) -> None:
+        """Send reboot command."""
+
+        async def _no_response_needed(coro: Awaitable) -> None:
+            try:
+                await coro
+            except Exception as ex:
+                _LOGGER.error(ex)
+
+        reboot = self._async_command(params={"CMDBOOT": ""})
+        asyncio.create_task(_no_response_needed(reboot))
 
     async def async_set_ball_speed(self, speed: int) -> None:
         """Set the Oasis Mini ball speed."""

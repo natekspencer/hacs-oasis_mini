@@ -44,15 +44,14 @@ class OasisMiniLightEntity(OasisMiniEntity, LightEntity):
     @property
     def color_mode(self) -> ColorMode:
         """Return the color mode of the light."""
-        # if self.effect in (
-        #     "Rainbow",
-        #     "Glitter",
-        #     "Confetti",
-        #     "BPM",
-        #     "Juggle",
-        #     "Theater",
-        # ):
-        #     return ColorMode.BRIGHTNESS
+        if self.effect in (
+            "Rainbow",
+            "Glitter",
+            "Confetti",
+            "BPM",
+            "Juggle",
+        ):
+            return ColorMode.BRIGHTNESS
         return ColorMode.RGB
 
     @property
