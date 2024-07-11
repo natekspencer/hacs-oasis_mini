@@ -127,6 +127,11 @@ class OasisMini:
         """Return the url."""
         return f"http://{self._host}/"
 
+    async def async_add_track_to_playlist(self, track: int) -> None:
+        """Add track to playlist."""
+        await self._async_command(params={"ADDJOBLIST": track})
+        self.playlist.append(track)
+
     async def async_change_track(self, index: int) -> None:
         """Change the track."""
         if index >= len(self.playlist):
@@ -155,6 +160,10 @@ class OasisMini:
                 _LOGGER.debug("%s changed: '%s' -> '%s'", attr, old_value, value)
                 setattr(self, attr, value)
         return status
+
+    async def async_move_track(self, _from: int, _to: int) -> None:
+        """Move a track in the playlist."""
+        await self._async_command(params={"MOVEJOB": f"{_from};{_to}"})
 
     async def async_pause(self) -> None:
         """Send pause command."""
@@ -264,6 +273,19 @@ class OasisMini:
         )
         return response
 
+    async def async_cloud_get_tracks(self, tracks: list[int]) -> None:
+        """Get cloud tracks."""
+        if not self.access_token:
+            return
+
+        response = await self._async_request(
+            "GET",
+            urljoin(CLOUD_BASE_URL, "api/track"),
+            headers={"Authorization": f"Bearer {self.access_token}"},
+            params={"ids[]": tracks},
+        )
+        return response
+
     async def _async_request(self, method: str, url: str, **kwargs) -> Any:
         """Login via the cloud."""
         response = await self._session.request(method, url, **kwargs)
@@ -283,3 +305,7 @@ class OasisMini:
         self._current_track_details = await self.async_cloud_get_track_info(
             self.current_track_id
         )
+
+    async def async_get_playlist_details(self) -> dict:
+        """Get playlist info."""
+        return await self.async_cloud_get_tracks(self.playlist)
