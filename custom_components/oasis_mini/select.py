@@ -27,15 +27,7 @@ class OasisMiniSelectEntity(OasisMiniEntity, SelectEntity):
     ) -> None:
         """Construct an Oasis Mini select entity."""
         super().__init__(coordinator, entry, description)
-        self._attr_options = [
-            TRACKS.get(str(track), {}).get("name", str(track))
-            for track in self.device.playlist
-        ]
-
-    @property
-    def current_option(self) -> str:
-        """Return the selected entity option to represent the entity state."""
-        return self.options[self.device.playlist_index]
+        self._handle_coordinator_update()
 
     async def async_select_option(self, option: str) -> None:
         """Change the selected option."""
@@ -44,11 +36,14 @@ class OasisMiniSelectEntity(OasisMiniEntity, SelectEntity):
 
     def _handle_coordinator_update(self) -> None:
         """Handle updated data from the coordinator."""
-        self._attr_options = [
+        options = [
             TRACKS.get(str(track), {}).get("name", str(track))
             for track in self.device.playlist
         ]
-        return super()._handle_coordinator_update()
+        self._attr_options = options
+        self._attr_current_option = options[self.device.playlist_index]
+        if self.hass:
+            return super()._handle_coordinator_update()
 
 
 DESCRIPTOR = SelectEntityDescription(key="playlist", name="Playlist")
