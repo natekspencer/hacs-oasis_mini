@@ -2,9 +2,6 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Any, Callable
-
 from homeassistant.components.sensor import (
     SensorEntity,
     SensorEntityDescription,
@@ -18,27 +15,19 @@ from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from .const import DOMAIN
 from .coordinator import OasisMiniCoordinator
 from .entity import OasisMiniEntity
-from .pyoasismini import OasisMini
 
 
-@dataclass(frozen=True, kw_only=True)
-class OasisMiniSensorEntityDescription(SensorEntityDescription):
-    """Oasis Mini sensor entity description."""
-
-    lookup_fn: Callable[[OasisMini], Any] | None = None
-
-
-class OasisMiniSensorEntity(OasisMiniEntity, SensorEntity):
-    """Oasis Mini sensor entity."""
-
-    entity_description: OasisMiniSensorEntityDescription | SensorEntityDescription
-
-    @property
-    def native_value(self) -> str | None:
-        """Return the value reported by the sensor."""
-        if lookup_fn := getattr(self.entity_description, "lookup_fn", None):
-            return lookup_fn(self.device)
-        return getattr(self.device, self.entity_description.key)
+async def async_setup_entry(
+    hass: HomeAssistant, entry: ConfigEntry, async_add_entities: AddEntitiesCallback
+) -> None:
+    """Set up Oasis Mini sensors using config entry."""
+    coordinator: OasisMiniCoordinator = hass.data[DOMAIN][entry.entry_id]
+    async_add_entities(
+        [
+            OasisMiniSensorEntity(coordinator, entry, descriptor)
+            for descriptor in DESCRIPTORS
+        ]
+    )
 
 
 DESCRIPTORS = {
@@ -49,9 +38,7 @@ DESCRIPTORS = {
         name="Download progress",
         state_class=SensorStateClass.TOTAL_INCREASING,
     ),
-}
-
-OTHERS = {
+} | {
     SensorEntityDescription(
         key=key,
         name=key.replace("_", " ").capitalize(),
@@ -68,14 +55,10 @@ OTHERS = {
 }
 
 
-async def async_setup_entry(
-    hass: HomeAssistant, entry: ConfigEntry, async_add_entities: AddEntitiesCallback
-) -> None:
-    """Set up Oasis Mini sensors using config entry."""
-    coordinator: OasisMiniCoordinator = hass.data[DOMAIN][entry.entry_id]
-    async_add_entities(
-        [
-            OasisMiniSensorEntity(coordinator, entry, descriptor)
-            for descriptor in DESCRIPTORS | OTHERS
-        ]
-    )
+class OasisMiniSensorEntity(OasisMiniEntity, SensorEntity):
+    """Oasis Mini sensor entity."""
+
+    @property
+    def native_value(self) -> str | None:
+        """Return the value reported by the sensor."""
+        return getattr(self.device, self.entity_description.key)
