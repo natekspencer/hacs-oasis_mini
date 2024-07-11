@@ -237,7 +237,7 @@ class OasisMini:
     async def _async_get(self, **kwargs: Any) -> str | None:
         """Perform a GET request."""
         response = await self._session.get(self.url, **kwargs)
-        if response.status == 200:
+        if response.status == 200 and response.content_type == "text/plain":
             text = await response.text()
             return text
         return None
