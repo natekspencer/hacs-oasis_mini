@@ -17,6 +17,7 @@ STATUS_CODE_MAP = {
     4: "running",
     5: "paused",
     9: "error",
+    11: "updating",
     13: "downloading",
 }
 
@@ -59,7 +60,6 @@ LED_EFFECTS: Final[dict[str, str]] = {
 }
 
 CLOUD_BASE_URL = "https://app.grounded.so"
-CLOUD_API_URL = f"{CLOUD_BASE_URL}/api"
 
 
 class OasisMini:
@@ -72,6 +72,7 @@ class OasisMini:
 
     brightness: int
     color: str
+    download_progress: int
     led_effect: str
     led_speed: int
     max_brightness: int
@@ -222,25 +223,16 @@ class OasisMini:
         )
 
     async def async_set_pause_between_tracks(self, pause: bool) -> None:
-        """Set the Oasis Mini pause between tracks."""
+        """Set pause between tracks."""
         await self._async_command(params={"WRIWAITAFTER": 1 if pause else 0})
 
     async def async_set_repeat_playlist(self, repeat: bool) -> None:
-        """Set the Oasis Mini repeat playlist."""
+        """Set repeat playlist."""
         await self._async_command(params={"WRIREPEATJOB": 1 if repeat else 0})
 
-    async def _async_command(self, **kwargs: Any) -> str | None:
-        """Send a command request."""
-        result = await self._async_get(**kwargs)
-        _LOGGER.debug("Result: %s", result)
-
-    async def _async_get(self, **kwargs: Any) -> str | None:
-        """Perform a GET request."""
-        response = await self._session.get(self.url, **kwargs)
-        if response.status == 200 and response.content_type == "text/plain":
-            text = await response.text()
-            return text
-        return None
+    async def async_upgrade(self, beta: bool = False) -> None:
+        """Trigger a software upgrade."""
+        await self._async_command(params={"CMDUPGRADE": 1 if beta else 0})
 
     async def async_cloud_login(self, email: str, password: str) -> None:
         """Login via the cloud."""
@@ -253,47 +245,21 @@ class OasisMini:
 
     async def async_cloud_logout(self) -> None:
         """Login via the cloud."""
-        if not self.access_token:
-            return
-        await self._async_request(
-            "GET",
-            urljoin(CLOUD_BASE_URL, "api/auth/logout"),
-            headers={"Authorization": f"Bearer {self.access_token}"},
-        )
+        await self._async_cloud_request("GET", "api/auth/logout")
 
-    async def async_cloud_get_track_info(self, track_id: int) -> None:
+    async def async_cloud_get_track_info(self, track_id: int) -> dict[str, Any]:
         """Get cloud track info."""
-        if not self.access_token:
-            return
+        return await self._async_cloud_request("GET", f"api/track/{track_id}")
 
-        response = await self._async_request(
-            "GET",
-            urljoin(CLOUD_BASE_URL, f"api/track/{track_id}"),
-            headers={"Authorization": f"Bearer {self.access_token}"},
+    async def async_cloud_get_tracks(self, tracks: list[int]) -> dict:
+        """Get tracks info from the cloud"""
+        return await self._async_cloud_request(
+            "GET", "api/track", params={"ids[]": tracks}
         )
-        return response
 
-    async def async_cloud_get_tracks(self, tracks: list[int]) -> None:
-        """Get cloud tracks."""
-        if not self.access_token:
-            return
-
-        response = await self._async_request(
-            "GET",
-            urljoin(CLOUD_BASE_URL, "api/track"),
-            headers={"Authorization": f"Bearer {self.access_token}"},
-            params={"ids[]": tracks},
-        )
-        return response
-
-    async def _async_request(self, method: str, url: str, **kwargs) -> Any:
-        """Login via the cloud."""
-        response = await self._session.request(method, url, **kwargs)
-        if response.status == 200:
-            if response.headers.get("Content-Type") == "application/json":
-                return await response.json()
-            return await response.text()
-        response.raise_for_status()
+    async def async_cloud_get_latest_software_details(self) -> dict[str, int | str]:
+        """Get the latest software details from the cloud."""
+        return await self._async_cloud_request("GET", "api/software/last-version")
 
     async def async_get_current_track_details(self) -> dict:
         """Get current track info, refreshing if needed."""
@@ -309,3 +275,35 @@ class OasisMini:
     async def async_get_playlist_details(self) -> dict:
         """Get playlist info."""
         return await self.async_cloud_get_tracks(self.playlist)
+
+    async def _async_cloud_request(self, method: str, url: str, **kwargs: Any) -> Any:
+        """Perform a cloud request."""
+        if not self.access_token:
+            return
+
+        return await self._async_request(
+            method,
+            urljoin(CLOUD_BASE_URL, url),
+            headers={"Authorization": f"Bearer {self.access_token}"},
+            **kwargs,
+        )
+
+    async def _async_command(self, **kwargs: Any) -> str | None:
+        """Send a command to the device."""
+        result = await self._async_get(**kwargs)
+        _LOGGER.debug("Result: %s", result)
+
+    async def _async_get(self, **kwargs: Any) -> str | None:
+        """Perform a GET request."""
+        return await self._async_request("GET", self.url, **kwargs)
+
+    async def _async_request(self, method: str, url: str, **kwargs) -> Any:
+        """Perform a request."""
+        response = await self._session.request(method, url, **kwargs)
+        if response.status == 200:
+            if response.content_type == "application/json":
+                return await response.json()
+            if response.content_type == "text/plain":
+                return await response.text()
+            return None
+        response.raise_for_status()
