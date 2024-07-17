@@ -41,7 +41,8 @@ class OasisMiniSelectEntity(OasisMiniEntity, SelectEntity):
             for track in self.device.playlist
         ]
         self._attr_options = options
-        self._attr_current_option = options[self.device.playlist_index]
+        index = min(self.device.playlist_index, len(options) - 1)
+        self._attr_current_option = options[index]
         if self.hass:
             return super()._handle_coordinator_update()
 
