@@ -39,11 +39,7 @@ class OasisMiniImageEntity(OasisMiniEntity, ImageEntity):
 
     def image(self) -> bytes | None:
         """Return bytes of image."""
-        return draw_svg(
-            self.device._current_track_details,
-            self.device.progress,
-            "1",
-        )
+        return draw_svg(self.device.track, self.device.progress, "1")
 
 
 async def async_setup_entry(

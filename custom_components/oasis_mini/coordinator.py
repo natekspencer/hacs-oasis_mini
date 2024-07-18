@@ -32,6 +32,8 @@ class OasisMiniCoordinator(DataUpdateCoordinator[str]):
     async def _async_update_data(self):
         try:
             async with async_timeout.timeout(10):
+                if not self.device.mac_address:
+                    await self.device.async_get_mac_address()
                 if not self.device.serial_number:
                     await self.device.async_get_serial_number()
                 if not self.device.software_version:

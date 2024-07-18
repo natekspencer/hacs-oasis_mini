@@ -5,6 +5,7 @@ from __future__ import annotations
 import logging
 
 from homeassistant.config_entries import ConfigEntry
+from homeassistant.helpers.device_registry import CONNECTION_NETWORK_MAC, format_mac
 from homeassistant.helpers.entity import DeviceInfo, EntityDescription
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
@@ -29,16 +30,18 @@ class OasisMiniEntity(CoordinatorEntity[OasisMiniCoordinator]):
         """Construct an Oasis Mini entity."""
         super().__init__(coordinator)
         self.entity_description = description
-        serial_number = coordinator.device.serial_number
+        device = coordinator.device
+        serial_number = device.serial_number
         self._attr_unique_id = f"{serial_number}-{description.key}"
 
         self._attr_device_info = DeviceInfo(
+            connections={(CONNECTION_NETWORK_MAC, format_mac(device.mac_address))},
             identifiers={(DOMAIN, serial_number)},
             name=entry.title,
             manufacturer="Kinetic Oasis",
             model="Oasis Mini",
             serial_number=serial_number,
-            sw_version=coordinator.device.software_version,
+            sw_version=device.software_version,
         )
 
     @property

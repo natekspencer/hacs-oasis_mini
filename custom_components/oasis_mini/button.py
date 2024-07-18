@@ -12,6 +12,7 @@ from homeassistant.components.button import (
     ButtonEntityDescription,
 )
 from homeassistant.config_entries import ConfigEntry
+from homeassistant.const import EntityCategory
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
@@ -42,10 +43,13 @@ async def play_random_track(device: OasisMini) -> None:
         await device.async_add_track_to_playlist(track)
 
     # Move track to next item in the playlist and then select it
-    if (idx := device.playlist.index(track)) != (next_idx := device.playlist_index + 1):
-        await device.async_move_track(idx, next_idx)
-    await device.async_change_track(next_idx)
-    await device.async_play()
+    if (index := device.playlist.index(track)) != device.playlist_index:
+        if index != (next_index := device.playlist_index + 1):
+            await device.async_move_track(index, next_index)
+        await device.async_change_track(next_index)
+
+    if device.status_code != 4:
+        await device.async_play()
 
 
 @dataclass(frozen=True, kw_only=True)
@@ -59,6 +63,7 @@ DESCRIPTORS = (
     OasisMiniButtonEntityDescription(
         key="reboot",
         device_class=ButtonDeviceClass.RESTART,
+        entity_category=EntityCategory.CONFIG,
         press_fn=lambda device: device.async_reboot(),
     ),
     OasisMiniButtonEntityDescription(
