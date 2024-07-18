@@ -10,6 +10,7 @@ from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from .const import DOMAIN
 from .coordinator import OasisMiniCoordinator
 from .entity import OasisMiniEntity
+from .pyoasismini import BALL_SPEED_MAX, BALL_SPEED_MIN, LED_SPEED_MAX, LED_SPEED_MIN
 
 
 class OasisMiniNumberEntity(OasisMiniEntity, NumberEntity):
@@ -33,14 +34,14 @@ DESCRIPTORS = {
     NumberEntityDescription(
         key="ball_speed",
         name="Ball speed",
-        native_max_value=800,
-        native_min_value=200,
+        native_max_value=BALL_SPEED_MAX,
+        native_min_value=BALL_SPEED_MIN,
     ),
     NumberEntityDescription(
         key="led_speed",
         name="LED speed",
-        native_max_value=90,
-        native_min_value=-90,
+        native_max_value=LED_SPEED_MAX,
+        native_min_value=LED_SPEED_MIN,
     ),
 }
 

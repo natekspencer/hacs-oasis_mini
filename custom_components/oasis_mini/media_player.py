@@ -22,17 +22,18 @@ from .coordinator import OasisMiniCoordinator
 from .entity import OasisMiniEntity
 from .pyoasismini.const import TRACKS
 
-BRIGHTNESS_SCALE = (1, 200)
-
 
 class OasisMiniMediaPlayerEntity(OasisMiniEntity, MediaPlayerEntity):
     """Oasis Mini media player entity."""
 
     _attr_media_image_remotely_accessible = True
     _attr_supported_features = (
-        MediaPlayerEntityFeature.NEXT_TRACK
-        | MediaPlayerEntityFeature.PAUSE
+        MediaPlayerEntityFeature.PAUSE
         | MediaPlayerEntityFeature.PLAY
+        | MediaPlayerEntityFeature.STOP
+        | MediaPlayerEntityFeature.PREVIOUS_TRACK
+        | MediaPlayerEntityFeature.NEXT_TRACK
+        | MediaPlayerEntityFeature.CLEAR_PLAYLIST
         | MediaPlayerEntityFeature.REPEAT_SET
     )
 
@@ -44,17 +45,15 @@ class OasisMiniMediaPlayerEntity(OasisMiniEntity, MediaPlayerEntity):
     @property
     def media_duration(self) -> int:
         """Duration of current playing media in seconds."""
-        if (
-            track := self.device._current_track_details
-        ) and "reduced_svg_content" in track:
+        if (track := self.device.track) and "reduced_svg_content" in track:
             return track["reduced_svg_content"].get("1")
         return math.ceil(self.media_position / 0.99)
 
     @property
     def media_image_url(self) -> str | None:
         """Image url of current playing media."""
-        if not (track := self.device._current_track_details):
-            track = TRACKS.get(str(self.device.current_track_id))
+        if not (track := self.device.track):
+            track = TRACKS.get(str(self.device.track_id))
         if track and "image" in track:
             return f"https://app.grounded.so/uploads/{track['image']}"
         return None
@@ -72,28 +71,32 @@ class OasisMiniMediaPlayerEntity(OasisMiniEntity, MediaPlayerEntity):
     @property
     def media_title(self) -> str:
         """Title of current playing media."""
-        if not (track := self.device._current_track_details):
-            track = TRACKS.get(str(self.device.current_track_id), {})
-        return track.get("name", f"Unknown Title (#{self.device.current_track_id})")
+        if not (track := self.device.track):
+            track = TRACKS.get(str(self.device.track_id), {})
+        return track.get("name", f"Unknown Title (#{self.device.track_id})")
 
     @property
     def repeat(self) -> RepeatMode:
         """Return current repeat mode."""
-        if self.device.repeat_playlist:
-            return RepeatMode.ALL
-        return RepeatMode.OFF
+        return RepeatMode.ALL if self.device.repeat_playlist else RepeatMode.OFF
 
     @property
     def state(self) -> MediaPlayerState:
         """State of the player."""
         status_code = self.device.status_code
-        if status_code in (3, 13):
+        if self.device.error or status_code == 9:
+            return MediaPlayerState.OFF
+        if status_code == 2:
+            return MediaPlayerState.IDLE
+        if status_code in (3, 11, 13):
             return MediaPlayerState.BUFFERING
-        if status_code in (2, 5):
-            return MediaPlayerState.PAUSED
         if status_code == 4:
             return MediaPlayerState.PLAYING
-        return MediaPlayerState.STANDBY
+        if status_code == 5:
+            return MediaPlayerState.PAUSED
+        if status_code == 15:
+            return MediaPlayerState.ON
+        return MediaPlayerState.IDLE
 
     async def async_media_pause(self) -> None:
         """Send pause command."""
@@ -105,6 +108,11 @@ class OasisMiniMediaPlayerEntity(OasisMiniEntity, MediaPlayerEntity):
         await self.device.async_play()
         await self.coordinator.async_request_refresh()
 
+    async def async_media_stop(self) -> None:
+        """Send stop command."""
+        await self.device.async_stop()
+        await self.coordinator.async_request_refresh()
+
     async def async_set_repeat(self, repeat: RepeatMode) -> None:
         """Set repeat mode."""
         await self.device.async_set_repeat_playlist(
@@ -113,11 +121,23 @@ class OasisMiniMediaPlayerEntity(OasisMiniEntity, MediaPlayerEntity):
         )
         await self.coordinator.async_request_refresh()
 
+    async def async_media_previous_track(self) -> None:
+        """Send previous track command."""
+        if (index := self.device.playlist_index - 1) < 0:
+            index = len(self.device.playlist) - 1
+        await self.device.async_change_track(index)
+        await self.coordinator.async_request_refresh()
+
     async def async_media_next_track(self) -> None:
         """Send next track command."""
         if (index := self.device.playlist_index + 1) >= len(self.device.playlist):
             index = 0
         await self.device.async_change_track(index)
+        await self.coordinator.async_request_refresh()
+
+    async def async_clear_playlist(self) -> None:
+        """Clear players playlist."""
+        await self.device.async_set_playlist([0])
         await self.coordinator.async_request_refresh()
 
 

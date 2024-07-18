@@ -12,6 +12,7 @@ from .utils import _bit_to_bool
 _LOGGER = logging.getLogger(__name__)
 
 STATUS_CODE_MAP = {
+    0: "booting",  # maybe?
     2: "stopped",
     3: "centering",
     4: "running",
@@ -19,12 +20,21 @@ STATUS_CODE_MAP = {
     9: "error",
     11: "updating",
     13: "downloading",
+    15: "live drawing",
+}
+
+AUTOPLAY_MAP = {
+    "0": "on",
+    "1": "off",
+    "2": "5 minutes",
+    "3": "10 minutes",
+    "4": "30 minutes",
 }
 
 ATTRIBUTES: Final[list[tuple[str, Callable[[str], Any]]]] = [
     ("status_code", int),  # see status code map
-    ("error", str),  # error, 0 = none, and 10 = ?, 18 = can't download?
-    ("ball_speed", int),  # 200 - 800
+    ("error", int),  # error, 0 = none, and 10 = ?, 18 = can't download?
+    ("ball_speed", int),  # 200 - 1000
     ("playlist", lambda value: [int(track) for track in value.split(",")]),  # noqa: E501 # comma separated track ids
     ("playlist_index", int),  # index of above
     ("progress", int),  # 0 - max svg path
@@ -38,7 +48,7 @@ ATTRIBUTES: Final[list[tuple[str, Callable[[str], Any]]]] = [
     ("max_brightness", int),
     ("wifi_connected", _bit_to_bool),
     ("repeat_playlist", _bit_to_bool),
-    ("pause_between_tracks", _bit_to_bool),
+    ("autoplay", AUTOPLAY_MAP.get),
 ]
 
 LED_EFFECTS: Final[dict[str, str]] = {
@@ -61,24 +71,34 @@ LED_EFFECTS: Final[dict[str, str]] = {
 
 CLOUD_BASE_URL = "https://app.grounded.so"
 
+BALL_SPEED_MAX: Final = 1000
+BALL_SPEED_MIN: Final = 200
+LED_SPEED_MAX: Final = 90
+LED_SPEED_MIN: Final = -90
+
 
 class OasisMini:
     """Oasis Mini API client class."""
 
     _access_token: str | None = None
-    _current_track_details: dict | None = None
+    _mac_address: str | None = None
+    _ip_address: str | None = None
     _serial_number: str | None = None
     _software_version: str | None = None
+    _track: dict | None = None
 
+    autoplay: str
     brightness: int
     color: str
     download_progress: int
+    error: int
     led_effect: str
     led_speed: int
     max_brightness: int
     playlist: list[int]
     playlist_index: int
     progress: int
+    repeat_playlist: bool
     status_code: int
 
     def __init__(
@@ -98,10 +118,9 @@ class OasisMini:
         return self._access_token
 
     @property
-    def current_track_id(self) -> int:
-        """Return the current track."""
-        i = self.playlist_index
-        return self.playlist[0] if i >= len(self.playlist) else self.playlist[i]
+    def mac_address(self) -> str | None:
+        """Return the mac address."""
+        return self._mac_address
 
     @property
     def serial_number(self) -> str | None:
@@ -124,20 +143,49 @@ class OasisMini:
         return STATUS_CODE_MAP.get(self.status_code, f"Unknown ({self.status_code})")
 
     @property
+    def track(self) -> dict | None:
+        """Return the current track info."""
+        if self._track and self._track.get("id") == self.track_id:
+            return self._track
+        return None
+
+    @property
+    def track_id(self) -> int:
+        """Return the current track id."""
+        i = self.playlist_index
+        return self.playlist[0] if i >= len(self.playlist) else self.playlist[i]
+
+    @property
     def url(self) -> str:
         """Return the url."""
         return f"http://{self._host}/"
 
     async def async_add_track_to_playlist(self, track: int) -> None:
         """Add track to playlist."""
-        await self._async_command(params={"ADDJOBLIST": track})
-        self.playlist.append(track)
+        if 0 in self.playlist:
+            playlist = [t for t in self.playlist if t] + [track]
+            await self.async_set_playlist(playlist)
+        else:
+            await self._async_command(params={"ADDJOBLIST": track})
+            self.playlist.append(track)
 
     async def async_change_track(self, index: int) -> None:
         """Change the track."""
         if index >= len(self.playlist):
-            raise ValueError("Invalid selection")
+            raise ValueError("Invalid index specified")
         await self._async_command(params={"CMDCHANGETRACK": index})
+
+    async def async_get_ip_address(self) -> str | None:
+        """Get the ip address."""
+        self._ip_address = await self._async_get(params={"GETIP": ""})
+        _LOGGER.debug("IP address: %s", self._ip_address)
+        return self._ip_address
+
+    async def async_get_mac_address(self) -> str | None:
+        """Get the mac address."""
+        self._mac_address = await self._async_get(params={"GETMAC": ""})
+        _LOGGER.debug("MAC address: %s", self._mac_address)
+        return self._mac_address
 
     async def async_get_serial_number(self) -> str | None:
         """Get the serial number."""
@@ -172,6 +220,8 @@ class OasisMini:
 
     async def async_play(self) -> None:
         """Send play command."""
+        if self.status_code == 15:
+            await self.async_stop()
         await self._async_command(params={"CMDPLAY": ""})
 
     async def async_reboot(self) -> None:
@@ -188,8 +238,8 @@ class OasisMini:
 
     async def async_set_ball_speed(self, speed: int) -> None:
         """Set the Oasis Mini ball speed."""
-        if not 200 <= speed <= 800:
-            raise Exception("Invalid speed specified")
+        if not BALL_SPEED_MIN <= speed <= BALL_SPEED_MAX:
+            raise ValueError("Invalid speed specified")
 
         await self._async_command(params={"WRIOASISSPEED": speed})
 
@@ -212,23 +262,36 @@ class OasisMini:
             brightness = self.brightness
 
         if led_effect not in LED_EFFECTS:
-            raise Exception("Invalid led effect specified")
-        if not -90 <= led_speed <= 90:
-            raise Exception("Invalid led speed specified")
-        if not 0 <= brightness <= 200:
-            raise Exception("Invalid brightness specified")
+            raise ValueError("Invalid led effect specified")
+        if not LED_SPEED_MIN <= led_speed <= LED_SPEED_MAX:
+            raise ValueError("Invalid led speed specified")
+        if not 0 <= brightness <= self.max_brightness:
+            raise ValueError("Invalid brightness specified")
 
         await self._async_command(
             params={"WRILED": f"{led_effect};0;{color};{led_speed};{brightness}"}
         )
 
-    async def async_set_pause_between_tracks(self, pause: bool) -> None:
-        """Set pause between tracks."""
-        await self._async_command(params={"WRIWAITAFTER": 1 if pause else 0})
+    async def async_set_autoplay(self, option: bool | int | str) -> None:
+        """Set autoplay."""
+        if isinstance(option, bool):
+            option = 0 if option else 1
+        if str(option) not in AUTOPLAY_MAP:
+            raise ValueError("Invalid pause option specified")
+        await self._async_command(params={"WRIWAITAFTER": option})
+
+    async def async_set_playlist(self, playlist: list[int]) -> None:
+        """Set playlist."""
+        await self._async_command(params={"WRIJOBLIST": ",".join(map(str, playlist))})
+        self.playlist = playlist
 
     async def async_set_repeat_playlist(self, repeat: bool) -> None:
         """Set repeat playlist."""
         await self._async_command(params={"WRIREPEATJOB": 1 if repeat else 0})
+
+    async def async_stop(self) -> None:
+        """Send stop command."""
+        await self._async_command(params={"CMDSTOP": ""})
 
     async def async_upgrade(self, beta: bool = False) -> None:
         """Trigger a software upgrade."""
@@ -263,14 +326,11 @@ class OasisMini:
 
     async def async_get_current_track_details(self) -> dict:
         """Get current track info, refreshing if needed."""
-        if (track_details := self._current_track_details) and track_details.get(
-            "id"
-        ) == self.current_track_id:
-            return track_details
-
-        self._current_track_details = await self.async_cloud_get_track_info(
-            self.current_track_id
-        )
+        if (track := self._track) and track.get("id") == self.track_id:
+            return track
+        if self.track_id:
+            self._track = await self.async_cloud_get_track_info(self.track_id)
+        return self._track
 
     async def async_get_playlist_details(self) -> dict:
         """Get playlist info."""
