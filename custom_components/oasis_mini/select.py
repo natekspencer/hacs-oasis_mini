@@ -67,7 +67,7 @@ def playlist_update_handler(entity: OasisMiniSelectEntity) -> None:
     ]
     entity._attr_options = options
     index = min(entity.device.playlist_index, len(options) - 1)
-    entity._attr_current_option = options[index]
+    entity._attr_current_option = options[index] if options else None
 
 
 DESCRIPTORS = (

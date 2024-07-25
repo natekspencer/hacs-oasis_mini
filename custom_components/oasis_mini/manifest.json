@@ -3,6 +3,7 @@
   "name": "Oasis Mini",
   "codeowners": ["@natekspencer"],
   "config_flow": true,
+  "dhcp": [{ "registered_devices": true }],
   "documentation": "https://github.com/natekspencer/hacs-oasis_mini",
   "integration_type": "device",
   "iot_class": "local_polling",

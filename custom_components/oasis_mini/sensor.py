@@ -22,12 +22,18 @@ async def async_setup_entry(
 ) -> None:
     """Set up Oasis Mini sensors using config entry."""
     coordinator: OasisMiniCoordinator = hass.data[DOMAIN][entry.entry_id]
-    async_add_entities(
-        [
-            OasisMiniSensorEntity(coordinator, entry, descriptor)
-            for descriptor in DESCRIPTORS
-        ]
-    )
+    entities = [
+        OasisMiniSensorEntity(coordinator, entry, descriptor)
+        for descriptor in DESCRIPTORS
+    ]
+    if coordinator.device.access_token:
+        entities.extend(
+            [
+                OasisMiniSensorEntity(coordinator, entry, descriptor)
+                for descriptor in CLOUD_DESCRIPTORS
+            ]
+        )
+    async_add_entities(entities)
 
 
 DESCRIPTORS = {
@@ -54,6 +60,17 @@ DESCRIPTORS = {
         "wifi_connected",
     )
 }
+
+CLOUD_DESCRIPTORS = (
+    SensorEntityDescription(
+        key="drawing_progress",
+        entity_category=EntityCategory.DIAGNOSTIC,
+        name="Drawing progress",
+        native_unit_of_measurement=PERCENTAGE,
+        state_class=SensorStateClass.MEASUREMENT,
+        suggested_display_precision=1,
+    ),
+)
 
 
 class OasisMiniSensorEntity(OasisMiniEntity, SensorEntity):

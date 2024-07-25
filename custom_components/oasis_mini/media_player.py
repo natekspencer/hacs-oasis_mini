@@ -43,11 +43,11 @@ class OasisMiniMediaPlayerEntity(OasisMiniEntity, MediaPlayerEntity):
         return MediaType.IMAGE
 
     @property
-    def media_duration(self) -> int:
+    def media_duration(self) -> int | None:
         """Duration of current playing media in seconds."""
         if (track := self.device.track) and "reduced_svg_content" in track:
             return track["reduced_svg_content"].get("1")
-        return math.ceil(self.media_position / 0.99)
+        return None
 
     @property
     def media_image_url(self) -> str | None:
@@ -84,11 +84,11 @@ class OasisMiniMediaPlayerEntity(OasisMiniEntity, MediaPlayerEntity):
     def state(self) -> MediaPlayerState:
         """State of the player."""
         status_code = self.device.status_code
-        if self.device.error or status_code == 9:
+        if self.device.error or status_code in (9, 11):
             return MediaPlayerState.OFF
         if status_code == 2:
             return MediaPlayerState.IDLE
-        if status_code in (3, 11, 13):
+        if status_code in (3, 13):
             return MediaPlayerState.BUFFERING
         if status_code == 4:
             return MediaPlayerState.PLAYING

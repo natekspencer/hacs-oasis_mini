@@ -10,6 +10,7 @@ from aiohttp import ClientConnectorError
 from httpx import ConnectError, HTTPStatusError
 import voluptuous as vol
 
+from homeassistant.components import dhcp
 from homeassistant.config_entries import ConfigEntry, ConfigFlow, ConfigFlowResult
 from homeassistant.const import CONF_ACCESS_TOKEN, CONF_EMAIL, CONF_HOST, CONF_PASSWORD
 from homeassistant.core import callback
@@ -63,28 +64,30 @@ class OasisMiniConfigFlow(ConfigFlow, domain=DOMAIN):
 
     VERSION = 1
 
-    host: str | None = None
-    serial_number: str | None = None
-
     @staticmethod
     @callback
     def async_get_options_flow(config_entry: ConfigEntry) -> SchemaOptionsFlowHandler:
         """Get the options flow for this handler."""
         return SchemaOptionsFlowHandler(config_entry, OPTIONS_FLOW)
 
-    # async def async_step_dhcp(self, discovery_info: dhcp.DhcpServiceInfo) -> ConfigFlowResult:
-    #     """Handle dhcp discovery."""
-    #     self.host = discovery_info.ip
-    #     self.name = discovery_info.hostname
-    #     await self.async_set_unique_id(discovery_info.macaddress)
-    #     self._abort_if_unique_id_configured(updates={CONF_HOST: self.host})
-    #     return await self.async_step_api_key()
+    async def async_step_dhcp(
+        self, discovery_info: dhcp.DhcpServiceInfo
+    ) -> ConfigFlowResult:
+        """Handle DHCP discovery."""
+        host = {CONF_HOST: discovery_info.ip}
+        await self.validate_client(host)
+        self._abort_if_unique_id_configured(updates=host)
+        # This should never happen since we only listen to DHCP requests
+        # for configured devices.
+        return self.async_abort(reason="already_configured")
 
     async def async_step_user(
         self, user_input: dict[str, Any] | None = None
     ) -> ConfigFlowResult:
         """Handle the initial step."""
-        return await self._async_step("user", STEP_USER_DATA_SCHEMA, user_input)
+        return await self._async_step(
+            "user", STEP_USER_DATA_SCHEMA, user_input, user_input
+        )
 
     async def async_step_reconfigure(
         self, user_input: dict[str, Any] | None = None
@@ -106,26 +109,24 @@ class OasisMiniConfigFlow(ConfigFlow, domain=DOMAIN):
         suggested_values: dict[str, Any] | None = None,
     ) -> ConfigFlowResult:
         """Handle step setup."""
-        if abort := self._abort_if_configured(user_input):
-            return abort
-
         errors = {}
 
         if user_input is not None:
             if not (errors := await self.validate_client(user_input)):
-                data = {CONF_HOST: user_input.get(CONF_HOST, self.host)}
+                if step_id != "reconfigure":
+                    self._abort_if_unique_id_configured(updates=user_input)
                 if existing_entry := self.hass.config_entries.async_get_entry(
                     self.context.get("entry_id")
                 ):
                     self.hass.config_entries.async_update_entry(
-                        existing_entry, data=data
+                        existing_entry, data=user_input
                     )
                     await self.hass.config_entries.async_reload(existing_entry.entry_id)
                     return self.async_abort(reason="reconfigure_successful")
 
                 return self.async_create_entry(
-                    title=f"Oasis Mini {self.serial_number}",
-                    data=data,
+                    title=f"Oasis Mini {self.unique_id}",
+                    data=user_input,
                 )
 
         return self.async_show_form(
@@ -139,9 +140,9 @@ class OasisMiniConfigFlow(ConfigFlow, domain=DOMAIN):
         errors = {}
         try:
             async with asyncio.timeout(10):
-                client = create_client({"host": self.host} | user_input)
-                self.serial_number = await client.async_get_serial_number()
-            if not self.serial_number:
+                client = create_client(user_input)
+                await self.async_set_unique_id(await client.async_get_serial_number())
+            if not self.unique_id:
                 errors["base"] = "invalid_host"
         except asyncio.TimeoutError:
             errors["base"] = "timeout_connect"
@@ -157,15 +158,3 @@ class OasisMiniConfigFlow(ConfigFlow, domain=DOMAIN):
         finally:
             await client.session.close()
         return errors
-
-    @callback
-    def _abort_if_configured(
-        self, user_input: dict[str, Any] | None
-    ) -> ConfigFlowResult | None:
-        """Abort if configured."""
-        if self.host or user_input:
-            data = {CONF_HOST: self.host, **(user_input or {})}
-            for entry in self._async_current_entries():
-                if entry.data[CONF_HOST] == data[CONF_HOST]:
-                    return self.async_abort(reason="already_configured")
-        return None
