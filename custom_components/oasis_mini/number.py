@@ -2,7 +2,11 @@
 
 from __future__ import annotations
 
-from homeassistant.components.number import NumberEntity, NumberEntityDescription
+from homeassistant.components.number import (
+    NumberEntity,
+    NumberEntityDescription,
+    NumberMode,
+)
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
@@ -34,12 +38,14 @@ DESCRIPTORS = {
     NumberEntityDescription(
         key="ball_speed",
         name="Ball speed",
+        mode=NumberMode.SLIDER,
         native_max_value=BALL_SPEED_MAX,
         native_min_value=BALL_SPEED_MIN,
     ),
     NumberEntityDescription(
         key="led_speed",
         name="LED speed",
+        mode=NumberMode.SLIDER,
         native_max_value=LED_SPEED_MAX,
         native_min_value=LED_SPEED_MIN,
     ),

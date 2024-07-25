@@ -35,7 +35,7 @@ ATTRIBUTES: Final[list[tuple[str, Callable[[str], Any]]]] = [
     ("status_code", int),  # see status code map
     ("error", int),  # error, 0 = none, and 10 = ?, 18 = can't download?
     ("ball_speed", int),  # 200 - 1000
-    ("playlist", lambda value: [int(track) for track in value.split(",")]),  # noqa: E501 # comma separated track ids
+    ("playlist", lambda value: [int(track) for track in value.split(",") if track]),  # noqa: E501 # comma separated track ids
     ("playlist_index", int),  # index of above
     ("progress", int),  # 0 - max svg path
     ("led_effect", str),  # led effect (code lookup)
@@ -123,6 +123,16 @@ class OasisMini:
         return self._mac_address
 
     @property
+    def drawing_progress(self) -> float | None:
+        """Return the drawing progress percent."""
+        if not (self.track and (svg_content := self.track.get("svg_content"))):
+            return None
+        paths = svg_content.split("L")
+        total = self.track.get("reduced_svg_content", {}).get("1", len(paths))
+        percent = (100 * self.progress) / total
+        return percent
+
+    @property
     def serial_number(self) -> str | None:
         """Return the serial number."""
         return self._serial_number
@@ -150,8 +160,10 @@ class OasisMini:
         return None
 
     @property
-    def track_id(self) -> int:
+    def track_id(self) -> int | None:
         """Return the current track id."""
+        if not self.playlist:
+            return None
         i = self.playlist_index
         return self.playlist[0] if i >= len(self.playlist) else self.playlist[i]
 
@@ -199,7 +211,7 @@ class OasisMini:
         _LOGGER.debug("Software version: %s", self._software_version)
         return self._software_version
 
-    async def async_get_status(self) -> None:
+    async def async_get_status(self) -> str:
         """Get the status from the device."""
         status = await self._async_get(params={"GETSTATUS": ""})
         _LOGGER.debug("Status: %s", status)

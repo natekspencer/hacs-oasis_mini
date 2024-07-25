@@ -7,7 +7,8 @@ import logging
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import Platform
 from homeassistant.core import HomeAssistant
-from homeassistant.exceptions import ConfigEntryNotReady
+from homeassistant.exceptions import ConfigEntryError, ConfigEntryNotReady
+import homeassistant.helpers.device_registry as dr
 
 from .const import DOMAIN
 from .coordinator import OasisMiniCoordinator
@@ -39,9 +40,27 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     except Exception as ex:
         _LOGGER.exception(ex)
 
+    if not entry.unique_id:
+        if not (serial_number := coordinator.device.serial_number):
+            dev_reg = dr.async_get(hass)
+            devices = dr.async_entries_for_config_entry(dev_reg, entry.entry_id)
+            serial_number = next(
+                (
+                    identifier[1]
+                    for identifier in devices[0].identifiers
+                    if identifier[0] == DOMAIN
+                ),
+                None,
+            )
+        hass.config_entries.async_update_entry(entry, unique_id=serial_number)
+
     if not coordinator.data:
         await client.session.close()
         raise ConfigEntryNotReady
+
+    if entry.unique_id != coordinator.device.serial_number:
+        await client.session.close()
+        raise ConfigEntryError("Serial number mismatch")
 
     hass.data[DOMAIN][entry.entry_id] = coordinator
 

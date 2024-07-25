@@ -66,10 +66,14 @@ class OasisMiniUpdateEntity(OasisMiniEntity, UpdateEntity):
         self, version: str | None, backup: bool, **kwargs: Any
     ) -> None:
         """Install an update."""
+        version = await self.device.async_get_software_version()
+        if version == self.latest_version:
+            return
         await self.device.async_upgrade()
 
     async def async_update(self) -> None:
         """Update the entity."""
+        await self.device.async_get_software_version()
         software = await self.device.async_cloud_get_latest_software_details()
         self._attr_latest_version = software["version"]
         self._attr_release_summary = software["description"]
