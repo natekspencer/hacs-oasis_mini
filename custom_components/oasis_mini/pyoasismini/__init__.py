@@ -323,9 +323,13 @@ class OasisMini:
         """Login via the cloud."""
         await self._async_cloud_request("GET", "api/auth/logout")
 
-    async def async_cloud_get_track_info(self, track_id: int) -> dict[str, Any]:
+    async def async_cloud_get_track_info(self, track_id: int) -> dict[str, Any] | None:
         """Get cloud track info."""
-        return await self._async_cloud_request("GET", f"api/track/{track_id}")
+        try:
+            return await self._async_cloud_request("GET", f"api/track/{track_id}")
+        except Exception as ex:
+            _LOGGER.exception(ex)
+            return None
 
     async def async_cloud_get_tracks(
         self, tracks: list[int] | None = None
@@ -344,7 +348,7 @@ class OasisMini:
         """Get the latest software details from the cloud."""
         return await self._async_cloud_request("GET", "api/software/last-version")
 
-    async def async_get_current_track_details(self) -> dict:
+    async def async_get_current_track_details(self) -> dict | None:
         """Get current track info, refreshing if needed."""
         if (track := self._track) and track.get("id") == self.track_id:
             return track
