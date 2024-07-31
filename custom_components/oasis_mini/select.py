@@ -22,6 +22,7 @@ from .pyoasismini.const import TRACKS
 class OasisMiniSelectEntityDescription(SelectEntityDescription):
     """Oasis Mini select entity description."""
 
+    current_value: Callable[[OasisMini], Any]
     select_fn: Callable[[OasisMini, int], Awaitable[None]]
     update_handler: Callable[[OasisMiniSelectEntity], None] | None = None
 
@@ -30,6 +31,7 @@ class OasisMiniSelectEntity(OasisMiniEntity, SelectEntity):
     """Oasis Mini select entity."""
 
     entity_description: OasisMiniSelectEntityDescription
+    _current_value: Any | None = None
 
     def __init__(
         self,
@@ -48,6 +50,10 @@ class OasisMiniSelectEntity(OasisMiniEntity, SelectEntity):
 
     def _handle_coordinator_update(self) -> None:
         """Handle updated data from the coordinator."""
+        new_value = self.entity_description.current_value(self.device)
+        if self._current_value == new_value:
+            return
+        self._current_value = new_value
         if update_handler := self.entity_description.update_handler:
             update_handler(self)
         else:
@@ -61,12 +67,21 @@ class OasisMiniSelectEntity(OasisMiniEntity, SelectEntity):
 def playlist_update_handler(entity: OasisMiniSelectEntity) -> None:
     """Handle playlist updates."""
     # pylint: disable=protected-access
+    device = entity.device
     options = [
-        TRACKS.get(str(track), {}).get("name", str(track))
-        for track in entity.device.playlist
+        device._playlist.get(track, {}).get(
+            "name",
+            TRACKS.get(str(track), {}).get(
+                "name",
+                device.track["name"]
+                if device.track and device.track["id"] == track
+                else str(track),
+            ),
+        )
+        for track in device.playlist
     ]
     entity._attr_options = options
-    index = min(entity.device.playlist_index, len(options) - 1)
+    index = min(device.playlist_index, len(options) - 1)
     entity._attr_current_option = options[index] if options else None
 
 
@@ -74,6 +89,7 @@ DESCRIPTORS = (
     OasisMiniSelectEntityDescription(
         key="playlist",
         name="Playlist",
+        current_value=lambda device: (device.playlist, device.playlist_index),
         select_fn=lambda device, option: device.async_change_track(option),
         update_handler=playlist_update_handler,
     ),
@@ -81,6 +97,7 @@ DESCRIPTORS = (
         key="autoplay",
         name="Autoplay",
         options=list(AUTOPLAY_MAP.values()),
+        current_value=lambda device: device.autoplay,
         select_fn=lambda device, option: device.async_set_autoplay(option),
     ),
 )

@@ -19,6 +19,7 @@ from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from .const import DOMAIN
 from .coordinator import OasisMiniCoordinator
 from .entity import OasisMiniEntity
+from .helpers import add_and_play_track
 from .pyoasismini import OasisMini
 from .pyoasismini.const import TRACKS
 
@@ -39,17 +40,7 @@ async def async_setup_entry(
 async def play_random_track(device: OasisMini) -> None:
     """Play random track."""
     track = int(random.choice(list(TRACKS)))
-    if track not in device.playlist:
-        await device.async_add_track_to_playlist(track)
-
-    # Move track to next item in the playlist and then select it
-    if (index := device.playlist.index(track)) != device.playlist_index:
-        if index != (next_index := device.playlist_index + 1):
-            await device.async_move_track(index, next_index)
-        await device.async_change_track(next_index)
-
-    if device.status_code != 4:
-        await device.async_play()
+    await add_and_play_track(device, track)
 
 
 @dataclass(frozen=True, kw_only=True)
