@@ -25,7 +25,11 @@ class OasisMiniCoordinator(DataUpdateCoordinator[str]):
     def __init__(self, hass: HomeAssistant, device: OasisMini) -> None:
         """Initialize."""
         super().__init__(
-            hass, _LOGGER, name=DOMAIN, update_interval=timedelta(seconds=10)
+            hass,
+            _LOGGER,
+            name=DOMAIN,
+            update_interval=timedelta(seconds=10),
+            always_update=False,
         )
         self.device = device
 
@@ -44,6 +48,7 @@ class OasisMiniCoordinator(DataUpdateCoordinator[str]):
                     await self.device.async_get_software_version()
                 data = await self.device.async_get_status()
                 await self.device.async_get_current_track_details()
+                await self.device.async_get_playlist_details()
         except Exception as ex:  # pylint:disable=broad-except
             if self.attempt > 2 or not self.data:
                 raise UpdateFailed(

@@ -3,7 +3,8 @@
 from __future__ import annotations
 
 from datetime import datetime
-import math
+import logging
+from typing import Any
 
 from homeassistant.components.media_player import (
     MediaPlayerEntity,
@@ -15,12 +16,16 @@ from homeassistant.components.media_player import (
 )
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
+from homeassistant.exceptions import ServiceValidationError
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
 from .const import DOMAIN
 from .coordinator import OasisMiniCoordinator
 from .entity import OasisMiniEntity
+from .helpers import add_and_play_track
 from .pyoasismini.const import TRACKS
+
+_LOGGER = logging.getLogger(__name__)
 
 
 class OasisMiniMediaPlayerEntity(OasisMiniEntity, MediaPlayerEntity):
@@ -33,6 +38,7 @@ class OasisMiniMediaPlayerEntity(OasisMiniEntity, MediaPlayerEntity):
         | MediaPlayerEntityFeature.STOP
         | MediaPlayerEntityFeature.PREVIOUS_TRACK
         | MediaPlayerEntityFeature.NEXT_TRACK
+        | MediaPlayerEntityFeature.PLAY_MEDIA
         | MediaPlayerEntityFeature.CLEAR_PLAYLIST
         | MediaPlayerEntityFeature.REPEAT_SET
     )
@@ -69,8 +75,10 @@ class OasisMiniMediaPlayerEntity(OasisMiniEntity, MediaPlayerEntity):
         return self.coordinator.last_updated
 
     @property
-    def media_title(self) -> str:
+    def media_title(self) -> str | None:
         """Title of current playing media."""
+        if not self.device.track_id:
+            return None
         if not (track := self.device.track):
             track = TRACKS.get(str(self.device.track_id), {})
         return track.get("name", f"Unknown Title (#{self.device.track_id})")
@@ -134,6 +142,26 @@ class OasisMiniMediaPlayerEntity(OasisMiniEntity, MediaPlayerEntity):
             index = 0
         await self.device.async_change_track(index)
         await self.coordinator.async_request_refresh()
+
+    async def async_play_media(
+        self, media_type: MediaType | str, media_id: str, **kwargs: Any
+    ) -> None:
+        """Play a piece of media."""
+        if media_id not in TRACKS:
+            media_id = next(
+                (
+                    id
+                    for id, info in TRACKS.items()
+                    if info["name"].lower() == media_id.lower()
+                ),
+                media_id,
+            )
+        try:
+            media_id = int(media_id)
+        except ValueError as err:
+            raise ServiceValidationError(f"Invalid media: {media_id}") from err
+
+        await add_and_play_track(self.device, media_id)
 
     async def async_clear_playlist(self) -> None:
         """Clear players playlist."""

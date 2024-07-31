@@ -83,6 +83,7 @@ class OasisMini:
     _access_token: str | None = None
     _mac_address: str | None = None
     _ip_address: str | None = None
+    _playlist: dict[int, dict[str, str]] = {}
     _serial_number: str | None = None
     _software_version: str | None = None
     _track: dict | None = None
@@ -326,11 +327,18 @@ class OasisMini:
         """Get cloud track info."""
         return await self._async_cloud_request("GET", f"api/track/{track_id}")
 
-    async def async_cloud_get_tracks(self, tracks: list[int]) -> dict:
+    async def async_cloud_get_tracks(
+        self, tracks: list[int] | None = None
+    ) -> list[dict[str, Any]]:
         """Get tracks info from the cloud"""
-        return await self._async_cloud_request(
-            "GET", "api/track", params={"ids[]": tracks}
+        response = await self._async_cloud_request(
+            "GET", "api/track", params={"ids[]": tracks or []}
         )
+        track_details = response.get("data", [])
+        while next_page_url := response.get("next_page_url"):
+            response = await self._async_cloud_request("GET", next_page_url)
+            track_details += response.get("data", [])
+        return track_details
 
     async def async_cloud_get_latest_software_details(self) -> dict[str, int | str]:
         """Get the latest software details from the cloud."""
@@ -344,9 +352,21 @@ class OasisMini:
             self._track = await self.async_cloud_get_track_info(self.track_id)
         return self._track
 
-    async def async_get_playlist_details(self) -> dict:
+    async def async_get_playlist_details(self) -> dict[int, dict[str, str]]:
         """Get playlist info."""
-        return await self.async_cloud_get_tracks(self.playlist)
+        if set(self.playlist).difference(self._playlist.keys()):
+            tracks = await self.async_cloud_get_tracks(self.playlist)
+            self._playlist = {
+                track["id"]: {
+                    "name": track["name"],
+                    "author": ((track.get("author") or {}).get("person") or {}).get(
+                        "name", "Oasis Mini"
+                    ),
+                    "image": track["image"],
+                }
+                for track in tracks
+            }
+        return self._playlist
 
     async def _async_cloud_request(self, method: str, url: str, **kwargs: Any) -> Any:
         """Perform a cloud request."""

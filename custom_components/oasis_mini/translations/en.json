@@ -26,6 +26,7 @@
   "options": {
     "step": {
       "init": {
+        "description": "Add your cloud credentials to get additional information about your Oasis Mini",
         "data": {
           "email": "Email",
           "password": "Password"
