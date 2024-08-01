@@ -5,7 +5,8 @@ import logging
 from typing import Any, Awaitable, Callable, Final
 from urllib.parse import urljoin
 
-from aiohttp import ClientSession
+from aiohttp import ClientResponseError, ClientSession
+import async_timeout
 
 from .utils import _bit_to_bool
 
@@ -15,7 +16,7 @@ STATUS_CODE_MAP = {
     0: "booting",  # maybe?
     2: "stopped",
     3: "centering",
-    4: "running",
+    4: "playing",
     5: "paused",
     9: "error",
     11: "updating",
@@ -90,6 +91,7 @@ class OasisMini:
 
     autoplay: str
     brightness: int
+    busy: bool
     color: str
     download_progress: int
     error: int
@@ -175,7 +177,7 @@ class OasisMini:
 
     async def async_add_track_to_playlist(self, track: int) -> None:
         """Add track to playlist."""
-        if 0 in self.playlist:
+        if track and 0 in self.playlist:
             playlist = [t for t in self.playlist if t] + [track]
             await self.async_set_playlist(playlist)
         else:
@@ -187,6 +189,10 @@ class OasisMini:
         if index >= len(self.playlist):
             raise ValueError("Invalid index specified")
         await self._async_command(params={"CMDCHANGETRACK": index})
+
+    async def async_clear_playlist(self) -> None:
+        """Clear the playlist."""
+        await self.async_set_playlist([0])
 
     async def async_get_ip_address(self) -> str | None:
         """Get the ip address."""
@@ -235,7 +241,8 @@ class OasisMini:
         """Send play command."""
         if self.status_code == 15:
             await self.async_stop()
-        await self._async_command(params={"CMDPLAY": ""})
+        if self.track_id:
+            await self._async_command(params={"CMDPLAY": ""})
 
     async def async_reboot(self) -> None:
         """Send reboot command."""
@@ -294,9 +301,13 @@ class OasisMini:
         await self._async_command(params={"WRIWAITAFTER": option})
 
     async def async_set_playlist(self, playlist: list[int]) -> None:
-        """Set playlist."""
+        """Set the playlist."""
+        if is_playing := (self.status_code == 4):
+            await self.async_stop()
         await self._async_command(params={"WRIJOBLIST": ",".join(map(str, playlist))})
         self.playlist = playlist
+        if is_playing:
+            await self.async_play()
 
     async def async_set_repeat_playlist(self, repeat: bool) -> None:
         """Set repeat playlist."""
@@ -327,6 +338,9 @@ class OasisMini:
         """Get cloud track info."""
         try:
             return await self._async_cloud_request("GET", f"api/track/{track_id}")
+        except ClientResponseError as err:
+            if err.status == 404:
+                return {"id": track_id, "name": f"Unknown Title (#{track_id})"}
         except Exception as ex:
             _LOGGER.exception(ex)
             return None
@@ -386,8 +400,11 @@ class OasisMini:
 
     async def _async_command(self, **kwargs: Any) -> str | None:
         """Send a command to the device."""
-        result = await self._async_get(**kwargs)
-        _LOGGER.debug("Result: %s", result)
+        with async_timeout.timeout(5):
+            while self.busy:
+                await asyncio.sleep(0.1)
+            result = await self._async_get(**kwargs)
+            _LOGGER.debug("Result: %s", result)
 
     async def _async_get(self, **kwargs: Any) -> str | None:
         """Perform a GET request."""

@@ -7,7 +7,7 @@ from typing import Any, Awaitable, Callable
 
 from homeassistant.components.select import SelectEntity, SelectEntityDescription
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.core import HomeAssistant
+from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.entity import EntityDescription
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
@@ -48,6 +48,7 @@ class OasisMiniSelectEntity(OasisMiniEntity, SelectEntity):
         await self.entity_description.select_fn(self.device, self.options.index(option))
         await self.coordinator.async_request_refresh()
 
+    @callback
     def _handle_coordinator_update(self) -> None:
         """Handle updated data from the coordinator."""
         new_value = self.entity_description.current_value(self.device)
@@ -89,7 +90,7 @@ DESCRIPTORS = (
     OasisMiniSelectEntityDescription(
         key="playlist",
         name="Playlist",
-        current_value=lambda device: (device.playlist, device.playlist_index),
+        current_value=lambda device: (device.playlist.copy(), device.playlist_index),
         select_fn=lambda device, option: device.async_change_track(option),
         update_handler=playlist_update_handler,
     ),

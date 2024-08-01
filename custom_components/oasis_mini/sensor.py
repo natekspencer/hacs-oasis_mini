@@ -49,6 +49,7 @@ DESCRIPTORS = {
     SensorEntityDescription(
         key=key,
         name=key.replace("_", " ").capitalize(),
+        translation_key=key,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     )

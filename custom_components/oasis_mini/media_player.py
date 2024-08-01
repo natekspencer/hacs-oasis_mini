@@ -7,6 +7,7 @@ import logging
 from typing import Any
 
 from homeassistant.components.media_player import (
+    MediaPlayerEnqueue,
     MediaPlayerEntity,
     MediaPlayerEntityDescription,
     MediaPlayerEntityFeature,
@@ -39,6 +40,7 @@ class OasisMiniMediaPlayerEntity(OasisMiniEntity, MediaPlayerEntity):
         | MediaPlayerEntityFeature.PREVIOUS_TRACK
         | MediaPlayerEntityFeature.NEXT_TRACK
         | MediaPlayerEntityFeature.PLAY_MEDIA
+        | MediaPlayerEntityFeature.MEDIA_ENQUEUE
         | MediaPlayerEntityFeature.CLEAR_PLAYLIST
         | MediaPlayerEntityFeature.REPEAT_SET
     )
@@ -144,7 +146,11 @@ class OasisMiniMediaPlayerEntity(OasisMiniEntity, MediaPlayerEntity):
         await self.coordinator.async_request_refresh()
 
     async def async_play_media(
-        self, media_type: MediaType | str, media_id: str, **kwargs: Any
+        self,
+        media_type: MediaType | str,
+        media_id: str,
+        enqueue: MediaPlayerEnqueue | None = None,
+        **kwargs: Any,
     ) -> None:
         """Play a piece of media."""
         if media_id not in TRACKS:
@@ -157,15 +163,33 @@ class OasisMiniMediaPlayerEntity(OasisMiniEntity, MediaPlayerEntity):
                 media_id,
             )
         try:
-            media_id = int(media_id)
+            track = int(media_id)
         except ValueError as err:
             raise ServiceValidationError(f"Invalid media: {media_id}") from err
 
-        await add_and_play_track(self.device, media_id)
+        device = self.device
+        enqueue = MediaPlayerEnqueue.NEXT if not enqueue else enqueue
+        if enqueue == MediaPlayerEnqueue.REPLACE:
+            await device.async_set_playlist([track])
+        else:
+            await device.async_add_track_to_playlist(track)
+
+        if enqueue in (MediaPlayerEnqueue.NEXT, MediaPlayerEnqueue.PLAY):
+            # Move track to next item in the playlist
+            if (idx := (len(device.playlist) - 1)) != device.playlist_index:
+                if idx != (nxt := min(device.playlist_index + 1, len(device.playlist))):
+                    await device.async_move_track(idx, nxt)
+                if enqueue == MediaPlayerEnqueue.PLAY:
+                    await device.async_change_track(nxt)
+
+        if device.status_code != 4:
+            await device.async_play()
+
+        await self.coordinator.async_request_refresh()
 
     async def async_clear_playlist(self) -> None:
         """Clear players playlist."""
-        await self.device.async_set_playlist([0])
+        await self.device.async_clear_playlist()
         await self.coordinator.async_request_refresh()
 
 
