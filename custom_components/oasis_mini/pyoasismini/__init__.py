@@ -21,7 +21,7 @@ STATUS_CODE_MAP = {
     9: "error",
     11: "updating",
     13: "downloading",
-    15: "live drawing",
+    15: "live",
 }
 
 AUTOPLAY_MAP = {

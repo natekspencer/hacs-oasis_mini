@@ -50,7 +50,7 @@
           "error": "Error",
           "updating": "Updating",
           "downloading": "Downloading",
-          "live drawing": "Live drawing"
+          "live": "Live drawing"
         }
       }
     }
