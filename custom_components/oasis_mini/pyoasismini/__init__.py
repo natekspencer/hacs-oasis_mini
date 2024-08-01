@@ -253,7 +253,7 @@ class OasisMini:
             except Exception as ex:
                 _LOGGER.error(ex)
 
-        reboot = self._async_command(params={"CMDBOOT": ""})
+        reboot = self._async_get(params={"CMDBOOT": ""})
         asyncio.create_task(_no_response_needed(reboot))
 
     async def async_set_ball_speed(self, speed: int) -> None:
