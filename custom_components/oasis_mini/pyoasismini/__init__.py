@@ -6,7 +6,6 @@ from typing import Any, Awaitable, Callable, Final
 from urllib.parse import urljoin
 
 from aiohttp import ClientResponseError, ClientSession
-import async_timeout
 
 from .utils import _bit_to_bool
 
@@ -253,7 +252,7 @@ class OasisMini:
             except Exception as ex:
                 _LOGGER.error(ex)
 
-        reboot = self._async_get(params={"CMDBOOT": ""})
+        reboot = self._async_command(params={"CMDBOOT": ""})
         asyncio.create_task(_no_response_needed(reboot))
 
     async def async_set_ball_speed(self, speed: int) -> None:
@@ -400,11 +399,8 @@ class OasisMini:
 
     async def _async_command(self, **kwargs: Any) -> str | None:
         """Send a command to the device."""
-        with async_timeout.timeout(5):
-            while self.busy:
-                await asyncio.sleep(0.1)
-            result = await self._async_get(**kwargs)
-            _LOGGER.debug("Result: %s", result)
+        result = await self._async_get(**kwargs)
+        _LOGGER.debug("Result: %s", result)
 
     async def _async_get(self, **kwargs: Any) -> str | None:
         """Perform a GET request."""
