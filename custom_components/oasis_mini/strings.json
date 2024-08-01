@@ -36,5 +36,23 @@
     "error": {
       "invalid_auth": "[%key:common::config_flow::error::invalid_auth%]"
     }
+  },
+  "entity": {
+    "sensor": {
+      "status": {
+        "name": "Status",
+        "state": {
+          "booting": "Booting",
+          "stopped": "Stopped",
+          "centering": "Centering",
+          "playing": "Playing",
+          "paused": "Paused",
+          "error": "Error",
+          "updating": "Updating",
+          "downloading": "Downloading",
+          "live": "Live drawing"
+        }
+      }
+    }
   }
 }

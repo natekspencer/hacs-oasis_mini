@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from homeassistant.components.image import Image, ImageEntity, ImageEntityDescription
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.core import HomeAssistant
+from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
 from .const import DOMAIN
@@ -42,6 +42,7 @@ class OasisMiniImageEntity(OasisMiniEntity, ImageEntity):
             )
         return self._cached_image.content
 
+    @callback
     def _handle_coordinator_update(self) -> None:
         """Handle updated data from the coordinator."""
         if self._track_id != self.device.track_id or (
