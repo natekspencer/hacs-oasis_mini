@@ -21,7 +21,7 @@ async def add_and_play_track(device: OasisMini, track: int) -> None:
 
     # Move track to next item in the playlist and then select it
     if (index := device.playlist.index(track)) != device.playlist_index:
-        if index != (_next := min(device.playlist_index + 1, len(device.playlist))):
+        if index != (_next := min(device.playlist_index + 1, len(device.playlist) - 1)):
             await device.async_move_track(index, _next)
         await device.async_change_track(_next)
 

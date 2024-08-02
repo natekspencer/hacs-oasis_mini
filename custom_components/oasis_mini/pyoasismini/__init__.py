@@ -176,12 +176,16 @@ class OasisMini:
 
     async def async_add_track_to_playlist(self, track: int) -> None:
         """Add track to playlist."""
-        if track and 0 in self.playlist:
+        if not track:
+            return
+
+        if 0 in self.playlist:
             playlist = [t for t in self.playlist if t] + [track]
-            await self.async_set_playlist(playlist)
-        else:
-            await self._async_command(params={"ADDJOBLIST": track})
-            self.playlist.append(track)
+            return await self.async_set_playlist(playlist)
+
+        _LOGGER.debug("Adding track %s to playlist", track)
+        await self._async_command(params={"ADDJOBLIST": track})
+        self.playlist.append(track)
 
     async def async_change_track(self, index: int) -> None:
         """Change the track."""
@@ -191,7 +195,7 @@ class OasisMini:
 
     async def async_clear_playlist(self) -> None:
         """Clear the playlist."""
-        await self.async_set_playlist([0])
+        await self.async_set_playlist([])
 
     async def async_get_ip_address(self) -> str | None:
         """Get the ip address."""
