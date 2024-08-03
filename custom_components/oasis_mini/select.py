@@ -72,7 +72,7 @@ def playlist_update_handler(entity: OasisMiniSelectEntity) -> None:
     options = [
         device._playlist.get(track, {}).get(
             "name",
-            TRACKS.get(str(track), {}).get(
+            TRACKS.get(track, {"id": track, "name": f"Unknown Title (#{track})"}).get(
                 "name",
                 device.track["name"]
                 if device.track and device.track["id"] == track

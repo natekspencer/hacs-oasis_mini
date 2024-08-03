@@ -7,6 +7,7 @@ from urllib.parse import urljoin
 
 from aiohttp import ClientResponseError, ClientSession
 
+from .const import TRACKS
 from .utils import _bit_to_bool
 
 _LOGGER = logging.getLogger(__name__)
@@ -183,7 +184,6 @@ class OasisMini:
             playlist = [t for t in self.playlist if t] + [track]
             return await self.async_set_playlist(playlist)
 
-        _LOGGER.debug("Adding track %s to playlist", track)
         await self._async_command(params={"ADDJOBLIST": track})
         self.playlist.append(track)
 
@@ -346,7 +346,7 @@ class OasisMini:
                 return {"id": track_id, "name": f"Unknown Title (#{track_id})"}
         except Exception as ex:
             _LOGGER.exception(ex)
-            return None
+        return None
 
     async def async_cloud_get_tracks(
         self, tracks: list[int] | None = None
@@ -355,6 +355,8 @@ class OasisMini:
         response = await self._async_cloud_request(
             "GET", "api/track", params={"ids[]": tracks or []}
         )
+        if not response:
+            return None
         track_details = response.get("data", [])
         while next_page_url := response.get("next_page_url"):
             response = await self._async_cloud_request("GET", next_page_url)
@@ -367,17 +369,22 @@ class OasisMini:
 
     async def async_get_current_track_details(self) -> dict | None:
         """Get current track info, refreshing if needed."""
-        if (track := self._track) and track.get("id") == self.track_id:
+        track_id = self.track_id
+        if (track := self._track) and track.get("id") == track_id:
             return track
-        if self.track_id:
-            self._track = await self.async_cloud_get_track_info(self.track_id)
+        if track_id:
+            self._track = await self.async_cloud_get_track_info(track_id)
+            if not self._track:
+                self._track = TRACKS.get(
+                    track_id, {"id": track_id, "name": f"Unknown Title (#{track_id})"}
+                )
         return self._track
 
     async def async_get_playlist_details(self) -> dict[int, dict[str, str]]:
         """Get playlist info."""
         if set(self.playlist).difference(self._playlist.keys()):
             tracks = await self.async_cloud_get_tracks(self.playlist)
-            self._playlist = {
+            all_tracks = TRACKS | {
                 track["id"]: {
                     "name": track["name"],
                     "author": ((track.get("author") or {}).get("person") or {}).get(
@@ -387,6 +394,10 @@ class OasisMini:
                 }
                 for track in tracks
             }
+            for track in self.playlist:
+                self._playlist[track] = all_tracks.get(
+                    track, {"name": f"Unknown Title (#{track})"}
+                )
         return self._playlist
 
     async def _async_cloud_request(self, method: str, url: str, **kwargs: Any) -> Any:
@@ -412,6 +423,13 @@ class OasisMini:
 
     async def _async_request(self, method: str, url: str, **kwargs) -> Any:
         """Perform a request."""
+        _LOGGER.debug(
+            "%s %s",
+            method,
+            self._session._build_url(url).update_query(  # pylint: disable=protected-access
+                kwargs.get("params")
+            ),
+        )
         response = await self._session.request(method, url, **kwargs)
         if response.status == 200:
             if response.content_type == "application/json":

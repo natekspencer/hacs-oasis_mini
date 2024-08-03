@@ -23,7 +23,6 @@ from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from .const import DOMAIN
 from .coordinator import OasisMiniCoordinator
 from .entity import OasisMiniEntity
-from .helpers import add_and_play_track
 from .pyoasismini.const import TRACKS
 
 _LOGGER = logging.getLogger(__name__)
@@ -61,7 +60,7 @@ class OasisMiniMediaPlayerEntity(OasisMiniEntity, MediaPlayerEntity):
     def media_image_url(self) -> str | None:
         """Image url of current playing media."""
         if not (track := self.device.track):
-            track = TRACKS.get(str(self.device.track_id))
+            track = TRACKS.get(self.device.track_id)
         if track and "image" in track:
             return f"https://app.grounded.so/uploads/{track['image']}"
         return None
@@ -82,7 +81,7 @@ class OasisMiniMediaPlayerEntity(OasisMiniEntity, MediaPlayerEntity):
         if not self.device.track_id:
             return None
         if not (track := self.device.track):
-            track = TRACKS.get(str(self.device.track_id), {})
+            track = TRACKS.get(self.device.track_id, {})
         return track.get("name", f"Unknown Title (#{self.device.track_id})")
 
     @property
@@ -153,7 +152,7 @@ class OasisMiniMediaPlayerEntity(OasisMiniEntity, MediaPlayerEntity):
         **kwargs: Any,
     ) -> None:
         """Play a piece of media."""
-        if media_id not in TRACKS:
+        if media_id not in map(str, TRACKS):
             media_id = next(
                 (
                     id
@@ -176,13 +175,18 @@ class OasisMiniMediaPlayerEntity(OasisMiniEntity, MediaPlayerEntity):
 
         if enqueue in (MediaPlayerEnqueue.NEXT, MediaPlayerEnqueue.PLAY):
             # Move track to next item in the playlist
-            if (idx := (len(device.playlist) - 1)) != device.playlist_index:
-                if idx != (nxt := min(device.playlist_index + 1, len(device.playlist))):
-                    await device.async_move_track(idx, nxt)
+            if (index := (len(device.playlist) - 1)) != device.playlist_index:
+                if index != (
+                    _next := min(device.playlist_index + 1, len(device.playlist) - 1)
+                ):
+                    await device.async_move_track(index, _next)
                 if enqueue == MediaPlayerEnqueue.PLAY:
-                    await device.async_change_track(nxt)
+                    await device.async_change_track(_next)
 
-        if device.status_code != 4:
+        if (
+            enqueue in (MediaPlayerEnqueue.PLAY, MediaPlayerEnqueue.REPLACE)
+            and device.status_code != 4
+        ):
             await device.async_play()
 
         await self.coordinator.async_request_refresh()
