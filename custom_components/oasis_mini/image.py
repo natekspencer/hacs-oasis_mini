@@ -6,6 +6,7 @@ from homeassistant.components.image import Image, ImageEntity, ImageEntityDescri
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
+from homeassistant.helpers.typing import UNDEFINED
 
 from .const import DOMAIN
 from .coordinator import OasisMiniCoordinator
@@ -52,13 +53,18 @@ class OasisMiniImageEntity(OasisMiniEntity, ImageEntity):
             self._track_id = self.device.track_id
             self._progress = self.device.progress
             self._cached_image = None
-            if not self.device.access_token:
+            if self.device.track and self.device.track.get("svg_content"):
+                self._attr_image_url = UNDEFINED
+            else:
                 self._attr_image_url = (
                     f"https://app.grounded.so/uploads/{track['image']}"
-                    if (track := TRACKS.get(str(self.device.track_id)))
+                    if (
+                        track := (self.device.track or TRACKS.get(self.device.track_id))
+                    )
                     and "image" in track
                     else None
                 )
+
         if self.hass:
             super()._handle_coordinator_update()
 

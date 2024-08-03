@@ -1,947 +1,2059 @@
 {
   "131": {
+    "id": 131,
     "name": "A Star",
     "author": "Oasis Mini",
-    "image": "2024/02/b90cbedf5982c44e2b88096e3f35f019.svg"
+    "image": "2024/02/b90cbedf5982c44e2b88096e3f35f019.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 11147
+    },
+    "updated_at": "2024-07-25T21:33:00.000000Z"
   },
   "358": {
+    "id": 358,
     "name": "Alligator",
     "author": "Camila Veiga",
-    "image": "2024/05/83a5cb2f63a9103d9ea506cf762dee42.svg"
+    "image": "2024/05/83a5cb2f63a9103d9ea506cf762dee42.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 18384
+    },
+    "updated_at": "2024-07-25T21:35:26.000000Z"
   },
   "114": {
+    "id": 114,
     "name": "Ant",
     "author": "Camila Veiga",
-    "image": "2024/02/2c0494bff772e525b2888c869618b624.svg"
+    "image": "2024/02/2c0494bff772e525b2888c869618b624.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 11150
+    },
+    "updated_at": "2024-07-25T21:32:56.000000Z"
   },
   "306": {
+    "id": 306,
     "name": "arc flower",
     "author": "mike",
-    "image": "2024/05/8341f09979ab20f6512d8fd88ba68b92.svg"
+    "image": "2024/05/8341f09979ab20f6512d8fd88ba68b92.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 9266
+    },
+    "updated_at": "2024-07-25T21:34:59.000000Z"
   },
   "251": {
+    "id": 251,
     "name": "Aries Ram",
     "author": "Camila Veiga",
-    "image": "2024/05/02fea95ff2c9e1ef4636505a78517351.svg"
+    "image": "2024/05/02fea95ff2c9e1ef4636505a78517351.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 18995
+    },
+    "updated_at": "2024-07-25T21:33:37.000000Z"
   },
   "246": {
+    "id": 246,
     "name": "Armadillo",
     "author": "Oasis Mini",
-    "image": "2024/05/9715de0b402cd6ee7fbd3a8f44fb7404.svg"
+    "image": "2024/05/9715de0b402cd6ee7fbd3a8f44fb7404.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 23127
+    },
+    "updated_at": "2024-07-25T21:33:37.000000Z"
   },
   "174": {
+    "id": 174,
     "name": "Baby Hummingbird",
     "author": "Camila Veiga",
-    "image": "2024/02/5d982c39ad7d7613a6f43a2862fc4202.svg"
+    "image": "2024/02/5d982c39ad7d7613a6f43a2862fc4202.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 16595
+    },
+    "updated_at": "2024-07-25T21:33:02.000000Z"
   },
   "359": {
+    "id": 359,
     "name": "BaldEagle",
     "author": "Camila Veiga",
-    "image": "2024/05/db7781a68eaf312d15d773ed926f4719.svg"
+    "image": "2024/05/db7781a68eaf312d15d773ed926f4719.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 17244
+    },
+    "updated_at": "2024-07-25T21:35:26.000000Z"
   },
   "196": {
+    "id": 196,
     "name": "Bambi",
     "author": "Camila Veiga",
-    "image": "2024/03/77c49931602941ff050c672257d2a4c4.svg"
+    "image": "2024/03/77c49931602941ff050c672257d2a4c4.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 11930
+    },
+    "updated_at": "2024-07-25T21:33:04.000000Z"
   },
   "194": {
+    "id": 194,
     "name": "Bass",
     "author": "Camila Veiga",
-    "image": "2024/03/58e1083634becb3e2e06ae294fd4abcd.svg"
+    "image": "2024/03/58e1083634becb3e2e06ae294fd4abcd.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 20363
+    },
+    "updated_at": "2024-07-25T21:33:04.000000Z"
   },
   "48": {
+    "id": 48,
     "name": "Beatle01",
     "author": "Camila Veiga",
-    "image": "2024/02/6cb8369a92fcd78b7dfe67639f2568c2.svg"
+    "image": "2024/02/6cb8369a92fcd78b7dfe67639f2568c2.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 8045
+    },
+    "updated_at": "2024-07-25T21:32:54.000000Z"
   },
   "45": {
+    "id": 45,
     "name": "Beatle2",
     "author": "Camila Veiga",
-    "image": "2024/02/34954cfa79d491552ec5d085d18662a8.svg"
+    "image": "2024/02/34954cfa79d491552ec5d085d18662a8.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 4382
+    },
+    "updated_at": "2024-07-25T21:32:54.000000Z"
   },
   "59": {
+    "id": 59,
     "name": "Beatle3",
     "author": "Camila Veiga",
-    "image": "2024/02/d3c759d4407b4bd9dce4af2aa02fb309.svg"
+    "image": "2024/02/d3c759d4407b4bd9dce4af2aa02fb309.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 9978
+    },
+    "updated_at": "2024-07-25T21:32:55.000000Z"
   },
   "168": {
+    "id": 168,
     "name": "Betta Fish",
     "author": "Oasis Mini",
-    "image": "2024/02/eda69bb71c0a146f59e3d7aa5af5d033.svg"
+    "image": "2024/02/eda69bb71c0a146f59e3d7aa5af5d033.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 20855
+    },
+    "updated_at": "2024-07-25T21:33:02.000000Z"
   },
   "102": {
+    "id": 102,
     "name": "Big Fish",
     "author": "Camila Veiga",
-    "image": "2024/02/223d81730511500d47dc9ce386b54e76.svg"
+    "image": "2024/02/223d81730511500d47dc9ce386b54e76.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 18975
+    },
+    "updated_at": "2024-07-25T21:32:56.000000Z"
   },
   "56": {
+    "id": 56,
     "name": "Branch",
     "author": "Camila Veiga",
-    "image": "2024/02/93da7a9a8901a7ee2cbaf687c1d4f6bd.svg"
+    "image": "2024/02/93da7a9a8901a7ee2cbaf687c1d4f6bd.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 4511
+    },
+    "updated_at": "2024-07-25T21:32:54.000000Z"
   },
   "133": {
+    "id": 133,
     "name": "Bubbles",
     "author": "Oasis Mini",
-    "image": "2024/03/0c68af1243b823a829a83c2bced9462d.svg"
+    "image": "2024/03/0c68af1243b823a829a83c2bced9462d.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 34616
+    },
+    "updated_at": "2024-07-25T21:33:00.000000Z"
   },
   "349": {
+    "id": 349,
     "name": "Buddah",
     "author": "Otávio Bittencourt",
-    "image": "2024/05/0e22fae64a02d4e7fe1f4ada6b1f707f.svg"
+    "image": "2024/05/0e22fae64a02d4e7fe1f4ada6b1f707f.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 14910
+    },
+    "updated_at": "2024-07-25T21:35:26.000000Z"
   },
   "257": {
+    "id": 257,
     "name": "Buddhist Tree",
     "author": "Otávio Bittencourt",
-    "image": "2024/05/71c59b439b4a4f66527b045e22beacf3.svg"
+    "image": "2024/05/71c59b439b4a4f66527b045e22beacf3.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 13986
+    },
+    "updated_at": "2024-07-25T21:33:38.000000Z"
   },
   "621": {
+    "id": 621,
     "name": "Bufallo",
     "author": "Otávio Bittencourt",
-    "image": "2024/07/5fac3aff67796b4365593d38bb83dc1f.svg"
+    "image": "2024/07/5fac3aff67796b4365593d38bb83dc1f.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 19449
+    },
+    "updated_at": "2024-07-17T19:22:56.000000Z"
   },
   "157": {
+    "id": 157,
     "name": "Butterfly",
     "author": "Oasis Mini",
-    "image": "2024/03/060b7c7aee2db3cc7bbf41d6f260c347.svg"
+    "image": "2024/03/060b7c7aee2db3cc7bbf41d6f260c347.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 18521
+    },
+    "updated_at": "2024-07-25T21:33:01.000000Z"
   },
   "58": {
+    "id": 58,
     "name": "Camalion",
     "author": "Camila Veiga",
-    "image": "2024/02/f8b7ec53c2ca63f30baeacdda30659bd.svg"
+    "image": "2024/02/f8b7ec53c2ca63f30baeacdda30659bd.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 9980
+    },
+    "updated_at": "2024-07-25T21:32:55.000000Z"
   },
   "178": {
+    "id": 178,
     "name": "Cardinal Bird",
     "author": "Camila Veiga",
-    "image": "2024/02/ba057fd71a816dd15565583cf63ee2ab.svg"
+    "image": "2024/02/ba057fd71a816dd15565583cf63ee2ab.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 15152
+    },
+    "updated_at": "2024-07-25T21:33:03.000000Z"
   },
   "215": {
+    "id": 215,
     "name": "Cardiod",
-    "author": null,
-    "image": "2024/03/a24da534ded92bfff8b604a630b76edd.svg"
+    "author": "Leuerken",
+    "image": "2024/03/a24da534ded92bfff8b604a630b76edd.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 33512
+    },
+    "updated_at": "2024-07-25T21:33:09.000000Z"
   },
   "113": {
+    "id": 113,
     "name": "Cat Face",
     "author": "Camila Veiga",
-    "image": "2024/02/d45a368206f87e077739e48ca73a89c6.svg"
+    "image": "2024/02/d45a368206f87e077739e48ca73a89c6.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 6361
+    },
+    "updated_at": "2024-07-25T21:32:56.000000Z"
   },
   "49": {
+    "id": 49,
     "name": "Clam",
     "author": "Camila Veiga",
-    "image": "2024/02/25355aa8111a77ec41d1396df9123fcb.svg"
-  },
-  "505": {
-    "name": "Coarse Hilbert Wiper",
-    "author": "Xilufer",
-    "image": "2024/06/cb2ad632c8d1c2ca69fa9a8f544bc0c7.svg"
-  },
-  "118": {
-    "name": "Coarse Spiral In to Out",
-    "author": "Oasis Mini",
-    "image": "2024/02/64a1c80bbb9b5b690ee08ae11e9c0e89.svg"
-  },
-  "501": {
-    "name": "Coarse Spiral Out to In",
-    "author": "Xilufer",
-    "image": "2024/06/a46ab9145f30d81856ceec69ca4b8378.svg"
-  },
-  "503": {
-    "name": "Coarse Wipe Bottom to Top",
-    "author": "Xilufer",
-    "image": "2024/06/798a562ecda1f6ae80143ce3e69e97e2.svg"
-  },
-  "499": {
-    "name": "Coarse Wipe Left to Right",
-    "author": "Xilufer",
-    "image": "2024/06/335f1704e84153fa4e8334fc6e3ede6f.svg"
-  },
-  "504": {
-    "name": "Coarse Wipe Right to Left",
-    "author": "Xilufer",
-    "image": "2024/06/ed92b6cc7935a4c9f8a691e3308f9b49.svg"
-  },
-  "497": {
-    "name": "Coarse Wipe Top to Bottom",
-    "author": "Xilufer",
-    "image": "2024/06/053798917cd862f58adfc8b52310d377.svg"
-  },
-  "264": {
-    "name": "Crab",
-    "author": "Camila Veiga",
-    "image": "2024/05/e11995a5855afbfa05f89ce39ba65740.svg"
-  },
-  "220": {
-    "name": "Crane Mini",
-    "author": null,
-    "image": "2024/03/e2b3f344d6a1407d8dd5d06a2dd4d10f.svg"
-  },
-  "104": {
-    "name": "Cricket",
-    "author": "Camila Veiga",
-    "image": "2024/02/de8399defab8eed0f2e5de564e423c78.svg"
-  },
-  "98": {
-    "name": "Crocodile",
-    "author": "Camila Veiga",
-    "image": "2024/02/71b8b959f6f5320b0778f4c25a74f105.svg"
-  },
-  "68": {
-    "name": "Cupid",
-    "author": "Camila Veiga",
-    "image": "2024/02/8db157d5e68d132eb3766e5325936b3a.svg"
-  },
-  "261": {
-    "name": "Cute Cat",
-    "author": "Otávio Bittencourt",
-    "image": "2024/05/caf48ea93bc21a7391cf8aa16388f500.svg"
-  },
-  "393": {
-    "name": "dither_tri4",
-    "author": "B Perry",
-    "image": "2024/06/b15f38d3a4ae4f8418c769ca024bc646.svg"
-  },
-  "146": {
-    "name": "Dithermaster Gears",
-    "author": "Oasis Mini",
-    "image": "2024/02/92ed5ddc81f3152558a62b90f9ab99bd.svg"
-  },
-  "145": {
-    "name": "Dithermaster Nautilus",
-    "author": "Oasis Mini",
-    "image": "2024/02/d3e546f47a5e328320f95471e6d06e8e.svg"
-  },
-  "144": {
-    "name": "Dithermaster Sierpinski",
-    "author": "Oasis Mini",
-    "image": "2024/02/b873df4b7f29d81f9577b7f3d9adb649.svg"
-  },
-  "142": {
-    "name": "Dithermaster Sunburst",
-    "author": "Oasis Mini",
-    "image": "2024/02/560135854581fcf00007644641f317c0.svg"
-  },
-  "140": {
-    "name": "Dithermaster Wormhole",
-    "author": "Oasis Mini",
-    "image": "2024/02/011ba7387ca10787302da62a9ab39ce7.svg"
-  },
-  "41": {
-    "name": "Dog Beatle",
-    "author": "Camila Veiga",
-    "image": "2024/02/420d5b52f9c39fbec5d0301c8d1917b4.svg"
-  },
-  "36": {
-    "name": "Dog Golden Retriever",
-    "author": "Camila Veiga",
-    "image": "2024/02/a7419fb8058506cfc4b97a1ad44b08a1.svg"
-  },
-  "40": {
-    "name": "Dog Pug",
-    "author": "Oasis Mini",
-    "image": "2024/02/c2e232717568ca7fba7c835d94ff14f3.svg"
-  },
-  "162": {
-    "name": "Dolphin",
-    "author": "Oasis Mini",
-    "image": "2024/03/10a84a5fd019316a24e90535894db3fe.svg"
-  },
-  "244": {
-    "name": "Doodle Dog",
-    "author": "Camila Veiga",
-    "image": "2024/05/430de6550a4affc068160c9a4c88e226.svg"
-  },
-  "195": {
-    "name": "Dragon",
-    "author": "Camila Veiga",
-    "image": "2024/03/077c020cce5abf70d49fe040ddd5b209.svg"
-  },
-  "193": {
-    "name": "Duck",
-    "author": "Camila Veiga",
-    "image": "2024/03/22ca351799853f1452a6905a94942d4b.svg"
-  },
-  "159": {
-    "name": "Elephant",
-    "author": "Oasis Mini",
-    "image": "2024/03/48a449db2bbb530e5d54b54cb711ce9f.svg"
-  },
-  "129": {
-    "name": "Engine Turn",
-    "author": "Oasis Mini",
-    "image": "2024/02/7cb25ab3fbea0fc33a013e05bfc7b393.svg"
-  },
-  "219": {
-    "name": "Face",
-    "author": null,
-    "image": "2024/03/20039d6b829edcf6db73d19f9e923f2f.svg"
-  },
-  "33": {
-    "name": "Fibonacci Shell",
-    "author": "Camila Veiga",
-    "image": "2024/02/aaac5e59aab118064638e273ee2da27a.svg"
-  },
-  "262": {
-    "name": "Fish Koi",
-    "author": "Otávio Bittencourt",
-    "image": "2024/05/ce8f6c7d5e89dac56cb4296d86cd7261.svg"
-  },
-  "38": {
-    "name": "Flamingo",
-    "author": "Camila Veiga",
-    "image": "2024/02/cc1b007041fa87e28601c757887631fa.svg"
-  },
-  "249": {
-    "name": "Flower Voyage",
-    "author": "Camila Veiga",
-    "image": "2024/05/85f7a4290e6b45f76ff7653d77db3322.svg"
-  },
-  "87": {
-    "name": "Flowers",
-    "author": "Camila Veiga",
-    "image": "2024/02/f27ab7850ca572a4e83d9606a3528fb5.svg"
-  },
-  "241": {
-    "name": "French Bulldog",
-    "author": "Camila Veiga",
-    "image": "2024/05/0992b12affcc14cf541baff6b1368fd9.svg"
-  },
-  "60": {
-    "name": "Frog",
-    "author": "Camila Veiga",
-    "image": "2024/02/1d37a8cd59f9222670949681f607f454.svg"
-  },
-  "252": {
-    "name": "Furry Moth",
-    "author": "Camila Veiga",
-    "image": "2024/05/fec69cc408643e629247c56648df6dee.svg"
-  },
-  "88": {
-    "name": "Geometric Hummingbird",
-    "author": "Camila Veiga",
-    "image": "2024/02/f2ddf3bd2d74b7674832d7ace5e54992.svg"
-  },
-  "81": {
-    "name": "Geometric Wolf",
-    "author": "Camila Veiga",
-    "image": "2024/02/a8cc546c3d9dfd1ade921817299a626a.svg"
-  },
-  "332": {
-    "name": "Giant Octopus",
-    "author": "Otávio Bittencourt",
-    "image": "2024/05/862ce4ee7aaba8b3832d136a9909c15d.svg"
-  },
-  "224": {
-    "name": "Happy Easter",
-    "author": "Oasis Mini",
-    "image": "2024/03/c0dfc0175a06768d06ef4a8863ddb5c6.svg"
-  },
-  "581": {
-    "name": "Happy4th",
-    "author": "zach8644",
-    "image": "2024/07/21574747a7892b04931bdd5135175d04.svg"
-  },
-  "356": {
-    "name": "Hedgehog",
-    "author": "Camila Veiga",
-    "image": "2024/05/cabfd2aa2b691af8db0d95bdfe0fd32e.svg"
-  },
-  "147": {
-    "name": "Hilbert",
-    "author": "Oasis Mini",
-    "image": "2024/03/18d8fab24afbacae8743b154ede27ac0.svg"
-  },
-  "496": {
-    "name": "Hilbert Wiper",
-    "author": "Xilufer",
-    "image": "2024/06/3ed2bf50e3aabdbc4f5de7d81c46fdeb.svg"
-  },
-  "192": {
-    "name": "Hippo",
-    "author": "Camila Veiga",
-    "image": "2024/03/cef030f36e1d9ee172603ca2ebf52045.svg"
-  },
-  "213": {
-    "name": "Honeybee",
-    "author": null,
-    "image": "2024/03/916fa92c31245f887bf6842dc0abf087.svg"
-  },
-  "100": {
-    "name": "Hummingbird",
-    "author": "Camila Veiga",
-    "image": "2024/02/6df68af94360e823a2888925fc935da4.svg"
-  },
-  "304": {
-    "name": "Iguana",
-    "author": "Otávio Bittencourt",
-    "image": "2024/05/24a538188acf7ae153746aff00e35743.svg"
-  },
-  "72": {
-    "name": "Iguana",
-    "author": "Camila Veiga",
-    "image": "2024/02/6a9c6db932fc00eacdde436bfad6affd.svg"
-  },
-  "139": {
-    "name": "Intersection",
-    "author": "Oasis Mini",
-    "image": "2024/02/a8e3c5d676faa430c0d6818ebff8044c.svg"
-  },
-  "238": {
-    "name": "Jack Russell Terrier",
-    "author": "Camila Veiga",
-    "image": "2024/05/d000c4bb896280d455dd6ac53ed8aa48.svg"
-  },
-  "170": {
-    "name": "Jellyfish",
-    "author": "Oasis Mini",
-    "image": "2024/03/2be69280b76eef7323d8f107afb6d142.svg"
-  },
-  "189": {
-    "name": "Kakapo Parrot Bird",
-    "author": "Camila Veiga",
-    "image": "2024/02/3482a2aafe5facaafff2b83531910512.svg"
-  },
-  "239": {
-    "name": "Kobra",
-    "author": "Camila Veiga",
-    "image": "2024/05/af42684b3f1ad0cc1926d28f6add3dec.svg"
-  },
-  "240": {
-    "name": "Labrador Retriever",
-    "author": "Camila Veiga",
-    "image": "2024/05/9241d0be1d61fa2b37681cb5d90d15be.svg"
-  },
-  "173": {
-    "name": "Light Bulb",
-    "author": "Oasis Mini",
-    "image": "2024/03/431d42927eca6b93a33c520a495d621d.svg"
-  },
-  "121": {
-    "name": "Line Wiper",
-    "author": "Zach",
-    "image": "2024/02/b406f9245e23ded2e3a781ccc5e5ca1f.svg"
-  },
-  "385": {
-    "name": "Lion",
-    "author": "Otávio Bittencourt",
-    "image": "2024/06/56ace3527391978ce17b65fc14f69ed3.svg"
-  },
-  "300": {
-    "name": "Little Heart",
-    "author": "Evan",
-    "image": "2024/05/8c68933d4b7e07ad9dc3496f7b82f106.svg"
-  },
-  "177": {
-    "name": "Lone Blue Jay Bird",
-    "author": "Camila Veiga",
-    "image": "2024/02/4c5b69c5fe436c8cbb5df697202dcaa5.svg"
-  },
-  "250": {
-    "name": "Long Tail Moth",
-    "author": "Camila Veiga",
-    "image": "2024/05/23c032dfc886d10c43b60fee7d1a5c92.svg"
-  },
-  "128": {
-    "name": "Loops",
-    "author": "Oasis Mini",
-    "image": "2024/02/5527235b74c3f9327728caddf73eda5b.svg"
-  },
-  "188": {
-    "name": "Macaw",
-    "author": "Camila Veiga",
-    "image": "2024/02/f36f92f355cbfc0bd1cfc779ec64d8fb.svg"
-  },
-  "64": {
-    "name": "Mandala",
-    "author": "Camila Veiga",
-    "image": "2024/02/21eb184da4fe1eeefdd7c220f209d3f1.svg"
-  },
-  "339": {
-    "name": "Marmoset Monkey",
-    "author": "Otávio Bittencourt",
-    "image": "2024/05/344128d7d7e468db26af2f04b2d7d088.svg"
-  },
-  "212": {
-    "name": "Medusa",
-    "author": null,
-    "image": "2024/03/5b8954e0d62998cdfd9fccbc8b63173e.svg"
-  },
-  "78": {
-    "name": "Mini Bouquet",
-    "author": "Camila Veiga",
-    "image": "2024/02/42a10229d228504945cde2dcab34e145.svg"
-  },
-  "179": {
-    "name": "Monkey",
-    "author": "Camila Veiga",
-    "image": "2024/02/8f3b78fecee6f47ea568c6a580a9a2fc.svg"
-  },
-  "155": {
-    "name": "Monstera",
-    "author": "Oasis Mini",
-    "image": "2024/02/c2b76034445415a1327cafe24781a2a8.svg"
-  },
-  "202": {
-    "name": "Moth",
-    "author": "Camila Veiga",
-    "image": "2024/03/374e12126f1618ee960b44a23c3229ca.svg"
-  },
-  "63": {
-    "name": "Mushroom",
-    "author": "Camila Veiga",
-    "image": "2024/02/63f18a5f611c9b798178110c885b7b7b.svg"
-  },
-  "101": {
-    "name": "Mushroom Forest",
-    "author": "Camila Veiga",
-    "image": "2024/02/df973d6848a4173b54ac6666847798d1.svg"
-  },
-  "138": {
-    "name": "Noise Curves",
-    "author": "Oasis Mini",
-    "image": "2024/03/24583f60b82a4198db5ba5c922aaa9da.svg"
-  },
-  "150": {
-    "name": "Noise Waves",
-    "author": "Oasis Mini",
-    "image": "2024/03/ef39021e727be220dab8962ff9077aca.svg"
-  },
-  "171": {
-    "name": "Octopus",
-    "author": "Camila Veiga",
-    "image": "2024/03/761741f1eabae8b3183e48e3a367fcfe.svg"
-  },
-  "431": {
-    "name": "Otter",
-    "author": "Otávio Bittencourt",
-    "image": "2024/06/af229556334619038aa62f913e36d455.svg"
-  },
-  "37": {
-    "name": "Owl",
-    "author": "Camila Veiga",
-    "image": "2024/02/eb45cee22c24225da3a79abf6f907765.svg"
-  },
-  "221": {
-    "name": "Pattern 3",
-    "author": null,
-    "image": "2024/03/419f74b031a6ea0cfd794985bb983960.svg"
-  },
-  "350": {
-    "name": "Pelican",
-    "author": "Otávio Bittencourt",
-    "image": "2024/05/678ca8eed19618dade7d4ed00e3ebdd9.svg"
-  },
-  "24": {
-    "name": "Penguin",
-    "author": "Camila Veiga",
-    "image": "2024/03/f3a718de2ff3fd37148fd16967113f87.svg"
-  },
-  "137": {
-    "name": "Pinwheel",
-    "author": "Oasis Mini",
-    "image": "2024/02/554b6e96961ce9c9459eaf9826c09c9a.svg"
-  },
-  "243": {
-    "name": "Pitbull",
-    "author": "Camila Veiga",
-    "image": "2024/05/6aa2e109b8f3eb068288bdbf652297a3.svg"
-  },
-  "103": {
-    "name": "Rabbit",
-    "author": "Camila Veiga",
-    "image": "2024/02/409d178f619d5b1dad43f34c380a8768.svg"
-  },
-  "211": {
-    "name": "Rabbit",
-    "author": null,
-    "image": "2024/03/7501a028530482e89bb726e425a6a8cb.svg"
-  },
-  "210": {
-    "name": "Rocket",
-    "author": null,
-    "image": "2024/03/7a60d9b004f546948fde90489e19f22a.svg"
-  },
-  "105": {
-    "name": "Rooster",
-    "author": "Camila Veiga",
-    "image": "2024/02/458f026c21efdaf85dd9483515c793ff.svg"
-  },
-  "156": {
-    "name": "Rose",
-    "author": "Oasis Mini",
-    "image": "2024/03/8a5ff9792afe8da301350dee4a8e4278.svg"
-  },
-  "123": {
-    "name": "Sawtooth",
-    "author": "Oasis Mini",
-    "image": "2024/02/4fe77ed20684244e6c83784f199c752e.svg"
-  },
-  "197": {
-    "name": "Scorpion",
-    "author": "Camila Veiga",
-    "image": "2024/03/d3e71b4963a7d61d55be2760482890aa.svg"
-  },
-  "345": {
-    "name": "Sea Horse",
-    "author": "Otávio Bittencourt",
-    "image": "2024/05/6de639607e4bbdca8f8ecb57c402cd6e.svg"
-  },
-  "172": {
-    "name": "Seahorse",
-    "author": "Oasis Mini",
-    "image": "2024/03/2283d765860cddd72025a150921dd6ce.svg"
-  },
-  "190": {
-    "name": "Seahorse",
-    "author": "Camila Veiga",
-    "image": "2024/03/c3ec7121261a3f75ff56630b672136fe.svg"
-  },
-  "357": {
-    "name": "Seal",
-    "author": "Camila Veiga",
-    "image": "2024/05/4833cf1cfbfc79ef6195bd2e1c006059.svg"
-  },
-  "390": {
-    "name": "Sheep",
-    "author": "Otávio Bittencourt",
-    "image": "2024/06/31e46f5f5997e742394892849eda505a.svg"
-  },
-  "136": {
-    "name": "Shield",
-    "author": "Oasis Mini",
-    "image": "2024/02/6f0952def38040c7a48bc56c7c44bf67.svg"
-  },
-  "203": {
-    "name": "Shimeji",
-    "author": "Camila Veiga",
-    "image": "2024/03/9873bcedd0b8f0560d8619fdddf42090.svg"
-  },
-  "149": {
-    "name": "Sierpenski",
-    "author": "Oasis Mini",
-    "image": "2024/03/27205730092d3b5c866bd53b9d26be97.svg"
-  },
-  "209": {
-    "name": "Skull",
-    "author": null,
-    "image": "2024/03/374f2efbfed6e4ab91137dbc6068e446.svg"
-  },
-  "158": {
-    "name": "Slightly Frightening Panda",
-    "author": "Oasis Mini",
-    "image": "2024/03/6877ff4d26904605066f246f31ed3cea.svg"
-  },
-  "180": {
-    "name": "Slot",
-    "author": "Camila Veiga",
-    "image": "2024/02/d4999457ab2769ddaef2c75736adab3a.svg"
-  },
-  "266": {
-    "name": "Snail",
-    "author": "Camila Veiga",
-    "image": "2024/05/6dd0ce7a83776d0a275d4bfcdc37d53f.svg"
-  },
-  "160": {
-    "name": "Spaceman",
-    "author": "Oasis Mini",
-    "image": "2024/03/b3d10e661d26c0bd7f8cc3ecee3b0ace.svg"
-  },
-  "125": {
-    "name": "Spiral Gyrations",
-    "author": "Oasis Mini",
-    "image": "2024/02/bfe3669fb18b99ba153bb07c2ea1d223.svg"
-  },
-  "119": {
-    "name": "Spiral In to Out",
-    "author": "Oasis Mini",
-    "image": "2024/02/f52427297697620a11131d037078fa2e.svg"
-  },
-  "117": {
-    "name": "Spiral Out to In",
-    "author": "Oasis Mini",
-    "image": "2024/03/4402aad108bb2a5c100b9f150ea3d97b.svg"
-  },
-  "20": {
-    "name": "SpiralizedWeb",
-    "author": "Zach",
-    "image": "2024/02/99e4863256d8ffb5f3b5239f19e2270b.svg"
-  },
-  "126": {
-    "name": "Spun Web",
-    "author": "Zach",
-    "image": "2024/02/99e4863256d8ffb5f3b5239f19e2270b.svg"
-  },
-  "267": {
-    "name": "Squid",
-    "author": "Camila Veiga",
-    "image": "2024/05/948f8d6eb814ce3a21e5a76ed90b3ea4.svg"
-  },
-  "175": {
-    "name": "Squirrel",
-    "author": "Camila Veiga",
-    "image": "2024/05/57981d2262e861b1b36ee842cff8b0d8.svg"
-  },
-  "265": {
-    "name": "Starfish",
-    "author": "Camila Veiga",
-    "image": "2024/05/a05aa52a44f34da15ddb1f5a3009fc1d.svg"
-  },
-  "115": {
-    "name": "String ray",
-    "author": "Camila Veiga",
-    "image": "2024/02/ca0d18b5213d4a18e0fabe76d4170247.svg"
-  },
-  "245": {
-    "name": "Sunflower",
-    "author": "Camila Veiga",
-    "image": "2024/05/bf6e4b6d739226139ced981ba9e38f60.svg"
-  },
-  "208": {
-    "name": "Swallow",
-    "author": null,
-    "image": "2024/03/026f52b5e539f1dd14215c751923024e.svg"
-  },
-  "370": {
-    "name": "Swirl",
-    "author": "Matt",
-    "image": "2024/05/156a6da37221c44878cd3c155f1d6918.svg"
-  },
-  "161": {
-    "name": "T-Rex",
-    "author": "Oasis Mini",
-    "image": "2024/03/3829ea91a3af828e7046f473707b0627.svg"
-  },
-  "455": {
-    "name": "Princess",
-    "author": "Otávio Bittencourt",
-    "image": "2024/07/ecd77e23fe859ba8e7e8c6a6ecfc9b8e.svg"
-  },
-  "223": {
-    "name": "The Knot",
-    "author": null,
-    "image": "2024/03/63013ee4146acb3af028949f98944bd9.svg"
-  },
-  "308": {
-    "name": "The Noise",
-    "author": "Matt",
-    "image": "2024/05/765c11e5dda140b236075b912731f69f.svg"
-  },
-  "483": {
-    "name": "Tiger",
-    "author": "Otávio Bittencourt",
-    "image": "2024/06/1bfb7dcda755b2d98ee85b83748d095b.svg"
-  },
-  "237": {
-    "name": "Toy Poodle",
-    "author": "Camila Veiga",
-    "image": "2024/05/9f559796eac7691049af8dadda742ad8.svg"
-  },
-  "130": {
-    "name": "Tri-Circle",
-    "author": "Oasis Mini",
-    "image": "2024/02/0a41c8694c1cd6559baafd82963286f6.svg"
-  },
-  "135": {
-    "name": "Triforce",
-    "author": "Oasis Mini",
-    "image": "2024/02/fefeea07184b4597243ba7b2dd2711fa.svg"
-  },
-  "247": {
-    "name": "Tropical Frog",
-    "author": "Oasis Mini",
-    "image": "2024/05/24f51e96925b83d64c8f63bd6c1b36b4.svg"
-  },
-  "242": {
-    "name": "Tropical Monkey texture",
-    "author": "Camila Veiga",
-    "image": "2024/05/6358af0a11dfa985f61bd9a7dec90fd3.svg"
-  },
-  "248": {
-    "name": "Tropical Snake",
-    "author": "Camila Veiga",
-    "image": "2024/05/d5bf2ba5d6417196d106b4da756035a1.svg"
-  },
-  "54": {
-    "name": "Tucan",
-    "author": "Camila Veiga",
-    "image": "2024/02/699dd2fff292f1104f8dbdf60f187043.svg"
-  },
-  "176": {
-    "name": "Tulips",
-    "author": "Camila Veiga",
-    "image": "2024/02/876563c5bafafee7e31c7ed96a846e00.svg"
-  },
-  "120": {
-    "name": "Turtle",
-    "author": "Junior Veloso",
-    "image": "2024/02/0dde4cf30929697c9d9145145771db31.svg"
-  },
-  "218": {
-    "name": "Unicorn",
-    "author": null,
-    "image": "2024/03/ed353a6e18917d9c2df0e4278e59b01d.svg"
-  },
-  "124": {
-    "name": "Warped Reuleaux",
-    "author": "Oasis Mini",
-    "image": "2024/02/a2aa2e71910c96680f78b65b81201b61.svg"
-  },
-  "127": {
-    "name": "Warped Squares",
-    "author": "Oasis Mini",
-    "image": "2024/02/8042b0f37b0cb37c739ac64e754ab774.svg"
-  },
-  "169": {
-    "name": "Whale",
-    "author": "Oasis Mini",
-    "image": "2024/03/283e1c9b6ee397a7822c58af01fcbbc3.svg"
-  },
-  "287": {
-    "name": "Windmill",
-    "author": "Matt",
-    "image": "2024/05/bcad3d06339ec7a345420191b7201ce1.svg"
-  },
-  "500": {
-    "name": "Wipe Left to Right",
-    "author": "Xilufer",
-    "image": "2024/06/3bdc415360a6466cf6245527bf85bd29.svg"
-  },
-  "498": {
-    "name": "Wipe Top to Bottom",
-    "author": "Xilufer",
-    "image": "2024/06/56b0cb09f15b44bac418ee2d1ed1940e.svg"
-  },
-  "77": {
-    "name": "Wolf head",
-    "author": "Camila Veiga",
-    "image": "2024/02/0c35befdb13ab7702f4c3b71371bf75c.svg"
-  },
-  "360": {
-    "name": "Woodpecker",
-    "author": "Camila Veiga",
-    "image": "2024/05/95ea026589751d7fca381f2c3df9380d.svg"
-  },
-  "437": {
-    "name": "Yorkshire",
-    "author": "Otávio Bittencourt",
-    "image": "2024/06/be59f584c87cfff3aa13e5887a69e183.svg"
-  },
-  "953": {
-    "name": "Grizzly bear",
-    "author": "Otávio Bittencourt",
-    "image": "2024/07/a3c63d580c4e4a95cdcc457fedf7dcce.svg"
-  },
-  "670": {
-    "name": "Horse",
-    "author": "Otávio Bittencourt",
-    "image": "2024/07/9fec8716ce98fdbf0c02db14b47b0d66.svg"
+    "image": "2024/02/25355aa8111a77ec41d1396df9123fcb.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 5832
+    },
+    "updated_at": "2024-07-25T21:32:54.000000Z"
   },
   "513": {
+    "id": 513,
     "name": "Clover Flower",
     "author": "Riley P",
-    "image": "2024/06/b7de1c0518e5ce9cbdd8f3dd6d995e3a.svg"
+    "image": "2024/06/b7de1c0518e5ce9cbdd8f3dd6d995e3a.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 3030
+    },
+    "updated_at": "2024-07-29T19:08:36.000000Z"
   },
-  "537": {
-    "name": "Full moon",
-    "author": "001547.d33e09ec63fb4259a31a494ad194e028.0314",
-    "image": "2024/07/3b06cb1bd961c01bd2411515549d907e.svg"
+  "505": {
+    "id": 505,
+    "name": "Coarse Hilbert Wiper",
+    "author": "Xilufer",
+    "image": "2024/06/cb2ad632c8d1c2ca69fa9a8f544bc0c7.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 3129
+    },
+    "updated_at": "2024-07-25T21:35:33.000000Z"
   },
-  "531": {
-    "name": "Ghost",
-    "author": "Stephen Murphy",
-    "image": "2024/07/106d0bed641489cc5b2ee371dcfdebfa.svg"
+  "118": {
+    "id": 118,
+    "name": "Coarse Spiral In to Out",
+    "author": "Oasis Mini",
+    "image": "2024/02/64a1c80bbb9b5b690ee08ae11e9c0e89.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 3906
+    },
+    "updated_at": "2024-07-25T21:32:56.000000Z"
   },
-  "509": {
-    "name": "Heart loop",
-    "author": "000653.17c9b352828247bd858234a2a114f79b.1358",
-    "image": "2024/06/985c1c16fe0ce704b17229a8c7e795f5.svg"
+  "501": {
+    "id": 501,
+    "name": "Coarse Spiral Out to In",
+    "author": "Xilufer",
+    "image": "2024/06/a46ab9145f30d81856ceec69ca4b8378.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 3906
+    },
+    "updated_at": "2024-07-25T21:35:33.000000Z"
   },
-  "535": {
-    "name": "Hubcap",
-    "author": "001547.d33e09ec63fb4259a31a494ad194e028.0314",
-    "image": "2024/07/565216e030c9fa2a474c4f57366a5cc3.svg"
+  "503": {
+    "id": 503,
+    "name": "Coarse Wipe Bottom to Top",
+    "author": "Xilufer",
+    "image": "2024/06/798a562ecda1f6ae80143ce3e69e97e2.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 3335
+    },
+    "updated_at": "2024-07-25T21:35:33.000000Z"
   },
-  "538": {
-    "name": "Noise cell",
-    "author": "001547.d33e09ec63fb4259a31a494ad194e028.0314",
-    "image": "2024/07/b60bebf49043ef7969a722d826e88bf5.svg"
+  "499": {
+    "id": 499,
+    "name": "Coarse Wipe Left to Right",
+    "author": "Xilufer",
+    "image": "2024/06/335f1704e84153fa4e8334fc6e3ede6f.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 2433
+    },
+    "updated_at": "2024-07-25T21:35:33.000000Z"
   },
-  "559": {
-    "name": "Polymath",
-    "author": "Codie Johnston",
-    "image": "2024/07/7a5fd9826476071567967fc17ec6cb12.svg"
+  "504": {
+    "id": 504,
+    "name": "Coarse Wipe Right to Left",
+    "author": "Xilufer",
+    "image": "2024/06/ed92b6cc7935a4c9f8a691e3308f9b49.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 3335
+    },
+    "updated_at": "2024-07-25T21:35:33.000000Z"
   },
-  "1264": {
-    "name": "Raccoon",
+  "497": {
+    "id": 497,
+    "name": "Coarse Wipe Top to Bottom",
+    "author": "Xilufer",
+    "image": "2024/06/053798917cd862f58adfc8b52310d377.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 2433
+    },
+    "updated_at": "2024-07-25T21:35:33.000000Z"
+  },
+  "264": {
+    "id": 264,
+    "name": "Crab",
+    "author": "Camila Veiga",
+    "image": "2024/05/e11995a5855afbfa05f89ce39ba65740.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 27294
+    },
+    "updated_at": "2024-07-25T21:33:38.000000Z"
+  },
+  "220": {
+    "id": 220,
+    "name": "Crane Mini",
+    "author": "Leuerken",
+    "image": "2024/03/e2b3f344d6a1407d8dd5d06a2dd4d10f.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 151537
+    },
+    "updated_at": "2024-07-29T15:13:54.000000Z"
+  },
+  "104": {
+    "id": 104,
+    "name": "Cricket",
+    "author": "Camila Veiga",
+    "image": "2024/02/de8399defab8eed0f2e5de564e423c78.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 12687
+    },
+    "updated_at": "2024-07-25T21:32:56.000000Z"
+  },
+  "98": {
+    "id": 98,
+    "name": "Crocodile",
+    "author": "Camila Veiga",
+    "image": "2024/02/71b8b959f6f5320b0778f4c25a74f105.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 14772
+    },
+    "updated_at": "2024-07-25T21:32:56.000000Z"
+  },
+  "68": {
+    "id": 68,
+    "name": "Cupid",
+    "author": "Camila Veiga",
+    "image": "2024/02/8db157d5e68d132eb3766e5325936b3a.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 8086
+    },
+    "updated_at": "2024-07-25T21:32:55.000000Z"
+  },
+  "261": {
+    "id": 261,
+    "name": "Cute Cat",
     "author": "Otávio Bittencourt",
-    "image": "2024/07/5ff0bd18649b029e16ac32f3b96f9715.svg"
+    "image": "2024/05/caf48ea93bc21a7391cf8aa16388f500.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 8114
+    },
+    "updated_at": "2024-07-25T21:33:38.000000Z"
   },
-  "551": {
-    "name": "snowflake",
-    "author": "christina",
-    "image": "2024/07/77ae32407d7d2563110b1ee4607f6b7e.svg"
+  "393": {
+    "id": 393,
+    "name": "dither_tri4",
+    "author": "B Perry",
+    "image": "2024/06/b15f38d3a4ae4f8418c769ca024bc646.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 12834
+    },
+    "updated_at": "2024-07-25T21:35:28.000000Z"
   },
-  "553": {
-    "name": "spheres",
-    "author": "max",
-    "image": "2024/07/7a292d6cb204fbe4fc4a56ef8e4e9228.svg"
+  "146": {
+    "id": 146,
+    "name": "Dithermaster Gears",
+    "author": "Oasis Mini",
+    "image": "2024/02/92ed5ddc81f3152558a62b90f9ab99bd.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 2889
+    },
+    "updated_at": "2024-07-25T21:33:01.000000Z"
   },
-  "544": {
-    "name": "Star round",
-    "author": "Codie Johnston",
-    "image": "2024/07/5e05532a764a109b090abc06f217f62e.svg"
+  "145": {
+    "id": 145,
+    "name": "Dithermaster Nautilus",
+    "author": "Oasis Mini",
+    "image": "2024/02/d3e546f47a5e328320f95471e6d06e8e.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 6303
+    },
+    "updated_at": "2024-07-25T21:33:01.000000Z"
   },
-  "517": {
-    "name": "Starburst",
-    "author": "001547.d33e09ec63fb4259a31a494ad194e028.0314",
-    "image": "2024/06/ec2c03a42db75c33ddf677c6ac52e7b3.svg"
+  "144": {
+    "id": 144,
+    "name": "Dithermaster Sierpinski",
+    "author": "Oasis Mini",
+    "image": "2024/02/b873df4b7f29d81f9577b7f3d9adb649.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 731
+    },
+    "updated_at": "2024-07-25T21:33:01.000000Z"
   },
-  "1137": {
-    "name": "Tiger",
+  "142": {
+    "id": 142,
+    "name": "Dithermaster Sunburst",
+    "author": "Oasis Mini",
+    "image": "2024/02/560135854581fcf00007644641f317c0.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 27464
+    },
+    "updated_at": "2024-07-25T21:33:00.000000Z"
+  },
+  "140": {
+    "id": 140,
+    "name": "Dithermaster Wormhole",
+    "author": "Oasis Mini",
+    "image": "2024/02/011ba7387ca10787302da62a9ab39ce7.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 4733
+    },
+    "updated_at": "2024-07-25T21:33:00.000000Z"
+  },
+  "41": {
+    "id": 41,
+    "name": "Dog Beagle",
+    "author": "Camila Veiga",
+    "image": "2024/02/420d5b52f9c39fbec5d0301c8d1917b4.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 4126
+    },
+    "updated_at": "2024-08-01T15:06:06.000000Z"
+  },
+  "36": {
+    "id": 36,
+    "name": "Dog Golden Retriever",
+    "author": "Camila Veiga",
+    "image": "2024/02/a7419fb8058506cfc4b97a1ad44b08a1.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 3300
+    },
+    "updated_at": "2024-07-25T21:32:54.000000Z"
+  },
+  "40": {
+    "id": 40,
+    "name": "Dog Pug",
+    "author": "Oasis Mini",
+    "image": "2024/02/c2e232717568ca7fba7c835d94ff14f3.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 5093
+    },
+    "updated_at": "2024-07-25T21:32:54.000000Z"
+  },
+  "162": {
+    "id": 162,
+    "name": "Dolphin",
+    "author": "Oasis Mini",
+    "image": "2024/03/10a84a5fd019316a24e90535894db3fe.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 8308
+    },
+    "updated_at": "2024-07-25T21:33:02.000000Z"
+  },
+  "244": {
+    "id": 244,
+    "name": "Doodle Dog",
+    "author": "Camila Veiga",
+    "image": "2024/05/430de6550a4affc068160c9a4c88e226.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 6309
+    },
+    "updated_at": "2024-07-25T21:33:36.000000Z"
+  },
+  "195": {
+    "id": 195,
+    "name": "Dragon",
+    "author": "Camila Veiga",
+    "image": "2024/03/077c020cce5abf70d49fe040ddd5b209.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 17439
+    },
+    "updated_at": "2024-07-25T21:33:04.000000Z"
+  },
+  "193": {
+    "id": 193,
+    "name": "Duck",
+    "author": "Camila Veiga",
+    "image": "2024/03/22ca351799853f1452a6905a94942d4b.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 21930
+    },
+    "updated_at": "2024-07-25T21:33:04.000000Z"
+  },
+  "159": {
+    "id": 159,
+    "name": "Elephant",
+    "author": "Oasis Mini",
+    "image": "2024/03/48a449db2bbb530e5d54b54cb711ce9f.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 15116
+    },
+    "updated_at": "2024-07-25T21:33:01.000000Z"
+  },
+  "129": {
+    "id": 129,
+    "name": "Engine Turn",
+    "author": "Oasis Mini",
+    "image": "2024/02/7cb25ab3fbea0fc33a013e05bfc7b393.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 74399
+    },
+    "updated_at": "2024-07-29T15:13:54.000000Z"
+  },
+  "219": {
+    "id": 219,
+    "name": "Face",
+    "author": "Leuerken",
+    "image": "2024/03/20039d6b829edcf6db73d19f9e923f2f.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 110930
+    },
+    "updated_at": "2024-07-29T15:13:55.000000Z"
+  },
+  "33": {
+    "id": 33,
+    "name": "Fibonacci Shell",
+    "author": "Camila Veiga",
+    "image": "2024/02/aaac5e59aab118064638e273ee2da27a.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 7022
+    },
+    "updated_at": "2024-07-25T21:32:54.000000Z"
+  },
+  "262": {
+    "id": 262,
+    "name": "Fish Koi",
     "author": "Otávio Bittencourt",
-    "image": "2024/07/02da0d000c200fb8cab3f1d38a90e077.svg"
+    "image": "2024/05/ce8f6c7d5e89dac56cb4296d86cd7261.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 7316
+    },
+    "updated_at": "2024-07-25T21:33:38.000000Z"
   },
-  "528": {
-    "name": "Tight spiral in to out",
-    "author": "Codie Johnston",
-    "image": "2024/06/82360f9b4c9dc169bceb99a1b4a3a13c.svg"
-  },
-  "527": {
-    "name": "Tight spiral out to in",
-    "author": "Codie Johnston",
-    "image": "2024/06/eef9f4aa33ca80e3f09e4c4661c6c80e.svg"
-  },
-  "519": {
-    "name": "Web",
-    "author": "000653.17c9b352828247bd858234a2a114f79b.1358",
-    "image": "2024/06/9c05e1e19cb5ecf6e156e44a8a8829e5.svg"
-  },
-  "536": {
-    "name": "Yin yang",
-    "author": "001547.d33e09ec63fb4259a31a494ad194e028.0314",
-    "image": "2024/07/36fe669628c5e4dfd6d33a263196a750.svg"
+  "38": {
+    "id": 38,
+    "name": "Flamingo",
+    "author": "Camila Veiga",
+    "image": "2024/02/cc1b007041fa87e28601c757887631fa.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 7283
+    },
+    "updated_at": "2024-07-25T21:32:54.000000Z"
   },
   "611": {
+    "id": 611,
     "name": "Flow Snake",
     "author": "Matt Flood",
-    "image": "2024/07/c5bf122bc1c8f7ef44caff6a0856bd22.svg"
+    "image": "2024/07/c5bf122bc1c8f7ef44caff6a0856bd22.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 8407
+    },
+    "updated_at": "2024-07-31T17:08:03.000000Z"
+  },
+  "249": {
+    "id": 249,
+    "name": "Flower Voyage",
+    "author": "Camila Veiga",
+    "image": "2024/05/85f7a4290e6b45f76ff7653d77db3322.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 15619
+    },
+    "updated_at": "2024-07-25T21:33:37.000000Z"
   },
   "576": {
+    "id": 576,
     "name": "Flower Wipe",
     "author": "Shannon Miller",
-    "image": "2024/07/27205730092d3b5c866bd53b9d26be97.svg"
+    "image": "2024/07/27205730092d3b5c866bd53b9d26be97.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 6469
+    },
+    "updated_at": "2024-07-31T11:38:05.000000Z"
+  },
+  "87": {
+    "id": 87,
+    "name": "Flowers",
+    "author": "Camila Veiga",
+    "image": "2024/02/f27ab7850ca572a4e83d9606a3528fb5.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 20543
+    },
+    "updated_at": "2024-07-25T21:32:55.000000Z"
+  },
+  "241": {
+    "id": 241,
+    "name": "French Bulldog",
+    "author": "Camila Veiga",
+    "image": "2024/05/0992b12affcc14cf541baff6b1368fd9.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 3550
+    },
+    "updated_at": "2024-07-25T21:33:36.000000Z"
+  },
+  "60": {
+    "id": 60,
+    "name": "Frog",
+    "author": "Camila Veiga",
+    "image": "2024/02/1d37a8cd59f9222670949681f607f454.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 3873
+    },
+    "updated_at": "2024-07-25T21:32:55.000000Z"
+  },
+  "537": {
+    "id": 537,
+    "name": "Full moon",
+    "author": "001547.d33e09ec63fb4259a31a494ad194e028.0314",
+    "image": "2024/07/3b06cb1bd961c01bd2411515549d907e.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 31561
+    },
+    "updated_at": "2024-07-29T19:59:24.000000Z"
+  },
+  "252": {
+    "id": 252,
+    "name": "Furry Moth",
+    "author": "Camila Veiga",
+    "image": "2024/05/fec69cc408643e629247c56648df6dee.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 15180
+    },
+    "updated_at": "2024-07-25T21:33:37.000000Z"
+  },
+  "88": {
+    "id": 88,
+    "name": "Geometric Hummingbird",
+    "author": "Camila Veiga",
+    "image": "2024/02/f2ddf3bd2d74b7674832d7ace5e54992.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 6898
+    },
+    "updated_at": "2024-07-25T21:32:55.000000Z"
+  },
+  "81": {
+    "id": 81,
+    "name": "Geometric Wolf",
+    "author": "Camila Veiga",
+    "image": "2024/02/a8cc546c3d9dfd1ade921817299a626a.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 13442
+    },
+    "updated_at": "2024-07-25T21:32:55.000000Z"
+  },
+  "531": {
+    "id": 531,
+    "name": "Ghost",
+    "author": "Stephen Murphy",
+    "image": "2024/07/106d0bed641489cc5b2ee371dcfdebfa.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 1740
+    },
+    "updated_at": "2024-07-29T00:05:39.000000Z"
+  },
+  "332": {
+    "id": 332,
+    "name": "Giant Octopus",
+    "author": "Otávio Bittencourt",
+    "image": "2024/05/862ce4ee7aaba8b3832d136a9909c15d.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 11387
+    },
+    "updated_at": "2024-07-25T21:35:25.000000Z"
+  },
+  "953": {
+    "id": 953,
+    "name": "Grizzly bear",
+    "author": "Otávio Bittencourt",
+    "image": "2024/07/a3c63d580c4e4a95cdcc457fedf7dcce.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 56731
+    },
+    "updated_at": "2024-07-18T12:20:10.000000Z"
+  },
+  "224": {
+    "id": 224,
+    "name": "Happy Easter",
+    "author": "Oasis Mini",
+    "image": "2024/03/c0dfc0175a06768d06ef4a8863ddb5c6.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 1747
+    },
+    "updated_at": "2024-07-25T21:33:36.000000Z"
+  },
+  "581": {
+    "id": 581,
+    "name": "Happy4th",
+    "author": "zach",
+    "image": "2024/07/21574747a7892b04931bdd5135175d04.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 1520
+    },
+    "updated_at": "2024-07-17T19:23:27.000000Z"
+  },
+  "509": {
+    "id": 509,
+    "name": "Heart loop",
+    "author": "000653.17c9b352828247bd858234a2a114f79b.1358",
+    "image": "2024/06/985c1c16fe0ce704b17229a8c7e795f5.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 19327
+    },
+    "updated_at": "2024-07-29T01:21:29.000000Z"
+  },
+  "356": {
+    "id": 356,
+    "name": "Hedgehog",
+    "author": "Camila Veiga",
+    "image": "2024/05/cabfd2aa2b691af8db0d95bdfe0fd32e.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 16844
+    },
+    "updated_at": "2024-07-25T21:35:26.000000Z"
+  },
+  "147": {
+    "id": 147,
+    "name": "Hilbert",
+    "author": "Oasis Mini",
+    "image": "2024/03/18d8fab24afbacae8743b154ede27ac0.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 6447
+    },
+    "updated_at": "2024-07-25T21:33:01.000000Z"
+  },
+  "496": {
+    "id": 496,
+    "name": "Hilbert Wiper",
+    "author": "Xilufer",
+    "image": "2024/06/3ed2bf50e3aabdbc4f5de7d81c46fdeb.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 6447
+    },
+    "updated_at": "2024-07-25T21:35:33.000000Z"
+  },
+  "192": {
+    "id": 192,
+    "name": "Hippo",
+    "author": "Camila Veiga",
+    "image": "2024/03/cef030f36e1d9ee172603ca2ebf52045.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 14801
+    },
+    "updated_at": "2024-07-25T21:33:03.000000Z"
+  },
+  "213": {
+    "id": 213,
+    "name": "Honeybee",
+    "author": "Leuerken",
+    "image": "2024/03/916fa92c31245f887bf6842dc0abf087.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 65711
+    },
+    "updated_at": "2024-07-29T15:13:30.000000Z"
+  },
+  "670": {
+    "id": 670,
+    "name": "Horse",
+    "author": "Otávio Bittencourt",
+    "image": "2024/07/9fec8716ce98fdbf0c02db14b47b0d66.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 25521
+    },
+    "updated_at": "2024-07-31T11:48:44.000000Z"
+  },
+  "535": {
+    "id": 535,
+    "name": "Hubcap",
+    "author": "001547.d33e09ec63fb4259a31a494ad194e028.0314",
+    "image": "2024/07/565216e030c9fa2a474c4f57366a5cc3.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 31933
+    },
+    "updated_at": "2024-07-29T13:00:43.000000Z"
+  },
+  "100": {
+    "id": 100,
+    "name": "Hummingbird",
+    "author": "Camila Veiga",
+    "image": "2024/02/6df68af94360e823a2888925fc935da4.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 7608
+    },
+    "updated_at": "2024-07-25T21:32:56.000000Z"
+  },
+  "304": {
+    "id": 304,
+    "name": "Iguana",
+    "author": "Otávio Bittencourt",
+    "image": "2024/05/24a538188acf7ae153746aff00e35743.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 8898
+    },
+    "updated_at": "2024-07-25T21:34:59.000000Z"
+  },
+  "72": {
+    "id": 72,
+    "name": "Iguana",
+    "author": "Camila Veiga",
+    "image": "2024/02/6a9c6db932fc00eacdde436bfad6affd.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 20942
+    },
+    "updated_at": "2024-07-25T21:32:55.000000Z"
+  },
+  "139": {
+    "id": 139,
+    "name": "Intersection",
+    "author": "Oasis Mini",
+    "image": "2024/02/a8e3c5d676faa430c0d6818ebff8044c.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 8302
+    },
+    "updated_at": "2024-07-25T21:33:00.000000Z"
+  },
+  "238": {
+    "id": 238,
+    "name": "Jack Russell Terrier",
+    "author": "Camila Veiga",
+    "image": "2024/05/d000c4bb896280d455dd6ac53ed8aa48.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 6064
+    },
+    "updated_at": "2024-07-25T21:33:36.000000Z"
+  },
+  "170": {
+    "id": 170,
+    "name": "Jellyfish",
+    "author": "Oasis Mini",
+    "image": "2024/03/2be69280b76eef7323d8f107afb6d142.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 10346
+    },
+    "updated_at": "2024-07-25T21:33:02.000000Z"
+  },
+  "189": {
+    "id": 189,
+    "name": "Kakapo Parrot Bird",
+    "author": "Camila Veiga",
+    "image": "2024/02/3482a2aafe5facaafff2b83531910512.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 18293
+    },
+    "updated_at": "2024-07-25T21:33:03.000000Z"
+  },
+  "239": {
+    "id": 239,
+    "name": "Kobra",
+    "author": "Camila Veiga",
+    "image": "2024/05/af42684b3f1ad0cc1926d28f6add3dec.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 9993
+    },
+    "updated_at": "2024-07-25T21:33:36.000000Z"
+  },
+  "240": {
+    "id": 240,
+    "name": "Labrador Retriever",
+    "author": "Camila Veiga",
+    "image": "2024/05/9241d0be1d61fa2b37681cb5d90d15be.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 4836
+    },
+    "updated_at": "2024-07-25T21:33:36.000000Z"
+  },
+  "173": {
+    "id": 173,
+    "name": "Light Bulb",
+    "author": "Oasis Mini",
+    "image": "2024/03/431d42927eca6b93a33c520a495d621d.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 1413
+    },
+    "updated_at": "2024-07-25T21:33:02.000000Z"
+  },
+  "121": {
+    "id": 121,
+    "name": "Line Wiper",
+    "author": "Zach",
+    "image": "2024/02/b406f9245e23ded2e3a781ccc5e5ca1f.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 4162
+    },
+    "updated_at": "2024-07-25T21:32:57.000000Z"
+  },
+  "385": {
+    "id": 385,
+    "name": "Lion",
+    "author": "Otávio Bittencourt",
+    "image": "2024/06/56ace3527391978ce17b65fc14f69ed3.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 20804
+    },
+    "updated_at": "2024-07-25T21:35:27.000000Z"
+  },
+  "300": {
+    "id": 300,
+    "name": "Little Heart",
+    "author": "Evan",
+    "image": "2024/05/8c68933d4b7e07ad9dc3496f7b82f106.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 31605
+    },
+    "updated_at": "2024-07-25T21:34:58.000000Z"
+  },
+  "177": {
+    "id": 177,
+    "name": "Lone Blue Jay Bird",
+    "author": "Camila Veiga",
+    "image": "2024/02/4c5b69c5fe436c8cbb5df697202dcaa5.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 18313
+    },
+    "updated_at": "2024-07-25T21:33:03.000000Z"
+  },
+  "250": {
+    "id": 250,
+    "name": "Long Tail Moth",
+    "author": "Camila Veiga",
+    "image": "2024/05/23c032dfc886d10c43b60fee7d1a5c92.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 8807
+    },
+    "updated_at": "2024-07-25T21:33:37.000000Z"
   },
   "711": {
+    "id": 711,
     "name": "Looping Fractal Spirograph",
     "author": "Daniel Moton",
-    "image": "2024/07/deb3f3c00b2cb65243099f41e00b0af5.svg"
+    "image": "2024/07/deb3f3c00b2cb65243099f41e00b0af5.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 28095
+    },
+    "updated_at": "2024-07-31T20:55:23.000000Z"
+  },
+  "128": {
+    "id": 128,
+    "name": "Loops",
+    "author": "Oasis Mini",
+    "image": "2024/02/5527235b74c3f9327728caddf73eda5b.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 68851
+    },
+    "updated_at": "2024-07-29T15:13:31.000000Z"
+  },
+  "188": {
+    "id": 188,
+    "name": "Macaw",
+    "author": "Camila Veiga",
+    "image": "2024/02/f36f92f355cbfc0bd1cfc779ec64d8fb.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 14298
+    },
+    "updated_at": "2024-07-25T21:33:03.000000Z"
+  },
+  "64": {
+    "id": 64,
+    "name": "Mandala",
+    "author": "Camila Veiga",
+    "image": "2024/02/21eb184da4fe1eeefdd7c220f209d3f1.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 15294
+    },
+    "updated_at": "2024-07-25T21:32:55.000000Z"
+  },
+  "339": {
+    "id": 339,
+    "name": "Marmoset Monkey",
+    "author": "Otávio Bittencourt",
+    "image": "2024/05/344128d7d7e468db26af2f04b2d7d088.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 30998
+    },
+    "updated_at": "2024-07-25T21:35:25.000000Z"
+  },
+  "212": {
+    "id": 212,
+    "name": "Medusa",
+    "author": "Leuerken",
+    "image": "2024/03/5b8954e0d62998cdfd9fccbc8b63173e.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 77291
+    },
+    "updated_at": "2024-07-29T15:13:56.000000Z"
+  },
+  "78": {
+    "id": 78,
+    "name": "Mini Bouquet",
+    "author": "Camila Veiga",
+    "image": "2024/02/42a10229d228504945cde2dcab34e145.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 23309
+    },
+    "updated_at": "2024-07-25T21:32:55.000000Z"
+  },
+  "179": {
+    "id": 179,
+    "name": "Monkey",
+    "author": "Camila Veiga",
+    "image": "2024/02/8f3b78fecee6f47ea568c6a580a9a2fc.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 20042
+    },
+    "updated_at": "2024-07-25T21:33:03.000000Z"
+  },
+  "155": {
+    "id": 155,
+    "name": "Monstera",
+    "author": "Oasis Mini",
+    "image": "2024/02/c2b76034445415a1327cafe24781a2a8.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 11195
+    },
+    "updated_at": "2024-07-25T21:33:01.000000Z"
+  },
+  "202": {
+    "id": 202,
+    "name": "Moth",
+    "author": "Camila Veiga",
+    "image": "2024/03/374e12126f1618ee960b44a23c3229ca.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 24847
+    },
+    "updated_at": "2024-07-25T21:33:04.000000Z"
+  },
+  "63": {
+    "id": 63,
+    "name": "Mushroom",
+    "author": "Camila Veiga",
+    "image": "2024/02/63f18a5f611c9b798178110c885b7b7b.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 6422
+    },
+    "updated_at": "2024-07-25T21:32:55.000000Z"
+  },
+  "101": {
+    "id": 101,
+    "name": "Mushroom Forest",
+    "author": "Camila Veiga",
+    "image": "2024/02/df973d6848a4173b54ac6666847798d1.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 19567
+    },
+    "updated_at": "2024-07-25T21:32:56.000000Z"
+  },
+  "538": {
+    "id": 538,
+    "name": "Noise cell",
+    "author": "001547.d33e09ec63fb4259a31a494ad194e028.0314",
+    "image": "2024/07/b60bebf49043ef7969a722d826e88bf5.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 31711
+    },
+    "updated_at": "2024-07-30T16:49:28.000000Z"
+  },
+  "138": {
+    "id": 138,
+    "name": "Noise Curves",
+    "author": "Oasis Mini",
+    "image": "2024/03/24583f60b82a4198db5ba5c922aaa9da.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 7386
+    },
+    "updated_at": "2024-07-25T21:33:00.000000Z"
+  },
+  "150": {
+    "id": 150,
+    "name": "Noise Waves",
+    "author": "Oasis Mini",
+    "image": "2024/03/ef39021e727be220dab8962ff9077aca.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 15135
+    },
+    "updated_at": "2024-07-25T21:33:01.000000Z"
+  },
+  "171": {
+    "id": 171,
+    "name": "Octopus",
+    "author": "Camila Veiga",
+    "image": "2024/03/761741f1eabae8b3183e48e3a367fcfe.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 10896
+    },
+    "updated_at": "2024-07-25T21:33:02.000000Z"
+  },
+  "431": {
+    "id": 431,
+    "name": "Otter",
+    "author": "Otávio Bittencourt",
+    "image": "2024/06/af229556334619038aa62f913e36d455.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 62273
+    },
+    "updated_at": "2024-07-25T21:35:32.000000Z"
+  },
+  "37": {
+    "id": 37,
+    "name": "Owl",
+    "author": "Camila Veiga",
+    "image": "2024/02/eb45cee22c24225da3a79abf6f907765.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 17055
+    },
+    "updated_at": "2024-07-25T21:32:54.000000Z"
+  },
+  "221": {
+    "id": 221,
+    "name": "Pattern 3",
+    "author": "Leuerken",
+    "image": "2024/03/419f74b031a6ea0cfd794985bb983960.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 43076
+    },
+    "updated_at": "2024-07-29T15:17:35.000000Z"
+  },
+  "350": {
+    "id": 350,
+    "name": "Pelican",
+    "author": "Otávio Bittencourt",
+    "image": "2024/05/678ca8eed19618dade7d4ed00e3ebdd9.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 4485
+    },
+    "updated_at": "2024-07-25T21:35:26.000000Z"
+  },
+  "24": {
+    "id": 24,
+    "name": "Penguin",
+    "author": "Camila Veiga",
+    "image": "2024/03/f3a718de2ff3fd37148fd16967113f87.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 12860
+    },
+    "updated_at": "2024-07-25T21:32:54.000000Z"
+  },
+  "137": {
+    "id": 137,
+    "name": "Pinwheel",
+    "author": "Oasis Mini",
+    "image": "2024/02/554b6e96961ce9c9459eaf9826c09c9a.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 5915
+    },
+    "updated_at": "2024-07-25T21:33:00.000000Z"
+  },
+  "243": {
+    "id": 243,
+    "name": "Pitbull",
+    "author": "Camila Veiga",
+    "image": "2024/05/6aa2e109b8f3eb068288bdbf652297a3.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 4340
+    },
+    "updated_at": "2024-07-25T21:33:36.000000Z"
+  },
+  "559": {
+    "id": 559,
+    "name": "Polymath",
+    "author": "Codie Johnston",
+    "image": "2024/07/7a5fd9826476071567967fc17ec6cb12.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 9950
+    },
+    "updated_at": "2024-07-31T00:12:10.000000Z"
+  },
+  "455": {
+    "id": 455,
+    "name": "Princess",
+    "author": "Otávio Bittencourt",
+    "image": "2024/07/ecd77e23fe859ba8e7e8c6a6ecfc9b8e.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 23679
+    },
+    "updated_at": "2024-07-25T21:35:32.000000Z"
+  },
+  "103": {
+    "id": 103,
+    "name": "Rabbit",
+    "author": "Camila Veiga",
+    "image": "2024/02/409d178f619d5b1dad43f34c380a8768.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 14707
+    },
+    "updated_at": "2024-07-25T21:32:56.000000Z"
+  },
+  "211": {
+    "id": 211,
+    "name": "Rabbit",
+    "author": "Leuerken",
+    "image": "2024/03/7501a028530482e89bb726e425a6a8cb.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 52634
+    },
+    "updated_at": "2024-07-29T15:17:32.000000Z"
+  },
+  "1264": {
+    "id": 1264,
+    "name": "Raccoon",
+    "author": "Otávio Bittencourt",
+    "image": "2024/07/5ff0bd18649b029e16ac32f3b96f9715.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 44276
+    },
+    "updated_at": "2024-07-28T20:59:00.000000Z"
   },
   "613": {
+    "id": 613,
     "name": "Reverse",
     "author": "Kari Hobbs",
-    "image": "2024/07/6c7ca5f1b8f94cf650b1793b1c2c81bb.svg"
+    "image": "2024/07/6c7ca5f1b8f94cf650b1793b1c2c81bb.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 2035
+    },
+    "updated_at": "2024-07-31T20:55:19.000000Z"
+  },
+  "210": {
+    "id": 210,
+    "name": "Rocket",
+    "author": "Leuerken",
+    "image": "2024/03/7a60d9b004f546948fde90489e19f22a.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 14528
+    },
+    "updated_at": "2024-07-25T21:33:05.000000Z"
+  },
+  "105": {
+    "id": 105,
+    "name": "Rooster",
+    "author": "Camila Veiga",
+    "image": "2024/02/458f026c21efdaf85dd9483515c793ff.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 8171
+    },
+    "updated_at": "2024-07-25T21:32:56.000000Z"
+  },
+  "156": {
+    "id": 156,
+    "name": "Rose",
+    "author": "Oasis Mini",
+    "image": "2024/03/8a5ff9792afe8da301350dee4a8e4278.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 16093
+    },
+    "updated_at": "2024-07-25T21:33:01.000000Z"
+  },
+  "123": {
+    "id": 123,
+    "name": "Sawtooth",
+    "author": "Oasis Mini",
+    "image": "2024/02/4fe77ed20684244e6c83784f199c752e.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 13617
+    },
+    "updated_at": "2024-07-25T21:32:57.000000Z"
+  },
+  "197": {
+    "id": 197,
+    "name": "Scorpion",
+    "author": "Camila Veiga",
+    "image": "2024/03/d3e71b4963a7d61d55be2760482890aa.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 16441
+    },
+    "updated_at": "2024-07-25T21:33:04.000000Z"
+  },
+  "345": {
+    "id": 345,
+    "name": "Sea Horse",
+    "author": "Otávio Bittencourt",
+    "image": "2024/05/6de639607e4bbdca8f8ecb57c402cd6e.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 8513
+    },
+    "updated_at": "2024-07-25T21:35:26.000000Z"
+  },
+  "172": {
+    "id": 172,
+    "name": "Seahorse",
+    "author": "Oasis Mini",
+    "image": "2024/03/2283d765860cddd72025a150921dd6ce.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 5941
+    },
+    "updated_at": "2024-07-25T21:33:02.000000Z"
+  },
+  "190": {
+    "id": 190,
+    "name": "Seahorse",
+    "author": "Camila Veiga",
+    "image": "2024/03/c3ec7121261a3f75ff56630b672136fe.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 15501
+    },
+    "updated_at": "2024-07-25T21:33:03.000000Z"
+  },
+  "357": {
+    "id": 357,
+    "name": "Seal",
+    "author": "Camila Veiga",
+    "image": "2024/05/4833cf1cfbfc79ef6195bd2e1c006059.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 7560
+    },
+    "updated_at": "2024-07-25T21:35:26.000000Z"
+  },
+  "390": {
+    "id": 390,
+    "name": "Sheep",
+    "author": "Otávio Bittencourt",
+    "image": "2024/06/31e46f5f5997e742394892849eda505a.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 46251
+    },
+    "updated_at": "2024-07-25T21:35:28.000000Z"
+  },
+  "136": {
+    "id": 136,
+    "name": "Shield",
+    "author": "Oasis Mini",
+    "image": "2024/02/6f0952def38040c7a48bc56c7c44bf67.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 8766
+    },
+    "updated_at": "2024-07-25T21:33:00.000000Z"
+  },
+  "203": {
+    "id": 203,
+    "name": "Shimeji",
+    "author": "Camila Veiga",
+    "image": "2024/03/9873bcedd0b8f0560d8619fdddf42090.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 12822
+    },
+    "updated_at": "2024-07-25T21:33:04.000000Z"
+  },
+  "149": {
+    "id": 149,
+    "name": "Sierpenski",
+    "author": "Oasis Mini",
+    "image": "2024/03/27205730092d3b5c866bd53b9d26be97.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 6469
+    },
+    "updated_at": "2024-07-25T21:33:01.000000Z"
+  },
+  "209": {
+    "id": 209,
+    "name": "Skull",
+    "author": "Leuerken",
+    "image": "2024/03/374f2efbfed6e4ab91137dbc6068e446.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 39975
+    },
+    "updated_at": "2024-07-25T21:33:05.000000Z"
+  },
+  "158": {
+    "id": 158,
+    "name": "Slightly Frightening Panda",
+    "author": "Oasis Mini",
+    "image": "2024/03/6877ff4d26904605066f246f31ed3cea.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 9704
+    },
+    "updated_at": "2024-07-25T21:33:01.000000Z"
+  },
+  "180": {
+    "id": 180,
+    "name": "Slot",
+    "author": "Camila Veiga",
+    "image": "2024/02/d4999457ab2769ddaef2c75736adab3a.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 20583
+    },
+    "updated_at": "2024-07-25T21:33:03.000000Z"
+  },
+  "266": {
+    "id": 266,
+    "name": "Snail",
+    "author": "Camila Veiga",
+    "image": "2024/05/6dd0ce7a83776d0a275d4bfcdc37d53f.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 11149
+    },
+    "updated_at": "2024-07-25T21:33:38.000000Z"
+  },
+  "551": {
+    "id": 551,
+    "name": "snowflake",
+    "author": "christina",
+    "image": "2024/07/77ae32407d7d2563110b1ee4607f6b7e.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 7300
+    },
+    "updated_at": "2024-07-30T20:32:02.000000Z"
+  },
+  "160": {
+    "id": 160,
+    "name": "Spaceman",
+    "author": "Oasis Mini",
+    "image": "2024/03/b3d10e661d26c0bd7f8cc3ecee3b0ace.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 24652
+    },
+    "updated_at": "2024-07-25T21:33:02.000000Z"
+  },
+  "125": {
+    "id": 125,
+    "name": "Spiral Gyrations",
+    "author": "Oasis Mini",
+    "image": "2024/02/bfe3669fb18b99ba153bb07c2ea1d223.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 18449
+    },
+    "updated_at": "2024-07-25T21:32:57.000000Z"
+  },
+  "119": {
+    "id": 119,
+    "name": "Spiral In to Out",
+    "author": "Oasis Mini",
+    "image": "2024/02/f52427297697620a11131d037078fa2e.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 6509
+    },
+    "updated_at": "2024-07-25T21:32:56.000000Z"
+  },
+  "117": {
+    "id": 117,
+    "name": "Spiral Out to In",
+    "author": "Oasis Mini",
+    "image": "2024/03/4402aad108bb2a5c100b9f150ea3d97b.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 6628
+    },
+    "updated_at": "2024-07-25T21:32:56.000000Z"
+  },
+  "20": {
+    "id": 20,
+    "name": "SpiralizedWeb",
+    "author": "Zach",
+    "image": "2024/02/99e4863256d8ffb5f3b5239f19e2270b.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 13603
+    },
+    "updated_at": "2024-07-25T21:32:54.000000Z"
+  },
+  "126": {
+    "id": 126,
+    "name": "Spun Web",
+    "author": "Zach",
+    "image": "2024/02/99e4863256d8ffb5f3b5239f19e2270b.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 13603
+    },
+    "updated_at": "2024-07-25T21:32:57.000000Z"
+  },
+  "267": {
+    "id": 267,
+    "name": "Squid",
+    "author": "Camila Veiga",
+    "image": "2024/05/948f8d6eb814ce3a21e5a76ed90b3ea4.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 7231
+    },
+    "updated_at": "2024-07-25T21:33:38.000000Z"
+  },
+  "175": {
+    "id": 175,
+    "name": "Squirrel",
+    "author": "Camila Veiga",
+    "image": "2024/05/57981d2262e861b1b36ee842cff8b0d8.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 19034
+    },
+    "updated_at": "2024-07-25T21:33:02.000000Z"
+  },
+  "544": {
+    "id": 544,
+    "name": "Star round",
+    "author": "Codie Johnston",
+    "image": "2024/07/5e05532a764a109b090abc06f217f62e.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 13857
+    },
+    "updated_at": "2024-07-30T20:31:59.000000Z"
+  },
+  "517": {
+    "id": 517,
+    "name": "Starburst",
+    "author": "001547.d33e09ec63fb4259a31a494ad194e028.0314",
+    "image": "2024/06/ec2c03a42db75c33ddf677c6ac52e7b3.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 27407
+    },
+    "updated_at": "2024-07-29T14:23:05.000000Z"
+  },
+  "265": {
+    "id": 265,
+    "name": "Starfish",
+    "author": "Camila Veiga",
+    "image": "2024/05/a05aa52a44f34da15ddb1f5a3009fc1d.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 11193
+    },
+    "updated_at": "2024-07-25T21:33:38.000000Z"
+  },
+  "115": {
+    "id": 115,
+    "name": "String ray",
+    "author": "Camila Veiga",
+    "image": "2024/02/ca0d18b5213d4a18e0fabe76d4170247.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 10852
+    },
+    "updated_at": "2024-07-25T21:32:56.000000Z"
+  },
+  "245": {
+    "id": 245,
+    "name": "Sunflower",
+    "author": "Camila Veiga",
+    "image": "2024/05/bf6e4b6d739226139ced981ba9e38f60.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 17628
+    },
+    "updated_at": "2024-07-25T21:33:37.000000Z"
+  },
+  "208": {
+    "id": 208,
+    "name": "Swallow",
+    "author": "Leuerken",
+    "image": "2024/03/026f52b5e539f1dd14215c751923024e.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 40248
+    },
+    "updated_at": "2024-07-29T15:17:32.000000Z"
+  },
+  "370": {
+    "id": 370,
+    "name": "Swirl",
+    "author": "Matt",
+    "image": "2024/05/156a6da37221c44878cd3c155f1d6918.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 5122
+    },
+    "updated_at": "2024-07-25T21:35:27.000000Z"
+  },
+  "161": {
+    "id": 161,
+    "name": "T-Rex",
+    "author": "Oasis Mini",
+    "image": "2024/03/3829ea91a3af828e7046f473707b0627.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 22220
+    },
+    "updated_at": "2024-07-25T21:33:02.000000Z"
+  },
+  "223": {
+    "id": 223,
+    "name": "The Knot",
+    "author": "Leuerken",
+    "image": "2024/03/63013ee4146acb3af028949f98944bd9.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 51297
+    },
+    "updated_at": "2024-07-25T21:33:36.000000Z"
+  },
+  "308": {
+    "id": 308,
+    "name": "The Noise",
+    "author": "Matt",
+    "image": "2024/05/765c11e5dda140b236075b912731f69f.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 3305
+    },
+    "updated_at": "2024-07-25T21:34:59.000000Z"
+  },
+  "1137": {
+    "id": 1137,
+    "name": "Tiger",
+    "author": "Otávio Bittencourt",
+    "image": "2024/07/02da0d000c200fb8cab3f1d38a90e077.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 29085
+    },
+    "updated_at": "2024-07-28T21:53:32.000000Z"
+  },
+  "528": {
+    "id": 528,
+    "name": "Tight spiral in to out",
+    "author": "Codie Johnston",
+    "image": "2024/06/82360f9b4c9dc169bceb99a1b4a3a13c.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 18775
+    },
+    "updated_at": "2024-07-29T18:48:05.000000Z"
+  },
+  "527": {
+    "id": 527,
+    "name": "Tight spiral out to in",
+    "author": "Codie Johnston",
+    "image": "2024/06/eef9f4aa33ca80e3f09e4c4661c6c80e.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 18775
+    },
+    "updated_at": "2024-07-29T18:48:02.000000Z"
+  },
+  "237": {
+    "id": 237,
+    "name": "Toy Poodle",
+    "author": "Camila Veiga",
+    "image": "2024/05/9f559796eac7691049af8dadda742ad8.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 6733
+    },
+    "updated_at": "2024-07-25T21:33:36.000000Z"
+  },
+  "130": {
+    "id": 130,
+    "name": "Tri-Circle",
+    "author": "Oasis Mini",
+    "image": "2024/02/0a41c8694c1cd6559baafd82963286f6.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 32447
+    },
+    "updated_at": "2024-07-25T21:32:59.000000Z"
+  },
+  "135": {
+    "id": 135,
+    "name": "Triforce",
+    "author": "Oasis Mini",
+    "image": "2024/02/fefeea07184b4597243ba7b2dd2711fa.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 14843
+    },
+    "updated_at": "2024-07-25T21:33:00.000000Z"
+  },
+  "247": {
+    "id": 247,
+    "name": "Tropical Frog",
+    "author": "Oasis Mini",
+    "image": "2024/05/24f51e96925b83d64c8f63bd6c1b36b4.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 14870
+    },
+    "updated_at": "2024-07-25T21:33:37.000000Z"
+  },
+  "242": {
+    "id": 242,
+    "name": "Tropical Monkey texture",
+    "author": "Camila Veiga",
+    "image": "2024/05/6358af0a11dfa985f61bd9a7dec90fd3.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 19370
+    },
+    "updated_at": "2024-07-25T21:33:36.000000Z"
+  },
+  "248": {
+    "id": 248,
+    "name": "Tropical Snake",
+    "author": "Camila Veiga",
+    "image": "2024/05/d5bf2ba5d6417196d106b4da756035a1.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 20906
+    },
+    "updated_at": "2024-07-25T21:33:37.000000Z"
+  },
+  "54": {
+    "id": 54,
+    "name": "Tucan",
+    "author": "Camila Veiga",
+    "image": "2024/02/699dd2fff292f1104f8dbdf60f187043.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 7294
+    },
+    "updated_at": "2024-07-25T21:32:54.000000Z"
+  },
+  "176": {
+    "id": 176,
+    "name": "Tulips",
+    "author": "Camila Veiga",
+    "image": "2024/02/876563c5bafafee7e31c7ed96a846e00.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 4057
+    },
+    "updated_at": "2024-07-25T21:33:02.000000Z"
+  },
+  "120": {
+    "id": 120,
+    "name": "Turtle",
+    "author": "Junior Veloso",
+    "image": "2024/02/0dde4cf30929697c9d9145145771db31.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 20527
+    },
+    "updated_at": "2024-07-25T21:32:57.000000Z"
+  },
+  "218": {
+    "id": 218,
+    "name": "Unicorn",
+    "author": "Leuerken",
+    "image": "2024/03/ed353a6e18917d9c2df0e4278e59b01d.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 53327
+    },
+    "updated_at": "2024-07-25T21:33:10.000000Z"
+  },
+  "124": {
+    "id": 124,
+    "name": "Warped Reuleaux",
+    "author": "Oasis Mini",
+    "image": "2024/02/a2aa2e71910c96680f78b65b81201b61.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 17081
+    },
+    "updated_at": "2024-07-25T21:32:57.000000Z"
+  },
+  "127": {
+    "id": 127,
+    "name": "Warped Squares",
+    "author": "Oasis Mini",
+    "image": "2024/02/8042b0f37b0cb37c739ac64e754ab774.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 8464
+    },
+    "updated_at": "2024-07-25T21:32:57.000000Z"
   },
   "555": {
+    "id": 555,
     "name": "Wavy dude",
     "author": "Codie Johnston",
-    "image": "2024/07/8d252eed81664c520381cc21c8c3d86d.svg"
+    "image": "2024/07/8d252eed81664c520381cc21c8c3d86d.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 11325
+    },
+    "updated_at": "2024-07-31T11:38:03.000000Z"
+  },
+  "519": {
+    "id": 519,
+    "name": "Web",
+    "author": "000653.17c9b352828247bd858234a2a114f79b.1358",
+    "image": "2024/06/9c05e1e19cb5ecf6e156e44a8a8829e5.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 4562
+    },
+    "updated_at": "2024-07-29T15:30:02.000000Z"
+  },
+  "169": {
+    "id": 169,
+    "name": "Whale",
+    "author": "Oasis Mini",
+    "image": "2024/03/283e1c9b6ee397a7822c58af01fcbbc3.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 8397
+    },
+    "updated_at": "2024-07-25T21:33:02.000000Z"
+  },
+  "287": {
+    "id": 287,
+    "name": "Windmill",
+    "author": "Matt",
+    "image": "2024/05/bcad3d06339ec7a345420191b7201ce1.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 22643
+    },
+    "updated_at": "2024-07-25T21:34:04.000000Z"
+  },
+  "500": {
+    "id": 500,
+    "name": "Wipe Left to Right",
+    "author": "Xilufer",
+    "image": "2024/06/3bdc415360a6466cf6245527bf85bd29.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 3335
+    },
+    "updated_at": "2024-07-25T21:35:33.000000Z"
+  },
+  "498": {
+    "id": 498,
+    "name": "Wipe Top to Bottom",
+    "author": "Xilufer",
+    "image": "2024/06/56b0cb09f15b44bac418ee2d1ed1940e.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 3335
+    },
+    "updated_at": "2024-07-25T21:35:33.000000Z"
+  },
+  "77": {
+    "id": 77,
+    "name": "Wolf head",
+    "author": "Camila Veiga",
+    "image": "2024/02/0c35befdb13ab7702f4c3b71371bf75c.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 11524
+    },
+    "updated_at": "2024-07-25T21:32:55.000000Z"
+  },
+  "360": {
+    "id": 360,
+    "name": "Woodpecker",
+    "author": "Camila Veiga",
+    "image": "2024/05/95ea026589751d7fca381f2c3df9380d.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 5973
+    },
+    "updated_at": "2024-07-25T21:35:26.000000Z"
+  },
+  "536": {
+    "id": 536,
+    "name": "Yin yang",
+    "author": "001547.d33e09ec63fb4259a31a494ad194e028.0314",
+    "image": "2024/07/36fe669628c5e4dfd6d33a263196a750.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 26670
+    },
+    "updated_at": "2024-07-29T22:31:03.000000Z"
+  },
+  "437": {
+    "id": 437,
+    "name": "Yorkshire",
+    "author": "Otávio Bittencourt",
+    "image": "2024/06/be59f584c87cfff3aa13e5887a69e183.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 23212
+    },
+    "updated_at": "2024-07-25T21:35:32.000000Z"
   }
 }

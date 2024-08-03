@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from datetime import timedelta
+import logging
 from typing import Any
 
 from homeassistant.components.update import (
@@ -18,6 +19,8 @@ from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from .const import DOMAIN
 from .coordinator import OasisMiniCoordinator
 from .entity import OasisMiniEntity
+
+_LOGGER = logging.getLogger(__name__)
 
 SCAN_INTERVAL = timedelta(hours=6)
 
@@ -75,6 +78,9 @@ class OasisMiniUpdateEntity(OasisMiniEntity, UpdateEntity):
         """Update the entity."""
         await self.device.async_get_software_version()
         software = await self.device.async_cloud_get_latest_software_details()
+        if not software:
+            _LOGGER.warning("Unable to get latest software details")
+            return
         self._attr_latest_version = software["version"]
         self._attr_release_summary = software["description"]
         self._attr_release_url = f"https://app.grounded.so/software/{software['id']}"

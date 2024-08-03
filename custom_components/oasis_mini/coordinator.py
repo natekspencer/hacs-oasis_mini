@@ -47,15 +47,14 @@ class OasisMiniCoordinator(DataUpdateCoordinator[str]):
                 if not self.device.software_version:
                     await self.device.async_get_software_version()
                 data = await self.device.async_get_status()
+                self.attempt = 0
                 await self.device.async_get_current_track_details()
                 await self.device.async_get_playlist_details()
         except Exception as ex:  # pylint:disable=broad-except
-            if self.attempt > 2 or not self.data:
+            if self.attempt > 2 or not (data or self.data):
                 raise UpdateFailed(
                     f"Couldn't read from the Oasis Mini after {self.attempt} attempts"
                 ) from ex
-        else:
-            self.attempt = 0
 
         if data != self.data:
             self.last_updated = datetime.now()

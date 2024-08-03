@@ -39,7 +39,7 @@ async def async_setup_entry(
 
 async def play_random_track(device: OasisMini) -> None:
     """Play random track."""
-    track = int(random.choice(list(TRACKS)))
+    track = random.choice(list(TRACKS))
     await add_and_play_track(device, track)
 
 
