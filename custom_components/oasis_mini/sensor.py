@@ -7,29 +7,29 @@ from homeassistant.components.sensor import (
     SensorEntityDescription,
     SensorStateClass,
 )
-from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import PERCENTAGE, EntityCategory
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
-from .const import DOMAIN
+from . import OasisMiniConfigEntry
 from .coordinator import OasisMiniCoordinator
 from .entity import OasisMiniEntity
 
 
 async def async_setup_entry(
-    hass: HomeAssistant, entry: ConfigEntry, async_add_entities: AddEntitiesCallback
+    hass: HomeAssistant,
+    entry: OasisMiniConfigEntry,
+    async_add_entities: AddEntitiesCallback,
 ) -> None:
     """Set up Oasis Mini sensors using config entry."""
-    coordinator: OasisMiniCoordinator = hass.data[DOMAIN][entry.entry_id]
+    coordinator: OasisMiniCoordinator = entry.runtime_data
     entities = [
-        OasisMiniSensorEntity(coordinator, entry, descriptor)
-        for descriptor in DESCRIPTORS
+        OasisMiniSensorEntity(coordinator, descriptor) for descriptor in DESCRIPTORS
     ]
     if coordinator.device.access_token:
         entities.extend(
             [
-                OasisMiniSensorEntity(coordinator, entry, descriptor)
+                OasisMiniSensorEntity(coordinator, descriptor)
                 for descriptor in CLOUD_DESCRIPTORS
             ]
         )

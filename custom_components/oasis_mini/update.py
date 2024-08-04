@@ -12,11 +12,10 @@ from homeassistant.components.update import (
     UpdateEntityDescription,
     UpdateEntityFeature,
 )
-from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
-from .const import DOMAIN
+from . import OasisMiniConfigEntry
 from .coordinator import OasisMiniCoordinator
 from .entity import OasisMiniEntity
 
@@ -26,14 +25,14 @@ SCAN_INTERVAL = timedelta(hours=6)
 
 
 async def async_setup_entry(
-    hass: HomeAssistant, entry: ConfigEntry, async_add_entities: AddEntitiesCallback
+    hass: HomeAssistant,
+    entry: OasisMiniConfigEntry,
+    async_add_entities: AddEntitiesCallback,
 ) -> None:
     """Set up Oasis Mini updates using config entry."""
-    coordinator: OasisMiniCoordinator = hass.data[DOMAIN][entry.entry_id]
+    coordinator: OasisMiniCoordinator = entry.runtime_data
     if coordinator.device.access_token:
-        async_add_entities(
-            [OasisMiniUpdateEntity(coordinator, entry, DESCRIPTOR)], True
-        )
+        async_add_entities([OasisMiniUpdateEntity(coordinator, DESCRIPTOR)], True)
 
 
 DESCRIPTOR = UpdateEntityDescription(

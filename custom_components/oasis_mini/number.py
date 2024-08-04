@@ -7,12 +7,10 @@ from homeassistant.components.number import (
     NumberEntityDescription,
     NumberMode,
 )
-from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
-from .const import DOMAIN
-from .coordinator import OasisMiniCoordinator
+from . import OasisMiniConfigEntry
 from .entity import OasisMiniEntity
 from .pyoasismini import BALL_SPEED_MAX, BALL_SPEED_MIN, LED_SPEED_MAX, LED_SPEED_MIN
 
@@ -53,13 +51,14 @@ DESCRIPTORS = {
 
 
 async def async_setup_entry(
-    hass: HomeAssistant, entry: ConfigEntry, async_add_entities: AddEntitiesCallback
+    hass: HomeAssistant,
+    entry: OasisMiniConfigEntry,
+    async_add_entities: AddEntitiesCallback,
 ) -> None:
     """Set up Oasis Mini numbers using config entry."""
-    coordinator: OasisMiniCoordinator = hass.data[DOMAIN][entry.entry_id]
     async_add_entities(
         [
-            OasisMiniNumberEntity(coordinator, entry, descriptor)
+            OasisMiniNumberEntity(entry.runtime_data, descriptor)
             for descriptor in DESCRIPTORS
         ]
     )

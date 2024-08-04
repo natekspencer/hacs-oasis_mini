@@ -14,6 +14,8 @@ from .const import DOMAIN
 from .coordinator import OasisMiniCoordinator
 from .helpers import create_client
 
+type OasisMiniConfigEntry = ConfigEntry[OasisMiniCoordinator]
+
 _LOGGER = logging.getLogger(__name__)
 
 PLATFORMS = [
@@ -29,9 +31,8 @@ PLATFORMS = [
 ]
 
 
-async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
+async def async_setup_entry(hass: HomeAssistant, entry: OasisMiniConfigEntry) -> bool:
     """Set up Oasis Mini from a config entry."""
-    hass.data.setdefault(DOMAIN, {})
     client = create_client(entry.data | entry.options)
     coordinator = OasisMiniCoordinator(hass, client)
 
@@ -62,7 +63,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         await client.session.close()
         raise ConfigEntryError("Serial number mismatch")
 
-    hass.data[DOMAIN][entry.entry_id] = coordinator
+    entry.runtime_data = coordinator
 
     await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
 
@@ -70,15 +71,13 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     return True
 
 
-async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
+async def async_unload_entry(hass: HomeAssistant, entry: OasisMiniConfigEntry) -> bool:
     """Unload a config entry."""
-    if unload_ok := await hass.config_entries.async_unload_platforms(entry, PLATFORMS):
-        await hass.data[DOMAIN][entry.entry_id].device.session.close()
-        del hass.data[DOMAIN][entry.entry_id]
-    return unload_ok
+    await entry.runtime_data.device.session.close()
+    return await hass.config_entries.async_unload_platforms(entry, PLATFORMS)
 
 
-async def async_remove_entry(hass: HomeAssistant, entry: ConfigEntry) -> None:
+async def async_remove_entry(hass: HomeAssistant, entry: OasisMiniConfigEntry) -> None:
     """Handle removal of an entry."""
     if entry.options:
         client = create_client(entry.data | entry.options)
@@ -86,6 +85,6 @@ async def async_remove_entry(hass: HomeAssistant, entry: ConfigEntry) -> None:
         await client.session.close()
 
 
-async def update_listener(hass: HomeAssistant, entry: ConfigEntry) -> None:
+async def update_listener(hass: HomeAssistant, entry: OasisMiniConfigEntry) -> None:
     """Handle options update."""
     await hass.config_entries.async_reload(entry.entry_id)
