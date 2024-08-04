@@ -14,7 +14,6 @@ from homeassistant.components.light import (
     LightEntityDescription,
     LightEntityFeature,
 )
-from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.util.color import (
@@ -24,8 +23,7 @@ from homeassistant.util.color import (
     value_to_brightness,
 )
 
-from .const import DOMAIN
-from .coordinator import OasisMiniCoordinator
+from . import OasisMiniConfigEntry
 from .entity import OasisMiniEntity
 from .pyoasismini import LED_EFFECTS
 
@@ -110,8 +108,9 @@ DESCRIPTOR = LightEntityDescription(key="led", name="LED")
 
 
 async def async_setup_entry(
-    hass: HomeAssistant, entry: ConfigEntry, async_add_entities: AddEntitiesCallback
+    hass: HomeAssistant,
+    entry: OasisMiniConfigEntry,
+    async_add_entities: AddEntitiesCallback,
 ) -> None:
     """Set up Oasis Mini lights using config entry."""
-    coordinator: OasisMiniCoordinator = hass.data[DOMAIN][entry.entry_id]
-    async_add_entities([OasisMiniLightEntity(coordinator, entry, DESCRIPTOR)])
+    async_add_entities([OasisMiniLightEntity(entry.runtime_data, DESCRIPTOR)])

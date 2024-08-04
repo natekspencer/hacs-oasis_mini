@@ -3,12 +3,11 @@
 from __future__ import annotations
 
 from homeassistant.components.image import Image, ImageEntity, ImageEntityDescription
-from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.typing import UNDEFINED
 
-from .const import DOMAIN
+from . import OasisMiniConfigEntry
 from .coordinator import OasisMiniCoordinator
 from .entity import OasisMiniEntity
 from .pyoasismini.const import TRACKS
@@ -25,13 +24,10 @@ class OasisMiniImageEntity(OasisMiniEntity, ImageEntity):
     _progress: int = 0
 
     def __init__(
-        self,
-        coordinator: OasisMiniCoordinator,
-        entry_id: str,
-        description: ImageEntityDescription,
+        self, coordinator: OasisMiniCoordinator, description: ImageEntityDescription
     ) -> None:
         """Initialize the entity."""
-        super().__init__(coordinator, entry_id, description)
+        super().__init__(coordinator, description)
         ImageEntity.__init__(self, coordinator.hass)
         self._handle_coordinator_update()
 
@@ -70,8 +66,9 @@ class OasisMiniImageEntity(OasisMiniEntity, ImageEntity):
 
 
 async def async_setup_entry(
-    hass: HomeAssistant, entry: ConfigEntry, async_add_entities: AddEntitiesCallback
+    hass: HomeAssistant,
+    entry: OasisMiniConfigEntry,
+    async_add_entities: AddEntitiesCallback,
 ) -> None:
     """Set up Oasis Mini camera using config entry."""
-    coordinator: OasisMiniCoordinator = hass.data[DOMAIN][entry.entry_id]
-    async_add_entities([OasisMiniImageEntity(coordinator, entry, IMAGE)])
+    async_add_entities([OasisMiniImageEntity(entry.runtime_data, IMAGE)])

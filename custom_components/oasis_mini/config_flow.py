@@ -11,7 +11,7 @@ from httpx import ConnectError, HTTPStatusError
 import voluptuous as vol
 
 from homeassistant.components import dhcp
-from homeassistant.config_entries import ConfigEntry, ConfigFlow, ConfigFlowResult
+from homeassistant.config_entries import ConfigFlow, ConfigFlowResult
 from homeassistant.const import CONF_ACCESS_TOKEN, CONF_EMAIL, CONF_HOST, CONF_PASSWORD
 from homeassistant.core import callback
 from homeassistant.helpers.schema_config_entry_flow import (
@@ -21,6 +21,7 @@ from homeassistant.helpers.schema_config_entry_flow import (
     SchemaOptionsFlowHandler,
 )
 
+from . import OasisMiniConfigEntry
 from .const import DOMAIN
 from .coordinator import OasisMiniCoordinator
 from .helpers import create_client
@@ -38,9 +39,7 @@ async def cloud_login(
     handler: SchemaCommonFlowHandler, user_input: dict[str, Any]
 ) -> dict[str, Any]:
     """Cloud login."""
-    coordinator: OasisMiniCoordinator = handler.parent_handler.hass.data[DOMAIN][
-        handler.parent_handler.config_entry.entry_id
-    ]
+    coordinator: OasisMiniCoordinator = handler.parent_handler.config_entry.runtime_data
 
     try:
         await coordinator.device.async_cloud_login(
@@ -66,7 +65,9 @@ class OasisMiniConfigFlow(ConfigFlow, domain=DOMAIN):
 
     @staticmethod
     @callback
-    def async_get_options_flow(config_entry: ConfigEntry) -> SchemaOptionsFlowHandler:
+    def async_get_options_flow(
+        config_entry: OasisMiniConfigEntry,
+    ) -> SchemaOptionsFlowHandler:
         """Get the options flow for this handler."""
         return SchemaOptionsFlowHandler(config_entry, OPTIONS_FLOW)
 

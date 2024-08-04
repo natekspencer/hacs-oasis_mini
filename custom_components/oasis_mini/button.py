@@ -11,13 +11,11 @@ from homeassistant.components.button import (
     ButtonEntity,
     ButtonEntityDescription,
 )
-from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import EntityCategory
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
-from .const import DOMAIN
-from .coordinator import OasisMiniCoordinator
+from . import OasisMiniConfigEntry
 from .entity import OasisMiniEntity
 from .helpers import add_and_play_track
 from .pyoasismini import OasisMini
@@ -25,13 +23,14 @@ from .pyoasismini.const import TRACKS
 
 
 async def async_setup_entry(
-    hass: HomeAssistant, entry: ConfigEntry, async_add_entities: AddEntitiesCallback
+    hass: HomeAssistant,
+    entry: OasisMiniConfigEntry,
+    async_add_entities: AddEntitiesCallback,
 ) -> None:
     """Set up Oasis Mini button using config entry."""
-    coordinator: OasisMiniCoordinator = hass.data[DOMAIN][entry.entry_id]
     async_add_entities(
         [
-            OasisMiniButtonEntity(coordinator, entry, descriptor)
+            OasisMiniButtonEntity(entry.runtime_data, descriptor)
             for descriptor in DESCRIPTORS
         ]
     )

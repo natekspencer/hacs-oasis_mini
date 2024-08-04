@@ -6,12 +6,11 @@ from dataclasses import dataclass
 from typing import Any, Awaitable, Callable
 
 from homeassistant.components.select import SelectEntity, SelectEntityDescription
-from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.entity import EntityDescription
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
-from .const import DOMAIN
+from . import OasisMiniConfigEntry
 from .coordinator import OasisMiniCoordinator
 from .entity import OasisMiniEntity
 from .pyoasismini import AUTOPLAY_MAP, OasisMini
@@ -36,11 +35,10 @@ class OasisMiniSelectEntity(OasisMiniEntity, SelectEntity):
     def __init__(
         self,
         coordinator: OasisMiniCoordinator,
-        entry: ConfigEntry[Any],
         description: EntityDescription,
     ) -> None:
         """Construct an Oasis Mini select entity."""
-        super().__init__(coordinator, entry, description)
+        super().__init__(coordinator, description)
         self._handle_coordinator_update()
 
     async def async_select_option(self, option: str) -> None:
@@ -105,13 +103,14 @@ DESCRIPTORS = (
 
 
 async def async_setup_entry(
-    hass: HomeAssistant, entry: ConfigEntry, async_add_entities: AddEntitiesCallback
+    hass: HomeAssistant,
+    entry: OasisMiniConfigEntry,
+    async_add_entities: AddEntitiesCallback,
 ) -> None:
     """Set up Oasis Mini select using config entry."""
-    coordinator: OasisMiniCoordinator = hass.data[DOMAIN][entry.entry_id]
     async_add_entities(
         [
-            OasisMiniSelectEntity(coordinator, entry, descriptor)
+            OasisMiniSelectEntity(entry.runtime_data, descriptor)
             for descriptor in DESCRIPTORS
         ]
     )

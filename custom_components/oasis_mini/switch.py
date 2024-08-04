@@ -5,23 +5,22 @@
 # from typing import Any
 
 # from homeassistant.components.switch import SwitchEntity, SwitchEntityDescription
-# from homeassistant.config_entries import ConfigEntry
 # from homeassistant.core import HomeAssistant
 # from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
-# from .const import DOMAIN
-# from .coordinator import OasisMiniCoordinator
+# from . import OasisMiniConfigEntry
 # from .entity import OasisMiniEntity
 
 
 # async def async_setup_entry(
-#     hass: HomeAssistant, entry: ConfigEntry, async_add_entities: AddEntitiesCallback
+#     hass: HomeAssistant,
+#     entry: OasisMiniConfigEntry,
+#     async_add_entities: AddEntitiesCallback,
 # ) -> None:
 #     """Set up Oasis Mini switchs using config entry."""
-#     coordinator: OasisMiniCoordinator = hass.data[DOMAIN][entry.entry_id]
 #     async_add_entities(
 #         [
-#             OasisMiniSwitchEntity(coordinator, entry, descriptor)
+#             OasisMiniSwitchEntity(entry.runtime_data, descriptor)
 #             for descriptor in DESCRIPTORS
 #         ]
 #     )

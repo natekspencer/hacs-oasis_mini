@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 from datetime import datetime
-import logging
 from typing import Any
 
 from homeassistant.components.media_player import (
@@ -15,17 +14,13 @@ from homeassistant.components.media_player import (
     MediaType,
     RepeatMode,
 )
-from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 from homeassistant.exceptions import ServiceValidationError
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
-from .const import DOMAIN
-from .coordinator import OasisMiniCoordinator
+from . import OasisMiniConfigEntry
 from .entity import OasisMiniEntity
 from .pyoasismini.const import TRACKS
-
-_LOGGER = logging.getLogger(__name__)
 
 
 class OasisMiniMediaPlayerEntity(OasisMiniEntity, MediaPlayerEntity):
@@ -201,8 +196,9 @@ DESCRIPTOR = MediaPlayerEntityDescription(key="oasis_mini", name=None)
 
 
 async def async_setup_entry(
-    hass: HomeAssistant, entry: ConfigEntry, async_add_entities: AddEntitiesCallback
+    hass: HomeAssistant,
+    entry: OasisMiniConfigEntry,
+    async_add_entities: AddEntitiesCallback,
 ) -> None:
     """Set up Oasis Mini media_players using config entry."""
-    coordinator: OasisMiniCoordinator = hass.data[DOMAIN][entry.entry_id]
-    async_add_entities([OasisMiniMediaPlayerEntity(coordinator, entry, DESCRIPTOR)])
+    async_add_entities([OasisMiniMediaPlayerEntity(entry.runtime_data, DESCRIPTOR)])
