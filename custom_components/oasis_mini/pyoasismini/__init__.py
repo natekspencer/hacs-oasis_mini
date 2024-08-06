@@ -2,10 +2,11 @@
 
 import asyncio
 import logging
-from typing import Any, Awaitable, Callable, Final
+from typing import Any, Awaitable, Final
 from urllib.parse import urljoin
 
 from aiohttp import ClientResponseError, ClientSession
+import async_timeout
 
 from .const import TRACKS
 from .utils import _bit_to_bool
@@ -32,25 +33,6 @@ AUTOPLAY_MAP = {
     "4": "30 minutes",
 }
 
-ATTRIBUTES: Final[list[tuple[str, Callable[[str], Any]]]] = [
-    ("status_code", int),  # see status code map
-    ("error", int),  # error, 0 = none, and 10 = ?, 18 = can't download?
-    ("ball_speed", int),  # 200 - 1000
-    ("playlist", lambda value: [int(track) for track in value.split(",") if track]),  # noqa: E501 # comma separated track ids
-    ("playlist_index", int),  # index of above
-    ("progress", int),  # 0 - max svg path
-    ("led_effect", str),  # led effect (code lookup)
-    ("led_color_id", str),  # led color id?
-    ("led_speed", int),  # -90 - 90
-    ("brightness", int),  # noqa: E501 # 0 - 200 in app, but seems to be 0 (off) to 304 (max), then repeats
-    ("color", str),  # hex color code
-    ("busy", _bit_to_bool),  # noqa: E501 # device is busy (downloading track, centering, software update)?
-    ("download_progress", int),  # 0 - 100%
-    ("max_brightness", int),
-    ("wifi_connected", _bit_to_bool),
-    ("repeat_playlist", _bit_to_bool),
-    ("autoplay", AUTOPLAY_MAP.get),
-]
 
 LED_EFFECTS: Final[dict[str, str]] = {
     "0": "Solid",
@@ -92,7 +74,7 @@ class OasisMini:
     autoplay: str
     brightness: int
     busy: bool
-    color: str
+    color: str | None = None
     download_progress: int
     error: int
     led_effect: str
@@ -223,14 +205,39 @@ class OasisMini:
 
     async def async_get_status(self) -> str:
         """Get the status from the device."""
-        status = await self._async_get(params={"GETSTATUS": ""})
-        _LOGGER.debug("Status: %s", status)
-        for index, value in enumerate(status.split(";")):
-            attr, func = ATTRIBUTES[index]
-            if (old_value := getattr(self, attr, None)) != (value := func(value)):
-                _LOGGER.debug("%s changed: '%s' -> '%s'", attr, old_value, value)
-                setattr(self, attr, value)
-        return status
+        raw_status = await self._async_get(params={"GETSTATUS": ""})
+        _LOGGER.debug("Status: %s", raw_status)
+        values = raw_status.split(";")
+        playlist = [int(track) for track in values[3].split(",") if track]
+        status = {
+            "status_code": int(values[0]),  # see status code map
+            "error": int(values[1]),  # noqa: E501; error, 0 = none, and 10 = ?, 18 = can't download?
+            "ball_speed": int(values[2]),  # 200 - 1000
+            "playlist": playlist,
+            "playlist_index": min(int(values[4]), len(playlist)),  # index of above
+            "progress": int(values[5]),  # 0 - max svg path
+            "led_effect": values[6],  # led effect (code lookup)
+            "led_color_id": values[7],  # led color id?
+            "led_speed": int(values[8]),  # -90 - 90
+            "brightness": int(values[9]) if values[10] else 0,  # noqa: E501; 0 - 200 in app, but seems to be 0 (off) to 304 (max), then repeats
+            "color": values[10] or None,  # hex color code
+            "busy": _bit_to_bool(values[11]),  # noqa: E501; device is busy (downloading track, centering, software update)?
+            "download_progress": int(values[12]),
+            "max_brightness": int(values[13]),
+            "wifi_connected": _bit_to_bool(values[14]),
+            "repeat_playlist": _bit_to_bool(values[15]),
+            "autoplay": AUTOPLAY_MAP.get(values[16]),
+        }
+        for key, value in status.items():
+            if (old_value := getattr(self, key, None)) != value:
+                _LOGGER.debug(
+                    "%s changed: '%s' -> '%s'",
+                    key.replace("_", " ").capitalize(),
+                    old_value,
+                    value,
+                )
+                setattr(self, key, value)
+        return raw_status
 
     async def async_move_track(self, _from: int, _to: int) -> None:
         """Move a track in the playlist."""
@@ -278,7 +285,7 @@ class OasisMini:
         if led_effect is None:
             led_effect = self.led_effect
         if color is None:
-            color = self.color
+            color = self.color or "#ffffff"
         if led_speed is None:
             led_speed = self.led_speed
         if brightness is None:

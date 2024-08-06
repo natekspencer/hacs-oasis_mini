@@ -68,8 +68,10 @@ class OasisMiniLightEntity(OasisMiniEntity, LightEntity):
         return self.device.brightness > 0
 
     @property
-    def rgb_color(self) -> tuple[int, int, int]:
+    def rgb_color(self) -> tuple[int, int, int] | None:
         """Return the rgb color value [int, int, int]."""
+        if not self.device.color:
+            return None
         return rgb_hex_to_rgb_list(self.device.color.replace("#", ""))
 
     @property
