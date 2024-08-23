@@ -56,7 +56,7 @@ def draw_svg(track: dict, progress: int, model_id: str) -> str | None:
                         path.progress_arc_complete {{ stroke: {COLOR_DARK[1]}; }}
                         path.track {{ stroke: {COLOR_LIGHT_SHADE[1]}; }}
                         path.track_complete {{ stroke: {COLOR_MEDIUM_TINT[1]}; }}
-                    }}"""
+                    }}""".replace("\n", " ").strip()
 
                 group = SubElement(
                     svg,
