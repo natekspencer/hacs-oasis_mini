@@ -1,7 +1,10 @@
 name: Update tracks
 on:
   schedule:
-    - cron: "0 18 * * *"
+    - cron: "0 19 * * *"
+permissions:
+  contents: write
+  pull-requests: write
 jobs:
   tracks:
     name: Search and update new tracks
