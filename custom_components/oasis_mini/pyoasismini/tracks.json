@@ -32,6 +32,17 @@
     },
     "updated_at": "2024-08-23T15:50:14.000000Z"
   },
+  "2798": {
+    "id": 2798,
+    "name": "Angry T-rex",
+    "author": "Otávio Bittencourt",
+    "image": "2024/08/7afddeb8a81758a1c5d7a63e0a70e09b.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 68317
+    },
+    "updated_at": "2024-09-01T13:34:59.000000Z"
+  },
   "114": {
     "id": 114,
     "name": "Ant",
