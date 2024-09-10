@@ -615,6 +615,28 @@
     },
     "updated_at": "2024-08-04T15:59:31.000000Z"
   },
+  "891": {
+    "id": 891,
+    "name": "doug3",
+    "author": "Glenn Uranga",
+    "image": "2024/07/5c29464401b8a56711045bb3e9650274.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 52335
+    },
+    "updated_at": "2024-09-05T13:53:29.000000Z"
+  },
+  "888": {
+    "id": 888,
+    "name": "Dougs OctaSwitcher",
+    "author": "Glenn Uranga",
+    "image": "2024/07/3e85153eb87673cf0cb534a2daa53d66.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 51683
+    },
+    "updated_at": "2024-09-05T13:53:22.000000Z"
+  },
   "195": {
     "id": 195,
     "name": "Dragon",
@@ -999,6 +1021,17 @@
       "1": 31933
     },
     "updated_at": "2024-08-04T16:01:36.000000Z"
+  },
+  "896": {
+    "id": 896,
+    "name": "Hubcap",
+    "author": "Glenn Uranga",
+    "image": "2024/07/565216e030c9fa2a474c4f57366a5cc3.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 31933
+    },
+    "updated_at": "2024-09-05T13:54:29.000000Z"
   },
   "100": {
     "id": 100,
@@ -1627,6 +1660,17 @@
     },
     "updated_at": "2024-08-04T16:01:25.000000Z"
   },
+  "894": {
+    "id": 894,
+    "name": "SharpSawtooth",
+    "author": "Glenn Uranga",
+    "image": "2024/07/39a8d70dd3f74ee05e14520a54b84611.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 2797
+    },
+    "updated_at": "2024-09-05T13:53:53.000000Z"
+  },
   "390": {
     "id": 390,
     "name": "Sheep",
@@ -1824,6 +1868,17 @@
       "1": 13603
     },
     "updated_at": "2024-08-04T15:58:46.000000Z"
+  },
+  "897": {
+    "id": 897,
+    "name": "Spirograph Medallion",
+    "author": "Glenn Uranga",
+    "image": "2024/07/718f6b46b33fef8b5963be55f2bffded.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 20107
+    },
+    "updated_at": "2024-09-05T13:56:46.000000Z"
   },
   "1562": {
     "id": 1562,
@@ -2297,6 +2352,17 @@
       "1": 26670
     },
     "updated_at": "2024-08-04T16:01:36.000000Z"
+  },
+  "855": {
+    "id": 855,
+    "name": "Yin-Yang",
+    "author": "Glenn Uranga",
+    "image": "2024/07/36fe669628c5e4dfd6d33a263196a750.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 26670
+    },
+    "updated_at": "2024-09-05T13:52:22.000000Z"
   },
   "437": {
     "id": 437,
