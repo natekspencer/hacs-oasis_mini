@@ -30,9 +30,11 @@ async def update_tracks() -> None:
 
     updated_tracks: dict[int, dict[str, Any]] = {}
     for result in filter(lambda d: d["public"], data):
-        if (track_id := result["id"]) not in TRACKS or result["updated_at"] != TRACKS[
-            track_id
-        ].get("updated_at"):
+        if (
+            (track_id := result["id"]) not in TRACKS
+            or result["name"] != TRACKS[track_id].get("name")
+            or result["image"] != TRACKS[track_id].get("image")
+        ):
             print(f"Updating track {track_id}: {result["name"]}")
             track_info = await client.async_cloud_get_track_info(int(track_id))
             if not track_info:
@@ -46,7 +48,6 @@ async def update_tracks() -> None:
                 "image": result["image"],
                 "clean_pattern": track_info.get("cleanPattern", {}).get("id"),
                 "reduced_svg_content": track_info.get("reduced_svg_content"),
-                "updated_at": result["updated_at"],
             }
     await client.session.close()
 
