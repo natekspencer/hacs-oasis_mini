@@ -2417,6 +2417,16 @@
       "1": 34188
     }
   },
+  "1317": {
+    "id": 1317,
+    "name": "Spiralized Star",
+    "author": "Asher Armstrong",
+    "image": "2024/07/db716c1ff852ea8fb42e2ba6e636e858.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 14113
+    }
+  },
   "20": {
     "id": 20,
     "name": "SpiralizedWeb",
@@ -2427,6 +2437,16 @@
       "1": 13603
     },
     "updated_at": "2024-08-04T15:58:46.000000Z"
+  },
+  "1319": {
+    "id": 1319,
+    "name": "spirograph 40.3",
+    "author": "Tyrel Schalamon",
+    "image": "2024/07/13292a14064da964b9683ab8c8cbf1a3.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 6002
+    }
   },
   "897": {
     "id": 897,
@@ -2461,6 +2481,16 @@
     },
     "updated_at": "2024-08-04T15:58:49.000000Z"
   },
+  "1162": {
+    "id": 1162,
+    "name": "SquareErase2",
+    "author": "Tyrel Schalamon",
+    "image": "2024/07/cd2fc97512c2cd54f779fd5f18a23ea9.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 52242
+    }
+  },
   "267": {
     "id": 267,
     "name": "Squid",
@@ -2482,6 +2512,16 @@
       "1": 19034
     },
     "updated_at": "2024-08-04T15:58:55.000000Z"
+  },
+  "962": {
+    "id": 962,
+    "name": "Star Box",
+    "author": "Doug",
+    "image": "2024/07/72c03247d41770ea3e86d1728fdad2a6.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 73634
+    }
   },
   "544": {
     "id": 544,
@@ -2593,6 +2633,16 @@
     },
     "updated_at": "2024-08-04T16:01:25.000000Z"
   },
+  "913": {
+    "id": 913,
+    "name": "Swirl Overlay",
+    "author": "Glenn Uranga",
+    "image": "2024/07/d5e76a3eb5fdf9f8ac89fe389b6d87e6.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 18482
+    }
+  },
   "161": {
     "id": 161,
     "name": "T-Rex",
@@ -2625,6 +2675,26 @@
       "1": 3305
     },
     "updated_at": "2024-08-04T16:00:58.000000Z"
+  },
+  "4071": {
+    "id": 4071,
+    "name": "The Scarecrows",
+    "author": "Otávio Bittencourt",
+    "image": "2024/09/4516465ff2febdd6267c545a4daf57d2.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 22881
+    }
+  },
+  "3499": {
+    "id": 3499,
+    "name": "The Witch",
+    "author": "Otávio Bittencourt",
+    "image": "2024/09/dd8b5f7f92fd2986ceb91f12c1fa3892.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 53479
+    }
   },
   "1137": {
     "id": 1137,
@@ -2669,6 +2739,16 @@
       "1": 6733
     },
     "updated_at": "2024-08-04T15:59:30.000000Z"
+  },
+  "1272": {
+    "id": 1272,
+    "name": "Treble Clef",
+    "author": "Amy Bryant",
+    "image": "2024/07/7d202812cca592f9e8f0ba8bc5ff5559.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 23707
+    }
   },
   "130": {
     "id": 130,
@@ -2824,6 +2904,16 @@
     },
     "updated_at": "2024-08-04T16:01:34.000000Z"
   },
+  "4006": {
+    "id": 4006,
+    "name": "Werewolf",
+    "author": "Otávio Bittencourt",
+    "image": "2024/09/9e936e5b8f064ed2f08f22a347201cb5.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 50212
+    }
+  },
   "169": {
     "id": 169,
     "name": "Whale",
@@ -2879,6 +2969,16 @@
     },
     "updated_at": "2024-08-23T15:50:35.000000Z"
   },
+  "1290": {
+    "id": 1290,
+    "name": "Wobbler",
+    "author": "Stanton",
+    "image": "2024/07/46715da750124caedfdccefcc2c496e7.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 5667
+    }
+  },
   "77": {
     "id": 77,
     "name": "Wolf head",
@@ -2922,6 +3022,16 @@
       "1": 26670
     },
     "updated_at": "2024-09-05T13:52:22.000000Z"
+  },
+  "1040": {
+    "id": 1040,
+    "name": "YinYang",
+    "author": "Tyrel Schalamon",
+    "image": "2024/07/eda90b3d9656b7caf7616e0965b1145d.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 37914
+    }
   },
   "437": {
     "id": 437,
