@@ -582,16 +582,6 @@
       "1": 18352
     }
   },
-  "1042": {
-    "id": 1042,
-    "name": "dither_sisinfturn",
-    "author": "Tyrel Schalamon",
-    "image": "2024/07/8e5c8aa3ce2edaa2a9465313d87efe09.svg",
-    "clean_pattern": 117,
-    "reduced_svg_content": {
-      "1": 43657
-    }
-  },
   "1041": {
     "id": 1041,
     "name": "dither_sunburst",
@@ -1100,6 +1090,16 @@
     },
     "updated_at": "2024-08-04T16:03:30.000000Z"
   },
+  "4262": {
+    "id": 4262,
+    "name": "Halloween Black Lagoon Creature",
+    "author": "Otávio Bittencourt",
+    "image": "2024/10/5edf52fa9fbcd86174887954eb15db23.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 26829
+    }
+  },
   "3818": {
     "id": 3818,
     "name": "Halloween Clown",
@@ -1110,6 +1110,26 @@
       "1": 79446
     }
   },
+  "4385": {
+    "id": 4385,
+    "name": "Halloween Gargoyle",
+    "author": "Otávio Bittencourt",
+    "image": "2024/10/4f90b6dd7b736d9447d08e88d9568067.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 41144
+    }
+  },
+  "4252": {
+    "id": 4252,
+    "name": "Halloween Phanton with Hat",
+    "author": "Otávio Bittencourt",
+    "image": "2024/10/0624d4f724dde00676b9598a950f66b4.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 28003
+    }
+  },
   "4063": {
     "id": 4063,
     "name": "Halloween Skull",
@@ -1118,6 +1138,26 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 24594
+    }
+  },
+  "4250": {
+    "id": 4250,
+    "name": "Halloween Smiling Phanton",
+    "author": "Otávio Bittencourt",
+    "image": "2024/10/a3930a14d34e60499f6d39500a16ebf1.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 29131
+    }
+  },
+  "4354": {
+    "id": 4354,
+    "name": "Halloween Troll",
+    "author": "Otávio Bittencourt",
+    "image": "2024/10/875dacf27c76630153a97db3478ffcd8.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 39032
     }
   },
   "2153": {
@@ -2084,6 +2124,16 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 21238
+    }
+  },
+  "4380": {
+    "id": 4380,
+    "name": "Sea Turtle 2",
+    "author": "Otávio Bittencourt",
+    "image": "2024/10/1d166a06a819b51f68712ea5e4a268dd.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 33963
     }
   },
   "172": {
