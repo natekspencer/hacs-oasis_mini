@@ -1,4 +1,64 @@
 {
+  "1750": {
+    "id": 1750,
+    "name": "19 Point Turn",
+    "author": "mgfxer",
+    "image": "2024/08/367653e4d96c0285807c5809efa73b17.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 30215
+    }
+  },
+  "2064": {
+    "id": 2064,
+    "name": "4 Pointed Star",
+    "author": "Ryan Smith",
+    "image": "2024/08/2594a3580b997ff1e132a7ffc2722bc2.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 3805
+    }
+  },
+  "2050": {
+    "id": 2050,
+    "name": "5 Loops",
+    "author": "Ryan Smith",
+    "image": "2024/08/1182c97dcb869028391bd8214e09848c.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 12222
+    }
+  },
+  "1959": {
+    "id": 1959,
+    "name": "5X-HEX-TRAIL",
+    "author": "mgfxer",
+    "image": "2024/08/36e9b0a8bb8a73f8f231a8ae8dbf8fcf.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 15981
+    }
+  },
+  "1671": {
+    "id": 1671,
+    "name": "6-Point-Petals",
+    "author": "mgfxer",
+    "image": "2024/08/843d7921041a9285d6a292adccb97f50.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 45051
+    }
+  },
+  "1667": {
+    "id": 1667,
+    "name": "6-Point-Star-Flow",
+    "author": "mgfxer",
+    "image": "2024/08/4322a496cde4f1058bb219494b17b91a.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 28457
+    }
+  },
   "131": {
     "id": 131,
     "name": "A Star",
@@ -40,6 +100,16 @@
       "1": 20859
     }
   },
+  "4975": {
+    "id": 4975,
+    "name": "Albert Einstein",
+    "author": "Otávio Bittencourt",
+    "image": "2024/11/42598729dff4bd8c4bf5e28108e1af93.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 28854
+    }
+  },
   "358": {
     "id": 358,
     "name": "Alligator",
@@ -50,6 +120,26 @@
       "1": 18384
     },
     "updated_at": "2024-08-04T16:01:25.000000Z"
+  },
+  "1819": {
+    "id": 1819,
+    "name": "Alt Piano",
+    "author": "Garrett Dorfman",
+    "image": "2024/08/73d302b3893364026bf6512dbd09a4c6.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 11287
+    }
+  },
+  "1570": {
+    "id": 1570,
+    "name": "Amber",
+    "author": "amber",
+    "image": "2024/08/359b79af0049f922fee73d1366919ea1.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 70892
+    }
   },
   "2798": {
     "id": 2798,
@@ -84,6 +174,16 @@
     },
     "updated_at": "2024-08-04T16:00:57.000000Z"
   },
+  "1651": {
+    "id": 1651,
+    "name": "Arc Wipe",
+    "author": "chris",
+    "image": "2024/08/b86dcda1fa6e517a55aa894ece2dcb45.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 15722
+    }
+  },
   "251": {
     "id": 251,
     "name": "Aries Ram",
@@ -105,6 +205,46 @@
       "1": 23127
     },
     "updated_at": "2024-08-04T15:59:31.000000Z"
+  },
+  "1955": {
+    "id": 1955,
+    "name": "AscendingLotus2",
+    "author": "Rachael",
+    "image": "2024/08/a6f343b2d757b360fb33cc0493ed2cd5.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 9255
+    }
+  },
+  "1961": {
+    "id": 1961,
+    "name": "Asymmetrical Spiral In to Out",
+    "author": "D. Villella",
+    "image": "2024/08/21525fd5a506a897e2b032730860c4d2.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 14269
+    }
+  },
+  "1962": {
+    "id": 1962,
+    "name": "Asymmetrical Spiral Out to In",
+    "author": "D. Villella",
+    "image": "2024/08/cba57065de169993b530dbe3d51da0f0.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 14268
+    }
+  },
+  "1996": {
+    "id": 1996,
+    "name": "Axolotl",
+    "author": "Jessi Allan",
+    "image": "2024/08/06a412191dbaf2e2afcd89fc3ee6dc5d.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 6879
+    }
   },
   "174": {
     "id": 174,
@@ -160,6 +300,26 @@
     },
     "updated_at": "2024-08-04T15:58:56.000000Z"
   },
+  "1858": {
+    "id": 1858,
+    "name": "Beach Day",
+    "author": "Parker Adzema",
+    "image": "2024/08/a6f662ca59d2fe54f64a388dfc5f7349.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 8693
+    }
+  },
+  "1972": {
+    "id": 1972,
+    "name": "Beach2",
+    "author": "Parker Adzema",
+    "image": "2024/08/95045874f02618824cce45f2892fb65a.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 6682
+    }
+  },
   "48": {
     "id": 48,
     "name": "Beatle01",
@@ -204,6 +364,16 @@
     },
     "updated_at": "2024-08-04T15:58:54.000000Z"
   },
+  "2051": {
+    "id": 2051,
+    "name": "Big Fan",
+    "author": "Ryan Smith",
+    "image": "2024/08/3c0e9412e4a1e4145354b34ff74e4415.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 7766
+    }
+  },
   "102": {
     "id": 102,
     "name": "Big Fish",
@@ -223,6 +393,16 @@
     "clean_pattern": 117,
     "reduced_svg_content": {
       "1": 29347
+    }
+  },
+  "1810": {
+    "id": 1810,
+    "name": "Boat V2",
+    "author": "Parker Adzema",
+    "image": "2024/08/724a4f837267fef89e93f247f1e2eee4.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 3920
     }
   },
   "56": {
@@ -279,6 +459,16 @@
       "1": 19449
     },
     "updated_at": "2024-08-04T16:01:43.000000Z"
+  },
+  "1751": {
+    "id": 1751,
+    "name": "Burst Power",
+    "author": "mgfxer",
+    "image": "2024/08/d27ec9005b0a21749ecda1fbc259f9a9.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 46848
+    }
   },
   "157": {
     "id": 157,
@@ -356,6 +546,46 @@
     },
     "updated_at": "2024-08-04T15:58:48.000000Z"
   },
+  "4961": {
+    "id": 4961,
+    "name": "Christmas Choir",
+    "author": "Otávio Bittencourt",
+    "image": "2024/11/019e252cc1d88f74049b9d3462d709db.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 74133
+    }
+  },
+  "5017": {
+    "id": 5017,
+    "name": "Christmas Sock",
+    "author": "Otávio Bittencourt",
+    "image": "2024/11/52e52eeb788896a816d187a65cbb2500.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 34112
+    }
+  },
+  "4833": {
+    "id": 4833,
+    "name": "Christmas Tree",
+    "author": "Otávio Bittencourt",
+    "image": "2024/10/479d56641ee28ba21bfc18856497f860.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 75841
+    }
+  },
+  "4842": {
+    "id": 4842,
+    "name": "Christmas Tree and Full Moon",
+    "author": "Otávio Bittencourt",
+    "image": "2024/10/1f7528ba4c10860c1cd454bccbbf59b8.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 70244
+    }
+  },
   "852": {
     "id": 852,
     "name": "ChristmasWreath3",
@@ -377,6 +607,26 @@
       "1": 35173
     }
   },
+  "1958": {
+    "id": 1958,
+    "name": "Circle Web",
+    "author": "Parker Durnell",
+    "image": "2024/08/bb3e11774513b325684cb75bdf36833e.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 12178
+    }
+  },
+  "1981": {
+    "id": 1981,
+    "name": "Cissoid Flower OO",
+    "author": "mgfxer",
+    "image": "2024/08/0ba9e4b935ba4dc7a4a9d0eb6efdf4be.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 46440
+    }
+  },
   "49": {
     "id": 49,
     "name": "Clam",
@@ -387,6 +637,36 @@
       "1": 5832
     },
     "updated_at": "2024-08-04T15:58:47.000000Z"
+  },
+  "1757": {
+    "id": 1757,
+    "name": "Clean Noise",
+    "author": "Ronnie Fortin",
+    "image": "2024/08/9214c99f5bb78a6c662629e53b96fd6e.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 27631
+    }
+  },
+  "1762": {
+    "id": 1762,
+    "name": "Clean Squares",
+    "author": "Ronnie Fortin",
+    "image": "2024/08/65f7460cc0d50d577d1f6ea4a37134f5.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 26444
+    }
+  },
+  "1862": {
+    "id": 1862,
+    "name": "Clean Sweep Snowflake",
+    "author": "D. Villella",
+    "image": "2024/08/143383f1a281911e34fcbe6d23154072.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 18213
+    }
   },
   "513": {
     "id": 513,
@@ -486,6 +766,16 @@
       "1": 46289
     }
   },
+  "1766": {
+    "id": 1766,
+    "name": "Coral maze",
+    "author": "Kim",
+    "image": "2024/08/98c5ec5a861ca94afe09bfb3a3336990.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 8680
+    }
+  },
   "264": {
     "id": 264,
     "name": "Crab",
@@ -507,6 +797,16 @@
       "1": 151537
     },
     "updated_at": "2024-08-04T15:59:10.000000Z"
+  },
+  "1697": {
+    "id": 1697,
+    "name": "Crazy Spiral",
+    "author": "001940.17beb07a5673461db76bf30df438e8b5.0444",
+    "image": "2024/08/bb4ccb9d01b3772da3b760a9b5000839.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 15472
+    }
   },
   "104": {
     "id": 104,
@@ -551,6 +851,26 @@
       "1": 8114
     },
     "updated_at": "2024-08-04T15:59:32.000000Z"
+  },
+  "1974": {
+    "id": 1974,
+    "name": "Cyclone 13x IO",
+    "author": "mgfxer",
+    "image": "2024/08/e47b21938ee06e98c3da82d4a506c6f3.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 14627
+    }
+  },
+  "1973": {
+    "id": 1973,
+    "name": "Cyclone 13x OI",
+    "author": "mgfxer",
+    "image": "2024/08/91841832b640a9354955777fa2277a54.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 14627
+    }
   },
   "919": {
     "id": 919,
@@ -679,6 +999,76 @@
       "1": 27407
     }
   },
+  "1997": {
+    "id": 1997,
+    "name": "Dizzy Cards",
+    "author": "D. Villella",
+    "image": "2024/08/2fcbb4ac26111e2c3df86fc1d75309e5.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 12865
+    }
+  },
+  "2069": {
+    "id": 2069,
+    "name": "Dizzy Fractal",
+    "author": "D. Villella",
+    "image": "2024/08/ba144eb489e3b8bdfa14a87675c5434e.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 8922
+    }
+  },
+  "1878": {
+    "id": 1878,
+    "name": "Dizzy Galaxy",
+    "author": "D. Villella",
+    "image": "2024/08/b676c15079777e0f31986217f9778c6a.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 32920
+    }
+  },
+  "1998": {
+    "id": 1998,
+    "name": "Dizzy Lotus",
+    "author": "D. Villella",
+    "image": "2024/08/7be1c824ba8eaa17ad7069d49b29d124.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 9312
+    }
+  },
+  "1864": {
+    "id": 1864,
+    "name": "Dizzy Reuleaux",
+    "author": "D. Villella",
+    "image": "2024/08/49f4b10db779ae36a6f4e0dfc32861b5.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 19273
+    }
+  },
+  "1879": {
+    "id": 1879,
+    "name": "Dizzy Star",
+    "author": "D. Villella",
+    "image": "2024/08/b47f5d6911a0871a57b7e472b39e2e8a.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 28126
+    }
+  },
+  "1788": {
+    "id": 1788,
+    "name": "DoDo Bird",
+    "author": "Kim",
+    "image": "2024/08/8f2e978abc169d19e8de078dea7b6120.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 5382
+    }
+  },
   "41": {
     "id": 41,
     "name": "Dog Beagle",
@@ -742,6 +1132,16 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 11711
+    }
+  },
+  "1991": {
+    "id": 1991,
+    "name": "Double Spiral Cycloid OO",
+    "author": "mgfxer",
+    "image": "2024/08/27bd4320ad8ec9c8bba4b22749875155.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 17026
     }
   },
   "891": {
@@ -820,6 +1220,26 @@
     },
     "updated_at": "2024-08-04T15:58:51.000000Z"
   },
+  "1977": {
+    "id": 1977,
+    "name": "EpiCycloid IO",
+    "author": "mgfxer",
+    "image": "2024/08/d3da0a3428710bb0dad376709ce1b72d.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 31794
+    }
+  },
+  "1976": {
+    "id": 1976,
+    "name": "EpiCycloid OI",
+    "author": "mgfxer",
+    "image": "2024/08/df1677634cb710857b5f50bd8dc4e43e.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 31794
+    }
+  },
   "219": {
     "id": 219,
     "name": "Face",
@@ -895,6 +1315,16 @@
     },
     "updated_at": "2024-08-04T16:01:43.000000Z"
   },
+  "1719": {
+    "id": 1719,
+    "name": "Flower",
+    "author": "Keith",
+    "image": "2024/08/77357ffc28933235849881409c66cb22.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 42338
+    }
+  },
   "907": {
     "id": 907,
     "name": "Flower Bubbles",
@@ -926,6 +1356,16 @@
       "1": 6469
     },
     "updated_at": "2024-08-04T16:01:40.000000Z"
+  },
+  "1691": {
+    "id": 1691,
+    "name": "Flower-Echo-Rounds",
+    "author": "mgfxer",
+    "image": "2024/08/2ac697be95b93a541b815e0ca179718e.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 42189
+    }
   },
   "87": {
     "id": 87,
@@ -1079,6 +1519,26 @@
     },
     "updated_at": "2024-08-04T16:01:24.000000Z"
   },
+  "1777": {
+    "id": 1777,
+    "name": "Great Wave",
+    "author": "Kim",
+    "image": "2024/08/2082c607fc20de9c221841713ae87db4.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 11995
+    }
+  },
+  "4683": {
+    "id": 4683,
+    "name": "Grinch",
+    "author": "Otávio Bittencourt",
+    "image": "2024/10/b1397e5b03e1d0f4314d103872c8be30.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 45724
+    }
+  },
   "953": {
     "id": 953,
     "name": "Grizzly bear",
@@ -1089,6 +1549,16 @@
       "1": 56731
     },
     "updated_at": "2024-08-04T16:03:30.000000Z"
+  },
+  "1817": {
+    "id": 1817,
+    "name": "Guitar",
+    "author": "Garrett Dorfman",
+    "image": "2024/08/cb55babfb9dc5fa679bcef0d4789ee6b.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 15656
+    }
   },
   "4262": {
     "id": 4262,
@@ -1225,6 +1695,26 @@
     },
     "updated_at": "2024-08-04T16:01:25.000000Z"
   },
+  "1669": {
+    "id": 1669,
+    "name": "Hexagon Spin",
+    "author": "mgfxer",
+    "image": "2024/08/95650c141980e6921a6e7b76bb1107b4.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 22110
+    }
+  },
+  "1574": {
+    "id": 1574,
+    "name": "Hexagonal Wipe",
+    "author": "mgfxer",
+    "image": "2024/08/e6f94b0d67a2cce356de5933f8817620.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 21898
+    }
+  },
   "893": {
     "id": 893,
     "name": "hexagoner",
@@ -1355,6 +1845,16 @@
     },
     "updated_at": "2024-08-04T15:58:47.000000Z"
   },
+  "2070": {
+    "id": 2070,
+    "name": "Infinity Star",
+    "author": "D. Villella",
+    "image": "2024/08/cc469680c75cedea40002df0589e2232.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 11413
+    }
+  },
   "139": {
     "id": 139,
     "name": "Intersection",
@@ -1463,6 +1963,16 @@
     },
     "updated_at": "2024-08-04T15:58:55.000000Z"
   },
+  "1881": {
+    "id": 1881,
+    "name": "Lighthouse at Sunset",
+    "author": "D. Villella",
+    "image": "2024/08/a40e50a71b476c1c371783f4d5af46b2.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 23780
+    }
+  },
   "121": {
     "id": 121,
     "name": "Line Wiper",
@@ -1550,6 +2060,16 @@
     },
     "updated_at": "2024-08-04T16:01:48.000000Z"
   },
+  "1516": {
+    "id": 1516,
+    "name": "Looping Fractal Spirograph",
+    "author": "Austin Adam",
+    "image": "2024/08/9b60b10c4de290a7269666761f344a9c.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 27001
+    }
+  },
   "128": {
     "id": 128,
     "name": "Loops",
@@ -1560,6 +2080,16 @@
       "1": 68851
     },
     "updated_at": "2024-08-04T15:58:50.000000Z"
+  },
+  "1812": {
+    "id": 1812,
+    "name": "LUCILE-SPIRAL",
+    "author": "mgfxer",
+    "image": "2024/08/f6e45b12efc28060fe8f158f57384416.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 38704
+    }
   },
   "188": {
     "id": 188,
@@ -1582,6 +2112,16 @@
       "1": 15294
     },
     "updated_at": "2024-08-04T15:58:47.000000Z"
+  },
+  "1688": {
+    "id": 1688,
+    "name": "Mandella",
+    "author": "Lerry",
+    "image": "2024/08/f6cd2539b665397e2db8bfcd8f84a77c.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 20347
+    }
   },
   "339": {
     "id": 339,
@@ -1637,6 +2177,16 @@
       "1": 11195
     },
     "updated_at": "2024-08-04T15:58:53.000000Z"
+  },
+  "1778": {
+    "id": 1778,
+    "name": "Monstera leaves",
+    "author": "Kim",
+    "image": "2024/08/653d016cb9731637f285f183fe307f07.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 6986
+    }
   },
   "202": {
     "id": 202,
