@@ -4054,6 +4054,26 @@
       "1": 6588
     }
   },
+  "1702": {
+    "id": 1702,
+    "name": "Web Wipe",
+    "author": "krista",
+    "image": "2024/08/5395cc7ee61f3f4922ba462b3f7c6ee0.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 7807
+    }
+  },
+  "1636": {
+    "id": 1636,
+    "name": "Web Wipe Coarse",
+    "author": "chris",
+    "image": "2024/08/7e84ab230e7dad6adce22f69b8135f89.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 11861
+    }
+  },
   "4006": {
     "id": 4006,
     "name": "Werewolf",
@@ -4074,6 +4094,16 @@
       "1": 8397
     },
     "updated_at": "2024-08-04T15:58:54.000000Z"
+  },
+  "2074": {
+    "id": 2074,
+    "name": "Wind Tunnel",
+    "author": "D. Villella",
+    "image": "2024/08/35862c088acd5d7eef7bbf2d6836a17c.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 23858
+    }
   },
   "287": {
     "id": 287,
@@ -4150,6 +4180,46 @@
       "1": 5973
     },
     "updated_at": "2024-08-04T16:01:25.000000Z"
+  },
+  "1689": {
+    "id": 1689,
+    "name": "wormhole twist",
+    "author": "Lerry",
+    "image": "2024/08/9c02f19cbf3f840b4e717657e02a3cea.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 18446
+    }
+  },
+  "2076": {
+    "id": 2076,
+    "name": "Woven Web",
+    "author": "D. Villella",
+    "image": "2024/08/41d2273f2038664d06198f0185160179.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 10252
+    }
+  },
+  "1940": {
+    "id": 1940,
+    "name": "X-Force IO",
+    "author": "mgfxer",
+    "image": "2024/08/68f4d129b0cd4526326d1a6720ac79cd.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 43899
+    }
+  },
+  "1943": {
+    "id": 1943,
+    "name": "X-Force OI",
+    "author": "mgfxer",
+    "image": "2024/08/4040b3fc347b8868ce67599ea974d452.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 41905
+    }
   },
   "536": {
     "id": 536,
