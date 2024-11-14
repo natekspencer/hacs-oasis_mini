@@ -2241,6 +2241,16 @@
       "1": 37611
     }
   },
+  "1502": {
+    "id": 1502,
+    "name": "New test",
+    "author": "Danny Corrigan",
+    "image": "2024/08/be95e756cd51740caea2af537a7af1f6.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 19653
+    }
+  },
   "3294": {
     "id": 3294,
     "name": "Nice Vampire",
@@ -2370,6 +2380,16 @@
     },
     "updated_at": "2024-08-04T15:58:46.000000Z"
   },
+  "1572": {
+    "id": 1572,
+    "name": "Pentagonal Wipe",
+    "author": "mgfxer",
+    "image": "2024/08/3e13af0c082b66c7d057c07ce8d723c3.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 36387
+    }
+  },
   "904": {
     "id": 904,
     "name": "Perlin Rings",
@@ -2380,6 +2400,16 @@
       "1": 38992
     }
   },
+  "1575": {
+    "id": 1575,
+    "name": "Perturbed Spiral",
+    "author": "mgfxer",
+    "image": "2024/08/e650c4a499cf0e8898652c33b846ffe2.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 24932
+    }
+  },
   "1048": {
     "id": 1048,
     "name": "Petalar",
@@ -2388,6 +2418,26 @@
     "clean_pattern": 117,
     "reduced_svg_content": {
       "1": 29912
+    }
+  },
+  "1643": {
+    "id": 1643,
+    "name": "Petals Spiral",
+    "author": "mgfxer",
+    "image": "2024/08/e99701254382fea36630c2aab6eb5155.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 14806
+    }
+  },
+  "1818": {
+    "id": 1818,
+    "name": "piano",
+    "author": "Garrett Dorfman",
+    "image": "2024/08/ac7e628207b911a475212620252d7ca9.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 17633
     }
   },
   "1278": {
@@ -2410,6 +2460,16 @@
       "1": 5915
     },
     "updated_at": "2024-08-04T15:58:52.000000Z"
+  },
+  "2072": {
+    "id": 2072,
+    "name": "Pinwheel",
+    "author": "D. Villella",
+    "image": "2024/08/2caac3d82dc7171e26fafca05386fa44.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 11560
+    }
   },
   "243": {
     "id": 243,
@@ -2527,6 +2587,16 @@
       "1": 109181
     }
   },
+  "5054": {
+    "id": 5054,
+    "name": "Reindeer",
+    "author": "Luany Camila",
+    "image": "2024/11/93c4d20735c07d8ee00cdd8c24e03647.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 25431
+    }
+  },
   "613": {
     "id": 613,
     "name": "Reverse",
@@ -2546,6 +2616,16 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 14362
+    }
+  },
+  "4800": {
+    "id": 4800,
+    "name": "Ripleys",
+    "author": "Otávio Bittencourt",
+    "image": "2024/10/6bb0e9e66f671fb8fd43dfc8605d9039.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 5839
     }
   },
   "1302": {
@@ -2600,6 +2680,56 @@
       "1": 16093
     },
     "updated_at": "2024-08-04T15:58:53.000000Z"
+  },
+  "1956": {
+    "id": 1956,
+    "name": "RoseHearts",
+    "author": "Rachael",
+    "image": "2024/08/e21cb2b8a8cec6933aa5f72831e3c7df.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 11368
+    }
+  },
+  "1749": {
+    "id": 1749,
+    "name": "Rotating Square Out-In",
+    "author": "mgfxer",
+    "image": "2024/08/363b153beb33e1dab776bae0f300d7ae.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 25930
+    }
+  },
+  "1748": {
+    "id": 1748,
+    "name": "Rotating Squares In-Out",
+    "author": "mgfxer",
+    "image": "2024/08/7debe0ef897a4b5da938f3af23495975.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 25930
+    }
+  },
+  "1469": {
+    "id": 1469,
+    "name": "Sailboat",
+    "author": "Parker Adzema",
+    "image": "2024/07/f0a6869394a417a115472772ba456fde.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 15406
+    }
+  },
+  "4580": {
+    "id": 4580,
+    "name": "Santa Claus",
+    "author": "Otávio Bittencourt",
+    "image": "2024/10/c6224c79ec4c7cf6ad350cdd85e36d0b.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 59249
+    }
   },
   "604": {
     "id": 604,
@@ -2719,6 +2849,16 @@
     },
     "updated_at": "2024-08-04T16:01:25.000000Z"
   },
+  "1820": {
+    "id": 1820,
+    "name": "Seattle",
+    "author": "Garrett Dorfman",
+    "image": "2024/08/881560d3350e9e1474e4b261eedbfcf6.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 8546
+    }
+  },
   "894": {
     "id": 894,
     "name": "SharpSawtooth",
@@ -2762,6 +2902,16 @@
       "1": 12822
     },
     "updated_at": "2024-08-04T15:58:57.000000Z"
+  },
+  "2018": {
+    "id": 2018,
+    "name": "Shooting star",
+    "author": "Jennifer Thole",
+    "image": "2024/08/181dfed6fd37ddc194c18699e0e09edd.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 9836
+    }
   },
   "149": {
     "id": 149,
@@ -2881,6 +3031,46 @@
     },
     "updated_at": "2024-08-23T15:51:05.000000Z"
   },
+  "1684": {
+    "id": 1684,
+    "name": "Snowflake",
+    "author": "Stephanie",
+    "image": "2024/08/f8a0bf39f328f49c633c195a2e274f9e.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 4116
+    }
+  },
+  "4803": {
+    "id": 4803,
+    "name": "Snowman Frosty",
+    "author": "Otávio Bittencourt",
+    "image": "2024/10/f3d1a3b2b8d8e14042d771d824fea4b2.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 47222
+    }
+  },
+  "1922": {
+    "id": 1922,
+    "name": "Sonic Spiral In to Out",
+    "author": "D. Villella",
+    "image": "2024/08/009ecfa5316a045237149a6f13cf08ba.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 14617
+    }
+  },
+  "1923": {
+    "id": 1923,
+    "name": "Sonic Spiral Out to In",
+    "author": "D. Villella",
+    "image": "2024/08/19adc96c6005c8f784f17577b90471a2.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 14617
+    }
+  },
   "821": {
     "id": 821,
     "name": "Space Filter - Hilbert",
@@ -2913,6 +3103,26 @@
       "1": 48011
     },
     "updated_at": "2024-08-23T15:51:29.000000Z"
+  },
+  "1468": {
+    "id": 1468,
+    "name": "Spider Web",
+    "author": "Ty Perry",
+    "image": "2024/07/ee9a778e9a89f8247da4ad7d36dba48d.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 6404
+    }
+  },
+  "1695": {
+    "id": 1695,
+    "name": "spiral",
+    "author": "001940.17beb07a5673461db76bf30df438e8b5.0444",
+    "image": "2024/08/5a0541b53f5b23d0ca5676221d457aa0.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 7852
+    }
   },
   "929": {
     "id": 929,
@@ -2957,6 +3167,26 @@
     },
     "updated_at": "2024-08-04T15:58:49.000000Z"
   },
+  "1679": {
+    "id": 1679,
+    "name": "spiral staircase",
+    "author": "chris",
+    "image": "2024/08/a14deca993a37d960a17389914765be6.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 62184
+    }
+  },
+  "1865": {
+    "id": 1865,
+    "name": "Spiral Web",
+    "author": "D. Villella",
+    "image": "2024/08/e701aad05fc4ef9939dfc5d436c68ce0.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 12992
+    }
+  },
   "1163": {
     "id": 1163,
     "name": "Spiral6",
@@ -2985,6 +3215,16 @@
     "clean_pattern": 117,
     "reduced_svg_content": {
       "1": 24171
+    }
+  },
+  "1872": {
+    "id": 1872,
+    "name": "SpiralGyrations",
+    "author": "andrea gray",
+    "image": "2024/08/2f4ab9c84611622b519ec09275982d76.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 18451
     }
   },
   "1336": {
@@ -3038,6 +3278,26 @@
     },
     "updated_at": "2024-08-04T15:58:46.000000Z"
   },
+  "2067": {
+    "id": 2067,
+    "name": "Spiro Star",
+    "author": "Ryan Smith",
+    "image": "2024/08/cd18c6455a991f879f9668c0c82e1802.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 17576
+    }
+  },
+  "1928": {
+    "id": 1928,
+    "name": "Spirograph",
+    "author": "Jeff Gavril",
+    "image": "2024/08/6ab5578a08e00b1f54b4430201928b62.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 6990
+    }
+  },
   "1319": {
     "id": 1319,
     "name": "spirograph 40.3",
@@ -3058,6 +3318,16 @@
       "1": 20107
     },
     "updated_at": "2024-09-05T13:56:46.000000Z"
+  },
+  "1557": {
+    "id": 1557,
+    "name": "SPIROGRAPH-33",
+    "author": "mgfxer",
+    "image": "2024/08/015bed929919f138814e29c4c0fb905f.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 32674
+    }
   },
   "1562": {
     "id": 1562,
@@ -3080,6 +3350,46 @@
       "1": 13603
     },
     "updated_at": "2024-08-04T15:58:49.000000Z"
+  },
+  "2027": {
+    "id": 2027,
+    "name": "Square Trail Spiral",
+    "author": "mgfxer",
+    "image": "2024/08/ddb200470fdcdd25e7f2b15ec3512fc0.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 19882
+    }
+  },
+  "1577": {
+    "id": 1577,
+    "name": "Square Wipe Course",
+    "author": "mgfxer",
+    "image": "2024/08/605411dadd2965ef4779fa5178e85170.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 21258
+    }
+  },
+  "1576": {
+    "id": 1576,
+    "name": "Square Wipe Fine",
+    "author": "mgfxer",
+    "image": "2024/08/034edccb537df01a263486a1b6a4314b.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 36086
+    }
+  },
+  "1851": {
+    "id": 1851,
+    "name": "SquareErase",
+    "author": "andrea gray",
+    "image": "2024/08/dd2844b7e92c513ad4315bfc5cae1a75.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 11898
+    }
   },
   "1162": {
     "id": 1162,
@@ -3113,6 +3423,16 @@
     },
     "updated_at": "2024-08-04T15:58:55.000000Z"
   },
+  "2073": {
+    "id": 2073,
+    "name": "Stained Glass Rosette",
+    "author": "D. Villella",
+    "image": "2024/08/a908b45d896adcc0edc6aeb3fd2e03db.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 10993
+    }
+  },
   "962": {
     "id": 962,
     "name": "Star Box",
@@ -3121,6 +3441,16 @@
     "clean_pattern": 117,
     "reduced_svg_content": {
       "1": 73634
+    }
+  },
+  "1642": {
+    "id": 1642,
+    "name": "Star Burst Wipe",
+    "author": "mgfxer",
+    "image": "2024/08/413a9a7314fbcf1d963520cb79a510ec.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 19945
     }
   },
   "544": {
@@ -3145,6 +3475,26 @@
     },
     "updated_at": "2024-08-23T15:52:32.000000Z"
   },
+  "1675": {
+    "id": 1675,
+    "name": "Star Thingy",
+    "author": "Chris Dancy",
+    "image": "2024/08/e99429b08a15d398e7e7bca23e825af0.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 15373
+    }
+  },
+  "1701": {
+    "id": 1701,
+    "name": "Star wipe",
+    "author": "krista",
+    "image": "2024/08/1f4a979c16a3f63be918f46bf9246a14.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 12208
+    }
+  },
   "517": {
     "id": 517,
     "name": "Starburst",
@@ -3166,6 +3516,16 @@
       "1": 11193
     },
     "updated_at": "2024-08-04T15:59:32.000000Z"
+  },
+  "1785": {
+    "id": 1785,
+    "name": "StarSpiral6pt",
+    "author": "Matt Heckmann",
+    "image": "2024/08/f2662349b366e86a4392208b9dc5b6b2.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 9497
+    }
   },
   "2567": {
     "id": 2567,
@@ -3200,6 +3560,16 @@
     },
     "updated_at": "2024-08-23T15:53:49.000000Z"
   },
+  "1960": {
+    "id": 1960,
+    "name": "Sunburst",
+    "author": "D. Villella",
+    "image": "2024/08/75cf278599c3359e97ab119c0a20c0f2.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 12023
+    }
+  },
   "245": {
     "id": 245,
     "name": "Sunflower",
@@ -3221,6 +3591,16 @@
       "1": 40248
     },
     "updated_at": "2024-08-04T15:58:58.000000Z"
+  },
+  "1417": {
+    "id": 1417,
+    "name": "Sweet spiral",
+    "author": "Kim",
+    "image": "2024/07/38aa52ca414ef935ada037b4b97799a6.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 35842
+    }
   },
   "370": {
     "id": 370,
@@ -3350,6 +3730,16 @@
       "1": 23707
     }
   },
+  "1507": {
+    "id": 1507,
+    "name": "Tri fractal with spiral background",
+    "author": "bryan johnson",
+    "image": "2024/08/0736863c541853dd46650dd164a05594.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 13966
+    }
+  },
   "130": {
     "id": 130,
     "name": "Tri-Circle",
@@ -3360,6 +3750,56 @@
       "1": 32447
     },
     "updated_at": "2024-08-04T15:58:52.000000Z"
+  },
+  "1664": {
+    "id": 1664,
+    "name": "Triangle Cloners",
+    "author": "mgfxer",
+    "image": "2024/08/e207e5d78f97080fe8f2408e3a84e2ea.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 30074
+    }
+  },
+  "2036": {
+    "id": 2036,
+    "name": "Triangle Trail Spiral",
+    "author": "mgfxer",
+    "image": "2024/08/c45ae9e5932e78d1cb7eed007199a5fb.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 23634
+    }
+  },
+  "1992": {
+    "id": 1992,
+    "name": "Triangle Wipe Course IO",
+    "author": "mgfxer",
+    "image": "2024/08/8fb26ff6b9e20644d1025c86f810577e.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 14899
+    }
+  },
+  "1993": {
+    "id": 1993,
+    "name": "Triangle Wipe Course OI",
+    "author": "mgfxer",
+    "image": "2024/08/b254d636a6140e862d80d9a61051a3b4.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 14897
+    }
+  },
+  "1571": {
+    "id": 1571,
+    "name": "Triangular Wipe",
+    "author": "mgfxer",
+    "image": "2024/08/5e298e857ebd650c9bd8ba600ace8c2f.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 43134
+    }
   },
   "135": {
     "id": 135,
@@ -3427,6 +3867,16 @@
     },
     "updated_at": "2024-08-04T15:58:55.000000Z"
   },
+  "4830": {
+    "id": 4830,
+    "name": "Turkey",
+    "author": "Otávio Bittencourt",
+    "image": "2024/10/378476a8fe265a7aa15e3db77670818b.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 67285
+    }
+  },
   "120": {
     "id": 120,
     "name": "Turtle",
@@ -3449,6 +3899,36 @@
     },
     "updated_at": "2024-08-04T15:59:03.000000Z"
   },
+  "1826": {
+    "id": 1826,
+    "name": "USA",
+    "author": "Garrett Dorfman",
+    "image": "2024/08/9b4dfb022f2049157fec45be69218be7.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 21080
+    }
+  },
+  "2116": {
+    "id": 2116,
+    "name": "Void of Death",
+    "author": "Anders",
+    "image": "2024/08/e31d47a00232ebacd5260469ccee96eb.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 13869
+    }
+  },
+  "1866": {
+    "id": 1866,
+    "name": "Vortex",
+    "author": "D. Villella",
+    "image": "2024/08/3576fb5e49a49e74fa63790a527d235f.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 6716
+    }
+  },
   "124": {
     "id": 124,
     "name": "Warped Reuleaux",
@@ -3459,6 +3939,26 @@
       "1": 17081
     },
     "updated_at": "2024-08-04T15:58:49.000000Z"
+  },
+  "1963": {
+    "id": 1963,
+    "name": "Warped Spiral In to Out",
+    "author": "D. Villella",
+    "image": "2024/08/6c904e4819281cf353c9a947436c8b66.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 10139
+    }
+  },
+  "1964": {
+    "id": 1964,
+    "name": "Warped Spiral Out to In",
+    "author": "D. Villella",
+    "image": "2024/08/cad9d4690259095e18fe4c4d51624bc6.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 10140
+    }
   },
   "127": {
     "id": 127,
@@ -3471,6 +3971,16 @@
     },
     "updated_at": "2024-08-04T15:58:49.000000Z"
   },
+  "1965": {
+    "id": 1965,
+    "name": "Warped Squares",
+    "author": "D. Villella",
+    "image": "2024/08/00ee70647667270c29193a56c455c09d.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 12984
+    }
+  },
   "769": {
     "id": 769,
     "name": "Warped Star",
@@ -3481,6 +3991,26 @@
       "1": 11495
     },
     "updated_at": "2024-08-23T15:50:51.000000Z"
+  },
+  "2061": {
+    "id": 2061,
+    "name": "Warped Star",
+    "author": "Ryan Smith",
+    "image": "2024/08/ffa1309186dc37becbe5e4b09de2437d.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 7620
+    }
+  },
+  "2060": {
+    "id": 2060,
+    "name": "Warped Triangle",
+    "author": "Ryan Smith",
+    "image": "2024/08/1441218614a821e78deab227de272d5f.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 2310
+    }
   },
   "555": {
     "id": 555,
@@ -3503,6 +4033,26 @@
       "1": 4562
     },
     "updated_at": "2024-08-04T16:01:34.000000Z"
+  },
+  "2065": {
+    "id": 2065,
+    "name": "Web",
+    "author": "Ryan Smith",
+    "image": "2024/08/c08e023921223ebb26174746d1bb8aef.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 5918
+    }
+  },
+  "1414": {
+    "id": 1414,
+    "name": "Web spiral",
+    "author": "Jessica Schweizer",
+    "image": "2024/07/ff558921fb743d05dab10724fbcc624e.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 6588
+    }
   },
   "4006": {
     "id": 4006,
