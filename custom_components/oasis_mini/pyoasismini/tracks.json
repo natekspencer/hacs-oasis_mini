@@ -2294,6 +2294,16 @@
     },
     "updated_at": "2024-08-04T15:58:53.000000Z"
   },
+  "4904": {
+    "id": 4904,
+    "name": "Oasis Answers",
+    "author": "Otávio Bittencourt",
+    "image": "2024/11/e2ef4e197ce1aae90fd1f9c17c689ade.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 16954
+    }
+  },
   "171": {
     "id": 171,
     "name": "Octopus",
