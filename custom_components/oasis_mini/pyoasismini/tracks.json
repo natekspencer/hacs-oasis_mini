@@ -9,6 +9,16 @@
       "1": 30215
     }
   },
+  "5805": {
+    "id": 5805,
+    "name": "2025",
+    "author": "Otávio Bittencourt",
+    "image": "2024/12/67ded5b8bab18bdb932e4de2cd1fa4ba.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 40107
+    }
+  },
   "2064": {
     "id": 2064,
     "name": "4 Pointed Star",
@@ -546,6 +556,16 @@
     },
     "updated_at": "2024-08-04T15:58:48.000000Z"
   },
+  "5087": {
+    "id": 5087,
+    "name": "Christmas Angel",
+    "author": "Otávio Bittencourt",
+    "image": "2024/11/e95112ba8cda90a533bf580a96231826.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 54896
+    }
+  },
   "4961": {
     "id": 4961,
     "name": "Christmas Choir",
@@ -564,6 +584,16 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 34112
+    }
+  },
+  "5101": {
+    "id": 5101,
+    "name": "Christmas Sock full",
+    "author": "Otávio Bittencourt",
+    "image": "2024/11/52b3203c5b04d83c81a9606c547eb94c.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 31617
     }
   },
   "4833": {
@@ -872,6 +902,16 @@
       "1": 14627
     }
   },
+  "5494": {
+    "id": 5494,
+    "name": "Deep Sea Skull With Tentacles",
+    "author": "Otávio Bittencourt",
+    "image": "2024/12/05f4ecd5207f6b905ad3c9910008d550.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 123183
+    }
+  },
   "919": {
     "id": 919,
     "name": "dither Hypnogrid",
@@ -1112,6 +1152,16 @@
       "1": 8308
     },
     "updated_at": "2024-08-04T15:58:54.000000Z"
+  },
+  "5790": {
+    "id": 5790,
+    "name": "Dolphin",
+    "author": "Otávio Bittencourt",
+    "image": "2024/12/f66bd1392005ddd6886c14267d5ccbb3.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 71569
+    }
   },
   "244": {
     "id": 244,
@@ -1519,6 +1569,16 @@
     },
     "updated_at": "2024-08-04T16:01:24.000000Z"
   },
+  "5319": {
+    "id": 5319,
+    "name": "GingerBread",
+    "author": "Otávio Bittencourt",
+    "image": "2024/12/cd156b8732503f5b0b22dd9d5a0b32a4.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 34208
+    }
+  },
   "1777": {
     "id": 1777,
     "name": "Great Wave",
@@ -1640,6 +1700,16 @@
       "1": 27894
     },
     "updated_at": "2024-08-23T15:43:29.000000Z"
+  },
+  "5156": {
+    "id": 5156,
+    "name": "Hanukkiah",
+    "author": "Otávio Bittencourt",
+    "image": "2024/11/43b965b719df8f6d6f0b02df521bbb3c.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 82502
+    }
   },
   "224": {
     "id": 224,
@@ -2005,6 +2075,16 @@
     },
     "updated_at": "2024-08-04T16:01:26.000000Z"
   },
+  "5739": {
+    "id": 5739,
+    "name": "Little Doll with Flowers",
+    "author": "Otávio Bittencourt",
+    "image": "2024/12/671e6ceb5f1384dcabc02199d844d419.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 47910
+    }
+  },
   "300": {
     "id": 300,
     "name": "Little Heart",
@@ -2102,6 +2182,16 @@
     },
     "updated_at": "2024-08-04T15:58:56.000000Z"
   },
+  "5486": {
+    "id": 5486,
+    "name": "Mahatma Gandhi",
+    "author": "Otávio Bittencourt",
+    "image": "2024/12/19978b63be6b44fdae2b7cf0d16765bf.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 44947
+    }
+  },
   "64": {
     "id": 64,
     "name": "Mandala",
@@ -2155,6 +2245,16 @@
       "1": 23309
     },
     "updated_at": "2024-08-04T15:58:47.000000Z"
+  },
+  "5086": {
+    "id": 5086,
+    "name": "Moby Dyck",
+    "author": "Otávio Bittencourt",
+    "image": "2024/11/a8d3ed878ab8d120a28e071eebb546e9.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 36732
+    }
   },
   "179": {
     "id": 179,
@@ -2230,6 +2330,16 @@
       "1": 19567
     },
     "updated_at": "2024-08-04T15:58:48.000000Z"
+  },
+  "5078": {
+    "id": 5078,
+    "name": "Nativity Scene",
+    "author": "Otávio Bittencourt",
+    "image": "2024/11/4521fce2f558e465622d9c427653373d.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 46387
+    }
   },
   "1046": {
     "id": 1046,
@@ -2389,6 +2499,16 @@
       "1": 12860
     },
     "updated_at": "2024-08-04T15:58:46.000000Z"
+  },
+  "5163": {
+    "id": 5163,
+    "name": "Penguin in Christmas Sweater",
+    "author": "Otávio Bittencourt",
+    "image": "2024/11/e01234f8df99b85cf76d8d05c815389c.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 47763
+    }
   },
   "1572": {
     "id": 1572,
@@ -2669,6 +2789,16 @@
     },
     "updated_at": "2024-08-04T15:58:58.000000Z"
   },
+  "5547": {
+    "id": 5547,
+    "name": "Rocking Horse",
+    "author": "Otávio Bittencourt",
+    "image": "2024/12/b72be8805460e3041335b5717ea9d144.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 29953
+    }
+  },
   "105": {
     "id": 105,
     "name": "Rooster",
@@ -2739,6 +2869,16 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 59249
+    }
+  },
+  "5153": {
+    "id": 5153,
+    "name": "Santa Claus With Gifts",
+    "author": "Otávio Bittencourt",
+    "image": "2024/11/c8ece06391aefd86ee7e7277d664c691.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 43591
     }
   },
   "604": {
@@ -2975,6 +3115,16 @@
     },
     "updated_at": "2024-08-04T15:58:58.000000Z"
   },
+  "5690": {
+    "id": 5690,
+    "name": "Sleepy Hippie Sun",
+    "author": "Otávio Bittencourt",
+    "image": "2024/12/5b6fc2a96c1a6877ddc01f98ec18253c.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 50180
+    }
+  },
   "158": {
     "id": 158,
     "name": "Slightly Frightening Panda",
@@ -3079,6 +3229,16 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 14617
+    }
+  },
+  "5263": {
+    "id": 5263,
+    "name": "Space Dream",
+    "author": "Otávio Bittencourt",
+    "image": "2024/11/c17613f0005502d8cd6a9144458133b9.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 58488
     }
   },
   "821": {
@@ -3644,6 +3804,16 @@
     },
     "updated_at": "2024-08-04T15:58:54.000000Z"
   },
+  "5729": {
+    "id": 5729,
+    "name": "The Baby Cat",
+    "author": "Otávio Bittencourt",
+    "image": "2024/12/2d01ed84e45f5366ff8977e4c18f9df3.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 58681
+    }
+  },
   "223": {
     "id": 223,
     "name": "The Knot",
@@ -3666,6 +3836,16 @@
     },
     "updated_at": "2024-08-04T16:00:58.000000Z"
   },
+  "5218": {
+    "id": 5218,
+    "name": "The Old School Wave",
+    "author": "Otávio Bittencourt",
+    "image": "2024/11/c174b79290c36cd793729d87b1405c44.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 63985
+    }
+  },
   "4071": {
     "id": 4071,
     "name": "The Scarecrows",
@@ -3676,6 +3856,26 @@
       "1": 22881
     }
   },
+  "5541": {
+    "id": 5541,
+    "name": "The Sphinx of Naxus",
+    "author": "Otávio Bittencourt",
+    "image": "2024/12/4a1eb8d0b962dd9c23cc6fc9e64ef24b.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 49917
+    }
+  },
+  "5343": {
+    "id": 5343,
+    "name": "The Surfer and The Sunshine",
+    "author": "Otávio Bittencourt",
+    "image": "2024/12/f06cc14c648d633672c877193378a2c4.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 62289
+    }
+  },
   "3499": {
     "id": 3499,
     "name": "The Witch",
@@ -3684,6 +3884,16 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 53479
+    }
+  },
+  "5724": {
+    "id": 5724,
+    "name": "Three Happy Robots",
+    "author": "Otávio Bittencourt",
+    "image": "2024/12/48135de6387bd84813145bd94481733c.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 82987
     }
   },
   "1137": {
@@ -3718,6 +3928,16 @@
       "1": 18775
     },
     "updated_at": "2024-08-04T16:01:35.000000Z"
+  },
+  "5257": {
+    "id": 5257,
+    "name": "Torah",
+    "author": "Otávio Bittencourt",
+    "image": "2024/11/3c6f421049af189a4f07f013eb92152b.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 46684
+    }
   },
   "237": {
     "id": 237,
@@ -4125,6 +4345,16 @@
       "1": 22643
     },
     "updated_at": "2024-08-04T16:00:00.000000Z"
+  },
+  "5326": {
+    "id": 5326,
+    "name": "Winnie the Pooh",
+    "author": "Otávio Bittencourt",
+    "image": "2024/12/a075c1d22d451ba426ffc9c2b8c9db9f.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 42218
+    }
   },
   "500": {
     "id": 500,
