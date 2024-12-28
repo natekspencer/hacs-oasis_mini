@@ -1,5 +1,7 @@
 """Oasis Mini API client."""
 
+from __future__ import annotations
+
 import asyncio
 import logging
 from typing import Any, Awaitable, Final
@@ -9,7 +11,7 @@ from aiohttp import ClientResponseError, ClientSession
 import async_timeout
 
 from .const import TRACKS
-from .utils import _bit_to_bool
+from .utils import _bit_to_bool, decrypt_svg_content
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -32,7 +34,6 @@ AUTOPLAY_MAP = {
     "3": "10 minutes",
     "4": "30 minutes",
 }
-
 
 LED_EFFECTS: Final[dict[str, str]] = {
     "0": "Solid",
@@ -112,6 +113,7 @@ class OasisMini:
         """Return the drawing progress percent."""
         if not (self.track and (svg_content := self.track.get("svg_content"))):
             return None
+        svg_content = decrypt_svg_content(svg_content)
         paths = svg_content.split("L")
         total = self.track.get("reduced_svg_content", {}).get("1", len(paths))
         percent = (100 * self.progress) / total
