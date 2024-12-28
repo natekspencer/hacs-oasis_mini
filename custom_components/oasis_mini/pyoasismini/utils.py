@@ -1,11 +1,17 @@
 """Oasis Mini utils."""
 
+from __future__ import annotations
+
+import base64
 import logging
 import math
 from xml.etree.ElementTree import Element, SubElement, tostring
 
+from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
+
 _LOGGER = logging.getLogger(__name__)
 
+APP_KEY = "5joW8W4Usk4xUXu5bIIgGiHloQmzMZUMgz6NWQnNI04="
 
 BACKGROUND_FILL = ("#CCC9C4", "#28292E")
 COLOR_DARK = ("#28292E", "#F4F5F8")
@@ -25,6 +31,7 @@ def draw_svg(track: dict, progress: int, model_id: str) -> str | None:
     if track and (svg_content := track.get("svg_content")):
         try:
             if progress is not None:
+                svg_content = decrypt_svg_content(svg_content)
                 paths = svg_content.split("L")
                 total = track.get("reduced_svg_content", {}).get(model_id, len(paths))
                 percent = min((100 * progress) / total, 100)
@@ -137,3 +144,28 @@ def draw_svg(track: dict, progress: int, model_id: str) -> str | None:
         except Exception as e:
             _LOGGER.exception(e)
     return None
+
+
+def decrypt_svg_content(svg_content: dict[str, str]):
+    """Decrypt SVG content using AES CBC mode."""
+    if decrypted := svg_content.get("decrypted"):
+        return decrypted
+
+    # decode base64-encoded data
+    key = base64.b64decode(APP_KEY)
+    iv = base64.b64decode(svg_content["iv"])
+    ciphertext = base64.b64decode(svg_content["content"])
+
+    # create the cipher and decrypt the ciphertext
+    cipher = Cipher(algorithms.AES(key), modes.CBC(iv))
+    decryptor = cipher.decryptor()
+    decrypted = decryptor.update(ciphertext) + decryptor.finalize()
+
+    # remove PKCS7 padding
+    pad_len = decrypted[-1]
+    decrypted = decrypted[:-pad_len].decode("utf-8")
+
+    # save decrypted data so we don't have to do this each time
+    svg_content["decrypted"] = decrypted
+
+    return decrypted
