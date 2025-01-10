@@ -165,11 +165,17 @@ class OasisMiniMediaPlayerEntity(OasisMiniEntity, MediaPlayerEntity):
         """Play a piece of media."""
         self.abort_if_busy()
         if media_type == MediaType.PLAYLIST:
-            raise ServiceValidationError("Playlists are not currently supported")
+            raise ServiceValidationError(
+                translation_domain=DOMAIN, translation_key="playlists_unsupported"
+            )
         else:
             track = list(filter(None, map(get_track_id, media_id.split(","))))
             if not track:
-                raise ServiceValidationError(f"Invalid media: {media_id}")
+                raise ServiceValidationError(
+                    translation_domain=DOMAIN,
+                    translation_key="invalid_media",
+                    translation_placeholders={"media": media_id},
+                )
 
         device = self.device
         enqueue = MediaPlayerEnqueue.NEXT if not enqueue else enqueue

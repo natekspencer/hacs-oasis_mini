@@ -35,14 +35,14 @@ class OasisMiniNumberEntity(OasisMiniEntity, NumberEntity):
 DESCRIPTORS = {
     NumberEntityDescription(
         key="ball_speed",
-        name="Ball speed",
+        translation_key="ball_speed",
         mode=NumberMode.SLIDER,
         native_max_value=BALL_SPEED_MAX,
         native_min_value=BALL_SPEED_MIN,
     ),
     NumberEntityDescription(
         key="led_speed",
-        name="LED speed",
+        translation_key="led_speed",
         mode=NumberMode.SLIDER,
         native_max_value=LED_SPEED_MAX,
         native_min_value=LED_SPEED_MIN,

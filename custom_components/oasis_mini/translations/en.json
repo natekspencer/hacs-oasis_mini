@@ -38,7 +38,53 @@
     }
   },
   "entity": {
+    "button": {
+      "random_track": {
+        "name": "Play random track"
+      }
+    },
+    "binary_sensor": {
+      "busy": {
+        "name": "Busy"
+      },
+      "wifi_status": {
+        "name": "Wi-Fi status"
+      }
+    },
+    "light": {
+      "led": {
+        "name": "LED"
+      }
+    },
+    "number": {
+      "ball_speed": {
+        "name": "Ball speed"
+      },
+      "led_speed": {
+        "name": "LED speed"
+      }
+    },
+    "select": {
+      "autoplay": {
+        "name": "Autoplay"
+      },
+      "playlist": {
+        "name": "Playlist"
+      }
+    },
     "sensor": {
+      "download_progress": {
+        "name": "Download progress"
+      },
+      "drawing_progress": {
+        "name": "Drawing progress"
+      },
+      "error": {
+        "name": "Error"
+      },
+      "led_color_id": {
+        "name": "LED color ID"
+      },
       "status": {
         "name": "Status",
         "state": {
@@ -53,6 +99,17 @@
           "live": "Live drawing"
         }
       }
+    }
+  },
+  "exceptions": {
+    "device_busy": {
+      "message": "{name} is currently busy and cannot be modified"
+    },
+    "invalid_media": {
+      "message": "Invalid media: {media}"
+    },
+    "playlists_unsupported": {
+      "message": "Playlists are not currently supported"
     }
   }
 }

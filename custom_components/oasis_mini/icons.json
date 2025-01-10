@@ -1,0 +1,45 @@
+{
+  "entity": {
+    "binary_sensor": {
+      "wifi_status": {
+        "default": "mdi:wifi",
+        "state": {
+          "off": "mdi:wifi-off"
+        }
+      }
+    },
+    "sensor": {
+      "download_progress": {
+        "default": "mdi:progress-download"
+      },
+      "drawing_progress": {
+        "default": "mdi:progress-pencil"
+      },
+      "error": {
+        "default": "mdi:alert-circle-outline",
+        "state": {
+          "0": "mdi:circle-outline"
+        }
+      },
+      "status": {
+        "state": {
+          "booting": "mdi:loading",
+          "centering": "mdi:record-circle-outline",
+          "downloading": "mdi:progress-download",
+          "error": "mdi:alert-circle-outline",
+          "live": "mdi:pencil-circle-outline",
+          "paused": "mdi:motion-pause-outline",
+          "playing": "mdi:motion-play-outline",
+          "stopped": "mdi:stop-circle-outline",
+          "updating": "mdi:update"
+        }
+      },
+      "wifi_connected": {
+        "default": "mdi:wifi",
+        "state": {
+          "off": "mdi:wifi-off"
+        }
+      }
+    }
+  }
+}

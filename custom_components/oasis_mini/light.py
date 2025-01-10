@@ -106,7 +106,7 @@ class OasisMiniLightEntity(OasisMiniEntity, LightEntity):
         await self.coordinator.async_request_refresh()
 
 
-DESCRIPTOR = LightEntityDescription(key="led", name="LED")
+DESCRIPTOR = LightEntityDescription(key="led", translation_key="led")
 
 
 async def async_setup_entry(
