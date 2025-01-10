@@ -58,7 +58,7 @@ DESCRIPTORS = (
     ),
     OasisMiniButtonEntityDescription(
         key="random_track",
-        name="Play random track",
+        translation_key="random_track",
         press_fn=play_random_track,
     ),
 )

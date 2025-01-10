@@ -39,16 +39,15 @@ async def async_setup_entry(
 DESCRIPTORS = {
     SensorEntityDescription(
         key="download_progress",
+        translation_key="download_progress",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
-        name="Download progress",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
     ),
 } | {
     SensorEntityDescription(
         key=key,
-        name=key.replace("_", " ").capitalize(),
         translation_key=key,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
@@ -65,8 +64,8 @@ DESCRIPTORS = {
 CLOUD_DESCRIPTORS = (
     SensorEntityDescription(
         key="drawing_progress",
+        translation_key="drawing_progress",
         entity_category=EntityCategory.DIAGNOSTIC,
-        name="Drawing progress",
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=1,

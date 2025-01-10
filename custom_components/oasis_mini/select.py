@@ -86,18 +86,18 @@ def playlist_update_handler(entity: OasisMiniSelectEntity) -> None:
 
 DESCRIPTORS = (
     OasisMiniSelectEntityDescription(
-        key="playlist",
-        name="Playlist",
-        current_value=lambda device: (device.playlist.copy(), device.playlist_index),
-        select_fn=lambda device, option: device.async_change_track(option),
-        update_handler=playlist_update_handler,
-    ),
-    OasisMiniSelectEntityDescription(
         key="autoplay",
-        name="Autoplay",
+        translation_key="autoplay",
         options=list(AUTOPLAY_MAP.values()),
         current_value=lambda device: device.autoplay,
         select_fn=lambda device, option: device.async_set_autoplay(option),
+    ),
+    OasisMiniSelectEntityDescription(
+        key="playlist",
+        translation_key="playlist",
+        current_value=lambda device: (device.playlist.copy(), device.playlist_index),
+        select_fn=lambda device, option: device.async_change_track(option),
+        update_handler=playlist_update_handler,
     ),
 )
 
