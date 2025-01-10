@@ -19,7 +19,9 @@ from homeassistant.exceptions import ServiceValidationError
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
 from . import OasisMiniConfigEntry
+from .const import DOMAIN
 from .entity import OasisMiniEntity
+from .helpers import get_track_id
 from .pyoasismini.const import TRACKS
 
 
@@ -102,18 +104,30 @@ class OasisMiniMediaPlayerEntity(OasisMiniEntity, MediaPlayerEntity):
             return MediaPlayerState.ON
         return MediaPlayerState.IDLE
 
+    def abort_if_busy(self) -> None:
+        """Abort if the device is currently busy."""
+        if self.device.busy:
+            raise ServiceValidationError(
+                translation_domain=DOMAIN,
+                translation_key="device_busy",
+                translation_placeholders={"name": self._friendly_name_internal()},
+            )
+
     async def async_media_pause(self) -> None:
         """Send pause command."""
+        self.abort_if_busy()
         await self.device.async_pause()
         await self.coordinator.async_request_refresh()
 
     async def async_media_play(self) -> None:
         """Send play command."""
+        self.abort_if_busy()
         await self.device.async_play()
         await self.coordinator.async_request_refresh()
 
     async def async_media_stop(self) -> None:
         """Send stop command."""
+        self.abort_if_busy()
         await self.device.async_stop()
         await self.coordinator.async_request_refresh()
 
@@ -127,6 +141,7 @@ class OasisMiniMediaPlayerEntity(OasisMiniEntity, MediaPlayerEntity):
 
     async def async_media_previous_track(self) -> None:
         """Send previous track command."""
+        self.abort_if_busy()
         if (index := self.device.playlist_index - 1) < 0:
             index = len(self.device.playlist) - 1
         await self.device.async_change_track(index)
@@ -134,6 +149,7 @@ class OasisMiniMediaPlayerEntity(OasisMiniEntity, MediaPlayerEntity):
 
     async def async_media_next_track(self) -> None:
         """Send next track command."""
+        self.abort_if_busy()
         if (index := self.device.playlist_index + 1) >= len(self.device.playlist):
             index = 0
         await self.device.async_change_track(index)
@@ -147,32 +163,29 @@ class OasisMiniMediaPlayerEntity(OasisMiniEntity, MediaPlayerEntity):
         **kwargs: Any,
     ) -> None:
         """Play a piece of media."""
-        if media_id not in map(str, TRACKS):
-            media_id = next(
-                (
-                    id
-                    for id, info in TRACKS.items()
-                    if info["name"].lower() == media_id.lower()
-                ),
-                media_id,
-            )
-        try:
-            track = int(media_id)
-        except ValueError as err:
-            raise ServiceValidationError(f"Invalid media: {media_id}") from err
+        self.abort_if_busy()
+        if media_type == MediaType.PLAYLIST:
+            raise ServiceValidationError("Playlists are not currently supported")
+        else:
+            track = list(filter(None, map(get_track_id, media_id.split(","))))
+            if not track:
+                raise ServiceValidationError(f"Invalid media: {media_id}")
 
         device = self.device
         enqueue = MediaPlayerEnqueue.NEXT if not enqueue else enqueue
         if enqueue == MediaPlayerEnqueue.REPLACE:
-            await device.async_set_playlist([track])
+            await device.async_set_playlist(track)
         else:
             await device.async_add_track_to_playlist(track)
 
         if enqueue in (MediaPlayerEnqueue.NEXT, MediaPlayerEnqueue.PLAY):
             # Move track to next item in the playlist
-            if (index := (len(device.playlist) - 1)) != device.playlist_index:
+            new_tracks = 1 if isinstance(track, int) else len(track)
+            if (index := (len(device.playlist) - new_tracks)) != device.playlist_index:
                 if index != (
-                    _next := min(device.playlist_index + 1, len(device.playlist) - 1)
+                    _next := min(
+                        device.playlist_index + 1, len(device.playlist) - new_tracks
+                    )
                 ):
                     await device.async_move_track(index, _next)
                 if enqueue == MediaPlayerEnqueue.PLAY:
@@ -188,6 +201,7 @@ class OasisMiniMediaPlayerEntity(OasisMiniEntity, MediaPlayerEntity):
 
     async def async_clear_playlist(self) -> None:
         """Clear players playlist."""
+        self.abort_if_busy()
         await self.device.async_clear_playlist()
         await self.coordinator.async_request_refresh()
 

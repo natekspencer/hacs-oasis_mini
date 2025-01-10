@@ -56,6 +56,20 @@ Alternatively:
 
 After this integration is set up, you can configure the integration to connect to the Kinetic Oasis cloud API. This will allow pulling in certain details (such as track name and image) that are otherwise not available.
 
+# Actions
+
+The media player entity supports various actions, including managing the playlist queue. You can specify a track by its ID or name. If using a track name, it must match an entry in the [tracks list](custom_components/oasis_mini/pyoasismini/tracks.json). To specify multiple tracks, separate them with commas. An example is below:
+
+```yaml
+action: media_player.play_media
+target:
+  entity_id: media_player.oasis_mini
+data:
+  media_content_id: 63, Turtle
+  media_content_type: track
+  enqueue: replace
+```
+
 ---
 
 ## Support Me
