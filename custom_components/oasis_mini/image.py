@@ -42,9 +42,10 @@ class OasisMiniImageEntity(OasisMiniEntity, ImageEntity):
     @callback
     def _handle_coordinator_update(self) -> None:
         """Handle updated data from the coordinator."""
-        if self._track_id != self.device.track_id or (
-            self._progress != self.device.progress and self.device.access_token
-        ):
+        if (
+            self._track_id != self.device.track_id
+            or (self._progress != self.device.progress and self.device.access_token)
+        ) and (self.device.status == "playing" or self._cached_image is None):
             self._attr_image_last_updated = self.coordinator.last_updated
             self._track_id = self.device.track_id
             self._progress = self.device.progress
