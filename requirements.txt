@@ -1,10 +1,11 @@
 # Home Assistant
-homeassistant>=2024.4
+homeassistant>=2025.1
 numpy
 PyTurboJPEG
 
 # Integration
-aiohttp
+aiohttp # should already be installed with Home Assistant
+cryptography # should already be installed with Home Assistant
 
 # Development
 colorlog

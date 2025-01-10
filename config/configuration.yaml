@@ -4,6 +4,7 @@ automation:
 dhcp:
 frontend:
 history:
+isal:
 logbook:
 media_source:
 
