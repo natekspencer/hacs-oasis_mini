@@ -2,11 +2,14 @@
 
 from __future__ import annotations
 
+import logging
 from typing import Any
 
 from homeassistant.const import CONF_ACCESS_TOKEN, CONF_HOST
 
-from .pyoasismini import OasisMini
+from .pyoasismini import TRACKS, OasisMini
+
+_LOGGER = logging.getLogger(__name__)
 
 
 def create_client(data: dict[str, Any]) -> OasisMini:
@@ -27,3 +30,21 @@ async def add_and_play_track(device: OasisMini, track: int) -> None:
 
     if device.status_code != 4:
         await device.async_play()
+
+
+def get_track_id(track: str) -> int | None:
+    """Get a track id.
+
+    `track` can be either an id or title
+    """
+    track = track.lower().strip()
+    if track not in map(str, TRACKS):
+        track = next(
+            (id for id, info in TRACKS.items() if info["name"].lower() == track), track
+        )
+
+    try:
+        return int(track)
+    except ValueError:
+        _LOGGER.warning("Invalid track: %s", track)
+        return None

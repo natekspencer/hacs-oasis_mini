@@ -8,7 +8,6 @@ from typing import Any, Awaitable, Final
 from urllib.parse import urljoin
 
 from aiohttp import ClientResponseError, ClientSession
-import async_timeout
 
 from .const import TRACKS
 from .utils import _bit_to_bool, decrypt_svg_content
@@ -159,17 +158,17 @@ class OasisMini:
         """Return the url."""
         return f"http://{self._host}/"
 
-    async def async_add_track_to_playlist(self, track: int) -> None:
+    async def async_add_track_to_playlist(self, track: int | list[int]) -> None:
         """Add track to playlist."""
         if not track:
             return
-
+        if isinstance(track, int):
+            track = [track]
         if 0 in self.playlist:
-            playlist = [t for t in self.playlist if t] + [track]
+            playlist = [t for t in self.playlist if t] + track
             return await self.async_set_playlist(playlist)
-
         await self._async_command(params={"ADDJOBLIST": track})
-        self.playlist.append(track)
+        self.playlist.extend(track)
 
     async def async_change_track(self, index: int) -> None:
         """Change the track."""
@@ -312,8 +311,10 @@ class OasisMini:
             raise ValueError("Invalid pause option specified")
         await self._async_command(params={"WRIWAITAFTER": option})
 
-    async def async_set_playlist(self, playlist: list[int]) -> None:
+    async def async_set_playlist(self, playlist: list[int] | int) -> None:
         """Set the playlist."""
+        if isinstance(playlist, int):
+            playlist = [playlist]
         if is_playing := (self.status_code == 4):
             await self.async_stop()
         await self._async_command(params={"WRIJOBLIST": ",".join(map(str, playlist))})
