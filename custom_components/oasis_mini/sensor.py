@@ -52,13 +52,7 @@ DESCRIPTORS = {
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     )
-    for key in (
-        "busy",
-        "error",
-        "led_color_id",
-        "status",
-        "wifi_connected",
-    )
+    for key in ("error", "led_color_id", "status")
 }
 
 CLOUD_DESCRIPTORS = (
