@@ -19,6 +19,7 @@ type OasisMiniConfigEntry = ConfigEntry[OasisMiniCoordinator]
 _LOGGER = logging.getLogger(__name__)
 
 PLATFORMS = [
+    Platform.BINARY_SENSOR,
     Platform.BUTTON,
     Platform.IMAGE,
     Platform.LIGHT,
