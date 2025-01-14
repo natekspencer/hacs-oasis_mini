@@ -246,6 +246,16 @@
       "1": 14268
     }
   },
+  "6260": {
+    "id": 6260,
+    "name": "Atlantic Blue Marlin",
+    "author": "Otávio Bittencourt",
+    "image": "2025/01/4b48742bb58d404f8a93e201842387ef.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 35093
+    }
+  },
   "1996": {
     "id": 1996,
     "name": "Axolotl",
@@ -254,6 +264,16 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 6879
+    }
+  },
+  "5947": {
+    "id": 5947,
+    "name": "Baby Dino",
+    "author": "Otávio Bittencourt",
+    "image": "2024/12/192338257389d8879217d9daa33745a8.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 28071
     }
   },
   "174": {
@@ -425,6 +445,16 @@
       "1": 4511
     },
     "updated_at": "2024-08-04T15:58:47.000000Z"
+  },
+  "6272": {
+    "id": 6272,
+    "name": "Brontosaurus",
+    "author": "Otávio Bittencourt",
+    "image": "2025/01/767fe6711da2605917d112d0bfcd262e.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 75527
+    }
   },
   "133": {
     "id": 133,
@@ -1428,6 +1458,16 @@
     },
     "updated_at": "2024-08-04T15:58:48.000000Z"
   },
+  "6447": {
+    "id": 6447,
+    "name": "Flowers and Hearts in love",
+    "author": "Otávio Bittencourt",
+    "image": "2025/01/3f0bf99f4c04fa2011bda24ad7b5279f.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 76791
+    }
+  },
   "715": {
     "id": 715,
     "name": "Fractospiral",
@@ -2107,6 +2147,16 @@
     },
     "updated_at": "2024-08-23T15:43:06.000000Z"
   },
+  "6252": {
+    "id": 6252,
+    "name": "Lobster",
+    "author": "Otávio Bittencourt",
+    "image": "2025/01/27201ea751b12bbcbfa3062334dbae66.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 44912
+    }
+  },
   "177": {
     "id": 177,
     "name": "Lone Blue Jay Bird",
@@ -2425,6 +2475,16 @@
     },
     "updated_at": "2024-08-04T15:58:55.000000Z"
   },
+  "5994": {
+    "id": 5994,
+    "name": "Old Scholl",
+    "author": "Otávio Bittencourt",
+    "image": "2024/12/55b55eaa86dabe731eab198f1502d63b.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 40716
+    }
+  },
   "1285": {
     "id": 1285,
     "name": "Orbital Spiral",
@@ -2664,6 +2724,16 @@
     },
     "updated_at": "2024-08-04T16:01:31.000000Z"
   },
+  "6470": {
+    "id": 6470,
+    "name": "Pteranodon",
+    "author": "Otávio Bittencourt",
+    "image": "2025/01/990a517bbd8cd99d32c1049751d7028a.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 33688
+    }
+  },
   "1301": {
     "id": 1301,
     "name": "Quantum Entanglement in to out",
@@ -2695,6 +2765,16 @@
       "1": 52634
     },
     "updated_at": "2024-08-04T15:58:59.000000Z"
+  },
+  "6000": {
+    "id": 6000,
+    "name": "Rabbit hugging a Heart",
+    "author": "Otávio Bittencourt",
+    "image": "2024/12/0cd7986b975db68f17efbe069c32657a.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 46342
+    }
   },
   "1264": {
     "id": 1264,
@@ -3697,6 +3777,16 @@
       "1": 9497
     }
   },
+  "6293": {
+    "id": 6293,
+    "name": "Stegosaurus",
+    "author": "Otávio Bittencourt",
+    "image": "2025/01/e3e254daf62d1dd69395ed5106c3fd40.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 68903
+    }
+  },
   "2567": {
     "id": 2567,
     "name": "Stellar Sea lion",
@@ -4031,6 +4121,16 @@
       "1": 43134
     }
   },
+  "6465": {
+    "id": 6465,
+    "name": "Triceratops",
+    "author": "Otávio Bittencourt",
+    "image": "2025/01/236c40e9905d6c835569ba1e123de409.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 51306
+    }
+  },
   "135": {
     "id": 135,
     "name": "Triforce",
@@ -4137,6 +4237,16 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 21080
+    }
+  },
+  "6472": {
+    "id": 6472,
+    "name": "Valentine Cupid",
+    "author": "Otávio Bittencourt",
+    "image": "2025/01/89da4980fb95168472db914362d73fc0.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 60236
     }
   },
   "2116": {
