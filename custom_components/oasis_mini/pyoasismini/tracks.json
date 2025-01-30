@@ -1468,6 +1468,16 @@
       "1": 76791
     }
   },
+  "759": {
+    "id": 759,
+    "name": "Fox",
+    "author": "Oasis Mini",
+    "image": "2024/07/44c0031863a6d55608483608bb5afdf1.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 7666
+    }
+  },
   "715": {
     "id": 715,
     "name": "Fractospiral",
