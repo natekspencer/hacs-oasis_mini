@@ -383,6 +383,16 @@
     },
     "updated_at": "2024-08-04T15:58:47.000000Z"
   },
+  "6765": {
+    "id": 6765,
+    "name": "Beautiful Geisha",
+    "author": "Otávio Bittencourt",
+    "image": "2025/01/3bdcb830fb6909ba5135ceb0f81a510c.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 53742
+    }
+  },
   "168": {
     "id": 168,
     "name": "Betta Fish",
@@ -2348,6 +2358,16 @@
       "1": 6986
     }
   },
+  "7028": {
+    "id": 7028,
+    "name": "Mosasaur",
+    "author": "Otávio Bittencourt",
+    "image": "2025/02/e9158184556f47f56a97e5f11e352a0d.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 36811
+    }
+  },
   "202": {
     "id": 202,
     "name": "Moth",
@@ -2889,6 +2909,16 @@
       "1": 29953
     }
   },
+  "6614": {
+    "id": 6614,
+    "name": "Romantic Valentine Kiss",
+    "author": "Otávio Bittencourt",
+    "image": "2025/01/05651f308ce8c114041eb9f46f3b01c4.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 41462
+    }
+  },
   "105": {
     "id": 105,
     "name": "Rooster",
@@ -2949,6 +2979,16 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 15406
+    }
+  },
+  "6787": {
+    "id": 6787,
+    "name": "Samurai",
+    "author": "Otávio Bittencourt",
+    "image": "2025/01/c4722369a149e42d7d8a19db37377380.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 72807
     }
   },
   "4580": {
@@ -3372,6 +3412,16 @@
     "clean_pattern": 117,
     "reduced_svg_content": {
       "1": 6404
+    }
+  },
+  "6609": {
+    "id": 6609,
+    "name": "Spinosaurus",
+    "author": "Otávio Bittencourt",
+    "image": "2025/01/aa915de291b74a4a625402d4c6cf0ab7.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 70140
     }
   },
   "1695": {
@@ -3808,6 +3858,16 @@
     },
     "updated_at": "2024-08-23T16:00:00.000000Z"
   },
+  "6739": {
+    "id": 6739,
+    "name": "Stellar Sea Lion over the Rocks",
+    "author": "Otávio Bittencourt",
+    "image": "2025/01/df3917677652ff73b194c8a34d773402.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 53595
+    }
+  },
   "115": {
     "id": 115,
     "name": "String ray",
@@ -3912,6 +3972,26 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 58681
+    }
+  },
+  "6998": {
+    "id": 6998,
+    "name": "The Camel",
+    "author": "Otávio Bittencourt",
+    "image": "2025/01/8ff29f5fa10c0b5213115ae8ebfaa87d.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 61839
+    }
+  },
+  "6992": {
+    "id": 6992,
+    "name": "The Frog",
+    "author": "Otávio Bittencourt",
+    "image": "2025/01/8d46682ac8cb96fd1dc7e6c425b5da73.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 56023
     }
   },
   "223": {
@@ -4257,6 +4337,26 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 60236
+    }
+  },
+  "6810": {
+    "id": 6810,
+    "name": "Valentine’s Heart-Shaped Box",
+    "author": "Otávio Bittencourt",
+    "image": "2025/01/ecb41379a6cf281dbed0b95d4e4b8126.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 63975
+    }
+  },
+  "7029": {
+    "id": 7029,
+    "name": "Valentine’s Moon",
+    "author": "Otávio Bittencourt",
+    "image": "2025/02/96d1d52db7f234a78913e53a003129cd.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 39111
     }
   },
   "2116": {
