@@ -10,4 +10,5 @@ cryptography # should already be installed with Home Assistant
 # Development
 colorlog
 pip>=21.0
+pre-commit
 ruff
