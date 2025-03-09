@@ -1639,6 +1639,16 @@
       "1": 34208
     }
   },
+  "7100": {
+    "id": 7100,
+    "name": "Giraffe",
+    "author": "Otávio Bittencourt",
+    "image": "2025/02/05c566016b59e48110711e2dd4323a79.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 44743
+    }
+  },
   "1777": {
     "id": 1777,
     "name": "Great Wave",
