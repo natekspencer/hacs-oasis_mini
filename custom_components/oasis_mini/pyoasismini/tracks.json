@@ -266,6 +266,16 @@
       "1": 6879
     }
   },
+  "7404": {
+    "id": 7404,
+    "name": "Axolotle",
+    "author": "Otávio Bittencourt",
+    "image": "2025/03/f64af5becf1924fc0699119a742a5f9f.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 33808
+    }
+  },
   "5947": {
     "id": 5947,
     "name": "Baby Dino",
@@ -317,6 +327,16 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 68353
+    }
+  },
+  "3515": {
+    "id": 3515,
+    "name": "Barracuda",
+    "author": "Luany Camila",
+    "image": "2024/09/604dcb2dbc036c4c49dc94e6c75f5cb9.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 9875
     }
   },
   "194": {
@@ -542,6 +562,16 @@
     },
     "updated_at": "2024-08-23T15:50:41.000000Z"
   },
+  "2187": {
+    "id": 2187,
+    "name": "Cachalote",
+    "author": "Otávio Bittencourt",
+    "image": "2024/08/ac6a377297a052639da5f36d206bb557.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 44161
+    }
+  },
   "58": {
     "id": 58,
     "name": "Camalion",
@@ -595,6 +625,16 @@
       "1": 6361
     },
     "updated_at": "2024-08-04T15:58:48.000000Z"
+  },
+  "7219": {
+    "id": 7219,
+    "name": "Chinese dragon",
+    "author": "Luany Camila",
+    "image": "2025/02/7499ca933049f6de7abe4fd76221ffb3.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 23348
+    }
   },
   "5087": {
     "id": 5087,
@@ -1256,6 +1296,16 @@
     },
     "updated_at": "2024-09-05T13:53:22.000000Z"
   },
+  "7225": {
+    "id": 7225,
+    "name": "Drago jr.",
+    "author": "Otávio Bittencourt",
+    "image": "2025/02/62fa0a3bf27a1e7636d53246bfd6abd8.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 41881
+    }
+  },
   "195": {
     "id": 195,
     "name": "Dragon",
@@ -1266,6 +1316,16 @@
       "1": 17439
     },
     "updated_at": "2024-08-04T15:58:56.000000Z"
+  },
+  "2118": {
+    "id": 2118,
+    "name": "Drums of Fate",
+    "author": "Anders",
+    "image": "2024/08/1978f6c6169d1f68c163aad94b8b1e95.svg",
+    "clean_pattern": 117,
+    "reduced_svg_content": {
+      "1": 30812
+    }
   },
   "193": {
     "id": 193,
@@ -1298,6 +1358,16 @@
       "1": 15116
     },
     "updated_at": "2024-08-04T15:58:54.000000Z"
+  },
+  "7255": {
+    "id": 7255,
+    "name": "Elf on a Bike",
+    "author": "Otávio Bittencourt",
+    "image": "2025/02/f3a0369934c1f0f1641a87e77129dfa6.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 34869
+    }
   },
   "129": {
     "id": 129,
@@ -1824,6 +1894,16 @@
     },
     "updated_at": "2024-08-04T16:01:33.000000Z"
   },
+  "7154": {
+    "id": 7154,
+    "name": "Heart with Wings",
+    "author": "Otávio Bittencourt",
+    "image": "2025/02/677a2ea86594860d7ec17d8cb3eb5352.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 24307
+    }
+  },
   "356": {
     "id": 356,
     "name": "Hedgehog",
@@ -2006,6 +2086,16 @@
     },
     "updated_at": "2024-08-04T15:58:52.000000Z"
   },
+  "5637": {
+    "id": 5637,
+    "name": "Jack in the box",
+    "author": "Luany Camila",
+    "image": "2024/12/7d8507f05918c13c709a9c05a72b78c1.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 20697
+    }
+  },
   "238": {
     "id": 238,
     "name": "Jack Russell Terrier",
@@ -2049,6 +2139,16 @@
     },
     "updated_at": "2024-08-04T15:58:56.000000Z"
   },
+  "7096": {
+    "id": 7096,
+    "name": "Kangaroo",
+    "author": "Otávio Bittencourt",
+    "image": "2025/02/24aed7f4d3b0be562bd2d5e8ec26a774.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 43094
+    }
+  },
   "2796": {
     "id": 2796,
     "name": "Killer Wale",
@@ -2057,6 +2157,16 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 42409
+    }
+  },
+  "7138": {
+    "id": 7138,
+    "name": "Kitty Playing with Yarn",
+    "author": "Otávio Bittencourt",
+    "image": "2025/02/03d03c3a6b5ec3df9a3712ecafd1b39d.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 79176
     }
   },
   "239": {
@@ -2293,6 +2403,16 @@
       "1": 20347
     }
   },
+  "7417": {
+    "id": 7417,
+    "name": "Manta Ray",
+    "author": "Otávio Bittencourt",
+    "image": "2025/03/8a4f9fe0bf4a17ea40013961ba8f1b2d.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 10011
+    }
+  },
   "339": {
     "id": 339,
     "name": "Marmoset Monkey",
@@ -2314,6 +2434,16 @@
       "1": 77291
     },
     "updated_at": "2024-08-04T15:59:00.000000Z"
+  },
+  "7211": {
+    "id": 7211,
+    "name": "Mindfulness",
+    "author": "Otávio Bittencourt",
+    "image": "2025/02/0283bb411e5ff892bf8b5940793aeedd.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 39419
+    }
   },
   "78": {
     "id": 78,
@@ -2722,6 +2852,16 @@
       "1": 60547
     }
   },
+  "7268": {
+    "id": 7268,
+    "name": "Playful Little Robot",
+    "author": "Otávio Bittencourt",
+    "image": "2025/02/7ac44b24ff9cff01130cb0cb1309e7f0.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 36853
+    }
+  },
   "1049": {
     "id": 1049,
     "name": "PolarValentine",
@@ -2898,6 +3038,16 @@
       "1": 33471
     }
   },
+  "6778": {
+    "id": 6778,
+    "name": "Robot with a flower",
+    "author": "Luany Camila",
+    "image": "2025/01/a28339205d4c9837241f69064ba48adc.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 36372
+    }
+  },
   "210": {
     "id": 210,
     "name": "Rocket",
@@ -2989,6 +3139,16 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 15406
+    }
+  },
+  "7304": {
+    "id": 7304,
+    "name": "Sakura Ryu",
+    "author": "Otávio Bittencourt",
+    "image": "2025/03/1edf5f98df8ea2fec430efbb82392f2d.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 51520
     }
   },
   "6787": {
@@ -3244,6 +3404,26 @@
       "1": 28533
     }
   },
+  "5952": {
+    "id": 5952,
+    "name": "Skateasaurus",
+    "author": "Luany Camila",
+    "image": "2024/12/050d6aec400597aa7831ace7909207f1.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 20864
+    }
+  },
+  "7190": {
+    "id": 7190,
+    "name": "Skating Fairy",
+    "author": "Otávio Bittencourt",
+    "image": "2025/02/ea3e536c4458d0ca2aab281da553545b.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 44630
+    }
+  },
   "209": {
     "id": 209,
     "name": "Skull",
@@ -3308,6 +3488,16 @@
       "1": 11149
     },
     "updated_at": "2024-08-04T15:59:33.000000Z"
+  },
+  "7377": {
+    "id": 7377,
+    "name": "Snake Chinese Year",
+    "author": "Otávio Bittencourt",
+    "image": "2025/03/4a071f3f90ea12025241dd7d1044d651.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 24568
+    }
   },
   "551": {
     "id": 551,
@@ -3974,8 +4164,38 @@
     },
     "updated_at": "2024-08-04T15:58:54.000000Z"
   },
+  "7276": {
+    "id": 7276,
+    "name": "Takeshi Ren",
+    "author": "Otávio Bittencourt",
+    "image": "2025/02/72d29db6dcdef850cc37c2721216989c.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 55111
+    }
+  },
+  "7325": {
+    "id": 7325,
+    "name": "Tango the pango",
+    "author": "Otávio Bittencourt",
+    "image": "2025/03/42477ad4a8b1d08cb7fc34e9ad4f8314.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 35762
+    }
+  },
   "5729": {
     "id": 5729,
+    "name": "The Baby Cat",
+    "author": "Otávio Bittencourt",
+    "image": "2024/12/2d01ed84e45f5366ff8977e4c18f9df3.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 58681
+    }
+  },
+  "5728": {
+    "id": 5728,
     "name": "The Baby Cat",
     "author": "Otávio Bittencourt",
     "image": "2024/12/2d01ed84e45f5366ff8977e4c18f9df3.svg",
@@ -4369,6 +4589,16 @@
       "1": 39111
     }
   },
+  "6594": {
+    "id": 6594,
+    "name": "Velociraptor",
+    "author": "Otávio Bittencourt",
+    "image": "2025/01/53a5ff36f6b4b06df954601622c6b1a3.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 49603
+    }
+  },
   "2116": {
     "id": 2116,
     "name": "Void of Death",
@@ -4723,6 +4953,16 @@
       "1": 37914
     }
   },
+  "7233": {
+    "id": 7233,
+    "name": "Yoga Tree Pose",
+    "author": "Otávio Bittencourt",
+    "image": "2025/02/cc38fea088324f283faaaebe1feef4d9.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 51214
+    }
+  },
   "437": {
     "id": 437,
     "name": "Yorkshire",
@@ -4733,5 +4973,15 @@
       "1": 23212
     },
     "updated_at": "2024-08-04T16:01:31.000000Z"
+  },
+  "4014": {
+    "id": 4014,
+    "name": "Zombie",
+    "author": "Luany Camila",
+    "image": "2024/09/3a42cbf8da47cf3a922fab6246093d2d.svg",
+    "clean_pattern": 119,
+    "reduced_svg_content": {
+      "1": 21411
+    }
   }
 }
