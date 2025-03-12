@@ -3531,6 +3531,16 @@
       "1": 4116
     }
   },
+  "5564": {
+    "id": 5564,
+    "name": "SnowFlake (C C)",
+    "author": "RiverRatDC",
+    "image": "2024/12/3f5e5f460465ab17ea0003826ac3ded5.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 26547
+    }
+  },
   "4803": {
     "id": 4803,
     "name": "Snowman Frosty",
@@ -4538,6 +4548,16 @@
     },
     "updated_at": "2024-08-04T15:58:49.000000Z"
   },
+  "2207": {
+    "id": 2207,
+    "name": "UConn",
+    "author": "JeffDLowe",
+    "image": "2024/08/841e0c9b75cbe33f152672f76d8909b6.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 23086
+    }
+  },
   "218": {
     "id": 218,
     "name": "Unicorn",
@@ -4702,6 +4722,16 @@
       "1": 2310
     }
   },
+  "2146": {
+    "id": 2146,
+    "name": "Warped Waves",
+    "author": "Crystal James",
+    "image": "2024/08/794b3a39e45f75fd487728e5cf9fb1ed.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 17243
+    }
+  },
   "555": {
     "id": 555,
     "name": "Wavy dude",
@@ -4814,6 +4844,16 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 42218
+    }
+  },
+  "7221": {
+    "id": 7221,
+    "name": "Winter Sand",
+    "author": "000843.bf34f133184943939b950674aaaa4ac9.2327",
+    "image": "2025/02/48f5d7a080145e4f8442eb0b1b5f3872.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 17842
     }
   },
   "500": {
