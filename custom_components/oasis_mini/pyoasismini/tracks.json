@@ -982,6 +982,16 @@
       "1": 14627
     }
   },
+  "2200": {
+    "id": 2200,
+    "name": "Deca-switch",
+    "author": "Codie Johnston",
+    "image": "2024/08/ffa5e30737739f5d3903d2f32a2fae66.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 9641
+    }
+  },
   "5494": {
     "id": 5494,
     "name": "Deep Sea Skull With Tentacles",
@@ -1410,6 +1420,16 @@
       "1": 110930
     },
     "updated_at": "2024-08-04T15:59:06.000000Z"
+  },
+  "2150": {
+    "id": 2150,
+    "name": "Fan wiper",
+    "author": "Codie Johnston",
+    "image": "2024/08/44dc2f12376cbce21c613ce386cb20e1.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 10714
+    }
   },
   "903": {
     "id": 903,
@@ -3224,6 +3244,16 @@
     },
     "updated_at": "2024-08-23T15:42:00.000000Z"
   },
+  "6331": {
+    "id": 6331,
+    "name": "schneeflocke",
+    "author": "Daniel Gonzalez",
+    "image": "2025/01/aa2b35ae9a9d1801df798c7eb7a19af5.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 11258
+    }
+  },
   "197": {
     "id": 197,
     "name": "Scorpion",
@@ -3943,6 +3973,16 @@
     },
     "updated_at": "2024-08-04T15:58:55.000000Z"
   },
+  "2204": {
+    "id": 2204,
+    "name": "Stained Glass Mosaic",
+    "author": "D. Villella",
+    "image": "2024/08/f7a806123cab247bf407fd7a6c4da15a.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 10583
+    }
+  },
   "2073": {
     "id": 2073,
     "name": "Stained Glass Rosette",
@@ -4025,6 +4065,16 @@
       "1": 27407
     },
     "updated_at": "2024-08-04T16:01:33.000000Z"
+  },
+  "2211": {
+    "id": 2211,
+    "name": "Starburst",
+    "author": "D. Villella",
+    "image": "2024/08/99c34764b490b7d78fc365a403b3d69d.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 3997
+    }
   },
   "265": {
     "id": 265,
@@ -4348,6 +4398,16 @@
       "1": 18775
     },
     "updated_at": "2024-08-04T16:01:35.000000Z"
+  },
+  "2173": {
+    "id": 2173,
+    "name": "Time Warp",
+    "author": "D. Villella",
+    "image": "2024/08/7b7c3aefabc82de6cb858f24f3cbb67a.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 12355
+    }
   },
   "5257": {
     "id": 5257,
@@ -4814,6 +4874,16 @@
       "1": 8397
     },
     "updated_at": "2024-08-04T15:58:54.000000Z"
+  },
+  "7387": {
+    "id": 7387,
+    "name": "Wheat OO",
+    "author": "M. Frost",
+    "image": "2025/03/a60fce2b1c2eb596a2322fe6aa8f6033.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 9301
+    }
   },
   "2074": {
     "id": 2074,
