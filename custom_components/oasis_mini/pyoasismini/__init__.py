@@ -10,7 +10,7 @@ from urllib.parse import urljoin
 from aiohttp import ClientResponseError, ClientSession
 
 from .const import TRACKS
-from .utils import _bit_to_bool, decrypt_svg_content
+from .utils import _bit_to_bool, _parse_int, decrypt_svg_content
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -54,8 +54,8 @@ LED_EFFECTS: Final[dict[str, str]] = {
 
 CLOUD_BASE_URL = "https://app.grounded.so"
 
-BALL_SPEED_MAX: Final = 1000
-BALL_SPEED_MIN: Final = 200
+BALL_SPEED_MAX: Final = 400
+BALL_SPEED_MIN: Final = 100
 LED_SPEED_MAX: Final = 90
 LED_SPEED_MIN: Final = -90
 
@@ -209,25 +209,29 @@ class OasisMini:
         raw_status = await self._async_get(params={"GETSTATUS": ""})
         _LOGGER.debug("Status: %s", raw_status)
         values = raw_status.split(";")
-        playlist = [int(track) for track in values[3].split(",") if track]
+        playlist = [_parse_int(track) for track in values[3].split(",") if track]
+        shift = len(values) - 18 if len(values) > 17 else 0
         status = {
-            "status_code": int(values[0]),  # see status code map
-            "error": int(values[1]),  # noqa: E501; error, 0 = none, and 10 = ?, 18 = can't download?
-            "ball_speed": int(values[2]),  # 200 - 1000
+            "status_code": _parse_int(values[0]),  # see status code map
+            "error": _parse_int(values[1]),  # noqa: E501; error, 0 = none, and 10 = ?, 18 = can't download?
+            "ball_speed": _parse_int(values[2]),  # 200 - 1000
             "playlist": playlist,
-            "playlist_index": min(int(values[4]), len(playlist)),  # index of above
-            "progress": int(values[5]),  # 0 - max svg path
+            "playlist_index": min(_parse_int(values[4]), len(playlist)),  # noqa: E501; index of above
+            "progress": _parse_int(values[5]),  # 0 - max svg path
             "led_effect": values[6],  # led effect (code lookup)
             "led_color_id": values[7],  # led color id?
-            "led_speed": int(values[8]),  # -90 - 90
-            "brightness": int(values[9]) if values[10] else 0,  # noqa: E501; 0 - 200 in app, but seems to be 0 (off) to 304 (max), then repeats
-            "color": values[10] or None,  # hex color code
-            "busy": _bit_to_bool(values[11]),  # noqa: E501; device is busy (downloading track, centering, software update)?
-            "download_progress": int(values[12]),
-            "max_brightness": int(values[13]),
-            "wifi_connected": _bit_to_bool(values[14]),
-            "repeat_playlist": _bit_to_bool(values[15]),
-            "autoplay": AUTOPLAY_MAP.get(values[16]),
+            "led_speed": _parse_int(values[8]),  # -90 - 90
+            "brightness": _parse_int(values[9]),  # noqa: E501; 0 - 200 in app, but seems to be 0 (off) to 304 (max), then repeats
+            "color": values[10] if "#" in values[10] else None,  # hex color code
+            "busy": _bit_to_bool(values[11 + shift]),  # noqa: E501; device is busy (downloading track, centering, software update)?
+            "download_progress": _parse_int(values[12 + shift]),
+            "max_brightness": _parse_int(values[13 + shift]),
+            "wifi_connected": _bit_to_bool(values[14 + shift]),
+            "repeat_playlist": _bit_to_bool(values[15 + shift]),
+            "autoplay": AUTOPLAY_MAP.get(values[16 + shift]),
+            "autoclean": _bit_to_bool(values[17 + shift])
+            if len(values) > 17
+            else False,
         }
         for key, value in status.items():
             if (old_value := getattr(self, key, None)) != value:

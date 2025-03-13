@@ -26,6 +26,14 @@ def _bit_to_bool(val: str) -> bool:
     return val == "1"
 
 
+def _parse_int(val: str) -> int:
+    """Convert an int string to int."""
+    try:
+        return int(val)
+    except Exception:
+        return 0
+
+
 def draw_svg(track: dict, progress: int, model_id: str) -> str | None:
     """Draw SVG."""
     if track and (svg_content := track.get("svg_content")):
