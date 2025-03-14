@@ -866,6 +866,16 @@
     },
     "updated_at": "2024-08-04T16:01:32.000000Z"
   },
+  "2217": {
+    "id": 2217,
+    "name": "cody",
+    "author": "Amber",
+    "image": "2024/08/f609757487d6178b37b4f81b4c878812.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 2550
+    }
+  },
   "1300": {
     "id": 1300,
     "name": "Collapse",
@@ -1000,6 +1010,16 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 123183
+    }
+  },
+  "2249": {
+    "id": 2249,
+    "name": "Design 1",
+    "author": "Angela DiBart",
+    "image": "2024/08/982727d0ca3169ce7d9c3adee26a5a6e.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 14252
     }
   },
   "919": {
@@ -1686,6 +1706,16 @@
     },
     "updated_at": "2024-08-04T15:58:47.000000Z"
   },
+  "2234": {
+    "id": 2234,
+    "name": "George Harrison",
+    "author": "Garrett Dorfman",
+    "image": "2024/08/c24e1a20247838013888a961b44892be.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 13738
+    }
+  },
   "1450": {
     "id": 1450,
     "name": "German Shepherd",
@@ -1848,6 +1878,16 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 39032
+    }
+  },
+  "2220": {
+    "id": 2220,
+    "name": "Halloween Web",
+    "author": "Christy",
+    "image": "2024/08/7a28c32f2a5f9155207a6f32723d7cd8.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 3186
     }
   },
   "2153": {
@@ -2147,6 +2187,16 @@
       "1": 10346
     },
     "updated_at": "2024-08-04T15:58:54.000000Z"
+  },
+  "2233": {
+    "id": 2233,
+    "name": "John Lennon",
+    "author": "Garrett Dorfman",
+    "image": "2024/08/37052334316d5ffc02fa4b02805f0ffa.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 13080
+    }
   },
   "189": {
     "id": 189,
@@ -3121,6 +3171,16 @@
     },
     "updated_at": "2024-08-04T15:58:53.000000Z"
   },
+  "6226": {
+    "id": 6226,
+    "name": "Rose",
+    "author": "MyGina Mitchell",
+    "image": "2025/01/5f3572d6aa66c7a23b853c608836953c.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 3392
+    }
+  },
   "1956": {
     "id": 1956,
     "name": "RoseHearts",
@@ -3962,6 +4022,16 @@
     },
     "updated_at": "2024-08-04T15:59:33.000000Z"
   },
+  "6233": {
+    "id": 6233,
+    "name": "Squiggle Wipe",
+    "author": "MyGina Mitchell",
+    "image": "2025/01/ab138e923b6888b79d16e604e684c006.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 15885
+    }
+  },
   "175": {
     "id": 175,
     "name": "Squirrel",
@@ -3972,6 +4042,16 @@
       "1": 19034
     },
     "updated_at": "2024-08-04T15:58:55.000000Z"
+  },
+  "2210": {
+    "id": 2210,
+    "name": "Stained Glass Hurricane",
+    "author": "D. Villella",
+    "image": "2024/08/7e827c9f51d7c550ef852cdb02cf4dc4.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 12526
+    }
   },
   "2204": {
     "id": 2204,
@@ -4852,6 +4932,16 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 11861
+    }
+  },
+  "6548": {
+    "id": 6548,
+    "name": "Wedges",
+    "author": "Rebecca",
+    "image": "2025/01/f09758ada2ed759e5a79ae265ac3cc57.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 6762
     }
   },
   "4006": {
