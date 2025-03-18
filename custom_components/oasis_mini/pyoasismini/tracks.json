@@ -423,6 +423,16 @@
       "1": 53742
     }
   },
+  "2739": {
+    "id": 2739,
+    "name": "BesteFreundin",
+    "author": "TM",
+    "image": "2024/08/a446d2760fcfac94776ce90c96ebb1e9.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 1798
+    }
+  },
   "168": {
     "id": 168,
     "name": "Betta Fish",
@@ -737,6 +747,16 @@
       "1": 35173
     }
   },
+  "7101": {
+    "id": 7101,
+    "name": "Circle Star",
+    "author": "Walter Melanson",
+    "image": "2025/02/298e4608b758a63d366b6aab81342b09.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 28921
+    }
+  },
   "1958": {
     "id": 1958,
     "name": "Circle Web",
@@ -1032,6 +1052,16 @@
       "1": 14252
     }
   },
+  "2255": {
+    "id": 2255,
+    "name": "Design 3",
+    "author": "Angela DiBart",
+    "image": "2024/08/2f2f2460718ae42efed5fe99b2aadc93.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 4417
+    }
+  },
   "919": {
     "id": 919,
     "name": "dither Hypnogrid",
@@ -1157,6 +1187,16 @@
     "clean_pattern": 117,
     "reduced_svg_content": {
       "1": 27407
+    }
+  },
+  "2277": {
+    "id": 2277,
+    "name": "Dizzy Black Widow",
+    "author": "D. Villella",
+    "image": "2024/08/868bb20406470deb39341f59d07ae369.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 27517
     }
   },
   "1997": {
@@ -1335,6 +1375,16 @@
       "1": 51683
     },
     "updated_at": "2024-09-05T13:53:22.000000Z"
+  },
+  "3046": {
+    "id": 3046,
+    "name": "Dracaufeu",
+    "author": "Culpin",
+    "image": "2024/08/da20f20f163758979b613d5f603d692e.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 14999
+    }
   },
   "7225": {
     "id": 7225,
@@ -1900,6 +1950,16 @@
       "1": 3186
     }
   },
+  "2659": {
+    "id": 2659,
+    "name": "Halloween3",
+    "author": "Munoz Brandy Melissa",
+    "image": "2024/08/0d8a5caf25848e4e7faa04827512f70b.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 6124
+    }
+  },
   "2153": {
     "id": 2153,
     "name": "Hansa Hand",
@@ -2047,6 +2107,16 @@
       "1": 14801
     },
     "updated_at": "2024-08-04T15:58:56.000000Z"
+  },
+  "3080": {
+    "id": 3080,
+    "name": "Home is where the Oasis is",
+    "author": "Remy Kabel",
+    "image": "2024/08/01ae2c3177c17365ebe11c79fd75dcaa.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 9442
+    }
   },
   "3077": {
     "id": 3077,
@@ -3087,6 +3157,16 @@
       "1": 109181
     }
   },
+  "7479": {
+    "id": 7479,
+    "name": "Records OI",
+    "author": "M. Frost",
+    "image": "2025/03/ad5c575ba76007c9068740eb64522dbb.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 33173
+    }
+  },
   "5054": {
     "id": 5054,
     "name": "Reindeer",
@@ -4010,6 +4090,16 @@
     },
     "updated_at": "2024-08-23T15:40:41.000000Z"
   },
+  "7521": {
+    "id": 7521,
+    "name": "Spooky",
+    "author": "Zach",
+    "image": "2025/03/f5233f56a632c74b4cf6bdd3792a2fb8.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 3187
+    }
+  },
   "126": {
     "id": 126,
     "name": "Spun Web",
@@ -4737,6 +4827,16 @@
       "1": 20527
     },
     "updated_at": "2024-08-04T15:58:49.000000Z"
+  },
+  "7260": {
+    "id": 7260,
+    "name": "TwinkleBursts OO",
+    "author": "M. Frost",
+    "image": "2025/02/6ca2a9f041778ac2965c432e9722286d.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 4039
+    }
   },
   "2207": {
     "id": 2207,
