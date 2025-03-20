@@ -29,6 +29,16 @@
       "1": 3805
     }
   },
+  "2265": {
+    "id": 2265,
+    "name": "4-petal spiral trail IO",
+    "author": "mgfxer",
+    "image": "2024/08/524c6224d0e8ef6effb44312d3dbb5d8.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 29457
+    }
+  },
   "2050": {
     "id": 2050,
     "name": "5 Loops",
@@ -349,6 +359,16 @@
       "1": 9875
     }
   },
+  "7492": {
+    "id": 7492,
+    "name": "Baseball Player",
+    "author": "Otávio Bittencourt",
+    "image": "2025/03/08d4046325c778fc7a8ac7b6ed682832.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 27728
+    }
+  },
   "194": {
     "id": 194,
     "name": "Bass",
@@ -646,6 +666,16 @@
     },
     "updated_at": "2024-08-04T15:58:48.000000Z"
   },
+  "7428": {
+    "id": 7428,
+    "name": "Charlie Chaplin",
+    "author": "Otávio Bittencourt",
+    "image": "2025/03/11742de658292d640bd4680b90575bdc.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 28146
+    }
+  },
   "7219": {
     "id": 7219,
     "name": "Chinese dragon",
@@ -704,6 +734,16 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 75841
+    }
+  },
+  "5424": {
+    "id": 5424,
+    "name": "Christmas Tree",
+    "author": "Tyrel Schalamon",
+    "image": "2024/12/c7b4572a85aed3aab1f5fa8c811cbcb9.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 12538
     }
   },
   "4842": {
@@ -989,6 +1029,16 @@
       "1": 14772
     },
     "updated_at": "2024-08-04T15:58:48.000000Z"
+  },
+  "6728": {
+    "id": 6728,
+    "name": "CubesInCubes OO",
+    "author": "M. Frost",
+    "image": "2025/01/15d8f8f23f3d34ee972548e064e026ca.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 6122
+    }
   },
   "68": {
     "id": 68,
@@ -1438,6 +1488,16 @@
       "1": 14361
     }
   },
+  "4155": {
+    "id": 4155,
+    "name": "Eiffel Tower",
+    "author": "Ryan Santer",
+    "image": "2024/09/b521a535d45299439b3cc4f915c64d92.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 23082
+    }
+  },
   "159": {
     "id": 159,
     "name": "Elephant",
@@ -1541,6 +1601,16 @@
       "1": 7022
     },
     "updated_at": "2024-08-04T15:58:46.000000Z"
+  },
+  "2266": {
+    "id": 2266,
+    "name": "Fidget Spinner Spiral",
+    "author": "mgfxer",
+    "image": "2024/08/49d892f4b38c874764cc71904c1f4970.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 39147
+    }
   },
   "262": {
     "id": 262,
@@ -1646,6 +1716,16 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 76791
+    }
+  },
+  "7545": {
+    "id": 7545,
+    "name": "Football quarterback",
+    "author": "Otávio Bittencourt",
+    "image": "2025/03/9b9dad4300ffb24e13cb037c21909131.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 37953
     }
   },
   "759": {
@@ -1960,6 +2040,16 @@
       "1": 6124
     }
   },
+  "4163": {
+    "id": 4163,
+    "name": "Hand",
+    "author": "Ryan Santer",
+    "image": "2024/09/4427c804187411ca1d0b88ab4a3eecbe.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 8960
+    }
+  },
   "2153": {
     "id": 2153,
     "name": "Hansa Hand",
@@ -2107,6 +2197,16 @@
       "1": 14801
     },
     "updated_at": "2024-08-04T15:58:56.000000Z"
+  },
+  "7526": {
+    "id": 7526,
+    "name": "Hokey",
+    "author": "Otávio Bittencourt",
+    "image": "2025/03/b5c85f388af24b4a99438b407ab1bddb.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 45501
+    }
   },
   "3080": {
     "id": 3080,
@@ -2307,6 +2407,16 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 43094
+    }
+  },
+  "7500": {
+    "id": 7500,
+    "name": "Kelp OI",
+    "author": "M. Frost",
+    "image": "2025/03/41f78f52c79ed82eb071de2fdaa3d342.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 18593
     }
   },
   "2796": {
@@ -2573,6 +2683,16 @@
       "1": 20347
     }
   },
+  "7489": {
+    "id": 7489,
+    "name": "Manta",
+    "author": "Otávio Bittencourt",
+    "image": "2025/03/c8adfc01079d28722d28c00f4ca427cb.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 33756
+    }
+  },
   "7417": {
     "id": 7417,
     "name": "Manta Ray",
@@ -2699,6 +2819,16 @@
       "1": 72525
     }
   },
+  "5585": {
+    "id": 5585,
+    "name": "Muncombe Hill (C C)",
+    "author": "RiverRatDC",
+    "image": "2024/12/71178ff0e705795e1b93a1d732bb7208.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 13735
+    }
+  },
   "63": {
     "id": 63,
     "name": "Mushroom",
@@ -2814,6 +2944,16 @@
       "1": 10896
     },
     "updated_at": "2024-08-04T15:58:55.000000Z"
+  },
+  "2992": {
+    "id": 2992,
+    "name": "Old Lady",
+    "author": "Jordan Rous",
+    "image": "2024/08/374e4e70c1afc81ef3633c6dd171a370.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 52340
+    }
   },
   "5994": {
     "id": 5994,
@@ -2938,6 +3078,16 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 24932
+    }
+  },
+  "7107": {
+    "id": 7107,
+    "name": "Petal Spirograph OI",
+    "author": "mgfxer",
+    "image": "2025/02/34bf5ae156402219b297a38d5e37f454.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 29174
     }
   },
   "1048": {
@@ -3175,6 +3325,16 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 25431
+    }
+  },
+  "5422": {
+    "id": 5422,
+    "name": "Reindeer",
+    "author": "Tyrel Schalamon",
+    "image": "2024/12/28d35601cfc76ea32e402529b24495d7.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 9099
     }
   },
   "613": {
@@ -3624,6 +3784,16 @@
       "1": 28533
     }
   },
+  "5584": {
+    "id": 5584,
+    "name": "SixPennyHandley (C C)",
+    "author": "RiverRatDC",
+    "image": "2024/12/6fcedf69aa81f67a67dd5a4cd7f18900.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 14973
+    }
+  },
   "5952": {
     "id": 5952,
     "name": "Skateasaurus",
@@ -3717,6 +3887,16 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 24568
+    }
+  },
+  "7560": {
+    "id": 7560,
+    "name": "Snow Angel",
+    "author": "Otávio Bittencourt",
+    "image": "2025/03/b7055ca82f91905bfb6b59accbe965d5.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 44346
     }
   },
   "551": {
@@ -3833,6 +4013,16 @@
       "1": 48011
     },
     "updated_at": "2024-08-23T15:51:29.000000Z"
+  },
+  "4157": {
+    "id": 4157,
+    "name": "Spider",
+    "author": "Ryan Santer",
+    "image": "2024/09/ed779c14f0c153a49507a49b5becd9dc.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 33803
+    }
   },
   "1468": {
     "id": 1468,
@@ -4161,6 +4351,16 @@
       "1": 52242
     }
   },
+  "6642": {
+    "id": 6642,
+    "name": "SquareSoft OI",
+    "author": "M. Frost",
+    "image": "2025/01/6ce68463c5057a674e129091656c5496.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 5771
+    }
+  },
   "267": {
     "id": 267,
     "name": "Squid",
@@ -4192,6 +4392,16 @@
       "1": 19034
     },
     "updated_at": "2024-08-04T15:58:55.000000Z"
+  },
+  "5425": {
+    "id": 5425,
+    "name": "St Nick",
+    "author": "Tyrel Schalamon",
+    "image": "2024/12/bc2c49d900741192fc16d029b73bc711.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 18584
+    }
   },
   "2210": {
     "id": 2210,
@@ -4356,6 +4566,26 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 53595
+    }
+  },
+  "5421": {
+    "id": 5421,
+    "name": "Stocking with presents",
+    "author": "Tyrel Schalamon",
+    "image": "2024/12/06c8be724e5f2b148b1c7a5cfc91eabd.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 13235
+    }
+  },
+  "7543": {
+    "id": 7543,
+    "name": "Street Basketball",
+    "author": "Otávio Bittencourt",
+    "image": "2025/03/debc22d72fdc1a98cdb86a9a727f9952.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 48692
     }
   },
   "115": {
@@ -4660,6 +4890,16 @@
       "1": 23707
     }
   },
+  "5426": {
+    "id": 5426,
+    "name": "Tree and Reindeer",
+    "author": "Tyrel Schalamon",
+    "image": "2024/12/1eafc2eb9566d399f682eb6a99c37c52.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 16851
+    }
+  },
   "1507": {
     "id": 1507,
     "name": "Tri fractal with spiral background",
@@ -4917,6 +5157,16 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 49603
+    }
+  },
+  "7187": {
+    "id": 7187,
+    "name": "Vicki",
+    "author": "Vicki Gingrich",
+    "image": "2025/02/1cdadbb95ecc970607b30e563823dd01.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 6442
     }
   },
   "2116": {
