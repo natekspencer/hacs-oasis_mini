@@ -4024,6 +4024,16 @@
       "1": 44630
     }
   },
+  "3600": {
+    "id": 3600,
+    "name": "Skeletons",
+    "author": "Matt G.",
+    "image": "2024/09/5db01d7413195e90241a833617891411.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 53281
+    }
+  },
   "209": {
     "id": 209,
     "name": "Skull",
@@ -5703,6 +5713,16 @@
     "clean_pattern": null,
     "reduced_svg_content": {
       "1": 13907
+    }
+  },
+  "7590": {
+    "id": 7590,
+    "name": "WiggleWeb OI",
+    "author": "M. Frost",
+    "image": "2025/03/48773b05bbc4b04e8da368154a2ff938.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 11908
     }
   },
   "2074": {
