@@ -32,6 +32,7 @@ AUTOPLAY_MAP = {
     "2": "5 minutes",
     "3": "10 minutes",
     "4": "30 minutes",
+    "5": "24 hours",
 }
 
 LED_EFFECTS: Final[dict[str, str]] = {
@@ -227,7 +228,7 @@ class OasisMini:
             "max_brightness": int(values[13]),
             "wifi_connected": _bit_to_bool(values[14]),
             "repeat_playlist": _bit_to_bool(values[15]),
-            "autoplay": AUTOPLAY_MAP.get(values[16]),
+            "autoplay": AUTOPLAY_MAP.get(value := values[16], value),
         }
         for key, value in status.items():
             if (old_value := getattr(self, key, None)) != value:
