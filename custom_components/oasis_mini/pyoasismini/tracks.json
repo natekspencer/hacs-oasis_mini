@@ -244,6 +244,16 @@
       "1": 15722
     }
   },
+  "7395": {
+    "id": 7395,
+    "name": "Argyle OO",
+    "author": "M. Frost",
+    "image": "2025/03/bdde648efe536587ca4bb1d9cdb5264f.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 6992
+    }
+  },
   "251": {
     "id": 251,
     "name": "Aries Ram",
@@ -493,6 +503,16 @@
       "1": 53742
     }
   },
+  "7283": {
+    "id": 7283,
+    "name": "Beautiful Reuleaux",
+    "author": "001499.78700c0a163a41ea8d994bca5712b983.1928",
+    "image": "2025/02/4326d6287e31682f3ec47a25548ed039.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 5068
+    }
+  },
   "2739": {
     "id": 2739,
     "name": "BesteFreundin",
@@ -705,6 +725,16 @@
     },
     "updated_at": "2024-08-04T15:59:02.000000Z"
   },
+  "2499": {
+    "id": 2499,
+    "name": "Cash money 3",
+    "author": "Ryan Smith",
+    "image": "2024/08/60595e942d7e374b7ab1f8f6a94169b7.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 10962
+    }
+  },
   "113": {
     "id": 113,
     "name": "Cat Face",
@@ -724,6 +754,16 @@
     "clean_pattern": null,
     "reduced_svg_content": {
       "1": 28146
+    }
+  },
+  "7478": {
+    "id": 7478,
+    "name": "ChevronWipe OO",
+    "author": "M. Frost",
+    "image": "2025/03/5b36c3c57c39f99001382c2310ad5f3d.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 4895
     }
   },
   "7219": {
@@ -1089,6 +1129,16 @@
       "1": 14772
     },
     "updated_at": "2024-08-04T15:58:48.000000Z"
+  },
+  "3308": {
+    "id": 3308,
+    "name": "Crown Star",
+    "author": "LOVE",
+    "image": "2024/09/c1c633bc694cea86b2ac9e8b58dea8c8.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 11173
+    }
   },
   "6728": {
     "id": 6728,
@@ -2203,6 +2253,16 @@
       "1": 1864
     }
   },
+  "7490": {
+    "id": 7490,
+    "name": "HCP",
+    "author": "Walter Melanson",
+    "image": "2025/03/7617fcc2ad0835b32fc0ffba54d3c6bf.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 30559
+    }
+  },
   "509": {
     "id": 509,
     "name": "Heart loop",
@@ -2580,6 +2640,16 @@
       "1": 4836
     },
     "updated_at": "2024-08-04T15:59:30.000000Z"
+  },
+  "7586": {
+    "id": 7586,
+    "name": "Laser OO",
+    "author": "M. Frost",
+    "image": "2025/03/42ef11ad9d403e3976e0209dd23e0e36.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 9485
+    }
   },
   "2602": {
     "id": 2602,
@@ -3064,16 +3134,6 @@
     },
     "updated_at": "2024-08-04T15:58:53.000000Z"
   },
-  "4904": {
-    "id": 4904,
-    "name": "Oasis Answers",
-    "author": "Otávio Bittencourt",
-    "image": "2024/11/e2ef4e197ce1aae90fd1f9c17c689ade.svg",
-    "clean_pattern": 119,
-    "reduced_svg_content": {
-      "1": 16954
-    }
-  },
   "171": {
     "id": 171,
     "name": "Octopus",
@@ -3146,6 +3206,16 @@
     },
     "updated_at": "2024-08-04T16:01:31.000000Z"
   },
+  "7474": {
+    "id": 7474,
+    "name": "Overlap OI",
+    "author": "M. Frost",
+    "image": "2025/03/515404c0d4cf426d5c643e20df1ca5f4.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 6158
+    }
+  },
   "37": {
     "id": 37,
     "name": "Owl",
@@ -3167,6 +3237,16 @@
       "1": 43076
     },
     "updated_at": "2024-08-04T15:59:11.000000Z"
+  },
+  "7659": {
+    "id": 7659,
+    "name": "Peixe Diabo Negro",
+    "author": "Victor Meireles",
+    "image": "2025/03/254a57b10f00db4be449f7e1daae8df2.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 18767
+    }
   },
   "350": {
     "id": 350,
@@ -3671,6 +3751,16 @@
       "1": 15406
     }
   },
+  "2399": {
+    "id": 2399,
+    "name": "Sails",
+    "author": "D. Villella",
+    "image": "2024/08/abc60a69e36bc934f327d7982af1ab36.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 37334
+    }
+  },
   "7304": {
     "id": 7304,
     "name": "Sakura Ryu",
@@ -3972,6 +4062,16 @@
     "clean_pattern": 117,
     "reduced_svg_content": {
       "1": 21908
+    }
+  },
+  "7481": {
+    "id": 7481,
+    "name": "SingleWaveWipe OO",
+    "author": "M. Frost",
+    "image": "2025/03/7464de9631ed7b1dee4d9ad2e5bcf2ba.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 5363
     }
   },
   "1305": {
@@ -4703,6 +4803,16 @@
       "1": 10993
     }
   },
+  "7388": {
+    "id": 7388,
+    "name": "StainedGlass OO",
+    "author": "M. Frost",
+    "image": "2025/03/f16652823ba91e541f3aeb6769993c59.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 15525
+    }
+  },
   "962": {
     "id": 962,
     "name": "Star Box",
@@ -4806,6 +4916,26 @@
       "1": 3997
     }
   },
+  "6401": {
+    "id": 6401,
+    "name": "Starburst Wipe",
+    "author": "Rebecca",
+    "image": "2025/01/3cedc00afd63ada6265414c60e0ec614.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 12224
+    }
+  },
+  "7475": {
+    "id": 7475,
+    "name": "StarFill OI",
+    "author": "M. Frost",
+    "image": "2025/03/c8ca03e6ddd206d25912d13c4bbed223.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 26266
+    }
+  },
   "265": {
     "id": 265,
     "name": "Starfish",
@@ -4835,6 +4965,16 @@
     "clean_pattern": null,
     "reduced_svg_content": {
       "1": 10551
+    }
+  },
+  "7483": {
+    "id": 7483,
+    "name": "StarXL OI",
+    "author": "M. Frost",
+    "image": "2025/03/5473fb943555b8465f98852e90a2ecdd.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 37247
     }
   },
   "2363": {
@@ -5012,6 +5152,16 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 35762
+    }
+  },
+  "2756": {
+    "id": 2756,
+    "name": "TechMaster-Spironifica",
+    "author": "Robert J. Welle II",
+    "image": "2024/08/ceeabdbea1e53cec0dd12bdd053c6416.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 3543
     }
   },
   "5729": {
