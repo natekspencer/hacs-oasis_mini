@@ -19,6 +19,16 @@
       "1": 40107
     }
   },
+  "2505": {
+    "id": 2505,
+    "name": "3 Spiros",
+    "author": "Ryan Smith",
+    "image": "2024/08/0df47c3974b3c41290747724cb39e8ba.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 6449
+    }
+  },
   "2064": {
     "id": 2064,
     "name": "4 Pointed Star",
@@ -130,6 +140,16 @@
       "1": 20859
     }
   },
+  "6335": {
+    "id": 6335,
+    "name": "ABUNDANCIA",
+    "author": "Elyse Acanda",
+    "image": "2025/01/6da36f738abe43e2055b8e203e832837.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 1691
+    }
+  },
   "6843": {
     "id": 6843,
     "name": "Accretion Disk",
@@ -201,6 +221,16 @@
       "1": 12636
     }
   },
+  "7659": {
+    "id": 7659,
+    "name": "Anglerfish",
+    "author": "Victor Meireles",
+    "image": "2025/03/254a57b10f00db4be449f7e1daae8df2.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 18767
+    }
+  },
   "2798": {
     "id": 2798,
     "name": "Angry T-rex",
@@ -223,6 +253,16 @@
     },
     "updated_at": "2024-08-04T15:58:48.000000Z"
   },
+  "5285": {
+    "id": 5285,
+    "name": "AOU 2",
+    "author": "AllOfYou",
+    "image": "2024/12/0f337ede9fed61ff52a192c4a0369cdc.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 44570
+    }
+  },
   "306": {
     "id": 306,
     "name": "arc flower",
@@ -242,6 +282,16 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 15722
+    }
+  },
+  "7395": {
+    "id": 7395,
+    "name": "Argyle OO",
+    "author": "M. Frost",
+    "image": "2025/03/bdde648efe536587ca4bb1d9cdb5264f.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 6992
     }
   },
   "251": {
@@ -493,6 +543,16 @@
       "1": 53742
     }
   },
+  "7283": {
+    "id": 7283,
+    "name": "Beautiful Reuleaux",
+    "author": "001499.78700c0a163a41ea8d994bca5712b983.1928",
+    "image": "2025/02/4326d6287e31682f3ec47a25548ed039.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 5068
+    }
+  },
   "2739": {
     "id": 2739,
     "name": "BesteFreundin",
@@ -513,6 +573,16 @@
       "1": 20855
     },
     "updated_at": "2024-08-04T15:58:54.000000Z"
+  },
+  "2548": {
+    "id": 2548,
+    "name": "Big Bang",
+    "author": "D. Villella",
+    "image": "2024/08/fad06aae0071e595a9509d5ed25119ef.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 14076
+    }
   },
   "2051": {
     "id": 2051,
@@ -543,6 +613,16 @@
     "clean_pattern": 117,
     "reduced_svg_content": {
       "1": 29347
+    }
+  },
+  "7705": {
+    "id": 7705,
+    "name": "Birthday Cake",
+    "author": "Tyrel Schalamon",
+    "image": "2025/03/5b8c8f05b0fb28e11a1f4ea3905a2e58.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 10922
     }
   },
   "1810": {
@@ -586,6 +666,16 @@
       "1": 34616
     },
     "updated_at": "2024-08-04T15:58:52.000000Z"
+  },
+  "5531": {
+    "id": 5531,
+    "name": "Bubbles",
+    "author": "Julia Steiner",
+    "image": "2024/12/8de58b47efbc8eba314bf4c9f979fce1.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 36383
+    }
   },
   "349": {
     "id": 349,
@@ -705,6 +795,26 @@
     },
     "updated_at": "2024-08-04T15:59:02.000000Z"
   },
+  "2499": {
+    "id": 2499,
+    "name": "Cash money 3",
+    "author": "Ryan Smith",
+    "image": "2024/08/60595e942d7e374b7ab1f8f6a94169b7.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 10962
+    }
+  },
+  "6115": {
+    "id": 6115,
+    "name": "cat",
+    "author": "Ilovecats5",
+    "image": "2024/12/40fbd819382afcd40f3df1976aa08f72.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 4486
+    }
+  },
   "113": {
     "id": 113,
     "name": "Cat Face",
@@ -716,6 +826,16 @@
     },
     "updated_at": "2024-08-04T15:58:48.000000Z"
   },
+  "3134": {
+    "id": 3134,
+    "name": "Cathar Inspired",
+    "author": "LOVE",
+    "image": "2024/09/7ebe04269733a3fff081c1815fc2c225.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 2421
+    }
+  },
   "7428": {
     "id": 7428,
     "name": "Charlie Chaplin",
@@ -724,6 +844,16 @@
     "clean_pattern": null,
     "reduced_svg_content": {
       "1": 28146
+    }
+  },
+  "7478": {
+    "id": 7478,
+    "name": "ChevronWipe OO",
+    "author": "M. Frost",
+    "image": "2025/03/5b36c3c57c39f99001382c2310ad5f3d.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 4895
     }
   },
   "7219": {
@@ -806,6 +936,16 @@
       "1": 12538
     }
   },
+  "5441": {
+    "id": 5441,
+    "name": "Christmas Tree",
+    "author": "Lemon Goose",
+    "image": "2024/12/085c8611d0a3dadc415275dd766f7ac0.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 4428
+    }
+  },
   "4842": {
     "id": 4842,
     "name": "Christmas Tree and Full Moon",
@@ -865,6 +1005,16 @@
     "clean_pattern": 117,
     "reduced_svg_content": {
       "1": 12178
+    }
+  },
+  "5672": {
+    "id": 5672,
+    "name": "Circles of Zen",
+    "author": "Anders",
+    "image": "2024/12/295a84fc34f71534a0f076776f35cda9.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 26594
     }
   },
   "1981": {
@@ -1006,6 +1156,16 @@
     },
     "updated_at": "2024-08-04T16:01:32.000000Z"
   },
+  "5097": {
+    "id": 5097,
+    "name": "Codex Maze",
+    "author": "Lemon Goose",
+    "image": "2024/11/067e0de77e5e6e4b839f1d2cbcc71864.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 16575
+    }
+  },
   "2217": {
     "id": 2217,
     "name": "cody",
@@ -1024,6 +1184,16 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 46289
+    }
+  },
+  "5656": {
+    "id": 5656,
+    "name": "Colosseum",
+    "author": "Chris Bischoff",
+    "image": "2024/12/74eaa9fb5b20f78c775996503a6f6bdb.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 24552
     }
   },
   "1766": {
@@ -1090,6 +1260,26 @@
     },
     "updated_at": "2024-08-04T15:58:48.000000Z"
   },
+  "3308": {
+    "id": 3308,
+    "name": "Crown Star",
+    "author": "LOVE",
+    "image": "2024/09/c1c633bc694cea86b2ac9e8b58dea8c8.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 11173
+    }
+  },
+  "6842": {
+    "id": 6842,
+    "name": "Crystalline",
+    "author": "Peter Black",
+    "image": "2025/01/e490e1204d6baaf931c9f4e0ba543cde.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 2422
+    }
+  },
   "6728": {
     "id": 6728,
     "name": "CubesInCubes OO",
@@ -1098,6 +1288,16 @@
     "clean_pattern": null,
     "reduced_svg_content": {
       "1": 6122
+    }
+  },
+  "4926": {
+    "id": 4926,
+    "name": "Cubism",
+    "author": "MyElkScandal",
+    "image": "2024/11/64f9e69b3895888a5667d7318c0fbcbb.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 6120
     }
   },
   "68": {
@@ -1152,6 +1352,16 @@
       "1": 9641
     }
   },
+  "5654": {
+    "id": 5654,
+    "name": "Dekagram",
+    "author": "Joseph",
+    "image": "2024/12/ebbde806f153bd3bf4942e1038826928.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 107041
+    }
+  },
   "2249": {
     "id": 2249,
     "name": "Design 1",
@@ -1170,6 +1380,26 @@
     "clean_pattern": null,
     "reduced_svg_content": {
       "1": 4417
+    }
+  },
+  "6080": {
+    "id": 6080,
+    "name": "dialga",
+    "author": "Elijah Sinofsky",
+    "image": "2024/12/95ee7c51511fccd797f4da1218ff1693.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 7318
+    }
+  },
+  "5233": {
+    "id": 5233,
+    "name": "dither gosper",
+    "author": "Curt Akins",
+    "image": "2024/11/147de0c904a5a49ac783df90398334d7.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 4782
     }
   },
   "919": {
@@ -1486,6 +1716,16 @@
     },
     "updated_at": "2024-09-05T13:53:22.000000Z"
   },
+  "5417": {
+    "id": 5417,
+    "name": "Dougs sunburst",
+    "author": "Tyrel Schalamon",
+    "image": "2024/12/e71fed94a79facc504e4b06561850318.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 121315
+    }
+  },
   "3046": {
     "id": 3046,
     "name": "Dracaufeu",
@@ -1517,6 +1757,46 @@
     },
     "updated_at": "2024-08-04T15:58:56.000000Z"
   },
+  "6090": {
+    "id": 6090,
+    "name": "Dragon",
+    "author": "CrazyDavesComics",
+    "image": "2024/12/644168eb70031439014a9010e177c777.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 22798
+    }
+  },
+  "4091": {
+    "id": 4091,
+    "name": "Dragon",
+    "author": "Leslie Fender",
+    "image": "2024/09/e03bc96f7d5fac22f0800647f20728f8.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 6079
+    }
+  },
+  "6100": {
+    "id": 6100,
+    "name": "Dragon 2",
+    "author": "CrazyDavesComics",
+    "image": "2024/12/68a99b09178c134116de99613116e833.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 8228
+    }
+  },
+  "6103": {
+    "id": 6103,
+    "name": "Dragon 4",
+    "author": "CrazyDavesComics",
+    "image": "2024/12/edae9afc550fec708e1b50d050d33f16.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 13358
+    }
+  },
   "2118": {
     "id": 2118,
     "name": "Drums of Fate",
@@ -1546,6 +1826,16 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 14361
+    }
+  },
+  "6846": {
+    "id": 6846,
+    "name": "Egyptian Pyramids",
+    "author": "Peter Black",
+    "image": "2025/01/c3228b2eb44c79ef1adde3b908ee6dc2.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 9304
     }
   },
   "4155": {
@@ -1745,6 +2035,16 @@
       "1": 42338
     }
   },
+  "5958": {
+    "id": 5958,
+    "name": "flower",
+    "author": "Stacy Nguyen",
+    "image": "2024/12/f1ae1fd921a9b1657dd5c3860f64fc17.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 7367
+    }
+  },
   "907": {
     "id": 907,
     "name": "Flower Bubbles",
@@ -1828,6 +2128,46 @@
       "1": 7666
     }
   },
+  "3854": {
+    "id": 3854,
+    "name": "Fractal 2",
+    "author": "Cameron",
+    "image": "2024/09/d57b0f6d1075ef90c603943fd7f0bd38.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 8038
+    }
+  },
+  "7679": {
+    "id": 7679,
+    "name": "Fractal Ice Grid",
+    "author": "recodealpha",
+    "image": "2025/03/dce1ee4bcc88f5e04f7535d4a72feff0.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 41057
+    }
+  },
+  "3951": {
+    "id": 3951,
+    "name": "Fractale",
+    "author": "Vincent",
+    "image": "2024/09/48502542d13945aa354f1d468cc06271.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 66720
+    }
+  },
+  "6412": {
+    "id": 6412,
+    "name": "Fractals and Triangles",
+    "author": "Rebecca",
+    "image": "2025/01/85b177d843dea4fec5b31d9bf027e7de.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 2929
+    }
+  },
   "715": {
     "id": 715,
     "name": "Fractospiral",
@@ -1892,6 +2232,16 @@
     },
     "updated_at": "2024-08-04T16:01:36.000000Z"
   },
+  "5091": {
+    "id": 5091,
+    "name": "Funnel web",
+    "author": "Lemon Goose",
+    "image": "2024/11/4ea0d79ddf750f930a28f84ae52b2f8d.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 20261
+    }
+  },
   "252": {
     "id": 252,
     "name": "Furry Moth",
@@ -1913,6 +2263,26 @@
       "1": 23584
     },
     "updated_at": "2024-08-23T15:42:04.000000Z"
+  },
+  "6067": {
+    "id": 6067,
+    "name": "genesect",
+    "author": "Elijah Sinofsky",
+    "image": "2024/12/49c30800b385a0237bb4e8fb7ef98753.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 11116
+    }
+  },
+  "5905": {
+    "id": 5905,
+    "name": "geo",
+    "author": "Eric Seaberg",
+    "image": "2024/12/d9da6f822b28ec07e016665c524934d8.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 24922
+    }
   },
   "88": {
     "id": 88,
@@ -1997,6 +2367,16 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 44743
+    }
+  },
+  "6386": {
+    "id": 6386,
+    "name": "Glitch",
+    "author": "M. Frost",
+    "image": "2025/01/e67d82cfa2c2bf48317dc1b4f91e5669.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 21011
     }
   },
   "1777": {
@@ -2140,6 +2520,16 @@
       "1": 8960
     }
   },
+  "5289": {
+    "id": 5289,
+    "name": "Hang loose",
+    "author": "Nate Copier",
+    "image": "2024/12/52a1f227273f5ce897b4de721f0dde83.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 5079
+    }
+  },
   "2153": {
     "id": 2153,
     "name": "Hansa Hand",
@@ -2182,6 +2572,16 @@
       "1": 44216
     }
   },
+  "5470": {
+    "id": 5470,
+    "name": "Happy Thanksgiving",
+    "author": "Curtis",
+    "image": "2024/12/2dd769f136c23129145593239c67c141.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 18957
+    }
+  },
   "581": {
     "id": 581,
     "name": "Happy4th",
@@ -2201,6 +2601,26 @@
     "clean_pattern": null,
     "reduced_svg_content": {
       "1": 1864
+    }
+  },
+  "4666": {
+    "id": 4666,
+    "name": "HappyHalloween!",
+    "author": "Laurie Richards",
+    "image": "2024/10/200f634734258e8c5152955bcb052d25.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 2642
+    }
+  },
+  "7490": {
+    "id": 7490,
+    "name": "HCP",
+    "author": "Walter Melanson",
+    "image": "2025/03/7617fcc2ad0835b32fc0ffba54d3c6bf.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 30559
     }
   },
   "509": {
@@ -2232,6 +2652,16 @@
     "clean_pattern": null,
     "reduced_svg_content": {
       "1": 2520
+    }
+  },
+  "6414": {
+    "id": 6414,
+    "name": "Hearts",
+    "author": "Rebecca",
+    "image": "2025/01/ed031b32095ef5a05ac185b86496afc6.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 2565
     }
   },
   "356": {
@@ -2308,6 +2738,16 @@
     },
     "updated_at": "2024-08-04T15:58:56.000000Z"
   },
+  "6066": {
+    "id": 6066,
+    "name": "ho-oh",
+    "author": "Elijah Sinofsky",
+    "image": "2024/12/71c4b77bfd7289c08afdcc01897400f8.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 14226
+    }
+  },
   "7526": {
     "id": 7526,
     "name": "Hokey",
@@ -2359,6 +2799,16 @@
       "1": 25521
     },
     "updated_at": "2024-08-04T16:01:45.000000Z"
+  },
+  "6783": {
+    "id": 6783,
+    "name": "Hot Dog",
+    "author": "Rebecca",
+    "image": "2025/01/9ac359fc3a51d1e345a53555b38b1378.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 12893
+    }
   },
   "535": {
     "id": 535,
@@ -2435,6 +2885,16 @@
     },
     "updated_at": "2024-08-04T15:58:47.000000Z"
   },
+  "2686": {
+    "id": 2686,
+    "name": "Infinite Rose",
+    "author": "Brie Carranza",
+    "image": "2024/08/882c65d73c0aef26453cf50edd7111f3.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 17797
+    }
+  },
   "2070": {
     "id": 2070,
     "name": "Infinity Star",
@@ -2455,6 +2915,16 @@
       "1": 8302
     },
     "updated_at": "2024-08-04T15:58:52.000000Z"
+  },
+  "5076": {
+    "id": 5076,
+    "name": "It’s Fall Y’all",
+    "author": "Anna",
+    "image": "2024/11/adae30fc7528777af9f3348c49cf5fb1.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 12906
+    }
   },
   "5637": {
     "id": 5637,
@@ -2487,6 +2957,16 @@
       "1": 32419
     }
   },
+  "6077": {
+    "id": 6077,
+    "name": "jellyfesh",
+    "author": "Elijah Sinofsky",
+    "image": "2024/12/847b3ccb7096408f8f4d62cfab43a34e.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 6814
+    }
+  },
   "170": {
     "id": 170,
     "name": "Jellyfish",
@@ -2498,6 +2978,26 @@
     },
     "updated_at": "2024-08-04T15:58:54.000000Z"
   },
+  "5427": {
+    "id": 5427,
+    "name": "Jesus and Lamb",
+    "author": "Tyrel Schalamon",
+    "image": "2024/12/3c1766b0e610a0f43291bceaf6228b59.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 12566
+    }
+  },
+  "5429": {
+    "id": 5429,
+    "name": "Jesus Pray",
+    "author": "Tyrel Schalamon",
+    "image": "2024/12/4d8499c22f465a1270b5052878299208.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 9342
+    }
+  },
   "2233": {
     "id": 2233,
     "name": "John Lennon",
@@ -2506,6 +3006,16 @@
     "clean_pattern": null,
     "reduced_svg_content": {
       "1": 13080
+    }
+  },
+  "3704": {
+    "id": 3704,
+    "name": "jp2",
+    "author": "jahan",
+    "image": "2024/09/ce5b5de6a5a8c3ec90d0b4fc06d79174.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 4138
     }
   },
   "189": {
@@ -2570,6 +3080,16 @@
     },
     "updated_at": "2024-08-04T15:59:30.000000Z"
   },
+  "3451": {
+    "id": 3451,
+    "name": "Koch Snowflake",
+    "author": "Tomáš Buchta",
+    "image": "2024/09/de686f921d97d32b8a8a6d7727ac8549.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 20882
+    }
+  },
   "240": {
     "id": 240,
     "name": "Labrador Retriever",
@@ -2580,6 +3100,16 @@
       "1": 4836
     },
     "updated_at": "2024-08-04T15:59:30.000000Z"
+  },
+  "7586": {
+    "id": 7586,
+    "name": "Laser OO",
+    "author": "M. Frost",
+    "image": "2025/03/42ef11ad9d403e3976e0209dd23e0e36.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 9485
+    }
   },
   "2602": {
     "id": 2602,
@@ -2613,6 +3143,16 @@
       "1": 23780
     }
   },
+  "6073": {
+    "id": 6073,
+    "name": "lilly",
+    "author": "Elijah Sinofsky",
+    "image": "2024/12/a723a7d36196200e4170d7b2aec5bc6c.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 6780
+    }
+  },
   "121": {
     "id": 121,
     "name": "Line Wiper",
@@ -2644,6 +3184,16 @@
       "1": 20804
     },
     "updated_at": "2024-08-04T16:01:26.000000Z"
+  },
+  "2459": {
+    "id": 2459,
+    "name": "LissyTwist",
+    "author": "Ralph",
+    "image": "2024/08/8ba8521d3e99051c48dba8f326c84091.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 15658
+    }
   },
   "5739": {
     "id": 5739,
@@ -2695,6 +3245,16 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 44912
+    }
+  },
+  "5191": {
+    "id": 5191,
+    "name": "London bus",
+    "author": "Nate Copier",
+    "image": "2024/11/cd5fade3d64a64c8478f82a83b110caa.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 8105
     }
   },
   "177": {
@@ -2750,6 +3310,26 @@
       "1": 68851
     },
     "updated_at": "2024-08-04T15:58:50.000000Z"
+  },
+  "4316": {
+    "id": 4316,
+    "name": "Loopy Lines",
+    "author": "MyElkScandal",
+    "image": "2024/10/19f020a9a184b79bc4813f01e79d6aab.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 3887
+    }
+  },
+  "6623": {
+    "id": 6623,
+    "name": "LotusWind InIn",
+    "author": "M. Frost",
+    "image": "2025/01/eac1b9808fc1d4a5cef8eb79f7dab791.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 14118
+    }
   },
   "1812": {
     "id": 1812,
@@ -2834,6 +3414,36 @@
     },
     "updated_at": "2024-08-04T16:01:24.000000Z"
   },
+  "2654": {
+    "id": 2654,
+    "name": "Masking",
+    "author": "kb",
+    "image": "2024/08/77850d3bd0b1c8ce3d07e0bcb01a5c78.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 5418
+    }
+  },
+  "4204": {
+    "id": 4204,
+    "name": "MaxDraw",
+    "author": "Max Krueger",
+    "image": "2024/10/00249020b6edaed022d661935f411034.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 10002
+    }
+  },
+  "5995": {
+    "id": 5995,
+    "name": "Maze to solve, with sweep",
+    "author": "Ryan Kitchen",
+    "image": "2024/12/988a6abf7b174de8989647c4dca3f4da.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 11835
+    }
+  },
   "212": {
     "id": 212,
     "name": "Medusa",
@@ -2844,6 +3454,36 @@
       "1": 77291
     },
     "updated_at": "2024-08-04T15:59:00.000000Z"
+  },
+  "6078": {
+    "id": 6078,
+    "name": "mega groudon",
+    "author": "Elijah Sinofsky",
+    "image": "2024/12/4307cdb453baa96247d7c55800a93ba0.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 23423
+    }
+  },
+  "6079": {
+    "id": 6079,
+    "name": "mega kyogre",
+    "author": "Elijah Sinofsky",
+    "image": "2024/12/8b7616c8d55f3786820dcaf0a05e8c1b.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 12076
+    }
+  },
+  "6825": {
+    "id": 6825,
+    "name": "Mickey walking",
+    "author": "001763.f039861b7fde45bba392733b89e3c027.0351",
+    "image": "2025/01/bc991b8f3453a1d5287281586f718a0c.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 6400
+    }
   },
   "7211": {
     "id": 7211,
@@ -2865,6 +3505,16 @@
       "1": 23309
     },
     "updated_at": "2024-08-04T15:58:47.000000Z"
+  },
+  "6747": {
+    "id": 6747,
+    "name": "Minifig",
+    "author": "Rebecca",
+    "image": "2025/01/0770935b1077217c2d53fecfd75b5e74.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 11589
+    }
   },
   "3669": {
     "id": 3669,
@@ -3064,16 +3714,6 @@
     },
     "updated_at": "2024-08-04T15:58:53.000000Z"
   },
-  "4904": {
-    "id": 4904,
-    "name": "Oasis Answers",
-    "author": "Otávio Bittencourt",
-    "image": "2024/11/e2ef4e197ce1aae90fd1f9c17c689ade.svg",
-    "clean_pattern": 119,
-    "reduced_svg_content": {
-      "1": 16954
-    }
-  },
   "171": {
     "id": 171,
     "name": "Octopus",
@@ -3135,6 +3775,16 @@
       "1": 10374
     }
   },
+  "6060": {
+    "id": 6060,
+    "name": "otis",
+    "author": "Elijah Sinofsky",
+    "image": "2024/12/14b4b7e2782311d5196d6728e40fe420.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 7008
+    }
+  },
   "431": {
     "id": 431,
     "name": "Otter",
@@ -3145,6 +3795,16 @@
       "1": 62273
     },
     "updated_at": "2024-08-04T16:01:31.000000Z"
+  },
+  "7474": {
+    "id": 7474,
+    "name": "Overlap OI",
+    "author": "M. Frost",
+    "image": "2025/03/515404c0d4cf426d5c643e20df1ca5f4.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 6158
+    }
   },
   "37": {
     "id": 37,
@@ -3167,6 +3827,16 @@
       "1": 43076
     },
     "updated_at": "2024-08-04T15:59:11.000000Z"
+  },
+  "5799": {
+    "id": 5799,
+    "name": "Pattern Cross",
+    "author": "Tyrel Schalamon",
+    "image": "2024/12/458b0d3d65cd89997636150bfbca700d.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 3300
+    }
   },
   "350": {
     "id": 350,
@@ -3200,6 +3870,16 @@
       "1": 47763
     }
   },
+  "3327": {
+    "id": 3327,
+    "name": "Penrose Petals",
+    "author": "Eden",
+    "image": "2024/09/a65c1225a7fba3a83d806d7f209a7bfe.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 15955
+    }
+  },
   "3144": {
     "id": 3144,
     "name": "Penrose Star",
@@ -3208,6 +3888,16 @@
     "clean_pattern": null,
     "reduced_svg_content": {
       "1": 3422
+    }
+  },
+  "5348": {
+    "id": 5348,
+    "name": "Penrose Tile",
+    "author": "Tushar Shah",
+    "image": "2024/12/ee8fab17d566d5e5b09989cb4e6391f3.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 8002
     }
   },
   "1572": {
@@ -3268,6 +3958,16 @@
     "clean_pattern": 117,
     "reduced_svg_content": {
       "1": 14806
+    }
+  },
+  "7116": {
+    "id": 7116,
+    "name": "Petals Tall IO",
+    "author": "mgfxer",
+    "image": "2025/02/16056923704cad4d7fc46831f2a5b28b.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 31054
     }
   },
   "1818": {
@@ -3393,6 +4093,16 @@
     },
     "updated_at": "2024-08-04T16:01:40.000000Z"
   },
+  "7708": {
+    "id": 7708,
+    "name": "Present2",
+    "author": "Tyrel Schalamon",
+    "image": "2025/03/0215368915648244391bea016cc87abf.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 16466
+    }
+  },
   "455": {
     "id": 455,
     "name": "Princess",
@@ -3412,6 +4122,16 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 33688
+    }
+  },
+  "5184": {
+    "id": 5184,
+    "name": "Pyrohedron",
+    "author": "Lemon Goose",
+    "image": "2024/11/d8a470df9c606b90f886028358d6418f.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 11079
     }
   },
   "1301": {
@@ -3631,6 +4351,16 @@
       "1": 3392
     }
   },
+  "6913": {
+    "id": 6913,
+    "name": "Rose Pattern",
+    "author": "Walter Melanson",
+    "image": "2025/01/6641c31cf9abb68b69bacc0ee30d53a5.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 22914
+    }
+  },
   "1956": {
     "id": 1956,
     "name": "RoseHearts",
@@ -3669,6 +4399,26 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 15406
+    }
+  },
+  "5192": {
+    "id": 5192,
+    "name": "Sailor coug",
+    "author": "Nate Copier",
+    "image": "2024/11/ddae9c3d7619d42c3010b3d9ce87a9da.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 6707
+    }
+  },
+  "2399": {
+    "id": 2399,
+    "name": "Sails",
+    "author": "D. Villella",
+    "image": "2024/08/abc60a69e36bc934f327d7982af1ab36.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 37334
     }
   },
   "7304": {
@@ -3889,6 +4639,16 @@
       "1": 15531
     }
   },
+  "6450": {
+    "id": 6450,
+    "name": "Shape Showcase",
+    "author": "Mark Mutz",
+    "image": "2025/01/862e1bf0c55dfcdb443f7fc8b0f74693.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 19038
+    }
+  },
   "894": {
     "id": 894,
     "name": "SharpSawtooth",
@@ -3974,6 +4734,26 @@
       "1": 21908
     }
   },
+  "6611": {
+    "id": 6611,
+    "name": "Single Wing Airplane",
+    "author": "Michael Jerome",
+    "image": "2025/01/50bc166222fbe6910bf50ce66e0826fb.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 2324
+    }
+  },
+  "7481": {
+    "id": 7481,
+    "name": "SingleWaveWipe OO",
+    "author": "M. Frost",
+    "image": "2025/03/7464de9631ed7b1dee4d9ad2e5bcf2ba.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 5363
+    }
+  },
   "1305": {
     "id": 1305,
     "name": "Singularity Ripple - Inward",
@@ -4012,6 +4792,16 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 20864
+    }
+  },
+  "6729": {
+    "id": 6729,
+    "name": "Skateboard",
+    "author": "Mehrdad",
+    "image": "2025/01/ff909cbeed9c24182c60df68b5748408.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 3205
     }
   },
   "7190": {
@@ -4119,6 +4909,16 @@
       "1": 44346
     }
   },
+  "5440": {
+    "id": 5440,
+    "name": "Snow Flurry",
+    "author": "Lemon Goose",
+    "image": "2024/12/ff33ce778212adc9da7e78c1e6fd9143.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 4789
+    }
+  },
   "551": {
     "id": 551,
     "name": "snowflake",
@@ -4179,6 +4979,16 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 47222
+    }
+  },
+  "7077": {
+    "id": 7077,
+    "name": "SnowStar OO",
+    "author": "M. Frost",
+    "image": "2025/02/d0ac9760ac6b5bac1e584cf656d2d56e.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 7066
     }
   },
   "7561": {
@@ -4282,6 +5092,36 @@
     "clean_pattern": 117,
     "reduced_svg_content": {
       "1": 6404
+    }
+  },
+  "4156": {
+    "id": 4156,
+    "name": "Spider Web",
+    "author": "Ryan Santer",
+    "image": "2024/09/e007f8417e953bcc2e752edfc07ea169.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 6248
+    }
+  },
+  "4451": {
+    "id": 4451,
+    "name": "Spiky round",
+    "author": "skweeds",
+    "image": "2024/10/7aa09c149ff21fc2bf5e63af323fb3cd.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 3366
+    }
+  },
+  "2844": {
+    "id": 2844,
+    "name": "Spinning",
+    "author": "Patrick",
+    "image": "2024/08/d48c15927afb4198c819db5dedaf90ba.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 28640
     }
   },
   "6609": {
@@ -4560,6 +5400,16 @@
       "1": 3187
     }
   },
+  "3047": {
+    "id": 3047,
+    "name": "Sprioneering",
+    "author": "Leonard Ridley",
+    "image": "2024/08/77c2f012f10b85372c26ebd5f1579309.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 39488
+    }
+  },
   "126": {
     "id": 126,
     "name": "Spun Web",
@@ -4579,6 +5429,16 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 19882
+    }
+  },
+  "2423": {
+    "id": 2423,
+    "name": "Square Wipe",
+    "author": "Kevin Segura",
+    "image": "2024/08/65348e3854018b253f105d10713506a7.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 9643
     }
   },
   "1577": {
@@ -4631,6 +5491,16 @@
       "1": 5771
     }
   },
+  "6616": {
+    "id": 6616,
+    "name": "SquaresOnly IO",
+    "author": "M. Frost",
+    "image": "2025/01/105943458e3eab21bfdaf749f6c8d803.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 6240
+    }
+  },
   "267": {
     "id": 267,
     "name": "Squid",
@@ -4673,6 +5543,16 @@
       "1": 18584
     }
   },
+  "6849": {
+    "id": 6849,
+    "name": "Stable Mandala",
+    "author": "Peter Black",
+    "image": "2025/01/eee939395274a0034fe3c9b1c62c6c51.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 10772
+    }
+  },
   "2210": {
     "id": 2210,
     "name": "Stained Glass Hurricane",
@@ -4703,6 +5583,16 @@
       "1": 10993
     }
   },
+  "7388": {
+    "id": 7388,
+    "name": "StainedGlass OO",
+    "author": "M. Frost",
+    "image": "2025/03/f16652823ba91e541f3aeb6769993c59.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 15525
+    }
+  },
   "962": {
     "id": 962,
     "name": "Star Box",
@@ -4731,6 +5621,16 @@
     "clean_pattern": null,
     "reduced_svg_content": {
       "1": 18212
+    }
+  },
+  "5290": {
+    "id": 5290,
+    "name": "star loop 12*40",
+    "author": "Curt Akins",
+    "image": "2024/12/9cdd79e5da36c20db4bf51620f91854b.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 10290
     }
   },
   "544": {
@@ -4765,6 +5665,16 @@
       "1": 15373
     }
   },
+  "7108": {
+    "id": 7108,
+    "name": "Star Warp IO",
+    "author": "mgfxer",
+    "image": "2025/02/9b1425ed5e2c3c0648e381dd901c92b1.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 131823
+    }
+  },
   "1701": {
     "id": 1701,
     "name": "Star wipe",
@@ -4783,6 +5693,26 @@
     "clean_pattern": null,
     "reduced_svg_content": {
       "1": 5635
+    }
+  },
+  "2800": {
+    "id": 2800,
+    "name": "Star-Crazy",
+    "author": "Codie Johnston",
+    "image": "2024/08/3d7ff89de922ce23acc634ced28f271d.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 25387
+    }
+  },
+  "4409": {
+    "id": 4409,
+    "name": "Star1",
+    "author": "pascal charlier",
+    "image": "2024/10/8313a32355ad4b21f1fbda1f3bbeb2dd.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 3336
     }
   },
   "517": {
@@ -4806,6 +5736,26 @@
       "1": 3997
     }
   },
+  "6401": {
+    "id": 6401,
+    "name": "Starburst Wipe",
+    "author": "Rebecca",
+    "image": "2025/01/3cedc00afd63ada6265414c60e0ec614.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 12224
+    }
+  },
+  "7475": {
+    "id": 7475,
+    "name": "StarFill OI",
+    "author": "M. Frost",
+    "image": "2025/03/c8ca03e6ddd206d25912d13c4bbed223.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 26266
+    }
+  },
   "265": {
     "id": 265,
     "name": "Starfish",
@@ -4817,6 +5767,26 @@
     },
     "updated_at": "2024-08-04T15:59:32.000000Z"
   },
+  "6821": {
+    "id": 6821,
+    "name": "StarryEye OI",
+    "author": "M. Frost",
+    "image": "2025/01/919dd0da4002cb1a8505c09bb184e500.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 10083
+    }
+  },
+  "6624": {
+    "id": 6624,
+    "name": "StarSpike IO",
+    "author": "M. Frost",
+    "image": "2025/01/84671c22432754e2eef48563f1f14c49.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 5741
+    }
+  },
   "1785": {
     "id": 1785,
     "name": "StarSpiral6pt",
@@ -4827,6 +5797,16 @@
       "1": 9497
     }
   },
+  "6629": {
+    "id": 6629,
+    "name": "StarSwirl OI",
+    "author": "M. Frost",
+    "image": "2025/01/e84228c5b3040302d9386f7240fb4ba4.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 4425
+    }
+  },
   "7576": {
     "id": 7576,
     "name": "StarWheel IO",
@@ -4835,6 +5815,16 @@
     "clean_pattern": null,
     "reduced_svg_content": {
       "1": 10551
+    }
+  },
+  "7483": {
+    "id": 7483,
+    "name": "StarXL OI",
+    "author": "M. Frost",
+    "image": "2025/03/5473fb943555b8465f98852e90a2ecdd.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 37247
     }
   },
   "2363": {
@@ -4930,6 +5920,16 @@
       "1": 12023
     }
   },
+  "6943": {
+    "id": 6943,
+    "name": "Sunburst",
+    "author": "David Bowen",
+    "image": "2025/01/b70f51108feb3aeb71e2231348a37c52.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 11211
+    }
+  },
   "245": {
     "id": 245,
     "name": "Sunflower",
@@ -4951,6 +5951,16 @@
       "1": 40248
     },
     "updated_at": "2024-08-04T15:58:58.000000Z"
+  },
+  "7081": {
+    "id": 7081,
+    "name": "Sweet Sixteen Rose",
+    "author": "Shaye Jones",
+    "image": "2025/02/d7edea6ffcef39d95becfe902b4e684a.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 2890
+    }
   },
   "1417": {
     "id": 1417,
@@ -4981,6 +5991,16 @@
     "clean_pattern": 117,
     "reduced_svg_content": {
       "1": 18482
+    }
+  },
+  "2721": {
+    "id": 2721,
+    "name": "Swirly",
+    "author": "daniel",
+    "image": "2024/08/4a04a5fec1ed33be80346c50be3c10c9.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 9058
     }
   },
   "161": {
@@ -5014,6 +6034,56 @@
       "1": 35762
     }
   },
+  "6061": {
+    "id": 6061,
+    "name": "tara",
+    "author": "Elijah Sinofsky",
+    "image": "2024/12/f37b3be591f755310a9d981646e363c8.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 9652
+    }
+  },
+  "2756": {
+    "id": 2756,
+    "name": "TechMaster-Spironifica",
+    "author": "Robert J. Welle II",
+    "image": "2024/08/ceeabdbea1e53cec0dd12bdd053c6416.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 3543
+    }
+  },
+  "5965": {
+    "id": 5965,
+    "name": "Test Maze 2",
+    "author": "Ryan Kitchen",
+    "image": "2024/12/d2844ef5d2f52cc50a895e6bc672d89d.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 18641
+    }
+  },
+  "5967": {
+    "id": 5967,
+    "name": "Test Maze 4",
+    "author": "Ryan Kitchen",
+    "image": "2024/12/0acacc560b399d5b780923c635511e35.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 10815
+    }
+  },
+  "5120": {
+    "id": 5120,
+    "name": "Thanksgiving is my Favorite",
+    "author": "JP Ratajczak",
+    "image": "2024/11/7ef5d0bfeb4dc72fe4c202f789c85b40.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 18330
+    }
+  },
   "5729": {
     "id": 5729,
     "name": "The Baby Cat",
@@ -5042,6 +6112,16 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 61839
+    }
+  },
+  "2836": {
+    "id": 2836,
+    "name": "The Drunk Starfish",
+    "author": "Anders",
+    "image": "2024/08/872b99289068a2d9076b01d0b5b7fea9.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 10275
     }
   },
   "6992": {
@@ -5231,6 +6311,16 @@
     },
     "updated_at": "2024-08-04T15:58:52.000000Z"
   },
+  "3203": {
+    "id": 3203,
+    "name": "Triangle",
+    "author": "chris",
+    "image": "2024/09/1381204e2f893eba6be53aa5c83dae08.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 2980
+    }
+  },
   "1664": {
     "id": 1664,
     "name": "Triangle Cloners",
@@ -5279,6 +6369,16 @@
     "clean_pattern": 117,
     "reduced_svg_content": {
       "1": 43134
+    }
+  },
+  "3071": {
+    "id": 3071,
+    "name": "Tribal",
+    "author": "renniepak",
+    "image": "2024/08/1b9a379bb67097c17395a927ad582c24.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 5312
     }
   },
   "6465": {
@@ -5378,6 +6478,16 @@
     },
     "updated_at": "2024-08-04T15:58:49.000000Z"
   },
+  "7250": {
+    "id": 7250,
+    "name": "Twinkle IO",
+    "author": "M. Frost",
+    "image": "2025/02/c6ae2a8e712dc6b6e46f7ae9a8914589.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 4232
+    }
+  },
   "7260": {
     "id": 7260,
     "name": "TwinkleBursts OO",
@@ -5396,6 +6506,16 @@
     "clean_pattern": null,
     "reduced_svg_content": {
       "1": 13738
+    }
+  },
+  "5419": {
+    "id": 5419,
+    "name": "Tys Simple Snowflake",
+    "author": "Tyrel Schalamon",
+    "image": "2024/12/e556eef669d1dc998360a9d40acca302.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 18256
     }
   },
   "2207": {
