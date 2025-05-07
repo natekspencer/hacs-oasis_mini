@@ -457,6 +457,16 @@
       "1": 21172
     }
   },
+  "7999": {
+    "id": 7999,
+    "name": "Baby Unicorn",
+    "author": "Otávio Bittencourt",
+    "image": "2025/05/e06451715555daa13a8389ad77572874.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 36840
+    }
+  },
   "359": {
     "id": 359,
     "name": "BaldEagle",
@@ -832,6 +842,16 @@
       "1": 9980
     },
     "updated_at": "2024-08-04T15:58:47.000000Z"
+  },
+  "7841": {
+    "id": 7841,
+    "name": "Capoeira",
+    "author": "Luany Camila",
+    "image": "2025/04/867ba9b10c515365e158c6ea40a6ab3b.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 30672
+    }
   },
   "7712": {
     "id": 7712,
@@ -2143,6 +2163,16 @@
     },
     "updated_at": "2024-08-04T15:59:32.000000Z"
   },
+  "7988": {
+    "id": 7988,
+    "name": "Flamenco Dancer",
+    "author": "Otávio Bittencourt",
+    "image": "2025/05/0495a92ddc04d0c7abf8c323a9db30d6.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 53994
+    }
+  },
   "38": {
     "id": 38,
     "name": "Flamingo",
@@ -2441,6 +2471,16 @@
     "clean_pattern": null,
     "reduced_svg_content": {
       "1": 27390
+    }
+  },
+  "8004": {
+    "id": 8004,
+    "name": "Galliminus",
+    "author": "Otávio Bittencourt",
+    "image": "2025/05/7d98c4bb7764a756d50310334415568e.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 38299
     }
   },
   "1837": {
@@ -3133,6 +3173,16 @@
       "1": 73576
     }
   },
+  "7942": {
+    "id": 7942,
+    "name": "Ice Cream",
+    "author": "Otávio Bittencourt",
+    "image": "2025/04/c1e22df668d0156f69f6aecfbda4e5f8.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 40456
+    }
+  },
   "3161": {
     "id": 3161,
     "name": "Ichtus Tree",
@@ -3733,6 +3783,16 @@
       "1": 20347
     }
   },
+  "7338": {
+    "id": 7338,
+    "name": "Manga girl",
+    "author": "Luany Camila",
+    "image": "2025/03/ea7b862e3217513ce8c4881103ac4b58.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 20746
+    }
+  },
   "7489": {
     "id": 7489,
     "name": "Manta",
@@ -4246,6 +4306,16 @@
     "clean_pattern": null,
     "reduced_svg_content": {
       "1": 3300
+    }
+  },
+  "7967": {
+    "id": 7967,
+    "name": "Pegasus",
+    "author": "Otávio Bittencourt",
+    "image": "2025/04/d09e1248d797d26f6106d346f37a9d14.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 62464
     }
   },
   "350": {
@@ -5429,6 +5499,16 @@
     "clean_pattern": null,
     "reduced_svg_content": {
       "1": 7066
+    }
+  },
+  "7939": {
+    "id": 7939,
+    "name": "Soccer Player",
+    "author": "Otávio Bittencourt",
+    "image": "2025/04/09ecc50971aa496d965b4d266e0bea93.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 27087
     }
   },
   "7561": {
@@ -6756,6 +6836,16 @@
       "1": 62289
     }
   },
+  "7951": {
+    "id": 7951,
+    "name": "The Thinker",
+    "author": "Otávio Bittencourt",
+    "image": "2025/04/6f7cf0596ad6531eb9d0246835d8fe1d.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 41072
+    }
+  },
   "3499": {
     "id": 3499,
     "name": "The Witch",
@@ -7149,6 +7239,16 @@
     },
     "updated_at": "2024-08-04T15:59:03.000000Z"
   },
+  "7975": {
+    "id": 7975,
+    "name": "Unicorn",
+    "author": "Otávio Bittencourt",
+    "image": "2025/04/6e984d3ab655d7549806bb6c67495bbc.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 84896
+    }
+  },
   "5207": {
     "id": 5207,
     "name": "Universe Sandbox Logo v3",
@@ -7370,6 +7470,16 @@
     "clean_pattern": null,
     "reduced_svg_content": {
       "1": 17243
+    }
+  },
+  "8022": {
+    "id": 8022,
+    "name": "WaterRipples OO",
+    "author": "M. Frost",
+    "image": "2025/05/b92fc00a571d71560dfb57fe7b0930cc.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 8027
     }
   },
   "555": {
