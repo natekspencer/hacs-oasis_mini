@@ -356,6 +356,16 @@
       "1": 9255
     }
   },
+  "8149": {
+    "id": 8149,
+    "name": "asstek",
+    "author": "jawrshawehr",
+    "image": "2025/05/d789f467594aac62ff8f11909961c95c.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 7788
+    }
+  },
   "1961": {
     "id": 1961,
     "name": "Asymmetrical Spiral In to Out",
@@ -455,6 +465,16 @@
     "clean_pattern": null,
     "reduced_svg_content": {
       "1": 21172
+    }
+  },
+  "7999": {
+    "id": 7999,
+    "name": "Baby Unicorn",
+    "author": "Otávio Bittencourt",
+    "image": "2025/05/e06451715555daa13a8389ad77572874.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 36840
     }
   },
   "359": {
@@ -675,6 +695,16 @@
       "1": 10922
     }
   },
+  "8113": {
+    "id": 8113,
+    "name": "bitcoin",
+    "author": "Clocks Melted",
+    "image": "2025/05/73e419d45a97acdcc29248450915eadb.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 711
+    }
+  },
   "1810": {
     "id": 1810,
     "name": "Boat V2",
@@ -705,6 +735,26 @@
       "1": 4511
     },
     "updated_at": "2024-08-04T15:58:47.000000Z"
+  },
+  "8170": {
+    "id": 8170,
+    "name": "Breaking Benjamin",
+    "author": "Juanita Schoonover",
+    "image": "2025/05/d7876f1587e768805a653bcf806806d7.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 2449
+    }
+  },
+  "8138": {
+    "id": 8138,
+    "name": "Breh",
+    "author": "jawrshawehr",
+    "image": "2025/05/4663f97d71597e9663c2e8674e2b046f.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 16266
+    }
   },
   "6272": {
     "id": 6272,
@@ -833,6 +883,16 @@
     },
     "updated_at": "2024-08-04T15:58:47.000000Z"
   },
+  "7841": {
+    "id": 7841,
+    "name": "Capoeira",
+    "author": "Luany Camila",
+    "image": "2025/04/867ba9b10c515365e158c6ea40a6ab3b.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 30672
+    }
+  },
   "7712": {
     "id": 7712,
     "name": "Capybara",
@@ -874,6 +934,16 @@
       "1": 33512
     },
     "updated_at": "2024-08-04T15:59:02.000000Z"
+  },
+  "8050": {
+    "id": 8050,
+    "name": "Cartoon French Fries",
+    "author": "Otávio Bittencourt",
+    "image": "2025/05/0017c6e42744ce60fe364fe9ce7c3dc4.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 41024
+    }
   },
   "2499": {
     "id": 2499,
@@ -1460,6 +1530,16 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 14627
+    }
+  },
+  "8197": {
+    "id": 8197,
+    "name": "Death Star",
+    "author": "anthony",
+    "image": "2025/05/d2fd505d73b97741d893c1b7d199787f.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 65423
     }
   },
   "2200": {
@@ -2143,6 +2223,16 @@
     },
     "updated_at": "2024-08-04T15:59:32.000000Z"
   },
+  "7988": {
+    "id": 7988,
+    "name": "Flamenco Dancer",
+    "author": "Otávio Bittencourt",
+    "image": "2025/05/0495a92ddc04d0c7abf8c323a9db30d6.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 53994
+    }
+  },
   "38": {
     "id": 38,
     "name": "Flamingo",
@@ -2153,6 +2243,16 @@
       "1": 7283
     },
     "updated_at": "2024-08-04T15:58:46.000000Z"
+  },
+  "8045": {
+    "id": 8045,
+    "name": "Floating Otter",
+    "author": "Otávio Bittencourt",
+    "image": "2025/05/423be0f9f592f6956062381c5fc27a32.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 47660
+    }
   },
   "7565": {
     "id": 7565,
@@ -2422,6 +2522,16 @@
       "1": 20261
     }
   },
+  "8042": {
+    "id": 8042,
+    "name": "Funny Clown in a Small Car",
+    "author": "Otávio Bittencourt",
+    "image": "2025/05/19fbb9a01183f37a0cd9de908c4fb7ba.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 44385
+    }
+  },
   "252": {
     "id": 252,
     "name": "Furry Moth",
@@ -2441,6 +2551,16 @@
     "clean_pattern": null,
     "reduced_svg_content": {
       "1": 27390
+    }
+  },
+  "8004": {
+    "id": 8004,
+    "name": "Galliminus",
+    "author": "Otávio Bittencourt",
+    "image": "2025/05/7d98c4bb7764a756d50310334415568e.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 38299
     }
   },
   "1837": {
@@ -2579,6 +2699,16 @@
       "1": 27182
     }
   },
+  "8076": {
+    "id": 8076,
+    "name": "Goose Line Art",
+    "author": "3rd Space Kava",
+    "image": "2025/05/7fc3eded4daf1338450a06170da65d11.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 1127
+    }
+  },
   "1777": {
     "id": 1777,
     "name": "Great Wave",
@@ -2587,6 +2717,16 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 11995
+    }
+  },
+  "8154": {
+    "id": 8154,
+    "name": "griddy",
+    "author": "jawrshawehr",
+    "image": "2025/05/60023ce0aefbcecb49fcaab6205b0404.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 10803
     }
   },
   "4683": {
@@ -2761,6 +2901,16 @@
       "1": 1747
     },
     "updated_at": "2024-08-04T15:59:30.000000Z"
+  },
+  "8296": {
+    "id": 8296,
+    "name": "Happy Father's Day",
+    "author": "Torie Starr",
+    "image": "2025/06/e4b9b645bc1b91327a2897f9c190fd41.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 2493
+    }
   },
   "910": {
     "id": 910,
@@ -3090,6 +3240,16 @@
       "1": 12893
     }
   },
+  "8166": {
+    "id": 8166,
+    "name": "HOW?",
+    "author": "jawrshawehr",
+    "image": "2025/05/3dede581a4e36cd4b06483ef8289917f.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 4994
+    }
+  },
   "535": {
     "id": 535,
     "name": "Hubcap",
@@ -3131,6 +3291,16 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 73576
+    }
+  },
+  "7942": {
+    "id": 7942,
+    "name": "Ice Cream",
+    "author": "Otávio Bittencourt",
+    "image": "2025/04/c1e22df668d0156f69f6aecfbda4e5f8.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 40456
     }
   },
   "3161": {
@@ -3398,6 +3568,16 @@
     "clean_pattern": null,
     "reduced_svg_content": {
       "1": 20882
+    }
+  },
+  "8153": {
+    "id": 8153,
+    "name": "kwisskwoss",
+    "author": "jawrshawehr",
+    "image": "2025/05/0eed818b51571d42d2c5194657ea6d45.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 10493
     }
   },
   "240": {
@@ -3733,6 +3913,16 @@
       "1": 20347
     }
   },
+  "7338": {
+    "id": 7338,
+    "name": "Manga girl",
+    "author": "Luany Camila",
+    "image": "2025/03/ea7b862e3217513ce8c4881103ac4b58.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 20746
+    }
+  },
   "7489": {
     "id": 7489,
     "name": "Manta",
@@ -3906,6 +4096,16 @@
       "1": 36732
     }
   },
+  "8056": {
+    "id": 8056,
+    "name": "Mom and kids",
+    "author": "Tyrel Schalamon",
+    "image": "2025/05/66142ee0e1913abcbac05ded276049d9.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 16818
+    }
+  },
   "7805": {
     "id": 7805,
     "name": "Monalisa",
@@ -3989,6 +4189,16 @@
       "1": 65213
     }
   },
+  "8140": {
+    "id": 8140,
+    "name": "muhtwux",
+    "author": "jawrshawehr",
+    "image": "2025/05/e3d7b1716ec30b1010a057736b65e0b5.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 29759
+    }
+  },
   "3496": {
     "id": 3496,
     "name": "Mummy",
@@ -4069,6 +4279,16 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 78562
+    }
+  },
+  "8053": {
+    "id": 8053,
+    "name": "Ninja Broccoli",
+    "author": "Otávio Bittencourt",
+    "image": "2025/05/f33ded5fcc2c6d1b42c77e614de6207b.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 53754
     }
   },
   "538": {
@@ -4217,6 +4437,16 @@
     },
     "updated_at": "2024-08-04T15:58:46.000000Z"
   },
+  "8198": {
+    "id": 8198,
+    "name": "Pacman Chase",
+    "author": "anthony",
+    "image": "2025/05/6a28261d33dbc14fa3b9df112e5a9b75.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 3625
+    }
+  },
   "7559": {
     "id": 7559,
     "name": "Panda Bear",
@@ -4246,6 +4476,16 @@
     "clean_pattern": null,
     "reduced_svg_content": {
       "1": 3300
+    }
+  },
+  "7967": {
+    "id": 7967,
+    "name": "Pegasus",
+    "author": "Otávio Bittencourt",
+    "image": "2025/04/d09e1248d797d26f6106d346f37a9d14.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 62464
     }
   },
   "350": {
@@ -5429,6 +5669,16 @@
     "clean_pattern": null,
     "reduced_svg_content": {
       "1": 7066
+    }
+  },
+  "7939": {
+    "id": 7939,
+    "name": "Soccer Player",
+    "author": "Otávio Bittencourt",
+    "image": "2025/04/09ecc50971aa496d965b4d266e0bea93.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 27087
     }
   },
   "7561": {
@@ -6756,6 +7006,16 @@
       "1": 62289
     }
   },
+  "7951": {
+    "id": 7951,
+    "name": "The Thinker",
+    "author": "Otávio Bittencourt",
+    "image": "2025/04/6f7cf0596ad6531eb9d0246835d8fe1d.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 41072
+    }
+  },
   "3499": {
     "id": 3499,
     "name": "The Witch",
@@ -7078,6 +7338,16 @@
     },
     "updated_at": "2024-08-04T15:58:49.000000Z"
   },
+  "8151": {
+    "id": 8151,
+    "name": "tweest",
+    "author": "jawrshawehr",
+    "image": "2025/05/f3d0907ecb012004424c7f5abe02d063.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 8855
+    }
+  },
   "7250": {
     "id": 7250,
     "name": "Twinkle IO",
@@ -7148,6 +7418,16 @@
       "1": 53327
     },
     "updated_at": "2024-08-04T15:59:03.000000Z"
+  },
+  "7975": {
+    "id": 7975,
+    "name": "Unicorn",
+    "author": "Otávio Bittencourt",
+    "image": "2025/04/6e984d3ab655d7549806bb6c67495bbc.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 84896
+    }
   },
   "5207": {
     "id": 5207,
@@ -7370,6 +7650,16 @@
     "clean_pattern": null,
     "reduced_svg_content": {
       "1": 17243
+    }
+  },
+  "8022": {
+    "id": 8022,
+    "name": "WaterRipples OO",
+    "author": "M. Frost",
+    "image": "2025/05/b92fc00a571d71560dfb57fe7b0930cc.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 8027
     }
   },
   "555": {
