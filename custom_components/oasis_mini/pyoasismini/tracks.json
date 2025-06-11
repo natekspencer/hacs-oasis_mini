@@ -6834,6 +6834,14 @@
       "1": 30263
     }
   },
+  "8351": {
+    "id": 8351,
+    "name": "Test 2",
+    "author": "Thalia",
+    "image": "2025/06/f847fe13b2b607a5a08c8a43ca3f8c1a.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": []
+  },
   "5965": {
     "id": 5965,
     "name": "Test Maze 2",
