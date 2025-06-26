@@ -109,6 +109,14 @@
       "1": 28457
     }
   },
+  "8461": {
+    "id": 8461,
+    "name": "7 Center",
+    "author": "Walter Melanson",
+    "image": "2025/06/aed480b0cc351676f0321c5a5f56ae22.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": []
+  },
   "131": {
     "id": 131,
     "name": "A Star",
@@ -261,6 +269,14 @@
       "1": 18767
     }
   },
+  "8341": {
+    "id": 8341,
+    "name": "Angry Cat",
+    "author": "Otávio Bittencourt",
+    "image": "2025/06/0f1b01f83b22e45cdd3c4a1d21eac17f.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": []
+  },
   "2798": {
     "id": 2798,
     "name": "Angry T-rex",
@@ -364,6 +380,16 @@
     "clean_pattern": null,
     "reduced_svg_content": {
       "1": 7788
+    }
+  },
+  "8306": {
+    "id": 8306,
+    "name": "Astronaut Girl and Ted Bear",
+    "author": "Otávio Bittencourt",
+    "image": "2025/06/299b36d14745a553093cea7e330810d0.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 51504
     }
   },
   "1961": {
@@ -569,6 +595,14 @@
     "reduced_svg_content": {
       "1": 6682
     }
+  },
+  "8333": {
+    "id": 8333,
+    "name": "Beatle and banjo",
+    "author": "Otávio Bittencourt",
+    "image": "2025/06/9a0081f4ad7aaacae6c91822ba5fd3a0.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": []
   },
   "48": {
     "id": 48,
@@ -2120,6 +2154,14 @@
     },
     "updated_at": "2024-08-04T15:58:51.000000Z"
   },
+  "8438": {
+    "id": 8438,
+    "name": "Envision IO",
+    "author": "M. Frost",
+    "image": "2025/06/0a3dd49c9f63cbe6a6b88552c945c5a8.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": []
+  },
   "1977": {
     "id": 1977,
     "name": "EpiCycloid IO",
@@ -2190,6 +2232,30 @@
     "reduced_svg_content": {
       "1": 23677
     }
+  },
+  "8340": {
+    "id": 8340,
+    "name": "Father's day",
+    "author": "Otávio Bittencourt",
+    "image": "2025/06/fc9a8b2b806abdde10a09cb6ac4ef730.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": []
+  },
+  "8332": {
+    "id": 8332,
+    "name": "Father’s Day 2",
+    "author": "Otávio Bittencourt",
+    "image": "2025/06/ae1d6cb842451f40dc7d72b6b86f6be5.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": []
+  },
+  "8364": {
+    "id": 8364,
+    "name": "Father’s Day family",
+    "author": "Otávio Bittencourt",
+    "image": "2025/06/771378665cddca30a235d35e058eb4eb.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": []
   },
   "33": {
     "id": 33,
@@ -2850,6 +2916,14 @@
       "1": 6124
     }
   },
+  "8330": {
+    "id": 8330,
+    "name": "Hamster wheel",
+    "author": "Otávio Bittencourt",
+    "image": "2025/06/d0391f5356f13153eb37d1dba152624b.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": []
+  },
   "4163": {
     "id": 4163,
     "name": "Hand",
@@ -3335,6 +3409,14 @@
     },
     "updated_at": "2024-08-04T15:58:47.000000Z"
   },
+  "8380": {
+    "id": 8380,
+    "name": "Imaginative Drawning",
+    "author": "Otávio Bittencourt",
+    "image": "2025/06/e8f01bb74da1aabd87a941a38595d214.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": []
+  },
   "2686": {
     "id": 2686,
     "name": "Infinite Rose",
@@ -3527,6 +3609,16 @@
     "clean_pattern": null,
     "reduced_svg_content": {
       "1": 40782
+    }
+  },
+  "8096": {
+    "id": 8096,
+    "name": "Kids on Rollercoaster",
+    "author": "Otávio Bittencourt",
+    "image": "2025/05/10064d86585fcec89a36563e5e06b3a8.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 28858
     }
   },
   "2796": {
@@ -3882,6 +3974,14 @@
     },
     "updated_at": "2024-08-04T15:58:56.000000Z"
   },
+  "8361": {
+    "id": 8361,
+    "name": "Magical Reading Time",
+    "author": "Otávio Bittencourt",
+    "image": "2025/06/7033fd8203a39e1410059c74df32d12d.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": []
+  },
   "5486": {
     "id": 5486,
     "name": "Mahatma Gandhi",
@@ -4025,6 +4125,16 @@
       "1": 12076
     }
   },
+  "8293": {
+    "id": 8293,
+    "name": "Mermaid jumping out the Sea",
+    "author": "Otávio Bittencourt",
+    "image": "2025/06/8ee24bf59d0a0d80ffbcbf1b953a999c.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 51679
+    }
+  },
   "5908": {
     "id": 5908,
     "name": "Mesmerizing Squiggles",
@@ -4074,6 +4184,16 @@
     "clean_pattern": null,
     "reduced_svg_content": {
       "1": 11589
+    }
+  },
+  "8270": {
+    "id": 8270,
+    "name": "Minotaur",
+    "author": "Otávio Bittencourt",
+    "image": "2025/05/9ca941c4daabc23960b52c9f0e522f55.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 45112
     }
   },
   "3669": {
@@ -4742,6 +4862,16 @@
       "1": 9950
     },
     "updated_at": "2024-08-04T16:01:40.000000Z"
+  },
+  "8223": {
+    "id": 8223,
+    "name": "Portrait of a Man",
+    "author": "Otávio Bittencourt",
+    "image": "2025/05/7290ec56cc7d69a575848d6d2bdd9de2.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 29046
+    }
   },
   "7708": {
     "id": 7708,
@@ -5741,6 +5871,16 @@
       "1": 6531
     },
     "updated_at": "2024-08-23T15:52:53.000000Z"
+  },
+  "8200": {
+    "id": 8200,
+    "name": "Space Orbital Satellite",
+    "author": "Otávio Bittencourt",
+    "image": "2025/05/c068dab20332a9c7d978b2e4f3bb5f0a.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 53094
+    }
   },
   "160": {
     "id": 160,
@@ -6834,6 +6974,14 @@
       "1": 30263
     }
   },
+  "8351": {
+    "id": 8351,
+    "name": "Test 2",
+    "author": "Thalia",
+    "image": "2025/06/f847fe13b2b607a5a08c8a43ca3f8c1a.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": []
+  },
   "5965": {
     "id": 5965,
     "name": "Test Maze 2",
@@ -6894,6 +7042,16 @@
       "1": 61839
     }
   },
+  "8287": {
+    "id": 8287,
+    "name": "The Children’s Band",
+    "author": "Otávio Bittencourt",
+    "image": "2025/05/417102e64576ea780fbe75c78ad46497.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 58560
+    }
+  },
   "2836": {
     "id": 2836,
     "name": "The Drunk Starfish",
@@ -6912,6 +7070,16 @@
     "clean_pattern": 119,
     "reduced_svg_content": {
       "1": 56023
+    }
+  },
+  "8173": {
+    "id": 8173,
+    "name": "The Hunting owl",
+    "author": "Otávio Bittencourt",
+    "image": "2025/05/3381fb8cc890fbf59384a9b9bfc6a97e.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 40884
     }
   },
   "223": {
@@ -7110,6 +7278,16 @@
     },
     "updated_at": "2024-08-04T15:59:30.000000Z"
   },
+  "8111": {
+    "id": 8111,
+    "name": "Trash Basket Shot",
+    "author": "Otávio Bittencourt",
+    "image": "2025/05/318b90d771beea2fa7101fb75f7d6a2a.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 35714
+    }
+  },
   "1272": {
     "id": 1272,
     "name": "Treble Clef",
@@ -7260,6 +7438,16 @@
     "clean_pattern": null,
     "reduced_svg_content": {
       "1": 20802
+    }
+  },
+  "8216": {
+    "id": 8216,
+    "name": "Trojan Horse",
+    "author": "Otávio Bittencourt",
+    "image": "2025/05/4be2a1372bcd3b95083056173debfa45.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 82837
     }
   },
   "247": {
@@ -7547,6 +7735,16 @@
     "clean_pattern": 117,
     "reduced_svg_content": {
       "1": 13869
+    }
+  },
+  "8098": {
+    "id": 8098,
+    "name": "Volcano Erupting",
+    "author": "Otávio Bittencourt",
+    "image": "2025/05/074085c68bfaf06ac512d55c80932464.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 56965
     }
   },
   "1866": {
@@ -7907,6 +8105,16 @@
     "clean_pattern": 117,
     "reduced_svg_content": {
       "1": 5667
+    }
+  },
+  "8294": {
+    "id": 8294,
+    "name": "Wolf boy howling at the moon",
+    "author": "Otávio Bittencourt",
+    "image": "2025/06/2e9e48e885f6094cf6ad95d3538e2b41.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": {
+      "1": 53660
     }
   },
   "77": {
