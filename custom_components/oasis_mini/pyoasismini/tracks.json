@@ -269,6 +269,14 @@
       "1": 18767
     }
   },
+  "8503": {
+    "id": 8503,
+    "name": "Angry Badger",
+    "author": "Otávio Bittencourt",
+    "image": "2025/07/e322d3ade30f0a0e9af497a13257efab.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": []
+  },
   "8341": {
     "id": 8341,
     "name": "Angry Cat",
@@ -749,6 +757,14 @@
       "1": 3920
     }
   },
+  "8485": {
+    "id": 8485,
+    "name": "Bodhi tree",
+    "author": "Otávio Bittencourt",
+    "image": "2025/06/637f117735a86aa56a9eb590d7d805ac.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": []
+  },
   "7915": {
     "id": 7915,
     "name": "Bonsai tree",
@@ -758,6 +774,14 @@
     "reduced_svg_content": {
       "1": 55010
     }
+  },
+  "8511": {
+    "id": 8511,
+    "name": "Botanic Spiral",
+    "author": "Otávio Bittencourt",
+    "image": "2025/07/3a2c85f1216662881ae2ee783382734f.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": []
   },
   "56": {
     "id": 56,
@@ -1039,6 +1063,14 @@
     "reduced_svg_content": {
       "1": 28146
     }
+  },
+  "8441": {
+    "id": 8441,
+    "name": "Cherry Blossom Bonsai",
+    "author": "Otávio Bittencourt",
+    "image": "2025/06/f1a6e7624e05a330c1d439001f3f09f5.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": []
   },
   "7478": {
     "id": 7478,
@@ -1369,6 +1401,22 @@
     "reduced_svg_content": {
       "1": 2550
     }
+  },
+  "8573": {
+    "id": 8573,
+    "name": "Coffee Table Spiral In to Out",
+    "author": "Oasis Mini",
+    "image": "2025/07/3ab8079a9fcd56febcfcb0caa8a033e7.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": []
+  },
+  "8574": {
+    "id": 8574,
+    "name": "Coffee Table Spiral Out to In",
+    "author": "Oasis Mini",
+    "image": "2025/07/6dc91c7431d03817425010d2beffde8e.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": []
   },
   "1300": {
     "id": 1300,
@@ -3158,6 +3206,14 @@
       "1": 22478
     }
   },
+  "8510": {
+    "id": 8510,
+    "name": "Heartleaf Philodendron",
+    "author": "Otávio Bittencourt",
+    "image": "2025/07/c5256b608155eb20cf4a26bc78a8a62c.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": []
+  },
   "6414": {
     "id": 6414,
     "name": "Hearts",
@@ -3208,6 +3264,14 @@
     "reduced_svg_content": {
       "1": 67309
     }
+  },
+  "8498": {
+    "id": 8498,
+    "name": "Hibiscus Flower",
+    "author": "Otávio Bittencourt",
+    "image": "2025/06/111f43d73c3dfe1cd836ee70592b7673.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": []
   },
   "147": {
     "id": 147,
@@ -3414,6 +3478,14 @@
     "name": "Imaginative Drawning",
     "author": "Otávio Bittencourt",
     "image": "2025/06/e8f01bb74da1aabd87a941a38595d214.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": []
+  },
+  "8403": {
+    "id": 8403,
+    "name": "Imaginative Sand Drawning",
+    "author": "Otávio Bittencourt",
+    "image": "2025/06/180e2727632e3e92791e8160f993c550.svg",
     "clean_pattern": null,
     "reduced_svg_content": []
   },
@@ -3992,6 +4064,14 @@
       "1": 44947
     }
   },
+  "8425": {
+    "id": 8425,
+    "name": "Mammoth",
+    "author": "Otávio Bittencourt",
+    "image": "2025/06/b8a285c6ad730abaa0d89690be5abb38.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": []
+  },
   "64": {
     "id": 64,
     "name": "Mandala",
@@ -4267,6 +4347,14 @@
       "1": 11195
     },
     "updated_at": "2024-08-04T15:58:53.000000Z"
+  },
+  "8508": {
+    "id": 8508,
+    "name": "Monstera Deliciosa",
+    "author": "Otávio Bittencourt",
+    "image": "2025/07/af2e6ac2a5c92705eb8f2fcfea5ac928.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": []
   },
   "1778": {
     "id": 1778,
@@ -4577,6 +4665,22 @@
       "1": 29643
     }
   },
+  "8491": {
+    "id": 8491,
+    "name": "Passion Flower",
+    "author": "Otávio Bittencourt",
+    "image": "2025/06/f743035a2c869d16267e18feba47371b.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": []
+  },
+  "8502": {
+    "id": 8502,
+    "name": "Passion Flower power",
+    "author": "Otávio Bittencourt",
+    "image": "2025/06/e87580e434cc8cec9c4c28bcf1c0acd2.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": []
+  },
   "221": {
     "id": 221,
     "name": "Pattern 3",
@@ -4832,6 +4936,14 @@
       "1": 24258
     }
   },
+  "8483": {
+    "id": 8483,
+    "name": "Poison Ivy",
+    "author": "Otávio Bittencourt",
+    "image": "2025/06/d33ab742dfe9ce327a7a9746e1a8a096.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": []
+  },
   "1049": {
     "id": 1049,
     "name": "PolarValentine",
@@ -4841,6 +4953,14 @@
     "reduced_svg_content": {
       "1": 29754
     }
+  },
+  "8464": {
+    "id": 8464,
+    "name": "Polka Dot Begonia",
+    "author": "Otávio Bittencourt",
+    "image": "2025/06/46cd2ffdf53ab439af8edd4ccecad3be.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": []
   },
   "995": {
     "id": 995,
@@ -4903,6 +5023,14 @@
     "reduced_svg_content": {
       "1": 33688
     }
+  },
+  "8431": {
+    "id": 8431,
+    "name": "Pufferfish",
+    "author": "Otávio Bittencourt",
+    "image": "2025/06/b97dcd4158361728d4908fcff652ead7.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": []
   },
   "5184": {
     "id": 5184,
@@ -5502,6 +5630,22 @@
     "reduced_svg_content": {
       "1": 4665
     }
+  },
+  "8575": {
+    "id": 8575,
+    "name": "Side Table Spiral In to Out",
+    "author": "Oasis Mini",
+    "image": "2025/07/f3956248c0f7f5c281c52d85b7654ec9.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": []
+  },
+  "8576": {
+    "id": 8576,
+    "name": "Side Table Spiral Out to In",
+    "author": "Oasis Mini",
+    "image": "2025/07/ffb61a26562e26efb34f8706c7ba52ec.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": []
   },
   "149": {
     "id": 149,
@@ -6270,6 +6414,14 @@
       "1": 3187
     }
   },
+  "8459": {
+    "id": 8459,
+    "name": "Spoted Rex Begonia",
+    "author": "Otávio Bittencourt",
+    "image": "2025/06/5a16cae9f3a6b5d870a6e2a6fd4506fe.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": []
+  },
   "3047": {
     "id": 3047,
     "name": "Sprioneering",
@@ -6914,6 +7066,14 @@
     },
     "updated_at": "2024-08-04T15:58:54.000000Z"
   },
+  "8497": {
+    "id": 8497,
+    "name": "T-Rex Skull",
+    "author": "Otávio Bittencourt",
+    "image": "2025/06/8f6e693fa071f8be3b084032d78580a1.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": []
+  },
   "7276": {
     "id": 7276,
     "name": "Takeshi Ren",
@@ -7031,6 +7191,14 @@
     "reduced_svg_content": {
       "1": 58681
     }
+  },
+  "8428": {
+    "id": 8428,
+    "name": "The Buddah’s Head 2",
+    "author": "Otávio Bittencourt",
+    "image": "2025/06/71bad0197fc33b677b29bdd063d50b59.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": []
   },
   "6998": {
     "id": 6998,
@@ -8231,6 +8399,14 @@
       "1": 23212
     },
     "updated_at": "2024-08-04T16:01:31.000000Z"
+  },
+  "8488": {
+    "id": 8488,
+    "name": "Zen Bambu and Stones",
+    "author": "Otávio Bittencourt",
+    "image": "2025/06/21cdeb1f40571b68578afa6844326936.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": []
   },
   "4014": {
     "id": 4014,
