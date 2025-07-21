@@ -1305,6 +1305,14 @@
     },
     "updated_at": "2024-08-04T16:01:33.000000Z"
   },
+  "8586": {
+    "id": 8586,
+    "name": "Clover Star",
+    "author": "Walter Melanson",
+    "image": "2025/07/a7bbfe0d796ccd16fbe1cb20ee865bb9.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": []
+  },
   "505": {
     "id": 505,
     "name": "Coarse Hilbert Wiper",
@@ -4971,6 +4979,14 @@
     "reduced_svg_content": {
       "1": 7020
     }
+  },
+  "8588": {
+    "id": 8588,
+    "name": "Polygons",
+    "author": "Walter Melanson",
+    "image": "2025/07/eee6096038e9b6a70808fdddcbe1fef7.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": []
   },
   "559": {
     "id": 559,
