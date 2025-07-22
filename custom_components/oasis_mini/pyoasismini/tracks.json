@@ -8433,5 +8433,13 @@
     "reduced_svg_content": {
       "1": 21411
     }
+  },
+  "8593": {
+    "id": 8593,
+    "name": "ZSC Lions Stern",
+    "author": "adi",
+    "image": "2025/07/de61ce519b7e6946ed777d54f521a29c.svg",
+    "clean_pattern": null,
+    "reduced_svg_content": []
   }
 }
