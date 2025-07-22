@@ -61,6 +61,11 @@ DESCRIPTORS = (
         translation_key="random_track",
         press_fn=play_random_track,
     ),
+    OasisMiniButtonEntityDescription(
+        key="sleep",
+        translation_key="sleep",
+        press_fn=lambda device: device.async_sleep(),
+    ),
 )
 
 
