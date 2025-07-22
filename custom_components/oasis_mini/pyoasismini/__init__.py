@@ -20,9 +20,11 @@ STATUS_CODE_MAP = {
     3: "centering",
     4: "playing",
     5: "paused",
+    6: "sleeping",
     9: "error",
     11: "updating",
     13: "downloading",
+    14: "busy",
     15: "live",
 }
 
@@ -330,6 +332,10 @@ class OasisMini:
     async def async_set_repeat_playlist(self, repeat: bool) -> None:
         """Set repeat playlist."""
         await self._async_command(params={"WRIREPEATJOB": 1 if repeat else 0})
+
+    async def async_sleep(self) -> None:
+        """Send sleep command."""
+        await self._async_command(params={"CMDSLEEP": ""})
 
     async def async_stop(self) -> None:
         """Send stop command."""

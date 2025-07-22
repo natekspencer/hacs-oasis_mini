@@ -41,6 +41,9 @@
     "button": {
       "random_track": {
         "name": "Play random track"
+      },
+      "sleep": {
+        "name": "Sleep"
       }
     },
     "binary_sensor": {
@@ -93,9 +96,11 @@
           "centering": "Centering",
           "playing": "Playing",
           "paused": "Paused",
+          "sleeping": "Sleeping",
           "error": "Error",
           "updating": "Updating",
           "downloading": "Downloading",
+          "busy": "Busy",
           "live": "Live drawing"
         }
       }
