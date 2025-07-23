@@ -49,8 +49,8 @@ class OasisMiniMediaPlayerEntity(OasisMiniEntity, MediaPlayerEntity):
     @property
     def media_duration(self) -> int | None:
         """Duration of current playing media in seconds."""
-        if (track := self.device.track) and "reduced_svg_content" in track:
-            return track["reduced_svg_content"].get("1")
+        if (track := self.device.track) and "reduced_svg_content_new" in track:
+            return track["reduced_svg_content_new"]
         return None
 
     @property

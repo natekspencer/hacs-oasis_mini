@@ -41,7 +41,7 @@ def draw_svg(track: dict, progress: int, model_id: str) -> str | None:
             if progress is not None:
                 svg_content = decrypt_svg_content(svg_content)
                 paths = svg_content.split("L")
-                total = track.get("reduced_svg_content", {}).get(model_id, len(paths))
+                total = track.get("reduced_svg_content_new", 0) or len(paths)
                 percent = min((100 * progress) / total, 100)
                 progress = math.floor((percent / 100) * (len(paths) - 1))
 

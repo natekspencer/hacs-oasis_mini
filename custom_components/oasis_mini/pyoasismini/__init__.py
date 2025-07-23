@@ -144,7 +144,7 @@ class OasisMini:
             return None
         svg_content = decrypt_svg_content(svg_content)
         paths = svg_content.split("L")
-        total = self.track.get("reduced_svg_content", {}).get("1", len(paths))
+        total = self.track.get("reduced_svg_content_new", 0) or len(paths)
         percent = (100 * self.progress) / total
         return percent
 
