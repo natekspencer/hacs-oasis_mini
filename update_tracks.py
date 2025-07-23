@@ -13,6 +13,12 @@ from custom_components.oasis_mini.pyoasismini.const import TRACKS
 ACCESS_TOKEN = os.getenv("GROUNDED_TOKEN")
 
 
+def get_author_name(data: dict) -> str:
+    """Get author name from a dict."""
+    author = (data.get("author") or {}).get("user") or {}
+    return author.get("name") or author.get("nickname") or "Oasis Mini"
+
+
 async def update_tracks() -> None:
     """Update tracks."""
     client = OasisMini("", ACCESS_TOKEN)
@@ -32,23 +38,22 @@ async def update_tracks() -> None:
     for result in filter(lambda d: d["public"], data):
         if (
             (track_id := result["id"]) not in TRACKS
-            or result["name"] != TRACKS[track_id].get("name")
-            or result["image"] != TRACKS[track_id].get("image")
+            or any(
+                result[field] != TRACKS[track_id].get(field)
+                for field in ("name", "image", "png_image")
+            )
+            or TRACKS[track_id].get("author") != get_author_name(result)
         ):
-            print(f"Updating track {track_id}: {result["name"]}")
+            print(f"Updating track {track_id}: {result['name']}")
             track_info = await client.async_cloud_get_track_info(int(track_id))
             if not track_info:
                 print("No track info")
                 break
-            author = (result.get("author") or {}).get("user") or {}
-            updated_tracks[track_id] = {
-                "id": track_id,
-                "name": result["name"],
-                "author": author.get("name") or author.get("nickname") or "Oasis Mini",
-                "image": result["image"],
-                "clean_pattern": track_info.get("cleanPattern", {}).get("id"),
-                "reduced_svg_content": track_info.get("reduced_svg_content"),
-            }
+            result["author"] = get_author_name(result)
+            result["reduced_svg_content_new"] = track_info.get(
+                "reduced_svg_content_new"
+            )
+            updated_tracks[track_id] = result
     await client.session.close()
 
     if not updated_tracks:
