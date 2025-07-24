@@ -10943,6 +10943,24 @@
     "author": "Oasis Mini",
     "reduced_svg_content_new": 6509
   },
+  "8559": {
+    "id": 8559,
+    "name": "Spiral In to Out Wiper 3 r_70mm",
+    "code": "spiral-in-to-out-wiper-3-r-70mm",
+    "description": null,
+    "image": "2025/07/05900e271a792ec191777da861fb8feb.svg",
+    "category_id": null,
+    "tags": "",
+    "public": 1,
+    "author_id": 51308,
+    "release": 1,
+    "is_cleaner": 0,
+    "pattern_id": null,
+    "clean_type": "clean_id",
+    "png_image": "2025/07/01e1ef15474ac5b3b3f076be28a501f0.png",
+    "author": "rob",
+    "reduced_svg_content_new": 8037
+  },
   "4896": {
     "id": 4896,
     "name": "Spiral Me - loses reference. Duff",
@@ -10978,6 +10996,24 @@
     "png_image": "2024/07/7ac471123e3d352ab6661e988f448cbb.png",
     "author": "Oasis Mini",
     "reduced_svg_content_new": 6628
+  },
+  "8557": {
+    "id": 8557,
+    "name": "Spiral Out to In Wiper 2 r_100mm",
+    "code": "spiral-out-to-in-wiper-2-r-100mm",
+    "description": null,
+    "image": "2025/07/7cd75b68b2fffa06bb796326ac314ba1.svg",
+    "category_id": null,
+    "tags": "",
+    "public": 1,
+    "author_id": 51308,
+    "release": 1,
+    "is_cleaner": 0,
+    "pattern_id": null,
+    "clean_type": "clean_out",
+    "png_image": "2025/07/02b57b8e29aa4afdf6cac8aceea85741.png",
+    "author": "rob",
+    "reduced_svg_content_new": 24662
   },
   "2388": {
     "id": 2388,
