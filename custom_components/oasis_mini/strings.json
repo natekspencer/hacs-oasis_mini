@@ -86,7 +86,28 @@
         "name": "Drawing progress"
       },
       "error": {
-        "name": "Error"
+        "name": "Error",
+        "state": {
+          "0": "None",
+          "1": "Error has occurred while reading the flash memory",
+          "2": "Error while starting the Wifi",
+          "3": "Error when starting DNS settings for your machine",
+          "4": "Failed to open the file to write",
+          "5": "Not enough memory to perform the upgrade",
+          "6": "Error while trying to upgrade your system",
+          "7": "Error while trying to download the new version of the software",
+          "8": "Error while reading the upgrading file",
+          "9": "Failed to start downloading the upgrade file",
+          "10": "Error while starting downloading the job file",
+          "11": "Error while opening the file folder",
+          "12": "Failed to delete a file",
+          "13": "Error while opening the job file",
+          "14": "You have wrong power adapter",
+          "15": "Failed to update the device IP on Oasis Server",
+          "16": "Your device failed centering itself",
+          "17": "There appears to be an issue with your Oasis Device",
+          "18": "Error while downloading the job file"
+        }
       },
       "led_color_id": {
         "name": "LED color ID"

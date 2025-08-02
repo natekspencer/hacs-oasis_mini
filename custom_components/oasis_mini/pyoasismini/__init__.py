@@ -29,6 +29,28 @@ STATUS_CODE_MAP = {
     15: "live",
 }
 
+ERROR_CODE_MAP = {
+    0: "None",
+    1: "Error has occurred while reading the flash memory",
+    2: "Error while starting the Wifi",
+    3: "Error when starting DNS settings for your machine",
+    4: "Failed to open the file to write",
+    5: "Not enough memory to perform the upgrade",
+    6: "Error while trying to upgrade your system",
+    7: "Error while trying to download the new version of the software",
+    8: "Error while reading the upgrading file",
+    9: "Failed to start downloading the upgrade file",
+    10: "Error while starting downloading the job file",
+    11: "Error while opening the file folder",
+    12: "Failed to delete a file",
+    13: "Error while opening the job file",
+    14: "You have wrong power adapter",
+    15: "Failed to update the device IP on Oasis Server",
+    16: "Your device failed centering itself",
+    17: "There appears to be an issue with your Oasis Device",
+    18: "Error while downloading the job file",
+}
+
 AUTOPLAY_MAP = {
     "0": "on",
     "1": "off",
@@ -155,6 +177,13 @@ class OasisMini:
         return percent
 
     @property
+    def error_message(self) -> str | None:
+        """Return the error message, if any."""
+        if self.status_code == 9:
+            return ERROR_CODE_MAP.get(self.error, f"Unknown ({self.error})")
+        return None
+
+    @property
     def serial_number(self) -> str | None:
         """Return the serial number."""
         return self._serial_number
@@ -249,7 +278,7 @@ class OasisMini:
         shift = len(values) - 18 if len(values) > 17 else 0
         status = {
             "status_code": _parse_int(values[0]),  # see status code map
-            "error": _parse_int(values[1]),  # noqa: E501; error, 0 = none, and 10 = ?, 18 = can't download?
+            "error": _parse_int(values[1]),
             "ball_speed": _parse_int(values[2]),  # 200 - 1000
             "playlist": playlist,
             "playlist_index": min(_parse_int(values[4]), len(playlist)),  # noqa: E501; index of above

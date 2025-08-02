@@ -28,10 +28,8 @@ async def async_setup_entry(
     ]
     if coordinator.device.access_token:
         entities.extend(
-            [
-                OasisMiniSensorEntity(coordinator, descriptor)
-                for descriptor in CLOUD_DESCRIPTORS
-            ]
+            OasisMiniSensorEntity(coordinator, descriptor)
+            for descriptor in CLOUD_DESCRIPTORS
         )
     async_add_entities(entities)
 
