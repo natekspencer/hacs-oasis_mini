@@ -24,12 +24,14 @@
       "status": {
         "state": {
           "booting": "mdi:loading",
+          "busy": "mdi:progress-clock",
           "centering": "mdi:record-circle-outline",
           "downloading": "mdi:progress-download",
           "error": "mdi:alert-circle-outline",
           "live": "mdi:pencil-circle-outline",
           "paused": "mdi:motion-pause-outline",
           "playing": "mdi:motion-play-outline",
+          "sleeping": "mdi:power-sleep",
           "stopped": "mdi:stop-circle-outline",
           "updating": "mdi:update"
         }
