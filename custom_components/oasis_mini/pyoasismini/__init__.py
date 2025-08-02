@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import asyncio
+from datetime import datetime, timedelta
 import logging
 from typing import Any, Awaitable, Final
 from urllib.parse import urljoin
@@ -10,7 +11,7 @@ from urllib.parse import urljoin
 from aiohttp import ClientResponseError, ClientSession
 
 from .const import TRACKS
-from .utils import _bit_to_bool, _parse_int, decrypt_svg_content
+from .utils import _bit_to_bool, _parse_int, decrypt_svg_content, now
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -89,6 +90,8 @@ BALL_SPEED_MIN: Final = 100
 LED_SPEED_MAX: Final = 90
 LED_SPEED_MIN: Final = -90
 
+PLAYLISTS_REFRESH_LIMITER = timedelta(minutes=5)
+
 
 class OasisMini:
     """Oasis Mini API client class."""
@@ -115,6 +118,9 @@ class OasisMini:
     progress: int
     repeat_playlist: bool
     status_code: int
+
+    playlists: list[dict[str, Any]] = []
+    _playlists_next_refresh: datetime = now()
 
     def __init__(
         self,
@@ -385,6 +391,18 @@ class OasisMini:
         """Login via the cloud."""
         await self._async_cloud_request("GET", "api/auth/logout")
 
+    async def async_cloud_get_playlists(
+        self, personal_only: bool = False
+    ) -> list[dict[str, Any]]:
+        """Get playlists from the cloud."""
+        if self._playlists_next_refresh <= now():
+            if playlists := await self._async_cloud_request(
+                "GET", "api/playlist", params={"my_playlists": str(personal_only)}
+            ):
+                self.playlists = playlists
+            self._playlists_next_refresh = now() + PLAYLISTS_REFRESH_LIMITER
+        return self.playlists
+
     async def async_cloud_get_track_info(self, track_id: int) -> dict[str, Any] | None:
         """Get cloud track info."""
         try:
@@ -404,7 +422,7 @@ class OasisMini:
             "GET", "api/track", params={"ids[]": tracks or []}
         )
         if not response:
-            return None
+            return []
         track_details = response.get("data", [])
         while next_page_url := response.get("next_page_url"):
             response = await self._async_cloud_request("GET", next_page_url)

@@ -62,6 +62,7 @@ class OasisMiniConfigFlow(ConfigFlow, domain=DOMAIN):
     """Handle a config flow for Oasis Mini."""
 
     VERSION = 1
+    MINOR_VERSION = 2
 
     @staticmethod
     @callback

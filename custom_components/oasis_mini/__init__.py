@@ -3,12 +3,14 @@
 from __future__ import annotations
 
 import logging
+from typing import Any
 
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import Platform
-from homeassistant.core import HomeAssistant
+from homeassistant.core import HomeAssistant, callback
 from homeassistant.exceptions import ConfigEntryError, ConfigEntryNotReady
 import homeassistant.helpers.device_registry as dr
+import homeassistant.helpers.entity_registry as er
 
 from .const import DOMAIN
 from .coordinator import OasisMiniCoordinator
@@ -89,3 +91,33 @@ async def async_remove_entry(hass: HomeAssistant, entry: OasisMiniConfigEntry) -
 async def update_listener(hass: HomeAssistant, entry: OasisMiniConfigEntry) -> None:
     """Handle options update."""
     await hass.config_entries.async_reload(entry.entry_id)
+
+
+async def async_migrate_entry(hass: HomeAssistant, entry: ConfigEntry):
+    """Migrate old entry."""
+    _LOGGER.debug(
+        "Migrating configuration from version %s.%s", entry.version, entry.minor_version
+    )
+
+    if entry.version == 1 and entry.minor_version == 1:
+        # Need to update previous playlist select entity to queue
+        @callback
+        def migrate_unique_id(entity_entry: er.RegistryEntry) -> dict[str, Any] | None:
+            """Migrate the playlist unique ID to queue."""
+            if entity_entry.domain == "select" and entity_entry.unique_id.endswith(
+                "-playlist"
+            ):
+                unique_id = entity_entry.unique_id.replace("-playlist", "-queue")
+                return {"new_unique_id": unique_id}
+            return None
+
+        await er.async_migrate_entries(hass, entry.entry_id, migrate_unique_id)
+        hass.config_entries.async_update_entry(entry, minor_version=2, version=1)
+
+    _LOGGER.debug(
+        "Migration to configuration version %s.%s successful",
+        entry.version,
+        entry.minor_version,
+    )
+
+    return True
