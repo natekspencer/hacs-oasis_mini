@@ -73,6 +73,9 @@
       },
       "playlist": {
         "name": "Playlist"
+      },
+      "queue": {
+        "name": "Queue"
       }
     },
     "sensor": {

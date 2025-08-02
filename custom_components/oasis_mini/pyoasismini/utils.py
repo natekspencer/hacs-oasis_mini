@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import base64
+from datetime import UTC, datetime
 import logging
 import math
 from xml.etree.ElementTree import Element, SubElement, tostring
@@ -177,3 +178,7 @@ def decrypt_svg_content(svg_content: dict[str, str]):
     svg_content["decrypted"] = decrypted
 
     return decrypted
+
+
+def now() -> datetime:
+    return datetime.now(UTC)

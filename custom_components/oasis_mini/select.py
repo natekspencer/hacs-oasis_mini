@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from collections import defaultdict
 from dataclasses import dataclass
 from typing import Any, Awaitable, Callable
 
@@ -63,12 +64,33 @@ class OasisMiniSelectEntity(OasisMiniEntity, SelectEntity):
             return super()._handle_coordinator_update()
 
 
-def playlist_update_handler(entity: OasisMiniSelectEntity) -> None:
-    """Handle playlist updates."""
+def playlists_update_handler(entity: OasisMiniSelectEntity) -> None:
+    """Handle playlists updates."""
     # pylint: disable=protected-access
     device = entity.device
-    options = [
-        device._playlist.get(track, {}).get(
+    counts = defaultdict(int)
+    options = []
+    current_option: str | None = None
+    for playlist in device.playlists:
+        name = playlist["name"]
+        counts[name] += 1
+        if counts[name] > 1:
+            name = f"{name} ({counts[name]})"
+        options.append(name)
+        if device.playlist == [pattern["id"] for pattern in playlist["patterns"]]:
+            current_option = name
+    entity._attr_options = options
+    entity._attr_current_option = current_option
+
+
+def queue_update_handler(entity: OasisMiniSelectEntity) -> None:
+    """Handle queue updates."""
+    # pylint: disable=protected-access
+    device = entity.device
+    counts = defaultdict(int)
+    options = []
+    for track in device.playlist:
+        name = device._playlist.get(track, {}).get(
             "name",
             TRACKS.get(track, {"id": track, "name": f"Unknown Title (#{track})"}).get(
                 "name",
@@ -77,8 +99,10 @@ def playlist_update_handler(entity: OasisMiniSelectEntity) -> None:
                 else str(track),
             ),
         )
-        for track in device.playlist
-    ]
+        counts[name] += 1
+        if counts[name] > 1:
+            name = f"{name} ({counts[name]})"
+        options.append(name)
     entity._attr_options = options
     index = min(device.playlist_index, len(options) - 1)
     entity._attr_current_option = options[index] if options else None
@@ -93,11 +117,22 @@ DESCRIPTORS = (
         select_fn=lambda device, option: device.async_set_autoplay(option),
     ),
     OasisMiniSelectEntityDescription(
-        key="playlist",
-        translation_key="playlist",
+        key="queue",
+        translation_key="queue",
         current_value=lambda device: (device.playlist.copy(), device.playlist_index),
         select_fn=lambda device, option: device.async_change_track(option),
-        update_handler=playlist_update_handler,
+        update_handler=queue_update_handler,
+    ),
+)
+CLOUD_DESCRIPTORS = (
+    OasisMiniSelectEntityDescription(
+        key="playlists",
+        translation_key="playlist",
+        current_value=lambda device: (device.playlists, device.playlist.copy()),
+        select_fn=lambda device, option: device.async_set_playlist(
+            [pattern["id"] for pattern in device.playlists[option]["patterns"]]
+        ),
+        update_handler=playlists_update_handler,
     ),
 )
 
@@ -108,9 +143,13 @@ async def async_setup_entry(
     async_add_entities: AddEntitiesCallback,
 ) -> None:
     """Set up Oasis Mini select using config entry."""
-    async_add_entities(
-        [
-            OasisMiniSelectEntity(entry.runtime_data, descriptor)
-            for descriptor in DESCRIPTORS
-        ]
-    )
+    coordinator: OasisMiniCoordinator = entry.runtime_data
+    entities = [
+        OasisMiniSelectEntity(coordinator, descriptor) for descriptor in DESCRIPTORS
+    ]
+    if coordinator.device.access_token:
+        entities.extend(
+            OasisMiniSelectEntity(coordinator, descriptor)
+            for descriptor in CLOUD_DESCRIPTORS
+        )
+    async_add_entities(entities)

@@ -50,6 +50,7 @@ class OasisMiniCoordinator(DataUpdateCoordinator[str]):
                 self.attempt = 0
                 await self.device.async_get_current_track_details()
                 await self.device.async_get_playlist_details()
+                await self.device.async_cloud_get_playlists()
         except Exception as ex:  # pylint:disable=broad-except
             if self.attempt > 2 or not (data or self.data):
                 raise UpdateFailed(
