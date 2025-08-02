@@ -16,7 +16,7 @@ from .utils import _bit_to_bool, _parse_int, decrypt_svg_content, now
 _LOGGER = logging.getLogger(__name__)
 
 STATUS_CODE_MAP = {
-    0: "booting",  # maybe?
+    0: "booting",
     2: "stopped",
     3: "centering",
     4: "playing",
