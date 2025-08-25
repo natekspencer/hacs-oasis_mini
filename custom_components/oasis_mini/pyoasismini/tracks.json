@@ -1331,6 +1331,24 @@
     "author": "Clocks Melted",
     "reduced_svg_content_new": 711
   },
+  "8785": {
+    "id": 8785,
+    "name": "Boat",
+    "code": "boat-2",
+    "description": null,
+    "image": "2025/08/55f5227e87333a300887dc6a60bdcc61.svg",
+    "category_id": null,
+    "tags": "",
+    "public": 1,
+    "author_id": 32328,
+    "release": 1,
+    "is_cleaner": 0,
+    "pattern_id": null,
+    "clean_type": "clean_out",
+    "png_image": "2025/08/27da5c3ace6479440120f251c55fe347.png",
+    "author": "Auer Art",
+    "reduced_svg_content_new": 7835
+  },
   "1810": {
     "id": 1810,
     "name": "Boat V2",
@@ -1456,6 +1474,24 @@
     "png_image": "2025/05/c547e27307480beab4901d24919afae8.png",
     "author": "jawrshawehr",
     "reduced_svg_content_new": 16266
+  },
+  "8773": {
+    "id": 8773,
+    "name": "Bride of Frankenstein",
+    "code": "bride-of-frankenstein",
+    "description": null,
+    "image": "2025/08/24bc369ecc032466f25a63d1cd0731e4.svg",
+    "category_id": null,
+    "tags": "",
+    "public": 1,
+    "author_id": 1206,
+    "release": 1,
+    "is_cleaner": 0,
+    "pattern_id": null,
+    "clean_type": "clean_out",
+    "png_image": "2025/08/f68036fe2f4e77c14c1e626666e31153.png",
+    "author": "Otávio Bittencourt",
+    "reduced_svg_content_new": 61229
   },
   "6272": {
     "id": 6272,
@@ -2878,6 +2914,24 @@
     "png_image": "2024/08/f735f7d1a8ffcd5ff591aa5df540e036.png",
     "author": "mgfxer",
     "reduced_svg_content_new": 14627
+  },
+  "8827": {
+    "id": 8827,
+    "name": "Dead can Dance",
+    "code": "dead-can-dance",
+    "description": null,
+    "image": "2025/08/6f5455cabfc52ba0f57654b1e9ae39b5.svg",
+    "category_id": null,
+    "tags": "",
+    "public": 1,
+    "author_id": 1206,
+    "release": 1,
+    "is_cleaner": 0,
+    "pattern_id": null,
+    "clean_type": "clean_out",
+    "png_image": "2025/08/6f5455cabfc52ba0f57654b1e9ae39b5.png",
+    "author": "Otávio Bittencourt",
+    "reduced_svg_content_new": 70639
   },
   "8197": {
     "id": 8197,
@@ -4481,6 +4535,24 @@
     "author": "recodealpha",
     "reduced_svg_content_new": 41057
   },
+  "8726": {
+    "id": 8726,
+    "name": "Fractal John",
+    "code": "fractal-john",
+    "description": null,
+    "image": "2025/08/e78da0e78b58ec172e6024db5662d3e0.svg",
+    "category_id": null,
+    "tags": "",
+    "public": 1,
+    "author_id": 65424,
+    "release": 1,
+    "is_cleaner": 0,
+    "pattern_id": null,
+    "clean_type": "clean_out",
+    "png_image": "2025/08/665f4802b62394528082d6607b7e4150.png",
+    "author": "William Brooks",
+    "reduced_svg_content_new": 9776
+  },
   "5220": {
     "id": 5220,
     "name": "fractal1",
@@ -4570,6 +4642,24 @@
     "png_image": "2025/04/7f46fb8f6bf852f84957f490a624be11.png",
     "author": "M. Frost",
     "reduced_svg_content_new": 12688
+  },
+  "8718": {
+    "id": 8718,
+    "name": "Frankenstein Boy",
+    "code": "frankenstein-boy",
+    "description": null,
+    "image": "2025/08/46965428ee0cb2000dfedef962ece910.svg",
+    "category_id": null,
+    "tags": "",
+    "public": 1,
+    "author_id": 1206,
+    "release": 1,
+    "is_cleaner": 0,
+    "pattern_id": null,
+    "clean_type": "clean_out",
+    "png_image": "2025/08/46965428ee0cb2000dfedef962ece910.png",
+    "author": "Otávio Bittencourt",
+    "reduced_svg_content_new": 77529
   },
   "3262": {
     "id": 3262,
@@ -6586,6 +6676,24 @@
     "png_image": "2025/02/03d03c3a6b5ec3df9a3712ecafd1b39d.png",
     "author": "Otávio Bittencourt",
     "reduced_svg_content_new": 79176
+  },
+  "8695": {
+    "id": 8695,
+    "name": "Klein Millworks",
+    "code": "klein-millworks-2",
+    "description": null,
+    "image": "2025/08/909989e9a9306013b029b103535bdd63.svg",
+    "category_id": null,
+    "tags": "",
+    "public": 1,
+    "author_id": 25682,
+    "release": 1,
+    "is_cleaner": 0,
+    "pattern_id": null,
+    "clean_type": "clean_out",
+    "png_image": "2025/08/5cdd4c230112850564ea096838f28841.png",
+    "author": "Bryan",
+    "reduced_svg_content_new": 1751
   },
   "239": {
     "id": 239,
@@ -11411,6 +11519,24 @@
     "author": "Zach",
     "reduced_svg_content_new": 3187
   },
+  "8850": {
+    "id": 8850,
+    "name": "Spooky Night Flight",
+    "code": "spooky-night-flight",
+    "description": null,
+    "image": "2025/08/cc673d69dd3c8b97d9c6970fede1204d.svg",
+    "category_id": null,
+    "tags": "",
+    "public": 1,
+    "author_id": 1206,
+    "release": 1,
+    "is_cleaner": 0,
+    "pattern_id": null,
+    "clean_type": "clean_out",
+    "png_image": "2025/08/5ad770baa4062d0e40b020c9148a3cd6.png",
+    "author": "Otávio Bittencourt",
+    "reduced_svg_content_new": 36422
+  },
   "8459": {
     "id": 8459,
     "name": "Spoted Rex Begonia",
@@ -12329,6 +12455,24 @@
     "author": "M. Frost",
     "reduced_svg_content_new": 14578
   },
+  "8730": {
+    "id": 8730,
+    "name": "Strive To Be",
+    "code": "strive-to-be",
+    "description": null,
+    "image": "2025/08/e7b24df23c56bbed3a7181fc8f594a5a.svg",
+    "category_id": null,
+    "tags": "",
+    "public": 1,
+    "author_id": 54092,
+    "release": 1,
+    "is_cleaner": 0,
+    "pattern_id": null,
+    "clean_type": "clean_out",
+    "png_image": "2025/08/d84e822ec03057c3d0e4cb68553950ce.png",
+    "author": "Mark Sieverkropp",
+    "reduced_svg_content_new": 1039
+  },
   "6943": {
     "id": 6943,
     "name": "Sunburst",
@@ -12598,6 +12742,24 @@
     "png_image": "2025/02/de64263a6dc928855c3b5fa92408c9fa.png",
     "author": "Otávio Bittencourt",
     "reduced_svg_content_new": 55111
+  },
+  "8755": {
+    "id": 8755,
+    "name": "Tango Passion",
+    "code": "tango-passion",
+    "description": null,
+    "image": "2025/08/604d05f2b5f58d16aa0a961b4507e086.svg",
+    "category_id": null,
+    "tags": "",
+    "public": 1,
+    "author_id": 1206,
+    "release": 1,
+    "is_cleaner": 0,
+    "pattern_id": null,
+    "clean_type": "clean_out",
+    "png_image": "2025/08/3e5277f13c89e0d0bb0caeef78d02eda.png",
+    "author": "Otávio Bittencourt",
+    "reduced_svg_content_new": 46088
   },
   "7325": {
     "id": 7325,
@@ -12976,6 +13138,24 @@
     "png_image": "2025/03/561ea3aab8b313cc81755bc968785486.png",
     "author": "Otávio Bittencourt",
     "reduced_svg_content_new": 44057
+  },
+  "8757": {
+    "id": 8757,
+    "name": "The Pirate Ship 2",
+    "code": "the-pirate-ship-2",
+    "description": null,
+    "image": "2025/08/b51c1241bbe819c86f76f53e9fcb53f5.svg",
+    "category_id": null,
+    "tags": "",
+    "public": 1,
+    "author_id": 1206,
+    "release": 1,
+    "is_cleaner": 0,
+    "pattern_id": null,
+    "clean_type": "clean_out",
+    "png_image": "2025/08/50d4d5d1a98fbf3b7ff4f1ab18f9a1c5.png",
+    "author": "Otávio Bittencourt",
+    "reduced_svg_content_new": 36775
   },
   "4071": {
     "id": 4071,
