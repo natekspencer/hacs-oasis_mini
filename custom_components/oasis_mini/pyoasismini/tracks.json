@@ -5324,7 +5324,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2024/07/f2fd2c6cab084e7ea26c0517b9f36296.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 11387
   },
   "5319": {
@@ -5342,7 +5342,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2024/12/0d0d9bb0c31b149ed1793885539aa8e0.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 34208
   },
   "7100": {
@@ -5360,7 +5360,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2025/02/0bc4ef4022bd2ee7be5aaba0aff4b259.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 44743
   },
   "6386": {
@@ -5396,7 +5396,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2025/03/6da5bc4dbca6b9b595850b2bc86d6a2c.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 27182
   },
   "8076": {
@@ -5453,6 +5453,24 @@
     "author": "jawrshawehr",
     "reduced_svg_content_new": 10803
   },
+  "9066": {
+    "id": 9066,
+    "name": "Griffon",
+    "code": "griffon",
+    "description": null,
+    "image": "2025/09/7d23e831f4a8d7f540090c3711e871f4.svg",
+    "category_id": null,
+    "tags": "",
+    "public": 1,
+    "author_id": 1206,
+    "release": 1,
+    "is_cleaner": 0,
+    "pattern_id": null,
+    "clean_type": "clean_out",
+    "png_image": "2025/09/7d23e831f4a8d7f540090c3711e871f4.png",
+    "author": "Otávio Bitencourt",
+    "reduced_svg_content_new": 67742
+  },
   "4683": {
     "id": 4683,
     "name": "Grinch",
@@ -5468,7 +5486,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2024/10/f8a253f21c41595937d7f67080890dcb.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 45724
   },
   "953": {
@@ -5486,7 +5504,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2024/07/b994b351efad2e1a269622506883affa.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 56731
   },
   "1817": {
@@ -5522,7 +5540,7 @@
     "pattern_id": null,
     "clean_type": "clean_id",
     "png_image": "2024/10/07daa859462e2b132580ef53adf96c26.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 26829
   },
   "3818": {
@@ -5540,7 +5558,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2024/09/e57a5a66d23287d204cec8f752badf86.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 79446
   },
   "4385": {
@@ -5558,8 +5576,62 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2024/10/45e2784887b87c280b6c305a197d1f31.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 41144
+  },
+  "8589": {
+    "id": 8589,
+    "name": "Halloween Kids",
+    "code": "halloween-kids",
+    "description": null,
+    "image": "2025/07/97bbd346089122639a4de6879188ac44.svg",
+    "category_id": null,
+    "tags": "",
+    "public": 1,
+    "author_id": 1206,
+    "release": 1,
+    "is_cleaner": 0,
+    "pattern_id": null,
+    "clean_type": "clean_out",
+    "png_image": "2025/07/056e5416672ce3a4c9d00118d1256867.png",
+    "author": "Otávio Bitencourt",
+    "reduced_svg_content_new": 62090
+  },
+  "8706": {
+    "id": 8706,
+    "name": "Halloween Lil’ Bat",
+    "code": "halloween-lil-bat",
+    "description": null,
+    "image": "2025/08/2a014b84d55dbd866c593b4a74e88048.svg",
+    "category_id": null,
+    "tags": "",
+    "public": 1,
+    "author_id": 1206,
+    "release": 1,
+    "is_cleaner": 0,
+    "pattern_id": null,
+    "clean_type": "clean_out",
+    "png_image": "2025/08/00d8a2c767331df3986d9affaca74f6f.png",
+    "author": "Otávio Bitencourt",
+    "reduced_svg_content_new": 53211
+  },
+  "8856": {
+    "id": 8856,
+    "name": "Halloween Medusa",
+    "code": "halloween-medusa",
+    "description": null,
+    "image": "2025/08/0ad32a5d22a392bac1778cbe9acc6cf6.svg",
+    "category_id": null,
+    "tags": "",
+    "public": 1,
+    "author_id": 1206,
+    "release": 1,
+    "is_cleaner": 0,
+    "pattern_id": null,
+    "clean_type": "clean_out",
+    "png_image": "2025/08/0ad32a5d22a392bac1778cbe9acc6cf6.png",
+    "author": "Otávio Bitencourt",
+    "reduced_svg_content_new": 69892
   },
   "4252": {
     "id": 4252,
@@ -5576,7 +5648,7 @@
     "pattern_id": null,
     "clean_type": "clean_id",
     "png_image": "2024/10/b321c32d3a3068e521b93d91f6082507.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 28003
   },
   "4063": {
@@ -5594,7 +5666,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2024/09/c1f8eb0d4035fd8d487813468637a12a.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 24594
   },
   "4250": {
@@ -5612,7 +5684,7 @@
     "pattern_id": null,
     "clean_type": "clean_id",
     "png_image": "2024/10/05de0fc20328854a2fd2c1271966dad9.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 29131
   },
   "4354": {
@@ -5630,7 +5702,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2024/10/af6cd228ec886cb07f7f79d1415bc6c4.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 39032
   },
   "2220": {
@@ -5684,7 +5756,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2025/06/744a3f2f8051a5d6cfba0cf2458b1e68.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 30210
   },
   "4163": {
@@ -5738,7 +5810,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2024/08/0b5611467eac55403306e98a450827bb.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 27894
   },
   "5156": {
@@ -5756,7 +5828,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2024/11/43b965b719df8f6d6f0b02df521bbb3c.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 82502
   },
   "224": {
@@ -6029,6 +6101,24 @@
     "author": "AllOfYou",
     "reduced_svg_content_new": 14439
   },
+  "8525": {
+    "id": 8525,
+    "name": "Heart Leaf",
+    "code": "heart-leaf",
+    "description": null,
+    "image": "2025/07/f26d2ad3cd79b382dd328fcf9155f63f.svg",
+    "category_id": null,
+    "tags": "",
+    "public": 1,
+    "author_id": 1206,
+    "release": 1,
+    "is_cleaner": 0,
+    "pattern_id": null,
+    "clean_type": "clean_out",
+    "png_image": "2025/07/6e0aafe74878913056143a0ac2d241cb.png",
+    "author": "Otávio Bitencourt",
+    "reduced_svg_content_new": 55547
+  },
   "509": {
     "id": 509,
     "name": "Heart loop",
@@ -6062,7 +6152,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2025/02/31a0c7b80cfd5381dbe7bbe6acf825ca.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 24307
   },
   "3590": {
@@ -6116,7 +6206,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2025/07/178d5b6730ca3e19d877cc29e056712c.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 56281
   },
   "6414": {
@@ -6224,7 +6314,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2025/06/111f43d73c3dfe1cd836ee70592b7673.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 95700
   },
   "147": {
@@ -6314,7 +6404,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2025/03/98e382549a52912b34f824f75bc7f17d.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 45501
   },
   "3080": {
@@ -6386,7 +6476,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2024/07/c6f15e6ba4a4ed43302406ef0db21f23.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 25521
   },
   "6783": {
@@ -6479,6 +6569,24 @@
     "author": "Camila Veiga",
     "reduced_svg_content_new": 7608
   },
+  "9058": {
+    "id": 9058,
+    "name": "Hydra",
+    "code": "hydra",
+    "description": null,
+    "image": "2025/09/c7b133f0ab76acf56068aa142c3b0fae.svg",
+    "category_id": null,
+    "tags": "",
+    "public": 1,
+    "author_id": 1206,
+    "release": 1,
+    "is_cleaner": 0,
+    "pattern_id": null,
+    "clean_type": "clean_out",
+    "png_image": "2025/09/79c163a4750102ee55471396e5f172eb.png",
+    "author": "Otávio Bitencourt",
+    "reduced_svg_content_new": 57976
+  },
   "900": {
     "id": 900,
     "name": "Ibex",
@@ -6512,7 +6620,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2025/04/ed3c190383abb34cd534023780d64e90.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 40456
   },
   "3161": {
@@ -6548,7 +6656,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2024/07/a7d849efcb52aaa6e49eb6eca2c15885.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 8898
   },
   "72": {
@@ -6584,7 +6692,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2025/06/180e2727632e3e92791e8160f993c550.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 65742
   },
   "2686": {
@@ -6710,7 +6818,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2024/09/b4bf527a51f566628b29da2aa61018ba.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 32419
   },
   "7086": {
@@ -6728,8 +6836,26 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2025/02/ed27517acbc89eb894e22da8ad11582c.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 69531
+  },
+  "9385": {
+    "id": 9385,
+    "name": "Japanese Monster",
+    "code": "japanese-monster",
+    "description": null,
+    "image": "2025/10/da4e8a83ddf6f2d811f8a4664ec557f4.svg",
+    "category_id": null,
+    "tags": "",
+    "public": 1,
+    "author_id": 1206,
+    "release": 1,
+    "is_cleaner": 0,
+    "pattern_id": null,
+    "clean_type": "clean_out",
+    "png_image": "2025/10/c600e206d589362864c02d3f378a702a.png",
+    "author": "Otávio Bitencourt",
+    "reduced_svg_content_new": 44085
   },
   "6077": {
     "id": 6077,
@@ -6890,7 +7016,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2025/02/3ff83d70e209f0bc742458ae2af553d7.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 43094
   },
   "7500": {
@@ -6926,7 +7052,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2025/04/0ab76b81ce2a6eced0ad1e0d034fc5be.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 40782
   },
   "8096": {
@@ -6944,7 +7070,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2025/05/6d511331f35179958bf0181a36458522.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 28858
   },
   "2796": {
@@ -6962,8 +7088,62 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2024/08/3114e88ebec8fb124735464a6a259a24.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 42409
+  },
+  "8579": {
+    "id": 8579,
+    "name": "King Gorilla",
+    "code": "king-gorilla",
+    "description": null,
+    "image": "2025/08/457ddbc6eb083bfe1157e9272002d319.svg",
+    "category_id": null,
+    "tags": "",
+    "public": 1,
+    "author_id": 1206,
+    "release": 1,
+    "is_cleaner": 0,
+    "pattern_id": null,
+    "clean_type": "clean_out",
+    "png_image": "2025/07/256f22876d235d9bd4a11a19061d6cae.png",
+    "author": "Otávio Bitencourt",
+    "reduced_svg_content_new": 50239
+  },
+  "9040": {
+    "id": 9040,
+    "name": "KingTut",
+    "code": "kingtut",
+    "description": null,
+    "image": "2025/09/3d66d2a3c6ed8e64548e612fa7bf3626.svg",
+    "category_id": null,
+    "tags": "",
+    "public": 1,
+    "author_id": 67687,
+    "release": 1,
+    "is_cleaner": 0,
+    "pattern_id": null,
+    "clean_type": "clean_out",
+    "png_image": "2025/09/eec12bc66fa7f53969946eb6b41b73c1.png",
+    "author": "Nahed",
+    "reduced_svg_content_new": 27629
+  },
+  "9000": {
+    "id": 9000,
+    "name": "Kitsune",
+    "code": "kitsune",
+    "description": null,
+    "image": "2025/09/03c4d0ccb785ed68f633e58e6bba8512.svg",
+    "category_id": null,
+    "tags": "",
+    "public": 1,
+    "author_id": 1206,
+    "release": 1,
+    "is_cleaner": 0,
+    "pattern_id": null,
+    "clean_type": "clean_out",
+    "png_image": "2025/09/70cb10c343a3f8f3263cac3f4428af98.png",
+    "author": "Otávio Bitencourt",
+    "reduced_svg_content_new": 57639
   },
   "7138": {
     "id": 7138,
@@ -6980,8 +7160,44 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2025/02/03d03c3a6b5ec3df9a3712ecafd1b39d.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 79176
+  },
+  "9301": {
+    "id": 9301,
+    "name": "Kiwi",
+    "code": "kiwi-1",
+    "description": null,
+    "image": "2025/09/80bea6e934c24d63c8530646b4ead9d6.svg",
+    "category_id": null,
+    "tags": "",
+    "public": 1,
+    "author_id": 1206,
+    "release": 1,
+    "is_cleaner": 0,
+    "pattern_id": null,
+    "clean_type": "clean_out",
+    "png_image": "2025/09/18f700a8832ffd2227446530d9ffb9aa.png",
+    "author": "Otávio Bitencourt",
+    "reduced_svg_content_new": 44957
+  },
+  "8695": {
+    "id": 8695,
+    "name": "Klein Millworks",
+    "code": "klein-millworks-2",
+    "description": null,
+    "image": "2025/08/909989e9a9306013b029b103535bdd63.svg",
+    "category_id": null,
+    "tags": "",
+    "public": 1,
+    "author_id": 25682,
+    "release": 1,
+    "is_cleaner": 0,
+    "pattern_id": null,
+    "clean_type": "clean_out",
+    "png_image": "2025/08/5cdd4c230112850564ea096838f28841.png",
+    "author": "Bryan",
+    "reduced_svg_content_new": 1751
   },
   "239": {
     "id": 239,
@@ -7073,6 +7289,24 @@
     "author": "M. Frost",
     "reduced_svg_content_new": 9485
   },
+  "8650": {
+    "id": 8650,
+    "name": "Lemur in Motion",
+    "code": "lemur-in-motion",
+    "description": null,
+    "image": "2025/07/12010916df98f0a61c5137a8d925a901.svg",
+    "category_id": null,
+    "tags": "",
+    "public": 1,
+    "author_id": 1206,
+    "release": 1,
+    "is_cleaner": 0,
+    "pattern_id": null,
+    "clean_type": "clean_out",
+    "png_image": "2025/07/b9597ee13768bef7213b1075ca808f63.png",
+    "author": "Otávio Bitencourt",
+    "reduced_svg_content_new": 43712
+  },
   "2602": {
     "id": 2602,
     "name": "Life Tree",
@@ -7088,7 +7322,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2024/08/140701d84f8eb6efff06784a39e91d4a.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 37010
   },
   "173": {
@@ -7214,8 +7448,44 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2024/07/b1eb8da6562ea9dedde89e6c7254f2ab.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 20804
+  },
+  "9331": {
+    "id": 9331,
+    "name": "Lion’s Mane Jellyfish",
+    "code": "lions-mane-jellyfish",
+    "description": null,
+    "image": "2025/10/4dda0e1ad34db747127e332947e2c8d1.svg",
+    "category_id": null,
+    "tags": "",
+    "public": 1,
+    "author_id": 1206,
+    "release": 1,
+    "is_cleaner": 0,
+    "pattern_id": null,
+    "clean_type": "clean_out",
+    "png_image": "2025/10/d968e62e57af7fb6b72d69269c08cc4d.png",
+    "author": "Otávio Bitencourt",
+    "reduced_svg_content_new": 19494
+  },
+  "9248": {
+    "id": 9248,
+    "name": "Lion’s Roar",
+    "code": "lions-roar",
+    "description": null,
+    "image": "2025/09/9f654ab4230e501f009f90d8d2478e78.svg",
+    "category_id": null,
+    "tags": "",
+    "public": 1,
+    "author_id": 1206,
+    "release": 1,
+    "is_cleaner": 0,
+    "pattern_id": null,
+    "clean_type": "clean_out",
+    "png_image": "2025/09/47bc4ea0308e2c90f2b3ba2f66a5c409.png",
+    "author": "Otávio Bitencourt",
+    "reduced_svg_content_new": 41994
   },
   "2459": {
     "id": 2459,
@@ -7250,7 +7520,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2024/12/3e2005224d365e36ca1e2785b130ffca.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 47910
   },
   "300": {
@@ -7286,7 +7556,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2025/04/36bacf73d72f70e62047a92cefa4851c.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 36853
   },
   "7882": {
@@ -7304,7 +7574,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2025/04/2644b49aebc49381d32fc2efe90eaaf7.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 50961
   },
   "3079": {
@@ -7340,7 +7610,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2024/08/2a6621d1c0e811ab57758e3220f34196.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 65761
   },
   "6252": {
@@ -7358,8 +7628,26 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2025/01/c033e2522005be8bd5019787fd80c502.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 44912
+  },
+  "8660": {
+    "id": 8660,
+    "name": "Loch Ness Monster Alive",
+    "code": "loch-ness-monster-alive",
+    "description": null,
+    "image": "2025/07/0e842a32f407a06be6779ba517123353.svg",
+    "category_id": null,
+    "tags": "",
+    "public": 1,
+    "author_id": 1206,
+    "release": 1,
+    "is_cleaner": 0,
+    "pattern_id": null,
+    "clean_type": "clean_out",
+    "png_image": "2025/07/9e50d3493419d495c9cbfcde8cea4ffd.png",
+    "author": "Otávio Bitencourt",
+    "reduced_svg_content_new": 58410
   },
   "5191": {
     "id": 5191,
@@ -7574,7 +7862,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2025/06/7033fd8203a39e1410059c74df32d12d.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 68962
   },
   "5486": {
@@ -7592,7 +7880,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2024/12/e7e8f8dba71c625fd4d61d1c03ff0967.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 44947
   },
   "8425": {
@@ -7610,7 +7898,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2025/06/5cce63fecd1180dcbae07ca5ed5a9bd3.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 54673
   },
   "64": {
@@ -7682,7 +7970,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2025/03/71c0b817135dbea0badd41ee8c4d32a3.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 33756
   },
   "7417": {
@@ -7700,7 +7988,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2025/03/834b38ff512f82a0dace3d973f836585.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 10011
   },
   "5358": {
@@ -7736,7 +8024,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2024/07/7717638e9136c6c7c1bce05a1846a534.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 30998
   },
   "2654": {
@@ -7862,7 +8150,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2025/06/2b9031e8549974a6b6d6116527c11090.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 51679
   },
   "5908": {
@@ -7916,7 +8204,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2025/02/90ef04c3b4be43ab81cedbc95a8eac4c.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 39419
   },
   "78": {
@@ -7970,7 +8258,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2025/05/f4c2ae67f3963d340aee3a01518f2f98.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 45112
   },
   "3669": {
@@ -8006,7 +8294,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2024/11/9f3627b367d1d7b83a7828d6eec38d23.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 36732
   },
   "8056": {
@@ -8042,7 +8330,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2025/04/7def1c03d7529c0c857cfb4c5073a691.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 42664
   },
   "3282": {
@@ -8114,7 +8402,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2025/07/af2e6ac2a5c92705eb8f2fcfea5ac928.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 76650
   },
   "1778": {
@@ -8135,6 +8423,24 @@
     "author": "Kim",
     "reduced_svg_content_new": 6986
   },
+  "9380": {
+    "id": 9380,
+    "name": "Moonlit howl",
+    "code": "moonlit-howl",
+    "description": null,
+    "image": "2025/10/623111639ef906a87d4d7df2ab7109a0.svg",
+    "category_id": null,
+    "tags": "",
+    "public": 1,
+    "author_id": 1206,
+    "release": 1,
+    "is_cleaner": 0,
+    "pattern_id": null,
+    "clean_type": "clean_out",
+    "png_image": "2025/10/49c14c88bedd4c217ff4cf9ef9c674ed.png",
+    "author": "Otávio Bitencourt",
+    "reduced_svg_content_new": 50020
+  },
   "7028": {
     "id": 7028,
     "name": "Mosasaur",
@@ -8150,7 +8456,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2025/02/10fbeaad94fc416c3301bb703cf82bd5.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 36811
   },
   "202": {
@@ -8186,7 +8492,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2025/03/8a0b300830857c9c3cb9f497eaa49a22.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 65213
   },
   "8140": {
@@ -8222,8 +8528,26 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2024/09/56fad184663a7593a3277c612f4d0a48.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 72525
+  },
+  "8914": {
+    "id": 8914,
+    "name": "Mummy´s Coffee Break",
+    "code": "mummys-coffee-break-1",
+    "description": null,
+    "image": "2025/08/0349ca0987381125fc52e2f8d1f9adfd.svg",
+    "category_id": null,
+    "tags": "",
+    "public": 1,
+    "author_id": 1206,
+    "release": 1,
+    "is_cleaner": 0,
+    "pattern_id": null,
+    "clean_type": "clean_out",
+    "png_image": "2025/08/a09b40eb475b75b74f4ff5651ba8e6e0.png",
+    "author": "Otávio Bitencourt",
+    "reduced_svg_content_new": 59017
   },
   "5585": {
     "id": 5585,
@@ -8294,7 +8618,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2024/11/c3c3a06e7328b907ba3ecae3cb9cd9d3.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 46387
   },
   "1046": {
@@ -8348,7 +8672,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2024/09/35a59f873908859ec0e18b3edde9599b.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 78562
   },
   "8053": {
@@ -8366,7 +8690,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2025/05/b27f0927b9bb3bbb63a536fbf74ce510.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 53754
   },
   "538": {
@@ -8492,7 +8816,7 @@
     "pattern_id": null,
     "clean_type": "clean_out",
     "png_image": "2024/12/8e6e57fea256db0df7d02e3b9f5ccb24.png",
-    "author": "Otávio Bittencourt",
+    "author": "Otávio Bitencourt",
     "reduced_svg_content_new": 40716
   },
   "3344": {
