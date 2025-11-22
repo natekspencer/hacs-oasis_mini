@@ -1,4 +1,4 @@
-"""Oasis Mini update entity."""
+"""Oasis device update entity."""
 
 from __future__ import annotations
 
@@ -15,9 +15,9 @@ from homeassistant.components.update import (
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
-from . import OasisMiniConfigEntry
-from .coordinator import OasisMiniCoordinator
-from .entity import OasisMiniEntity
+from . import OasisDeviceConfigEntry
+from .coordinator import OasisDeviceCoordinator
+from .entity import OasisDeviceEntity
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -26,13 +26,16 @@ SCAN_INTERVAL = timedelta(hours=6)
 
 async def async_setup_entry(
     hass: HomeAssistant,
-    entry: OasisMiniConfigEntry,
+    entry: OasisDeviceConfigEntry,
     async_add_entities: AddEntitiesCallback,
 ) -> None:
-    """Set up Oasis Mini updates using config entry."""
-    coordinator: OasisMiniCoordinator = entry.runtime_data
-    if coordinator.device.access_token:
-        async_add_entities([OasisMiniUpdateEntity(coordinator, DESCRIPTOR)], True)
+    """Set up Oasis device updates using config entry."""
+    coordinator: OasisDeviceCoordinator = entry.runtime_data
+    entities = (
+        OasisDeviceUpdateEntity(coordinator, device, DESCRIPTOR)
+        for device in coordinator.data
+    )
+    async_add_entities(entities, True)
 
 
 DESCRIPTOR = UpdateEntityDescription(
@@ -40,8 +43,8 @@ DESCRIPTOR = UpdateEntityDescription(
 )
 
 
-class OasisMiniUpdateEntity(OasisMiniEntity, UpdateEntity):
-    """Oasis Mini update entity."""
+class OasisDeviceUpdateEntity(OasisDeviceEntity, UpdateEntity):
+    """Oasis device update entity."""
 
     _attr_supported_features = (
         UpdateEntityFeature.INSTALL | UpdateEntityFeature.PROGRESS
@@ -68,16 +71,14 @@ class OasisMiniUpdateEntity(OasisMiniEntity, UpdateEntity):
         self, version: str | None, backup: bool, **kwargs: Any
     ) -> None:
         """Install an update."""
-        version = await self.device.async_get_software_version()
-        if version == self.latest_version:
+        if self.latest_version == self.device.software_version:
             return
         await self.device.async_upgrade()
 
     async def async_update(self) -> None:
         """Update the entity."""
-        await self.device.async_get_software_version()
-        software = await self.device.async_cloud_get_latest_software_details()
-        if not software:
+        client = self.coordinator.cloud_client
+        if not (software := await client.async_get_latest_software_details()):
             _LOGGER.warning("Unable to get latest software details")
             return
         self._attr_latest_version = software["version"]

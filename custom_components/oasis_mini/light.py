@@ -1,4 +1,4 @@
-"""Oasis Mini light entity."""
+"""Oasis device light entity."""
 
 from __future__ import annotations
 
@@ -23,13 +23,30 @@ from homeassistant.util.color import (
     value_to_brightness,
 )
 
-from . import OasisMiniConfigEntry
-from .entity import OasisMiniEntity
-from .pyoasismini import LED_EFFECTS
+from . import OasisDeviceConfigEntry
+from .coordinator import OasisDeviceCoordinator
+from .entity import OasisDeviceEntity
+from .pyoasiscontrol.const import LED_EFFECTS
 
 
-class OasisMiniLightEntity(OasisMiniEntity, LightEntity):
-    """Oasis Mini light entity."""
+async def async_setup_entry(
+    hass: HomeAssistant,
+    entry: OasisDeviceConfigEntry,
+    async_add_entities: AddEntitiesCallback,
+) -> None:
+    """Set up Oasis device lights using config entry."""
+    coordinator: OasisDeviceCoordinator = entry.runtime_data
+    async_add_entities(
+        OasisDeviceLightEntity(coordinator, device, DESCRIPTOR)
+        for device in coordinator.data
+    )
+
+
+DESCRIPTOR = LightEntityDescription(key="led", translation_key="led")
+
+
+class OasisDeviceLightEntity(OasisDeviceEntity, LightEntity):
+    """Oasis device light entity."""
 
     _attr_supported_features = LightEntityFeature.EFFECT
 
@@ -104,15 +121,3 @@ class OasisMiniLightEntity(OasisMiniEntity, LightEntity):
             brightness=brightness, color=color, led_effect=led_effect
         )
         await self.coordinator.async_request_refresh()
-
-
-DESCRIPTOR = LightEntityDescription(key="led", translation_key="led")
-
-
-async def async_setup_entry(
-    hass: HomeAssistant,
-    entry: OasisMiniConfigEntry,
-    async_add_entities: AddEntitiesCallback,
-) -> None:
-    """Set up Oasis Mini lights using config entry."""
-    async_add_entities([OasisMiniLightEntity(entry.runtime_data, DESCRIPTOR)])

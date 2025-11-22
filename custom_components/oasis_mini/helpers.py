@@ -1,23 +1,27 @@
-"""Helpers for the Oasis Mini integration."""
+"""Helpers for the Oasis devices integration."""
 
 from __future__ import annotations
 
 import logging
 from typing import Any
 
-from homeassistant.const import CONF_ACCESS_TOKEN, CONF_HOST
+from homeassistant.const import CONF_ACCESS_TOKEN
+from homeassistant.core import HomeAssistant
+from homeassistant.helpers.aiohttp_client import async_get_clientsession
 
-from .pyoasismini import TRACKS, OasisMini
+from .pyoasiscontrol import OasisCloudClient, OasisDevice
+from .pyoasiscontrol.const import TRACKS
 
 _LOGGER = logging.getLogger(__name__)
 
 
-def create_client(data: dict[str, Any]) -> OasisMini:
-    """Create a Oasis Mini local client."""
-    return OasisMini(data[CONF_HOST], data.get(CONF_ACCESS_TOKEN))
+def create_client(hass: HomeAssistant, data: dict[str, Any]) -> OasisCloudClient:
+    """Create a Oasis cloud client."""
+    session = async_get_clientsession(hass)
+    return OasisCloudClient(session=session, access_token=data.get(CONF_ACCESS_TOKEN))
 
 
-async def add_and_play_track(device: OasisMini, track: int) -> None:
+async def add_and_play_track(device: OasisDevice, track: int) -> None:
     """Add and play a track."""
     if track not in device.playlist:
         await device.async_add_track_to_playlist(track)

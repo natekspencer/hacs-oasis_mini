@@ -1,4 +1,4 @@
-"""Oasis Mini binary sensor entity."""
+"""Oasis device binary sensor entity."""
 
 from __future__ import annotations
 
@@ -11,20 +11,21 @@ from homeassistant.const import EntityCategory
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
-from . import OasisMiniConfigEntry
-from .coordinator import OasisMiniCoordinator
-from .entity import OasisMiniEntity
+from . import OasisDeviceConfigEntry
+from .coordinator import OasisDeviceCoordinator
+from .entity import OasisDeviceEntity
 
 
 async def async_setup_entry(
     hass: HomeAssistant,
-    entry: OasisMiniConfigEntry,
+    entry: OasisDeviceConfigEntry,
     async_add_entities: AddEntitiesCallback,
 ) -> None:
-    """Set up Oasis Mini sensors using config entry."""
-    coordinator: OasisMiniCoordinator = entry.runtime_data
+    """Set up Oasis device sensors using config entry."""
+    coordinator: OasisDeviceCoordinator = entry.runtime_data
     async_add_entities(
-        OasisMiniBinarySensorEntity(coordinator, descriptor)
+        OasisDeviceBinarySensorEntity(coordinator, device, descriptor)
+        for device in coordinator.data
         for descriptor in DESCRIPTORS
     )
 
@@ -46,8 +47,8 @@ DESCRIPTORS = {
 }
 
 
-class OasisMiniBinarySensorEntity(OasisMiniEntity, BinarySensorEntity):
-    """Oasis Mini binary sensor entity."""
+class OasisDeviceBinarySensorEntity(OasisDeviceEntity, BinarySensorEntity):
+    """Oasis device binary sensor entity."""
 
     @property
     def is_on(self) -> bool:

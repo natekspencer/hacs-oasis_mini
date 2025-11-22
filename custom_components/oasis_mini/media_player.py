@@ -1,4 +1,4 @@
-"""Oasis Mini media player entity."""
+"""Oasis device media player entity."""
 
 from __future__ import annotations
 
@@ -18,15 +18,32 @@ from homeassistant.core import HomeAssistant
 from homeassistant.exceptions import ServiceValidationError
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
-from . import OasisMiniConfigEntry
+from . import OasisDeviceConfigEntry
 from .const import DOMAIN
-from .entity import OasisMiniEntity
+from .coordinator import OasisDeviceCoordinator
+from .entity import OasisDeviceEntity
 from .helpers import get_track_id
-from .pyoasismini.const import TRACKS
+from .pyoasiscontrol.const import TRACKS
 
 
-class OasisMiniMediaPlayerEntity(OasisMiniEntity, MediaPlayerEntity):
-    """Oasis Mini media player entity."""
+async def async_setup_entry(
+    hass: HomeAssistant,
+    entry: OasisDeviceConfigEntry,
+    async_add_entities: AddEntitiesCallback,
+) -> None:
+    """Set up Oasis device media_players using config entry."""
+    coordinator: OasisDeviceCoordinator = entry.runtime_data
+    async_add_entities(
+        OasisDeviceMediaPlayerEntity(coordinator, device, DESCRIPTOR)
+        for device in coordinator.data
+    )
+
+
+DESCRIPTOR = MediaPlayerEntityDescription(key="oasis_mini", name=None)
+
+
+class OasisDeviceMediaPlayerEntity(OasisDeviceEntity, MediaPlayerEntity):
+    """Oasis device media player entity."""
 
     _attr_media_image_remotely_accessible = True
     _attr_supported_features = (
@@ -210,15 +227,3 @@ class OasisMiniMediaPlayerEntity(OasisMiniEntity, MediaPlayerEntity):
         self.abort_if_busy()
         await self.device.async_clear_playlist()
         await self.coordinator.async_request_refresh()
-
-
-DESCRIPTOR = MediaPlayerEntityDescription(key="oasis_mini", name=None)
-
-
-async def async_setup_entry(
-    hass: HomeAssistant,
-    entry: OasisMiniConfigEntry,
-    async_add_entities: AddEntitiesCallback,
-) -> None:
-    """Set up Oasis Mini media_players using config entry."""
-    async_add_entities([OasisMiniMediaPlayerEntity(entry.runtime_data, DESCRIPTOR)])

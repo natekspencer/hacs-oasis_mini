@@ -1,4 +1,4 @@
-"""Constants for the Oasis Mini integration."""
+"""Constants for the Oasis devices integration."""
 
 from typing import Final
 

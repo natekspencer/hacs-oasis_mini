@@ -1,0 +1,106 @@
+"""Constants."""
+
+from __future__ import annotations
+
+import json
+import os
+from typing import Any, Final
+
+__TRACKS_FILE = os.path.join(os.path.dirname(__file__), "tracks.json")
+try:
+    with open(__TRACKS_FILE, "r", encoding="utf8") as file:
+        TRACKS: Final[dict[int, dict[str, Any]]] = {
+            int(k): v for k, v in json.load(file).items()
+        }
+except Exception:  # ignore: broad-except
+    TRACKS = {}
+
+AUTOPLAY_MAP: Final[dict[str, str]] = {
+    "0": "on",
+    "1": "off",
+    "2": "5 minutes",
+    "3": "10 minutes",
+    "4": "30 minutes",
+    "5": "24 hours",
+}
+
+ERROR_CODE_MAP: Final[dict[int, str]] = {
+    0: "None",
+    1: "Error has occurred while reading the flash memory",
+    2: "Error while starting the Wifi",
+    3: "Error when starting DNS settings for your machine",
+    4: "Failed to open the file to write",
+    5: "Not enough memory to perform the upgrade",
+    6: "Error while trying to upgrade your system",
+    7: "Error while trying to download the new version of the software",
+    8: "Error while reading the upgrading file",
+    9: "Failed to start downloading the upgrade file",
+    10: "Error while starting downloading the job file",
+    11: "Error while opening the file folder",
+    12: "Failed to delete a file",
+    13: "Error while opening the job file",
+    14: "You have wrong power adapter",
+    15: "Failed to update the device IP on Oasis Server",
+    16: "Your device failed centering itself",
+    17: "There appears to be an issue with your Oasis Device",
+    18: "Error while downloading the job file",
+}
+
+LED_EFFECTS: Final[dict[str, str]] = {
+    "0": "Solid",
+    "1": "Rainbow",
+    "2": "Glitter",
+    "3": "Confetti",
+    "4": "Sinelon",
+    "5": "BPM",
+    "6": "Juggle",
+    "7": "Theater",
+    "8": "Color Wipe",
+    "9": "Sparkle",
+    "10": "Comet",
+    "11": "Follow Ball",
+    "12": "Follow Rainbow",
+    "13": "Chasing Comet",
+    "14": "Gradient Follow",
+    "15": "Cumulative Fill",
+    "16": "Multi Comets A",
+    "17": "Rainbow Chaser",
+    "18": "Twinkle Lights",
+    "19": "Tennis Game",
+    "20": "Breathing Exercise 4-7-8",
+    "21": "Cylon Scanner",
+    "22": "Palette Mode",
+    "23": "Aurora Flow",
+    "24": "Colorful Drops",
+    "25": "Color Snake",
+    "26": "Flickering Candles",
+    "27": "Digital Rain",
+    "28": "Center Explosion",
+    "29": "Rainbow Plasma",
+    "30": "Comet Race",
+    "31": "Color Waves",
+    "32": "Meteor Storm",
+    "33": "Firefly Flicker",
+    "34": "Ripple",
+    "35": "Jelly Bean",
+    "36": "Forest Rain",
+    "37": "Multi Comets",
+    "38": "Multi Comets with Background",
+    "39": "Rainbow Fill",
+    "40": "White Red Comet",
+    "41": "Color Comets",
+}
+
+STATUS_CODE_MAP: Final[dict[int, str]] = {
+    0: "booting",
+    2: "stopped",
+    3: "centering",
+    4: "playing",
+    5: "paused",
+    6: "sleeping",
+    9: "error",
+    11: "updating",
+    13: "downloading",
+    14: "busy",
+    15: "live",
+}

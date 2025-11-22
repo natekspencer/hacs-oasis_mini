@@ -3,24 +3,29 @@
     "step": {
       "user": {
         "data": {
-          "host": "[%key:common::config_flow::data::host%]"
+          "email": "[%key:common::config_flow::data::email%]",
+          "password": "[%key:common::config_flow::data::password%]"
         }
       },
       "reconfigure": {
         "data": {
-          "host": "[%key:common::config_flow::data::host%]"
+          "email": "[%key:common::config_flow::data::email%]",
+          "password": "[%key:common::config_flow::data::password%]"
         }
       }
     },
     "error": {
       "cannot_connect": "[%key:common::config_flow::error::cannot_connect%]",
+      "invalid_auth": "[%key:common::config_flow::error::invalid_auth%]",
       "invalid_host": "[%key:common::config_flow::error::invalid_host%]",
       "timeout_connect": "[%key:common::config_flow::error::timeout_connect%]",
       "unknown": "[%key:common::config_flow::error::unknown%]"
     },
     "abort": {
-      "already_configured": "[%key:common::config_flow::abort::already_configured_device%]",
-      "reconfigure_successful": "[%key:common::config_flow::abort::reconfigure_successful%]"
+      "already_configured": "[%key:common::config_flow::abort::already_configured_account%]",
+      "reauth_successful": "[%key:common::config_flow::abort::reauth_successful%]",
+      "reconfigure_successful": "[%key:common::config_flow::abort::reconfigure_successful%]",
+      "wrong_account": "Account used for the integration should not change"
     }
   },
   "options": {

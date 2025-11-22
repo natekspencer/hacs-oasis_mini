@@ -1,4 +1,4 @@
-"""Oasis Mini sensor entity."""
+"""Oasis device sensor entity."""
 
 from __future__ import annotations
 
@@ -11,26 +11,28 @@ from homeassistant.const import PERCENTAGE, EntityCategory
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
-from . import OasisMiniConfigEntry
-from .coordinator import OasisMiniCoordinator
-from .entity import OasisMiniEntity
+from . import OasisDeviceConfigEntry
+from .coordinator import OasisDeviceCoordinator
+from .entity import OasisDeviceEntity
 
 
 async def async_setup_entry(
     hass: HomeAssistant,
-    entry: OasisMiniConfigEntry,
+    entry: OasisDeviceConfigEntry,
     async_add_entities: AddEntitiesCallback,
 ) -> None:
-    """Set up Oasis Mini sensors using config entry."""
-    coordinator: OasisMiniCoordinator = entry.runtime_data
+    """Set up Oasis device sensors using config entry."""
+    coordinator: OasisDeviceCoordinator = entry.runtime_data
     entities = [
-        OasisMiniSensorEntity(coordinator, descriptor) for descriptor in DESCRIPTORS
+        OasisDeviceSensorEntity(coordinator, device, descriptor)
+        for device in coordinator.data
+        for descriptor in DESCRIPTORS
     ]
-    if coordinator.device.access_token:
-        entities.extend(
-            OasisMiniSensorEntity(coordinator, descriptor)
-            for descriptor in CLOUD_DESCRIPTORS
-        )
+    entities.extend(
+        OasisDeviceSensorEntity(coordinator, device, descriptor)
+        for device in coordinator.data
+        for descriptor in CLOUD_DESCRIPTORS
+    )
     async_add_entities(entities)
 
 
@@ -50,7 +52,9 @@ DESCRIPTORS = {
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     )
-    for key in ("error", "led_color_id", "status")
+    for key in ("error", "status")
+    # for key in ("error", "led_color_id", "status")
+    # for key in ("error_message", "led_color_id", "status")
 }
 
 CLOUD_DESCRIPTORS = (
@@ -65,8 +69,8 @@ CLOUD_DESCRIPTORS = (
 )
 
 
-class OasisMiniSensorEntity(OasisMiniEntity, SensorEntity):
-    """Oasis Mini sensor entity."""
+class OasisDeviceSensorEntity(OasisDeviceEntity, SensorEntity):
+    """Oasis device sensor entity."""
 
     @property
     def native_value(self) -> str | None:

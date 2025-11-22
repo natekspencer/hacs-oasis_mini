@@ -7,8 +7,8 @@ import json
 import os
 from typing import Any
 
-from custom_components.oasis_mini.pyoasismini import OasisMini
-from custom_components.oasis_mini.pyoasismini.const import TRACKS
+from custom_components.oasis_mini.pyoasiscontrol import OasisCloudClient
+from custom_components.oasis_mini.pyoasiscontrol.const import TRACKS
 
 ACCESS_TOKEN = os.getenv("GROUNDED_TOKEN")
 
@@ -16,15 +16,15 @@ ACCESS_TOKEN = os.getenv("GROUNDED_TOKEN")
 def get_author_name(data: dict) -> str:
     """Get author name from a dict."""
     author = (data.get("author") or {}).get("user") or {}
-    return author.get("name") or author.get("nickname") or "Oasis Mini"
+    return author.get("name") or author.get("nickname") or "Kinetic Oasis"
 
 
 async def update_tracks() -> None:
     """Update tracks."""
-    client = OasisMini("", ACCESS_TOKEN)
+    client = OasisCloudClient(access_token=ACCESS_TOKEN)
 
     try:
-        data = await client.async_cloud_get_tracks()
+        data = await client.async_get_tracks()
     except Exception as ex:
         print(type(ex).__name__, ex)
         await client.session.close()
@@ -45,7 +45,7 @@ async def update_tracks() -> None:
             or TRACKS[track_id].get("author") != get_author_name(result)
         ):
             print(f"Updating track {track_id}: {result['name']}")
-            track_info = await client.async_cloud_get_track_info(int(track_id))
+            track_info = await client.async_get_track_info(int(track_id))
             if not track_info:
                 print("No track info")
                 break
@@ -65,7 +65,7 @@ async def update_tracks() -> None:
     tracks = dict(sorted(tracks.items(), key=lambda t: t[1]["name"].lower()))
 
     with open(
-        "custom_components/oasis_mini/pyoasismini/tracks.json", "w", encoding="utf8"
+        "custom_components/oasis_mini/pyoasiscontrol/tracks.json", "w", encoding="utf8"
     ) as file:
         json.dump(tracks, file, indent=2, ensure_ascii=False)
 

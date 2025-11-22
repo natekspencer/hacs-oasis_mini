@@ -1,4 +1,4 @@
-"""Oasis Mini number entity."""
+"""Oasis device number entity."""
 
 from __future__ import annotations
 
@@ -10,26 +10,29 @@ from homeassistant.components.number import (
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
-from . import OasisMiniConfigEntry
-from .entity import OasisMiniEntity
-from .pyoasismini import BALL_SPEED_MAX, BALL_SPEED_MIN, LED_SPEED_MAX, LED_SPEED_MIN
+from . import OasisDeviceConfigEntry
+from .coordinator import OasisDeviceCoordinator
+from .entity import OasisDeviceEntity
+from .pyoasiscontrol.device import (
+    BALL_SPEED_MAX,
+    BALL_SPEED_MIN,
+    LED_SPEED_MAX,
+    LED_SPEED_MIN,
+)
 
 
-class OasisMiniNumberEntity(OasisMiniEntity, NumberEntity):
-    """Oasis Mini number entity."""
-
-    @property
-    def native_value(self) -> str | None:
-        """Return the value reported by the number."""
-        return getattr(self.device, self.entity_description.key)
-
-    async def async_set_native_value(self, value: float) -> None:
-        """Set new value."""
-        if self.entity_description.key == "ball_speed":
-            await self.device.async_set_ball_speed(value)
-        elif self.entity_description.key == "led_speed":
-            await self.device.async_set_led(led_speed=value)
-        await self.coordinator.async_request_refresh()
+async def async_setup_entry(
+    hass: HomeAssistant,
+    entry: OasisDeviceConfigEntry,
+    async_add_entities: AddEntitiesCallback,
+) -> None:
+    """Set up Oasis device numbers using config entry."""
+    coordinator: OasisDeviceCoordinator = entry.runtime_data
+    async_add_entities(
+        OasisDeviceNumberEntity(coordinator, device, descriptor)
+        for device in coordinator.data
+        for descriptor in DESCRIPTORS
+    )
 
 
 DESCRIPTORS = {
@@ -50,15 +53,18 @@ DESCRIPTORS = {
 }
 
 
-async def async_setup_entry(
-    hass: HomeAssistant,
-    entry: OasisMiniConfigEntry,
-    async_add_entities: AddEntitiesCallback,
-) -> None:
-    """Set up Oasis Mini numbers using config entry."""
-    async_add_entities(
-        [
-            OasisMiniNumberEntity(entry.runtime_data, descriptor)
-            for descriptor in DESCRIPTORS
-        ]
-    )
+class OasisDeviceNumberEntity(OasisDeviceEntity, NumberEntity):
+    """Oasis device number entity."""
+
+    @property
+    def native_value(self) -> str | None:
+        """Return the value reported by the number."""
+        return getattr(self.device, self.entity_description.key)
+
+    async def async_set_native_value(self, value: float) -> None:
+        """Set new value."""
+        if self.entity_description.key == "ball_speed":
+            await self.device.async_set_ball_speed(value)
+        elif self.entity_description.key == "led_speed":
+            await self.device.async_set_led(led_speed=value)
+        await self.coordinator.async_request_refresh()
