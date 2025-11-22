@@ -53,7 +53,7 @@ class OasisDeviceLightEntity(OasisDeviceEntity, LightEntity):
     @property
     def brightness(self) -> int:
         """Return the brightness of this light between 0..255."""
-        scale = (1, self.device.max_brightness)
+        scale = (1, self.device.brightness_max)
         return value_to_brightness(scale, self.device.brightness)
 
     @property
@@ -99,15 +99,14 @@ class OasisDeviceLightEntity(OasisDeviceEntity, LightEntity):
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn the entity off."""
         await self.device.async_set_led(brightness=0)
-        await self.coordinator.async_request_refresh()
 
     async def async_turn_on(self, **kwargs: Any) -> None:
         """Turn the entity on."""
         if brightness := kwargs.get(ATTR_BRIGHTNESS):
-            scale = (1, self.device.max_brightness)
+            scale = (1, self.device.brightness_max)
             brightness = math.ceil(brightness_to_value(scale, brightness))
         else:
-            brightness = self.device.brightness or 100
+            brightness = self.device.brightness or self.device.brightness_on
 
         if color := kwargs.get(ATTR_RGB_COLOR):
             color = f"#{color_rgb_to_hex(*color)}"
@@ -120,4 +119,3 @@ class OasisDeviceLightEntity(OasisDeviceEntity, LightEntity):
         await self.device.async_set_led(
             brightness=brightness, color=color, led_effect=led_effect
         )
-        await self.coordinator.async_request_refresh()

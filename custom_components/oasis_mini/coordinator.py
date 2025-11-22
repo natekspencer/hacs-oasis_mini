@@ -33,7 +33,7 @@ class OasisDeviceCoordinator(DataUpdateCoordinator[list[OasisDevice]]):
             hass,
             _LOGGER,
             name=DOMAIN,
-            update_interval=timedelta(seconds=10),
+            update_interval=timedelta(minutes=10),
             always_update=False,
         )
         self.cloud_client = cloud_client

@@ -17,6 +17,8 @@ from .entity import OasisDeviceEntity
 from .pyoasiscontrol import OasisDevice
 from .pyoasiscontrol.const import AUTOPLAY_MAP, TRACKS
 
+AUTOPLAY_MAP_LIST = list(AUTOPLAY_MAP)
+
 
 def playlists_update_handler(entity: OasisDeviceSelectEntity) -> None:
     """Handle playlists updates."""
@@ -96,15 +98,17 @@ DESCRIPTORS = (
     OasisDeviceSelectEntityDescription(
         key="autoplay",
         translation_key="autoplay",
-        options=list(AUTOPLAY_MAP.values()),
-        current_value=lambda device: device.autoplay,
-        select_fn=lambda device, option: device.async_set_autoplay(option),
+        options=AUTOPLAY_MAP_LIST,
+        current_value=lambda device: str(device.autoplay),
+        select_fn=lambda device, index: (
+            device.async_set_autoplay(AUTOPLAY_MAP_LIST[index])
+        ),
     ),
     OasisDeviceSelectEntityDescription(
         key="queue",
         translation_key="queue",
         current_value=lambda device: (device.playlist.copy(), device.playlist_index),
-        select_fn=lambda device, option: device.async_change_track(option),
+        select_fn=lambda device, index: device.async_change_track(index),
         update_handler=queue_update_handler,
     ),
 )
@@ -113,8 +117,8 @@ CLOUD_DESCRIPTORS = (
         key="playlists",
         translation_key="playlist",
         current_value=lambda device: (device.playlists, device.playlist.copy()),
-        select_fn=lambda device, option: device.async_set_playlist(
-            [pattern["id"] for pattern in device.playlists[option]["patterns"]]
+        select_fn=lambda device, index: device.async_set_playlist(
+            [pattern["id"] for pattern in device.playlists[index]["patterns"]]
         ),
         update_handler=playlists_update_handler,
     ),
@@ -140,7 +144,6 @@ class OasisDeviceSelectEntity(OasisDeviceEntity, SelectEntity):
     async def async_select_option(self, option: str) -> None:
         """Change the selected option."""
         await self.entity_description.select_fn(self.device, self.options.index(option))
-        await self.coordinator.async_request_refresh()
 
     @callback
     def _handle_coordinator_update(self) -> None:
@@ -152,8 +155,8 @@ class OasisDeviceSelectEntity(OasisDeviceEntity, SelectEntity):
         if update_handler := self.entity_description.update_handler:
             update_handler(self)
         else:
-            self._attr_current_option = getattr(
-                self.device, self.entity_description.key
+            self._attr_current_option = str(
+                getattr(self.device, self.entity_description.key)
             )
         if self.hass:
             return super()._handle_coordinator_update()

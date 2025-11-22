@@ -63,8 +63,8 @@ class OasisDeviceNumberEntity(OasisDeviceEntity, NumberEntity):
 
     async def async_set_native_value(self, value: float) -> None:
         """Set new value."""
+        value = int(value)
         if self.entity_description.key == "ball_speed":
             await self.device.async_set_ball_speed(value)
         elif self.entity_description.key == "led_speed":
             await self.device.async_set_led(led_speed=value)
-        await self.coordinator.async_request_refresh()

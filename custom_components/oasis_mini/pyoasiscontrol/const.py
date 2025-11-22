@@ -21,6 +21,9 @@ AUTOPLAY_MAP: Final[dict[str, str]] = {
     "2": "5 minutes",
     "3": "10 minutes",
     "4": "30 minutes",
+    "6": "1 hour",
+    "7": "6 hours",
+    "8": "12 hours",
     "5": "24 hours",
 }
 
@@ -91,13 +94,14 @@ LED_EFFECTS: Final[dict[str, str]] = {
     "41": "Color Comets",
 }
 
+STATUS_CODE_SLEEPING: Final = 6
 STATUS_CODE_MAP: Final[dict[int, str]] = {
     0: "booting",
     2: "stopped",
     3: "centering",
     4: "playing",
     5: "paused",
-    6: "sleeping",
+    STATUS_CODE_SLEEPING: "sleeping",
     9: "error",
     11: "updating",
     13: "downloading",

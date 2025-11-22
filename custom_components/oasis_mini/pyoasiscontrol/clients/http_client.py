@@ -7,9 +7,7 @@ from typing import Any
 
 from aiohttp import ClientSession
 
-from ..const import AUTOPLAY_MAP
 from ..device import OasisDevice
-from ..utils import _bit_to_bool, _parse_int
 from .transport import OasisClientProtocol
 
 _LOGGER = logging.getLogger(__name__)
@@ -179,37 +177,4 @@ class OasisHttpClient(OasisClientProtocol):
             return
 
         _LOGGER.debug("Status for %s: %s", device.serial_number, raw_status)
-
-        values = raw_status.split(";")
-        if len(values) < 7:
-            _LOGGER.warning(
-                "Unexpected status format for %s: %s", device.serial_number, values
-            )
-            return
-
-        playlist = [_parse_int(track) for track in values[3].split(",") if track]
-        shift = len(values) - 18 if len(values) > 17 else 0
-
-        try:
-            status: dict[str, Any] = {
-                "status_code": _parse_int(values[0]),
-                "error": _parse_int(values[1]),
-                "ball_speed": _parse_int(values[2]),
-                "playlist": playlist,
-                "playlist_index": min(_parse_int(values[4]), len(playlist)),
-                "progress": _parse_int(values[5]),
-                "led_effect": values[6],
-                "led_speed": _parse_int(values[8]),
-                "brightness": _parse_int(values[9]),
-                "color": values[10] if "#" in values[10] else None,
-                "busy": _bit_to_bool(values[11 + shift]),
-                "download_progress": _parse_int(values[12 + shift]),
-                "max_brightness": _parse_int(values[13 + shift]),
-                "repeat_playlist": _bit_to_bool(values[15 + shift]),
-                "autoplay": AUTOPLAY_MAP.get(value := values[16 + shift], value),
-            }
-        except Exception:  # noqa: BLE001
-            _LOGGER.exception("Error parsing HTTP status for %s", device.serial_number)
-            return
-
-        device.update_from_status_dict(status)
+        device.update_from_status_string(raw_status)

@@ -78,4 +78,3 @@ class OasisDeviceButtonEntity(OasisDeviceEntity, ButtonEntity):
     async def async_press(self) -> None:
         """Press the button."""
         await self.entity_description.press_fn(self.device)
-        await self.coordinator.async_request_refresh()

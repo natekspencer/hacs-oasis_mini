@@ -134,19 +134,16 @@ class OasisDeviceMediaPlayerEntity(OasisDeviceEntity, MediaPlayerEntity):
         """Send pause command."""
         self.abort_if_busy()
         await self.device.async_pause()
-        await self.coordinator.async_request_refresh()
 
     async def async_media_play(self) -> None:
         """Send play command."""
         self.abort_if_busy()
         await self.device.async_play()
-        await self.coordinator.async_request_refresh()
 
     async def async_media_stop(self) -> None:
         """Send stop command."""
         self.abort_if_busy()
         await self.device.async_stop()
-        await self.coordinator.async_request_refresh()
 
     async def async_set_repeat(self, repeat: RepeatMode) -> None:
         """Set repeat mode."""
@@ -154,7 +151,6 @@ class OasisDeviceMediaPlayerEntity(OasisDeviceEntity, MediaPlayerEntity):
             repeat != RepeatMode.OFF
             and not (repeat == RepeatMode.ONE and self.repeat == RepeatMode.ALL)
         )
-        await self.coordinator.async_request_refresh()
 
     async def async_media_previous_track(self) -> None:
         """Send previous track command."""
@@ -162,7 +158,6 @@ class OasisDeviceMediaPlayerEntity(OasisDeviceEntity, MediaPlayerEntity):
         if (index := self.device.playlist_index - 1) < 0:
             index = len(self.device.playlist) - 1
         await self.device.async_change_track(index)
-        await self.coordinator.async_request_refresh()
 
     async def async_media_next_track(self) -> None:
         """Send next track command."""
@@ -170,7 +165,6 @@ class OasisDeviceMediaPlayerEntity(OasisDeviceEntity, MediaPlayerEntity):
         if (index := self.device.playlist_index + 1) >= len(self.device.playlist):
             index = 0
         await self.device.async_change_track(index)
-        await self.coordinator.async_request_refresh()
 
     async def async_play_media(
         self,
@@ -220,10 +214,7 @@ class OasisDeviceMediaPlayerEntity(OasisDeviceEntity, MediaPlayerEntity):
         ):
             await device.async_play()
 
-        await self.coordinator.async_request_refresh()
-
     async def async_clear_playlist(self) -> None:
         """Clear players playlist."""
         self.abort_if_busy()
         await self.device.async_clear_playlist()
-        await self.coordinator.async_request_refresh()

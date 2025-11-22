@@ -52,8 +52,7 @@ DESCRIPTORS = {
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     )
-    for key in ("error", "status")
-    # for key in ("error", "led_color_id", "status")
+    for key in ("error", "led_color_id", "status")
     # for key in ("error_message", "led_color_id", "status")
 }
 

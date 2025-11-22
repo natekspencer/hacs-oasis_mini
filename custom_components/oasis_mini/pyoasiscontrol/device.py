@@ -5,7 +5,14 @@ from __future__ import annotations
 import logging
 from typing import TYPE_CHECKING, Any, Callable, Final, Iterable
 
-from .const import ERROR_CODE_MAP, LED_EFFECTS, STATUS_CODE_MAP, TRACKS
+from .const import (
+    ERROR_CODE_MAP,
+    LED_EFFECTS,
+    STATUS_CODE_MAP,
+    STATUS_CODE_SLEEPING,
+    TRACKS,
+)
+from .utils import _bit_to_bool, _parse_int
 
 if TYPE_CHECKING:  # avoid runtime circular imports
     from .clients.transport import OasisClientProtocol
@@ -18,6 +25,7 @@ LED_SPEED_MAX: Final = 90
 LED_SPEED_MIN: Final = -90
 
 _STATE_FIELDS = (
+    "auto_clean",
     "autoplay",
     "ball_speed",
     "brightness",
@@ -28,7 +36,6 @@ _STATE_FIELDS = (
     "led_effect",
     "led_speed",
     "mac_address",
-    "max_brightness",
     "playlist",
     "playlist_index",
     "progress",
@@ -69,17 +76,19 @@ class OasisDevice:
 
         # Status
         self.auto_clean: bool = False
-        self.autoplay: str = "off"
+        self.autoplay: int = 0
         self.ball_speed: int = BALL_SPEED_MIN
-        self.brightness: int = 0
+        self._brightness: int = 0
+        self.brightness_max: int = 200
+        self.brightness_on: int = 0
         self.busy: bool = False
         self.color: str | None = None
         self.download_progress: int = 0
         self.error: int = 0
+        self.led_color_id: str = "0"
         self.led_effect: str = "0"
         self.led_speed: int = 0
         self.mac_address: str | None = None
-        self.max_brightness: int = 200
         self.playlist: list[int] = []
         self.playlist_index: int = 0
         self.progress: int = 0
@@ -98,6 +107,22 @@ class OasisDevice:
 
         # Track metadata cache (used if you hydrate from cloud)
         self._track: dict | None = None
+
+    @property
+    def brightness(self) -> int:
+        """Return the brightness."""
+        return 0 if self.is_sleeping else self._brightness
+
+    @brightness.setter
+    def brightness(self, value: int) -> None:
+        self._brightness = value
+        if value:
+            self.brightness_on = value
+
+    @property
+    def is_sleeping(self) -> bool:
+        """Return `True` if the status is set to sleeping."""
+        return self.status_code == STATUS_CODE_SLEEPING
 
     def attach_client(self, client: OasisClientProtocol) -> None:
         """Attach a transport client (MQTT, HTTP, etc.) to this device."""
@@ -141,6 +166,66 @@ class OasisDevice:
 
         if changed:
             self._notify_listeners()
+
+    def parse_status_string(self, raw_status: str) -> dict[str, Any] | None:
+        """Parse a semicolon-separated status string into a state dict.
+
+        Used by:
+        - HTTP GETSTATUS response
+        - MQTT FULLSTATUS payload (includes software_version)
+        """
+        if not raw_status:
+            return None
+
+        values = raw_status.split(";")
+
+        # We rely on indices 0..17 existing (18 fields)
+        if (n := len(values)) < 18:
+            _LOGGER.warning(
+                "Unexpected status format for %s: %s", self.serial_number, values
+            )
+            return None
+
+        playlist = [_parse_int(track) for track in values[3].split(",") if track]
+
+        try:
+            status: dict[str, Any] = {
+                "status_code": _parse_int(values[0]),
+                "error": _parse_int(values[1]),
+                "ball_speed": _parse_int(values[2]),
+                "playlist": playlist,
+                "playlist_index": min(_parse_int(values[4]), len(playlist)),
+                "progress": _parse_int(values[5]),
+                "led_effect": values[6],
+                "led_color_id": values[7],
+                "led_speed": _parse_int(values[8]),
+                "brightness": _parse_int(values[9]),
+                "color": values[10] if "#" in values[10] else None,
+                "busy": _bit_to_bool(values[11]),
+                "download_progress": _parse_int(values[12]),
+                "brightness_max": _parse_int(values[13]),
+                "wifi_connected": _bit_to_bool(values[14]),
+                "repeat_playlist": _bit_to_bool(values[15]),
+                "autoplay": _parse_int(values[16]),
+                "auto_clean": _bit_to_bool(values[17]),
+            }
+
+            # Optional trailing field(s)
+            if n > 18:
+                status["software_version"] = values[18]
+
+        except Exception:  # noqa: BLE001
+            _LOGGER.exception(
+                "Error parsing status string for %s: %r", self.serial_number, raw_status
+            )
+            return None
+
+        return status
+
+    def update_from_status_string(self, raw_status: str) -> None:
+        """Parse and apply a raw status string."""
+        if status := self.parse_status_string(raw_status):
+            self.update_from_status_dict(status)
 
     def as_dict(self) -> dict[str, Any]:
         """Return core state as a dict."""
@@ -259,7 +344,7 @@ class OasisDevice:
             raise ValueError("Invalid led effect specified")
         if not LED_SPEED_MIN <= led_speed <= LED_SPEED_MAX:
             raise ValueError("Invalid led speed specified")
-        if not 0 <= brightness <= self.max_brightness:
+        if not 0 <= brightness <= self.brightness_max:
             raise ValueError("Invalid brightness specified")
 
         client = self._require_client()
