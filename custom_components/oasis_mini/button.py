@@ -13,10 +13,10 @@ from homeassistant.components.button import (
 )
 from homeassistant.const import EntityCategory
 from homeassistant.core import HomeAssistant
+from homeassistant.exceptions import HomeAssistantError
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
-from . import OasisDeviceConfigEntry
-from .coordinator import OasisDeviceCoordinator
+from . import OasisDeviceConfigEntry, setup_platform_from_coordinator
 from .entity import OasisDeviceEntity
 from .helpers import add_and_play_track
 from .pyoasiscontrol import OasisDevice
@@ -29,18 +29,24 @@ async def async_setup_entry(
     async_add_entities: AddEntitiesCallback,
 ) -> None:
     """Set up Oasis device button using config entry."""
-    coordinator: OasisDeviceCoordinator = entry.runtime_data
-    async_add_entities(
-        OasisDeviceButtonEntity(coordinator, device, descriptor)
-        for device in coordinator.data
-        for descriptor in DESCRIPTORS
-    )
+
+    def make_entities(new_devices: list[OasisDevice]):
+        return [
+            OasisDeviceButtonEntity(entry.runtime_data, device, descriptor)
+            for device in new_devices
+            for descriptor in DESCRIPTORS
+        ]
+
+    setup_platform_from_coordinator(entry, async_add_entities, make_entities)
 
 
 async def play_random_track(device: OasisDevice) -> None:
     """Play random track."""
     track = random.choice(list(TRACKS))
-    await add_and_play_track(device, track)
+    try:
+        await add_and_play_track(device, track)
+    except TimeoutError as err:
+        raise HomeAssistantError("Timeout adding track to queue") from err
 
 
 @dataclass(frozen=True, kw_only=True)

@@ -144,6 +144,11 @@
           "live": "Live drawing"
         }
       }
+    },
+    "switch": {
+      "auto_clean": {
+        "name": "Auto-clean"
+      }
     }
   },
   "exceptions": {

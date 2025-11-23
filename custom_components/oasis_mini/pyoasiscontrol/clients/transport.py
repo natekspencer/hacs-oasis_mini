@@ -16,6 +16,10 @@ class OasisClientProtocol(Protocol):
 
     async def async_get_mac_address(self, device: OasisDevice) -> str | None: ...
 
+    async def async_send_auto_clean_command(
+        self, device: OasisDevice, auto_clean: bool
+    ) -> None: ...
+
     async def async_send_ball_speed_command(
         self,
         device: OasisDevice,

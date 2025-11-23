@@ -3,18 +3,22 @@
 from __future__ import annotations
 
 import logging
-from typing import Any
+from typing import Any, Callable, Iterable
 
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_EMAIL, Platform
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.exceptions import ConfigEntryAuthFailed
+from homeassistant.helpers.device_registry import DeviceEntry
+from homeassistant.helpers.entity_platform import AddEntitiesCallback
 import homeassistant.helpers.entity_registry as er
 import homeassistant.util.dt as dt_util
 
+from .const import DOMAIN
 from .coordinator import OasisDeviceCoordinator
+from .entity import OasisDeviceEntity
 from .helpers import create_client
-from .pyoasiscontrol import OasisMqttClient, UnauthenticatedError
+from .pyoasiscontrol import OasisDevice, OasisMqttClient, UnauthenticatedError
 
 type OasisDeviceConfigEntry = ConfigEntry[OasisDeviceCoordinator]
 
@@ -29,8 +33,45 @@ PLATFORMS = [
     Platform.NUMBER,
     Platform.SELECT,
     Platform.SENSOR,
+    Platform.SWITCH,
     Platform.UPDATE,
 ]
+
+
+def setup_platform_from_coordinator(
+    entry: OasisDeviceConfigEntry,
+    async_add_entities: AddEntitiesCallback,
+    make_entities: Callable[[OasisDevice], Iterable[OasisDeviceEntity]],
+    update_before_add: bool = False,
+) -> None:
+    """Generic pattern: add entities per device, including newly discovered ones."""
+    coordinator = entry.runtime_data
+
+    known_serials: set[str] = set()
+
+    @callback
+    def _check_devices() -> None:
+        devices = coordinator.data or []
+        new_devices: list[OasisDevice] = []
+
+        for device in devices:
+            serial = device.serial_number
+            if not serial or serial in known_serials:
+                continue
+
+            known_serials.add(serial)
+            new_devices.append(device)
+
+        if not new_devices:
+            return
+
+        if entities := make_entities(new_devices):
+            async_add_entities(entities, update_before_add)
+
+    # Initial population
+    _check_devices()
+    # Future updates (new devices discovered)
+    entry.async_on_unload(coordinator.async_add_listener(_check_devices))
 
 
 async def async_setup_entry(hass: HomeAssistant, entry: OasisDeviceConfigEntry) -> bool:
@@ -148,3 +189,15 @@ async def async_migrate_entry(hass: HomeAssistant, entry: OasisDeviceConfigEntry
     )
 
     return True
+
+
+async def async_remove_config_entry_device(
+    hass: HomeAssistant, config_entry: OasisDeviceConfigEntry, device_entry: DeviceEntry
+) -> bool:
+    """Remove a config entry from a device."""
+    current_serials = {d.serial_number for d in (config_entry.runtime_data.data or [])}
+    return not any(
+        identifier
+        for identifier in device_entry.identifiers
+        if identifier[0] == DOMAIN and identifier[1] in current_serials
+    )

@@ -23,6 +23,7 @@ _LOGGER = logging.getLogger(__name__)
 
 BALL_SPEED_MAX: Final = 400
 BALL_SPEED_MIN: Final = 100
+BRIGHTNESS_DEFAULT: Final = 100
 LED_SPEED_MAX: Final = 90
 LED_SPEED_MIN: Final = -90
 
@@ -62,6 +63,7 @@ class OasisDevice:
         *,
         model: str | None = None,
         serial_number: str | None = None,
+        name: str | None = None,
         ssid: str | None = None,
         ip_address: str | None = None,
         cloud: OasisCloudClient | None = None,
@@ -73,10 +75,11 @@ class OasisDevice:
         self._listeners: list[Callable[[], None]] = []
 
         # Details
-        self.model: str | None = model
-        self.serial_number: str | None = serial_number
-        self.ssid: str | None = ssid
-        self.ip_address: str | None = ip_address
+        self.model = model
+        self.serial_number = serial_number
+        self.name = name if name else f"{model} {serial_number}"
+        self.ssid = ssid
+        self.ip_address = ip_address
 
         # Status
         self.auto_clean: bool = False
@@ -84,7 +87,7 @@ class OasisDevice:
         self.ball_speed: int = BALL_SPEED_MIN
         self._brightness: int = 0
         self.brightness_max: int = 200
-        self.brightness_on: int = 0
+        self.brightness_on: int = BRIGHTNESS_DEFAULT
         self.busy: bool = False
         self.color: str | None = None
         self.download_progress: int = 0
@@ -150,7 +153,8 @@ class OasisDevice:
         old = getattr(self, name, None)
         if old != value:
             _LOGGER.debug(
-                "%s changed: '%s' -> '%s'",
+                "%s %s changed: '%s' -> '%s'",
+                self.serial_number,
                 name.replace("_", " ").capitalize(),
                 old,
                 value,
@@ -174,7 +178,7 @@ class OasisDevice:
                 _LOGGER.warning("Unknown field: %s=%s", key, value)
 
         if playlist_or_index_changed:
-            self._schedule_track_refresh()
+            self.schedule_track_refresh()
 
         if changed:
             self._notify_listeners()
@@ -343,6 +347,10 @@ class OasisDevice:
             self._update_field("mac_address", mac)
         return mac
 
+    async def async_set_auto_clean(self, auto_clean: bool) -> None:
+        client = self._require_client()
+        await client.async_send_auto_clean_command(self, auto_clean)
+
     async def async_set_ball_speed(self, speed: int) -> None:
         if not BALL_SPEED_MIN <= speed <= BALL_SPEED_MAX:
             raise ValueError("Invalid speed specified")
@@ -438,7 +446,7 @@ class OasisDevice:
         client = self._require_client()
         await client.async_send_reboot_command(self)
 
-    def _schedule_track_refresh(self) -> None:
+    def schedule_track_refresh(self) -> None:
         """Schedule an async refresh of current track info if track_id changed."""
         if not self._cloud:
             return

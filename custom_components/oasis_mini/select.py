@@ -7,11 +7,12 @@ from dataclasses import dataclass
 from typing import Any, Awaitable, Callable
 
 from homeassistant.components.select import SelectEntity, SelectEntityDescription
+from homeassistant.const import EntityCategory
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.entity import EntityDescription
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
-from . import OasisDeviceConfigEntry
+from . import OasisDeviceConfigEntry, setup_platform_from_coordinator
 from .coordinator import OasisDeviceCoordinator
 from .entity import OasisDeviceEntity
 from .pyoasiscontrol import OasisDevice
@@ -70,12 +71,15 @@ async def async_setup_entry(
     async_add_entities: AddEntitiesCallback,
 ) -> None:
     """Set up Oasis device select using config entry."""
-    coordinator: OasisDeviceCoordinator = entry.runtime_data
-    async_add_entities(
-        OasisDeviceSelectEntity(coordinator, device, descriptor)
-        for device in coordinator.data
-        for descriptor in DESCRIPTORS
-    )
+
+    def make_entities(new_devices: list[OasisDevice]):
+        return [
+            OasisDeviceSelectEntity(entry.runtime_data, device, descriptor)
+            for device in new_devices
+            for descriptor in DESCRIPTORS
+        ]
+
+    setup_platform_from_coordinator(entry, async_add_entities, make_entities)
 
 
 @dataclass(frozen=True, kw_only=True)
@@ -91,6 +95,7 @@ DESCRIPTORS = (
     OasisDeviceSelectEntityDescription(
         key="autoplay",
         translation_key="autoplay",
+        entity_category=EntityCategory.CONFIG,
         options=AUTOPLAY_MAP_LIST,
         current_value=lambda device: str(device.autoplay),
         select_fn=lambda device, index: (

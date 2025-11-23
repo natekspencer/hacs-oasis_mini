@@ -7,7 +7,7 @@ import base64
 from datetime import UTC, datetime
 import logging
 import ssl
-from typing import Any, Final
+from typing import Any, Final, Iterable
 
 import aiomqtt
 
@@ -91,6 +91,11 @@ class OasisMqttClient(OasisClientProtocol):
                 _LOGGER.debug(
                     "Could not schedule subscription for %s (no running loop)", serial
                 )
+
+    def register_devices(self, devices: Iterable[OasisDevice]) -> None:
+        """Convenience method to register multiple devices."""
+        for device in devices:
+            self.register_device(device)
 
     def unregister_device(self, device: OasisDevice) -> None:
         serial = device.serial_number
@@ -259,6 +264,13 @@ class OasisMqttClient(OasisClientProtocol):
             _LOGGER.debug("Timed out waiting for MAC_ADDRESS for %s", serial)
 
         return device.mac_address
+
+    async def async_send_auto_clean_command(
+        self, device: OasisDevice, auto_clean: bool
+    ) -> None:
+        """Send auto clean command."""
+        payload = f"WRIAUTOCLEAN={1 if auto_clean else 0}"
+        await self._publish_command(device, payload)
 
     async def async_send_ball_speed_command(
         self,

@@ -15,9 +15,9 @@ from homeassistant.components.update import (
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
-from . import OasisDeviceConfigEntry
-from .coordinator import OasisDeviceCoordinator
+from . import OasisDeviceConfigEntry, setup_platform_from_coordinator
 from .entity import OasisDeviceEntity
+from .pyoasiscontrol import OasisDevice
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -30,12 +30,14 @@ async def async_setup_entry(
     async_add_entities: AddEntitiesCallback,
 ) -> None:
     """Set up Oasis device updates using config entry."""
-    coordinator: OasisDeviceCoordinator = entry.runtime_data
-    entities = (
-        OasisDeviceUpdateEntity(coordinator, device, DESCRIPTOR)
-        for device in coordinator.data
-    )
-    async_add_entities(entities, True)
+
+    def make_entities(new_devices: list[OasisDevice]):
+        return [
+            OasisDeviceUpdateEntity(entry.runtime_data, device, DESCRIPTOR)
+            for device in new_devices
+        ]
+
+    setup_platform_from_coordinator(entry, async_add_entities, make_entities, True)
 
 
 DESCRIPTOR = UpdateEntityDescription(

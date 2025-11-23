@@ -23,9 +23,9 @@ from homeassistant.util.color import (
     value_to_brightness,
 )
 
-from . import OasisDeviceConfigEntry
-from .coordinator import OasisDeviceCoordinator
+from . import OasisDeviceConfigEntry, setup_platform_from_coordinator
 from .entity import OasisDeviceEntity
+from .pyoasiscontrol import OasisDevice
 from .pyoasiscontrol.const import LED_EFFECTS
 
 
@@ -35,11 +35,14 @@ async def async_setup_entry(
     async_add_entities: AddEntitiesCallback,
 ) -> None:
     """Set up Oasis device lights using config entry."""
-    coordinator: OasisDeviceCoordinator = entry.runtime_data
-    async_add_entities(
-        OasisDeviceLightEntity(coordinator, device, DESCRIPTOR)
-        for device in coordinator.data
-    )
+
+    def make_entities(new_devices: list[OasisDevice]):
+        return [
+            OasisDeviceLightEntity(entry.runtime_data, device, DESCRIPTOR)
+            for device in new_devices
+        ]
+
+    setup_platform_from_coordinator(entry, async_add_entities, make_entities)
 
 
 DESCRIPTOR = LightEntityDescription(key="led", translation_key="led")

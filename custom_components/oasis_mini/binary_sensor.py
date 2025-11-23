@@ -11,9 +11,9 @@ from homeassistant.const import EntityCategory
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
-from . import OasisDeviceConfigEntry
-from .coordinator import OasisDeviceCoordinator
+from . import OasisDeviceConfigEntry, setup_platform_from_coordinator
 from .entity import OasisDeviceEntity
+from .pyoasiscontrol import OasisDevice
 
 
 async def async_setup_entry(
@@ -22,12 +22,15 @@ async def async_setup_entry(
     async_add_entities: AddEntitiesCallback,
 ) -> None:
     """Set up Oasis device sensors using config entry."""
-    coordinator: OasisDeviceCoordinator = entry.runtime_data
-    async_add_entities(
-        OasisDeviceBinarySensorEntity(coordinator, device, descriptor)
-        for device in coordinator.data
-        for descriptor in DESCRIPTORS
-    )
+
+    def make_entities(new_devices: list[OasisDevice]):
+        return [
+            OasisDeviceBinarySensorEntity(entry.runtime_data, device, descriptor)
+            for device in new_devices
+            for descriptor in DESCRIPTORS
+        ]
+
+    setup_platform_from_coordinator(entry, async_add_entities, make_entities)
 
 
 DESCRIPTORS = {

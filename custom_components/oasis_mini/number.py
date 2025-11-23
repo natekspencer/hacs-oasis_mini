@@ -7,12 +7,13 @@ from homeassistant.components.number import (
     NumberEntityDescription,
     NumberMode,
 )
+from homeassistant.const import EntityCategory
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
-from . import OasisDeviceConfigEntry
-from .coordinator import OasisDeviceCoordinator
+from . import OasisDeviceConfigEntry, setup_platform_from_coordinator
 from .entity import OasisDeviceEntity
+from .pyoasiscontrol import OasisDevice
 from .pyoasiscontrol.device import (
     BALL_SPEED_MAX,
     BALL_SPEED_MIN,
@@ -27,18 +28,22 @@ async def async_setup_entry(
     async_add_entities: AddEntitiesCallback,
 ) -> None:
     """Set up Oasis device numbers using config entry."""
-    coordinator: OasisDeviceCoordinator = entry.runtime_data
-    async_add_entities(
-        OasisDeviceNumberEntity(coordinator, device, descriptor)
-        for device in coordinator.data
-        for descriptor in DESCRIPTORS
-    )
+
+    def make_entities(new_devices: list[OasisDevice]):
+        return [
+            OasisDeviceNumberEntity(entry.runtime_data, device, descriptor)
+            for device in new_devices
+            for descriptor in DESCRIPTORS
+        ]
+
+    setup_platform_from_coordinator(entry, async_add_entities, make_entities)
 
 
 DESCRIPTORS = {
     NumberEntityDescription(
         key="ball_speed",
         translation_key="ball_speed",
+        entity_category=EntityCategory.CONFIG,
         mode=NumberMode.SLIDER,
         native_max_value=BALL_SPEED_MAX,
         native_min_value=BALL_SPEED_MIN,
@@ -46,6 +51,7 @@ DESCRIPTORS = {
     NumberEntityDescription(
         key="led_speed",
         translation_key="led_speed",
+        entity_category=EntityCategory.CONFIG,
         mode=NumberMode.SLIDER,
         native_max_value=LED_SPEED_MAX,
         native_min_value=LED_SPEED_MIN,

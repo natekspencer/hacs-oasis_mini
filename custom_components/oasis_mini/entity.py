@@ -37,7 +37,7 @@ class OasisDeviceEntity(CoordinatorEntity[OasisDeviceCoordinator]):
         self._attr_device_info = DeviceInfo(
             connections=connections,
             identifiers={(DOMAIN, serial_number)},
-            name=f"{device.model} {serial_number}",
+            name=device.name,
             manufacturer=device.manufacturer,
             model=device.model,
             serial_number=serial_number,

@@ -2,7 +2,8 @@
 
 from __future__ import annotations
 
-from datetime import datetime, timedelta
+import asyncio
+from datetime import timedelta
 import logging
 from typing import Any
 from urllib.parse import urljoin
@@ -16,6 +17,7 @@ _LOGGER = logging.getLogger(__name__)
 
 BASE_URL = "https://app.grounded.so"
 PLAYLISTS_REFRESH_LIMITER = timedelta(minutes=5)
+SOFTWARE_REFRESH_LIMITER = timedelta(hours=1)
 
 
 class OasisCloudClient:
@@ -32,15 +34,6 @@ class OasisCloudClient:
         * latest software metadata
     """
 
-    _session: ClientSession | None
-    _owns_session: bool
-    _access_token: str | None
-
-    # these are "cache" fields for tracks/playlists
-    _playlists_next_refresh: datetime
-    playlists: list[dict[str, Any]]
-    _playlist_details: dict[int, dict[str, str]]
-
     def __init__(
         self,
         *,
@@ -51,10 +44,17 @@ class OasisCloudClient:
         self._owns_session = session is None
         self._access_token = access_token
 
-        # simple in-memory caches
+        # playlists cache
+        self.playlists: list[dict[str, Any]] = []
         self._playlists_next_refresh = now()
-        self.playlists = []
-        self._playlist_details = {}
+        self._playlists_lock = asyncio.Lock()
+
+        self._playlist_details: dict[int, dict[str, str]] = {}
+
+        # software metadata cache
+        self._software_details: dict[str, int | str] | None = None
+        self._software_next_refresh = now()
+        self._software_lock = asyncio.Lock()
 
     @property
     def session(self) -> ClientSession:
@@ -105,15 +105,32 @@ class OasisCloudClient:
         self, personal_only: bool = False
     ) -> list[dict[str, Any]]:
         """Get playlists from the cloud (cached by PLAYLISTS_REFRESH_LIMITER)."""
-        if self._playlists_next_refresh <= now():
+        now_dt = now()
+
+        def _is_cache_valid() -> bool:
+            return self._playlists_next_refresh > now_dt and bool(self.playlists)
+
+        if _is_cache_valid():
+            return self.playlists
+
+        async with self._playlists_lock:
+            # Double-check in case another task just refreshed it
+            now_dt = now()
+            if _is_cache_valid():
+                return self.playlists
+
             params = {"my_playlists": str(personal_only).lower()}
             playlists = await self._async_auth_request(
                 "GET", "api/playlist", params=params
             )
-            if playlists:
-                self.playlists = playlists
-            self._playlists_next_refresh = now() + PLAYLISTS_REFRESH_LIMITER
-        return self.playlists
+
+            if not isinstance(playlists, list):
+                playlists = []
+
+            self.playlists = playlists
+            self._playlists_next_refresh = now_dt + PLAYLISTS_REFRESH_LIMITER
+
+            return self.playlists
 
     async def async_get_track_info(self, track_id: int) -> dict[str, Any] | None:
         """Get single track info from the cloud."""
@@ -143,9 +160,37 @@ class OasisCloudClient:
             track_details += response.get("data", [])
         return track_details
 
-    async def async_get_latest_software_details(self) -> dict[str, int | str]:
-        """Get latest software metadata from cloud."""
-        return await self._async_auth_request("GET", "api/software/last-version")
+    async def async_get_latest_software_details(
+        self, *, force_refresh: bool = False
+    ) -> dict[str, int | str] | None:
+        """Get latest software metadata from cloud (cached)."""
+        now_dt = now()
+
+        def _is_cache_valid() -> bool:
+            return (
+                not force_refresh
+                and self._software_details is not None
+                and self._software_next_refresh > now_dt
+            )
+
+        if _is_cache_valid():
+            return self._software_details
+
+        async with self._software_lock:
+            # Double-check in case another task just refreshed it
+            now_dt = now()
+            if _is_cache_valid():
+                return self._software_details
+
+            details = await self._async_auth_request("GET", "api/software/last-version")
+
+            if not isinstance(details, dict):
+                details = {}
+
+            self._software_details = details
+            self._software_next_refresh = now_dt + SOFTWARE_REFRESH_LIMITER
+
+            return self._software_details
 
     async def _async_auth_request(self, method: str, url: str, **kwargs: Any) -> Any:
         """Perform an authenticated cloud request."""

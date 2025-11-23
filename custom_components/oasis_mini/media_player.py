@@ -18,11 +18,11 @@ from homeassistant.core import HomeAssistant
 from homeassistant.exceptions import ServiceValidationError
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
-from . import OasisDeviceConfigEntry
+from . import OasisDeviceConfigEntry, setup_platform_from_coordinator
 from .const import DOMAIN
-from .coordinator import OasisDeviceCoordinator
 from .entity import OasisDeviceEntity
 from .helpers import get_track_id
+from .pyoasiscontrol import OasisDevice
 
 
 async def async_setup_entry(
@@ -31,11 +31,14 @@ async def async_setup_entry(
     async_add_entities: AddEntitiesCallback,
 ) -> None:
     """Set up Oasis device media_players using config entry."""
-    coordinator: OasisDeviceCoordinator = entry.runtime_data
-    async_add_entities(
-        OasisDeviceMediaPlayerEntity(coordinator, device, DESCRIPTOR)
-        for device in coordinator.data
-    )
+
+    def make_entities(new_devices: list[OasisDevice]):
+        return [
+            OasisDeviceMediaPlayerEntity(entry.runtime_data, device, DESCRIPTOR)
+            for device in new_devices
+        ]
+
+    setup_platform_from_coordinator(entry, async_add_entities, make_entities)
 
 
 DESCRIPTOR = MediaPlayerEntityDescription(key="oasis_mini", name=None)

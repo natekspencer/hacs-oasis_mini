@@ -8,6 +8,7 @@ import logging
 import async_timeout
 
 from homeassistant.core import HomeAssistant
+from homeassistant.helpers import device_registry as dr
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
 import homeassistant.util.dt as dt_util
 
@@ -46,34 +47,114 @@ class OasisDeviceCoordinator(DataUpdateCoordinator[list[OasisDevice]]):
         self.attempt += 1
 
         try:
-            async with async_timeout.timeout(10):
-                if not self.data:
-                    raw_devices = await self.cloud_client.async_get_devices()
-                    devices = [
-                        OasisDevice(
-                            model=raw_device.get("model", {}).get("name"),
-                            serial_number=raw_device.get("serial_number"),
+            async with async_timeout.timeout(30):
+                raw_devices = await self.cloud_client.async_get_devices()
+
+                existing_by_serial = {
+                    d.serial_number: d for d in (self.data or []) if d.serial_number
+                }
+
+                for raw in raw_devices:
+                    if not (serial := raw.get("serial_number")):
+                        continue
+
+                    if device := existing_by_serial.get(serial):
+                        if name := raw.get("name"):
+                            device.name = name
+                    else:
+                        device = OasisDevice(
+                            model=(raw.get("model") or {}).get("name"),
+                            serial_number=serial,
+                            name=raw.get("name"),
                             cloud=self.cloud_client,
                         )
-                        for raw_device in raw_devices
-                    ]
-                else:
-                    devices = self.data
-                for device in devices:
-                    self.mqtt_client.register_device(device)
-                    await self.mqtt_client.wait_until_ready(device, request_status=True)
-                    if not await device.async_get_mac_address():
-                        raise Exception(
-                            "Could not get mac address for %s", device.serial_number
+
+                    devices.append(device)
+
+                new_serials = {d.serial_number for d in devices if d.serial_number}
+                removed_serials = set(existing_by_serial) - new_serials
+
+                if removed_serials:
+                    device_registry = dr.async_get(self.hass)
+                    for serial in removed_serials:
+                        _LOGGER.info(
+                            "Oasis device %s removed from account; cleaning up in HA",
+                            serial,
                         )
-                await self.cloud_client.async_get_playlists()
-                self.attempt = 0
-        except Exception as ex:  # pylint:disable=broad-except
+                        device_entry = device_registry.async_get_device(
+                            identifiers={(DOMAIN, serial)}
+                        )
+                        if device_entry:
+                            device_registry.async_update_device(
+                                device_id=device_entry.id,
+                                remove_config_entry_id=self.config_entry.entry_id,
+                            )
+
+                # ✅ Valid state: logged in but no devices on account
+                if not devices:
+                    _LOGGER.debug("No Oasis devices found for account")
+                    self.attempt = 0
+                    if devices != self.data:
+                        self.last_updated = dt_util.now()
+                    return []
+
+                self.mqtt_client.register_devices(devices)
+
+                # Best-effort playlists
+                try:
+                    await self.cloud_client.async_get_playlists()
+                except Exception:  # noqa: BLE001
+                    _LOGGER.exception("Error fetching playlists from cloud")
+
+                any_success = False
+
+                for device in devices:
+                    try:
+                        ready = await self.mqtt_client.wait_until_ready(
+                            device, timeout=3, request_status=True
+                        )
+                        if not ready:
+                            _LOGGER.warning(
+                                "Timeout waiting for Oasis device %s to be ready",
+                                device.serial_number,
+                            )
+                            continue
+
+                        mac = await device.async_get_mac_address()
+                        if not mac:
+                            _LOGGER.warning(
+                                "Could not get MAC address for Oasis device %s",
+                                device.serial_number,
+                            )
+                            continue
+
+                        any_success = True
+                        device.schedule_track_refresh()
+
+                    except Exception:  # noqa: BLE001
+                        _LOGGER.exception(
+                            "Error preparing Oasis device %s", device.serial_number
+                        )
+
+                if any_success:
+                    self.attempt = 0
+                else:
+                    if self.attempt > 2 or not self.data:
+                        raise UpdateFailed(
+                            "Couldn't read from any Oasis device "
+                            f"after {self.attempt} attempts"
+                        )
+
+        except UpdateFailed:
+            raise
+        except Exception as ex:  # noqa: BLE001
             if self.attempt > 2 or not (devices or self.data):
                 raise UpdateFailed(
-                    f"Couldn't read from the Oasis device after {self.attempt} attempts"
+                    "Unexpected error talking to Oasis devices "
+                    f"after {self.attempt} attempts"
                 ) from ex
 
         if devices != self.data:
             self.last_updated = dt_util.now()
+
         return devices

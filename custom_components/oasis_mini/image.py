@@ -6,8 +6,9 @@ from homeassistant.components.image import Image, ImageEntity, ImageEntityDescri
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.typing import UNDEFINED
+from homeassistant.util import dt as dt_util
 
-from . import OasisDeviceConfigEntry
+from . import OasisDeviceConfigEntry, setup_platform_from_coordinator
 from .coordinator import OasisDeviceCoordinator
 from .entity import OasisDeviceEntity
 from .pyoasiscontrol import OasisDevice
@@ -19,11 +20,14 @@ async def async_setup_entry(
     async_add_entities: AddEntitiesCallback,
 ) -> None:
     """Set up Oasis device image using config entry."""
-    coordinator: OasisDeviceCoordinator = entry.runtime_data
-    async_add_entities(
-        OasisDeviceImageEntity(coordinator, device, IMAGE)
-        for device in coordinator.data
-    )
+
+    def make_entities(new_devices: list[OasisDevice]):
+        return [
+            OasisDeviceImageEntity(entry.runtime_data, device, IMAGE)
+            for device in new_devices
+        ]
+
+    setup_platform_from_coordinator(entry, async_add_entities, make_entities)
 
 
 IMAGE = ImageEntityDescription(key="image", name=None)
@@ -32,7 +36,6 @@ IMAGE = ImageEntityDescription(key="image", name=None)
 class OasisDeviceImageEntity(OasisDeviceEntity, ImageEntity):
     """Oasis device image entity."""
 
-    _attr_content_type = "image/svg+xml"
     _track_id: int | None = None
     _progress: int = 0
 
@@ -50,20 +53,29 @@ class OasisDeviceImageEntity(OasisDeviceEntity, ImageEntity):
     def image(self) -> bytes | None:
         """Return bytes of image."""
         if not self._cached_image:
-            self._cached_image = Image(self.content_type, self.device.create_svg())
+            if (svg := self.device.create_svg()) is None:
+                self._attr_image_url = self.device.track_image_url
+                self._attr_image_last_updated = dt_util.now()
+                return None
+            self._attr_content_type = "image/svg+xml"
+            self._cached_image = Image(self.content_type, svg)
         return self._cached_image.content
 
     @callback
     def _handle_coordinator_update(self) -> None:
         """Handle updated data from the coordinator."""
         device = self.device
-        if (
-            self._track_id != device.track_id or self._progress != device.progress
-        ) and (device.status == "playing" or self._cached_image is None):
+
+        track_changed = self._track_id != device.track_id
+        progress_changed = self._progress != device.progress
+        allow_update = device.status == "playing" or self._cached_image is None
+
+        if (track_changed or progress_changed) and allow_update:
             self._attr_image_last_updated = self.coordinator.last_updated
             self._track_id = device.track_id
             self._progress = device.progress
             self._cached_image = None
+
             if device.track and device.track.get("svg_content"):
                 self._attr_image_url = UNDEFINED
             else:
