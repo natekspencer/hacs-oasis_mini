@@ -143,8 +143,9 @@ class OasisMqttClient(OasisClientProtocol):
     async def _resubscribe_all(self) -> None:
         """Resubscribe to all known devices after (re)connect."""
         self._subscribed_serials.clear()
-        for serial in list(self._devices):
+        for serial, device in self._devices.items():
             await self._subscribe_serial(serial)
+            await self.async_get_all(device)
 
     def start(self) -> None:
         """Start MQTT connection loop."""
@@ -315,9 +316,6 @@ class OasisMqttClient(OasisClientProtocol):
         track_str = ",".join(map(str, playlist))
         payload = f"WRIJOBLIST={track_str}"
         await self._publish_command(device, payload)
-
-        # local state optimistic update
-        device.update_from_status_dict({"playlist": playlist})
 
     async def async_send_set_repeat_playlist_command(
         self,

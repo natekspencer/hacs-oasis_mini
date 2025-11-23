@@ -11,8 +11,6 @@ from . import OasisDeviceConfigEntry
 from .coordinator import OasisDeviceCoordinator
 from .entity import OasisDeviceEntity
 from .pyoasiscontrol import OasisDevice
-from .pyoasiscontrol.const import TRACKS
-from .pyoasiscontrol.utils import draw_svg
 
 
 async def async_setup_entry(
@@ -52,33 +50,24 @@ class OasisDeviceImageEntity(OasisDeviceEntity, ImageEntity):
     def image(self) -> bytes | None:
         """Return bytes of image."""
         if not self._cached_image:
-            self._cached_image = Image(
-                self.content_type, draw_svg(self.device.track, self._progress, "1")
-            )
+            self._cached_image = Image(self.content_type, self.device.create_svg())
         return self._cached_image.content
 
     @callback
     def _handle_coordinator_update(self) -> None:
         """Handle updated data from the coordinator."""
+        device = self.device
         if (
-            self._track_id != self.device.track_id
-            or self._progress != self.device.progress
-        ) and (self.device.status == "playing" or self._cached_image is None):
+            self._track_id != device.track_id or self._progress != device.progress
+        ) and (device.status == "playing" or self._cached_image is None):
             self._attr_image_last_updated = self.coordinator.last_updated
-            self._track_id = self.device.track_id
-            self._progress = self.device.progress
+            self._track_id = device.track_id
+            self._progress = device.progress
             self._cached_image = None
-            if self.device.track and self.device.track.get("svg_content"):
+            if device.track and device.track.get("svg_content"):
                 self._attr_image_url = UNDEFINED
             else:
-                self._attr_image_url = (
-                    f"https://app.grounded.so/uploads/{track['image']}"
-                    if (
-                        track := (self.device.track or TRACKS.get(self.device.track_id))
-                    )
-                    and "image" in track
-                    else None
-                )
+                self._attr_image_url = device.track_image_url
 
         if self.hass:
             super()._handle_coordinator_update()

@@ -13,7 +13,7 @@ from .const import (
     STATUS_CODE_SLEEPING,
     TRACKS,
 )
-from .utils import _bit_to_bool, _parse_int, decrypt_svg_content
+from .utils import _bit_to_bool, _parse_int, create_svg, decrypt_svg_content
 
 if TYPE_CHECKING:  # avoid runtime circular imports
     from .clients import OasisCloudClient
@@ -256,6 +256,13 @@ class OasisDevice:
         return STATUS_CODE_MAP.get(self.status_code, f"Unknown ({self.status_code})")
 
     @property
+    def track(self) -> dict | None:
+        """Return cached track info if it matches the current `track_id`."""
+        if (track := self._track) and track["id"] == self.track_id:
+            return track
+        return TRACKS.get(self.track_id)
+
+    @property
     def track_id(self) -> int | None:
         if not self.playlist:
             return None
@@ -263,13 +270,17 @@ class OasisDevice:
         return self.playlist[0] if i >= len(self.playlist) else self.playlist[i]
 
     @property
-    def track(self) -> dict | None:
-        """Return cached track info if it matches the current `track_id`."""
-        if self._track and self._track.get("id") == self.track_id:
-            return self._track
-        if track := TRACKS.get(self.track_id):
-            self._track = track
-            return self._track
+    def track_image_url(self) -> str | None:
+        """Return the track image url, if any."""
+        if (track := self.track) and (image := track.get("image")):
+            return f"https://app.grounded.so/uploads/{image}"
+        return None
+
+    @property
+    def track_name(self) -> str | None:
+        """Return the track name, if any."""
+        if track := self.track:
+            return track.get("name", f"Unknown Title (#{self.track_id})")
         return None
 
     @property
@@ -281,18 +292,22 @@ class OasisDevice:
         paths = svg_content.split("L")
         total = self.track.get("reduced_svg_content_new", 0) or len(paths)
         percent = (100 * self.progress) / total
-        return max(percent, 100)
+        return min(percent, 100)
 
     @property
     def playlist_details(self) -> dict[int, dict[str, str]]:
         """Basic playlist details using built-in TRACKS metadata."""
         return {
-            track_id: TRACKS.get(
+            track_id: {self.track_id: self.track or {}, **TRACKS}.get(
                 track_id,
                 {"name": f"Unknown Title (#{track_id})"},
             )
             for track_id in self.playlist
         }
+
+    def create_svg(self) -> str | None:
+        """Create the current svg based on track and progress."""
+        return create_svg(self.track, self.progress)
 
     def add_update_listener(self, listener: Callable[[], None]) -> Callable[[], None]:
         """Register a callback for state changes.

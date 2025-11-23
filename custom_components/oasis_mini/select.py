@@ -27,7 +27,7 @@ def playlists_update_handler(entity: OasisDeviceSelectEntity) -> None:
     counts = defaultdict(int)
     options = []
     current_option: str | None = None
-    for playlist in device.playlists:
+    for playlist in device._cloud.playlists:
         name = playlist["name"]
         counts[name] += 1
         if counts[name] > 1:
@@ -71,18 +71,11 @@ async def async_setup_entry(
 ) -> None:
     """Set up Oasis device select using config entry."""
     coordinator: OasisDeviceCoordinator = entry.runtime_data
-    entities = [
+    async_add_entities(
         OasisDeviceSelectEntity(coordinator, device, descriptor)
         for device in coordinator.data
         for descriptor in DESCRIPTORS
-    ]
-    # if coordinator.device.access_token:
-    #     entities.extend(
-    #         OasisDeviceSelectEntity(coordinator, device, descriptor)
-    #         for device in coordinator.data
-    #         for descriptor in CLOUD_DESCRIPTORS
-    #     )
-    async_add_entities(entities)
+    )
 
 
 @dataclass(frozen=True, kw_only=True)
@@ -105,22 +98,20 @@ DESCRIPTORS = (
         ),
     ),
     OasisDeviceSelectEntityDescription(
+        key="playlists",
+        translation_key="playlist",
+        current_value=lambda device: (device._cloud.playlists, device.playlist.copy()),
+        select_fn=lambda device, index: device.async_set_playlist(
+            [pattern["id"] for pattern in device._cloud.playlists[index]["patterns"]]
+        ),
+        update_handler=playlists_update_handler,
+    ),
+    OasisDeviceSelectEntityDescription(
         key="queue",
         translation_key="queue",
         current_value=lambda device: (device.playlist.copy(), device.playlist_index),
         select_fn=lambda device, index: device.async_change_track(index),
         update_handler=queue_update_handler,
-    ),
-)
-CLOUD_DESCRIPTORS = (
-    OasisDeviceSelectEntityDescription(
-        key="playlists",
-        translation_key="playlist",
-        current_value=lambda device: (device.playlists, device.playlist.copy()),
-        select_fn=lambda device, index: device.async_set_playlist(
-            [pattern["id"] for pattern in device.playlists[index]["patterns"]]
-        ),
-        update_handler=playlists_update_handler,
     ),
 )
 

@@ -66,14 +66,8 @@ class OasisDeviceCoordinator(DataUpdateCoordinator[list[OasisDevice]]):
                         raise Exception(
                             "Could not get mac address for %s", device.serial_number
                         )
-                    # if not device.software_version:
-                    #     await device.async_get_software_version()
-                # data = await self.device.async_get_status()
-                # devices = self.cloud_client.mac_address
+                await self.cloud_client.async_get_playlists()
                 self.attempt = 0
-                # await self.device.async_get_current_track_details()
-                # await self.device.async_get_playlist_details()
-                # await self.device.async_cloud_get_playlists()
         except Exception as ex:  # pylint:disable=broad-except
             if self.attempt > 2 or not (devices or self.data):
                 raise UpdateFailed(

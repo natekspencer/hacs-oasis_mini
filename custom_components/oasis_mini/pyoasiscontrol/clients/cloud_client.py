@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from datetime import timedelta
+from datetime import datetime, timedelta
 import logging
 from typing import Any
 from urllib.parse import urljoin
@@ -37,7 +37,7 @@ class OasisCloudClient:
     _access_token: str | None
 
     # these are "cache" fields for tracks/playlists
-    _playlists_next_refresh: float
+    _playlists_next_refresh: datetime
     playlists: list[dict[str, Any]]
     _playlist_details: dict[int, dict[str, str]]
 
@@ -52,7 +52,7 @@ class OasisCloudClient:
         self._access_token = access_token
 
         # simple in-memory caches
-        self._playlists_next_refresh = 0.0
+        self._playlists_next_refresh = now()
         self.playlists = []
         self._playlist_details = {}
 

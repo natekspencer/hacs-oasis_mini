@@ -23,17 +23,11 @@ async def async_setup_entry(
 ) -> None:
     """Set up Oasis device sensors using config entry."""
     coordinator: OasisDeviceCoordinator = entry.runtime_data
-    entities = [
+    async_add_entities(
         OasisDeviceSensorEntity(coordinator, device, descriptor)
         for device in coordinator.data
         for descriptor in DESCRIPTORS
-    ]
-    entities.extend(
-        OasisDeviceSensorEntity(coordinator, device, descriptor)
-        for device in coordinator.data
-        for descriptor in CLOUD_DESCRIPTORS
     )
-    async_add_entities(entities)
 
 
 DESCRIPTORS = {
@@ -45,6 +39,14 @@ DESCRIPTORS = {
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
     ),
+    SensorEntityDescription(
+        key="drawing_progress",
+        translation_key="drawing_progress",
+        entity_category=EntityCategory.DIAGNOSTIC,
+        native_unit_of_measurement=PERCENTAGE,
+        state_class=SensorStateClass.MEASUREMENT,
+        suggested_display_precision=1,
+    ),
 } | {
     SensorEntityDescription(
         key=key,
@@ -55,17 +57,6 @@ DESCRIPTORS = {
     for key in ("error", "led_color_id", "status")
     # for key in ("error_message", "led_color_id", "status")
 }
-
-CLOUD_DESCRIPTORS = (
-    SensorEntityDescription(
-        key="drawing_progress",
-        translation_key="drawing_progress",
-        entity_category=EntityCategory.DIAGNOSTIC,
-        native_unit_of_measurement=PERCENTAGE,
-        state_class=SensorStateClass.MEASUREMENT,
-        suggested_display_precision=1,
-    ),
-)
 
 
 class OasisDeviceSensorEntity(OasisDeviceEntity, SensorEntity):

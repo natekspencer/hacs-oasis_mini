@@ -23,7 +23,6 @@ from .const import DOMAIN
 from .coordinator import OasisDeviceCoordinator
 from .entity import OasisDeviceEntity
 from .helpers import get_track_id
-from .pyoasiscontrol.const import TRACKS
 
 
 async def async_setup_entry(
@@ -73,11 +72,7 @@ class OasisDeviceMediaPlayerEntity(OasisDeviceEntity, MediaPlayerEntity):
     @property
     def media_image_url(self) -> str | None:
         """Image url of current playing media."""
-        if not (track := self.device.track):
-            track = TRACKS.get(self.device.track_id)
-        if track and "image" in track:
-            return f"https://app.grounded.so/uploads/{track['image']}"
-        return None
+        return self.device.track_image_url
 
     @property
     def media_position(self) -> int:
@@ -92,11 +87,7 @@ class OasisDeviceMediaPlayerEntity(OasisDeviceEntity, MediaPlayerEntity):
     @property
     def media_title(self) -> str | None:
         """Title of current playing media."""
-        if not self.device.track_id:
-            return None
-        if not (track := self.device.track):
-            track = TRACKS.get(self.device.track_id, {})
-        return track.get("name", f"Unknown Title (#{self.device.track_id})")
+        return self.device.track_name
 
     @property
     def repeat(self) -> RepeatMode:

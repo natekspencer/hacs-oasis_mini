@@ -35,8 +35,8 @@ def _parse_int(val: str) -> int:
         return 0
 
 
-def draw_svg(track: dict, progress: int, model_id: str) -> str | None:
-    """Draw SVG."""
+def create_svg(track: dict, progress: int) -> str | None:
+    """Create an SVG from a track based on progress."""
     if track and (svg_content := track.get("svg_content")):
         try:
             if progress is not None:
