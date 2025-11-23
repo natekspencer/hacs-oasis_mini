@@ -37,6 +37,15 @@ async def async_setup_entry(
     """Set up Oasis device lights using config entry."""
 
     def make_entities(new_devices: list[OasisDevice]):
+        """
+        Create OasisDeviceLightEntity instances for each provided Oasis device.
+        
+        Parameters:
+            new_devices (list[OasisDevice]): Devices to wrap as light entities.
+        
+        Returns:
+            list[OasisDeviceLightEntity]: A list of light entity instances corresponding to the input devices.
+        """
         return [
             OasisDeviceLightEntity(entry.runtime_data, device, DESCRIPTOR)
             for device in new_devices
@@ -55,7 +64,12 @@ class OasisDeviceLightEntity(OasisDeviceEntity, LightEntity):
 
     @property
     def brightness(self) -> int:
-        """Return the brightness of this light between 0..255."""
+        """
+        Get the light's brightness on a 0–255 scale.
+        
+        Returns:
+            int: Brightness value between 0 and 255.
+        """
         scale = (1, self.device.brightness_max)
         return value_to_brightness(scale, self.device.brightness)
 
@@ -104,7 +118,24 @@ class OasisDeviceLightEntity(OasisDeviceEntity, LightEntity):
         await self.device.async_set_led(brightness=0)
 
     async def async_turn_on(self, **kwargs: Any) -> None:
-        """Turn the entity on."""
+        """
+        Turn the light on and set its LED state.
+        
+        Processes optional keyword arguments to compute the device-specific LED parameters, then updates the device's LEDs with the resulting brightness, color, and effect.
+        
+        Parameters:
+            kwargs: Optional control parameters recognized by the method:
+                ATTR_BRIGHTNESS (int): Brightness in the 0–255 Home Assistant scale. When provided,
+                    it is converted and rounded up to the device's brightness scale (1..device.brightness_max).
+                    When omitted, uses self.device.brightness or self.device.brightness_on.
+                ATTR_RGB_COLOR (tuple[int, int, int]): RGB tuple (R, G, B). When provided, it is
+                    converted to a hex color string prefixed with '#'.
+                ATTR_EFFECT (str): Human-readable effect name. When provided, it is mapped to the
+                    device's internal effect key; if no mapping exists, `None` is used.
+        
+        Side effects:
+            Updates the underlying device LED state with the computed `brightness`, `color`, and `led_effect`.
+        """
         if brightness := kwargs.get(ATTR_BRIGHTNESS):
             scale = (1, self.device.brightness_max)
             brightness = math.ceil(brightness_to_value(scale, brightness))

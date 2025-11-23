@@ -14,13 +14,29 @@ ACCESS_TOKEN = os.getenv("GROUNDED_TOKEN")
 
 
 def get_author_name(data: dict) -> str:
-    """Get author name from a dict."""
+    """
+    Extracts the author's display name from a nested track data dictionary.
+    
+    Parameters:
+        data (dict): A mapping representing track/result data. Expected shapes include
+            {"author": {"user": {"name": ..., "nickname": ...}}} or {"author": {"name": ..., "nickname": ...}}.
+    
+    Returns:
+        str: The author's `name` if present, otherwise the author's `nickname`, otherwise "Kinetic Oasis".
+    """
     author = (data.get("author") or {}).get("user") or {}
     return author.get("name") or author.get("nickname") or "Kinetic Oasis"
 
 
 async def update_tracks() -> None:
-    """Update tracks."""
+    """
+    Fetch tracks from the Grounded Labs cloud, detect new or changed public tracks compared to the local TRACKS mapping, augment changed entries with author and reduced SVG content, and persist the merged, sorted track list to custom_components/oasis_mini/pyoasiscontrol/tracks.json.
+    
+    Side effects:
+    - May print error or status messages to stdout.
+    - Writes the updated tracks JSON file.
+    - Ensures the OasisCloudClient session is closed and returns early on errors or unexpected data.
+    """
     client = OasisCloudClient(access_token=ACCESS_TOKEN)
 
     try:
