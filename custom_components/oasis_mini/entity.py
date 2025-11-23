@@ -30,8 +30,12 @@ class OasisDeviceEntity(CoordinatorEntity[OasisDeviceCoordinator]):
         serial_number = device.serial_number
         self._attr_unique_id = f"{serial_number}-{description.key}"
 
+        connections = set()
+        if mac_address := device.mac_address:
+            connections.add((CONNECTION_NETWORK_MAC, format_mac(mac_address)))
+
         self._attr_device_info = DeviceInfo(
-            connections={(CONNECTION_NETWORK_MAC, format_mac(device.mac_address))},
+            connections=connections,
             identifiers={(DOMAIN, serial_number)},
             name=f"{device.model} {serial_number}",
             manufacturer=device.manufacturer,

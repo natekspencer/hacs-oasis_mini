@@ -9,6 +9,7 @@ import async_timeout
 
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
+import homeassistant.util.dt as dt_util
 
 from .const import DOMAIN
 from .pyoasiscontrol import OasisCloudClient, OasisDevice, OasisMqttClient
@@ -52,6 +53,7 @@ class OasisDeviceCoordinator(DataUpdateCoordinator[list[OasisDevice]]):
                         OasisDevice(
                             model=raw_device.get("model", {}).get("name"),
                             serial_number=raw_device.get("serial_number"),
+                            cloud=self.cloud_client,
                         )
                         for raw_device in raw_devices
                     ]
@@ -60,8 +62,10 @@ class OasisDeviceCoordinator(DataUpdateCoordinator[list[OasisDevice]]):
                 for device in devices:
                     self.mqtt_client.register_device(device)
                     await self.mqtt_client.wait_until_ready(device, request_status=True)
-                    if not device.mac_address:
-                        await device.async_get_mac_address()
+                    if not await device.async_get_mac_address():
+                        raise Exception(
+                            "Could not get mac address for %s", device.serial_number
+                        )
                     # if not device.software_version:
                     #     await device.async_get_software_version()
                 # data = await self.device.async_get_status()
@@ -77,5 +81,5 @@ class OasisDeviceCoordinator(DataUpdateCoordinator[list[OasisDevice]]):
                 ) from ex
 
         if devices != self.data:
-            self.last_updated = datetime.now()
+            self.last_updated = dt_util.now()
         return devices

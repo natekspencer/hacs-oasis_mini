@@ -1,4 +1,4 @@
-"""Oasis Mini utils."""
+"""Oasis control utils."""
 
 from __future__ import annotations
 

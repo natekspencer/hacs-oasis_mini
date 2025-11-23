@@ -10,6 +10,7 @@ from homeassistant.const import CONF_EMAIL, Platform
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.exceptions import ConfigEntryAuthFailed
 import homeassistant.helpers.entity_registry as er
+import homeassistant.util.dt as dt_util
 
 from .coordinator import OasisDeviceCoordinator
 from .helpers import create_client
@@ -59,6 +60,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: OasisDeviceConfigEntry) 
     entry.runtime_data = coordinator
 
     def _on_oasis_update() -> None:
+        coordinator.last_updated = dt_util.now()
         coordinator.async_update_listeners()
 
     for device in coordinator.data:

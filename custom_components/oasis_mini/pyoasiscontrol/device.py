@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import asyncio
 import logging
 from typing import TYPE_CHECKING, Any, Callable, Final, Iterable
 
@@ -12,9 +13,10 @@ from .const import (
     STATUS_CODE_SLEEPING,
     TRACKS,
 )
-from .utils import _bit_to_bool, _parse_int
+from .utils import _bit_to_bool, _parse_int, decrypt_svg_content
 
 if TYPE_CHECKING:  # avoid runtime circular imports
+    from .clients import OasisCloudClient
     from .clients.transport import OasisClientProtocol
 
 _LOGGER = logging.getLogger(__name__)
@@ -62,10 +64,12 @@ class OasisDevice:
         serial_number: str | None = None,
         ssid: str | None = None,
         ip_address: str | None = None,
+        cloud: OasisCloudClient | None = None,
         client: OasisClientProtocol | None = None,
     ) -> None:
         # Transport
-        self._client: OasisClientProtocol | None = client
+        self._cloud = cloud
+        self._client = client
         self._listeners: list[Callable[[], None]] = []
 
         # Details
@@ -105,8 +109,9 @@ class OasisDevice:
         self.environment: str | None = None
         self.schedule: Any | None = None
 
-        # Track metadata cache (used if you hydrate from cloud)
+        # Track metadata cache
         self._track: dict | None = None
+        self._track_task: asyncio.Task | None = None
 
     @property
     def brightness(self) -> int:
@@ -157,12 +162,19 @@ class OasisDevice:
     def update_from_status_dict(self, data: dict[str, Any]) -> None:
         """Update device fields from a status payload (from any transport)."""
         changed = False
+        playlist_or_index_changed = False
+
         for key, value in data.items():
             if hasattr(self, key):
                 if self._update_field(key, value):
                     changed = True
+                    if key in ("playlist", "playlist_index"):
+                        playlist_or_index_changed = True
             else:
                 _LOGGER.warning("Unknown field: %s=%s", key, value)
+
+        if playlist_or_index_changed:
+            self._schedule_track_refresh()
 
         if changed:
             self._notify_listeners()
@@ -263,13 +275,13 @@ class OasisDevice:
     @property
     def drawing_progress(self) -> float | None:
         """Return drawing progress percentage for the current track."""
-        # if not (self.track and (svg_content := self.track.get("svg_content"))):
-        #     return None
-        # svg_content = decrypt_svg_content(svg_content)
-        # paths = svg_content.split("L")
-        total = self.track.get("reduced_svg_content_new", 0)  # or len(paths)
+        if not (self.track and (svg_content := self.track.get("svg_content"))):
+            return None
+        svg_content = decrypt_svg_content(svg_content)
+        paths = svg_content.split("L")
+        total = self.track.get("reduced_svg_content_new", 0) or len(paths)
         percent = (100 * self.progress) / total
-        return percent
+        return max(percent, 100)
 
     @property
     def playlist_details(self) -> dict[int, dict[str, str]]:
@@ -330,7 +342,7 @@ class OasisDevice:
         led_speed: int | None = None,
         brightness: int | None = None,
     ) -> None:
-        """Set the Oasis Mini LED (shared validation & attribute updates)."""
+        """Set the Oasis device LED (shared validation & attribute updates)."""
         if led_effect is None:
             led_effect = self.led_effect
         if color is None:
@@ -410,3 +422,43 @@ class OasisDevice:
     async def async_reboot(self) -> None:
         client = self._require_client()
         await client.async_send_reboot_command(self)
+
+    def _schedule_track_refresh(self) -> None:
+        """Schedule an async refresh of current track info if track_id changed."""
+        if not self._cloud:
+            return
+
+        try:
+            loop = asyncio.get_running_loop()
+        except RuntimeError:
+            _LOGGER.debug("No running loop; cannot schedule track refresh")
+            return
+
+        if self._track_task and not self._track_task.done():
+            self._track_task.cancel()
+
+        self._track_task = loop.create_task(self._async_refresh_current_track())
+
+    async def _async_refresh_current_track(self) -> None:
+        """Refresh the current track info."""
+        if not self._cloud:
+            return
+
+        if (track_id := self.track_id) is None:
+            self._track = None
+            return
+
+        if self._track and self._track.get("id") == track_id:
+            return
+
+        try:
+            track = await self._cloud.async_get_track_info(track_id)
+        except Exception:  # noqa: BLE001
+            _LOGGER.exception("Error fetching track info for %s", track_id)
+            return
+
+        if not track:
+            return
+
+        self._track = track
+        self._notify_listeners()
