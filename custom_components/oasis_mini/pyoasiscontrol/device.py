@@ -156,6 +156,11 @@ class OasisDevice:
             self.brightness_on = value
 
     @property
+    def is_initialized(self) -> bool:
+        """Return `True` if the device is fully identified."""
+        return bool(self.serial_number and self.mac_address and self.software_version)
+
+    @property
     def is_sleeping(self) -> bool:
         """
         Indicates whether the device is currently in the sleeping status.

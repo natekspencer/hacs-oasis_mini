@@ -54,7 +54,7 @@ class OasisMqttClient(OasisClientProtocol):
             _connected_event: Event signaled when a connection is established.
             _stop_event: Event signaled to request the loop to stop.
             _devices: Mapping of device serial to OasisDevice instances.
-            _first_status_events: Per-serial events signaled on receiving the first STATUS message.
+            _initialized_events: Per-serial events signaled on receiving the full device initialization.
             _mac_events: Per-serial events signaled when a device MAC address is received.
             _subscribed_serials: Set of serials currently subscribed to STATUS topics.
             _subscription_lock: Lock protecting subscribe/unsubscribe operations.
@@ -71,7 +71,7 @@ class OasisMqttClient(OasisClientProtocol):
         self._devices: dict[str, OasisDevice] = {}
 
         # Per-device events
-        self._first_status_events: dict[str, asyncio.Event] = {}
+        self._initialized_events: dict[str, asyncio.Event] = {}
         self._mac_events: dict[str, asyncio.Event] = {}
 
         # Subscription bookkeeping
@@ -101,7 +101,7 @@ class OasisMqttClient(OasisClientProtocol):
         """
         Register an OasisDevice so MQTT messages for its serial are routed to that device.
 
-        Ensures the device has a serial_number (raises ValueError if not), stores the device in the client's registry, creates per-device asyncio.Events for first-status and MAC-address arrival, attaches this client to the device if it has no client, and schedules a subscription for the device's STATUS topics if the MQTT client is currently connected.
+        Ensures the device has a serial_number (raises ValueError if not), stores the device in the client's registry, creates per-device asyncio.Events for device initialization and MAC-address arrival, attaches this client to the device if it has no client, and schedules a subscription for the device's STATUS topics if the MQTT client is currently connected.
 
         Parameters:
             device (OasisDevice): The device instance to register.
@@ -116,7 +116,7 @@ class OasisMqttClient(OasisClientProtocol):
         self._devices[serial] = device
 
         # Ensure we have per-device events
-        self._first_status_events.setdefault(serial, asyncio.Event())
+        self._initialized_events.setdefault(serial, asyncio.Event())
         self._mac_events.setdefault(serial, asyncio.Event())
 
         # Attach ourselves as the client if the device doesn't already have one
@@ -148,7 +148,7 @@ class OasisMqttClient(OasisClientProtocol):
         """
         Unregisters a device from MQTT routing and cleans up related per-device state.
 
-        Removes the device's registration, first-status and MAC events. If there is an active MQTT client and the device's serial is currently subscribed, schedules an asynchronous unsubscription task. If the device has no serial_number, the call is a no-op.
+        Removes the device's registration, initialization and MAC events. If there is an active MQTT client and the device's serial is currently subscribed, schedules an asynchronous unsubscription task. If the device has no serial_number, the call is a no-op.
 
         Parameters:
             device (OasisDevice): The device to unregister; must have `serial_number` set.
@@ -158,7 +158,7 @@ class OasisMqttClient(OasisClientProtocol):
             return
 
         self._devices.pop(serial, None)
-        self._first_status_events.pop(serial, None)
+        self._initialized_events.pop(serial, None)
         self._mac_events.pop(serial, None)
 
         # If connected and we were subscribed, unsubscribe
@@ -286,11 +286,11 @@ class OasisMqttClient(OasisClientProtocol):
 
         Parameters:
             device (OasisDevice): The device to wait for; must have `serial_number` set.
-            timeout (float): Maximum seconds to wait for connection and for the first STATUS message.
+            timeout (float): Maximum seconds to wait for connection and for the device to be initialized.
             request_status (bool): If True, issue a status refresh after connection to encourage a STATUS update.
 
         Returns:
-            bool: `True` if the device's first STATUS message was observed within the timeout, `False` otherwise.
+            bool: `True` if the device was initialized within the timeout, `False` otherwise.
 
         Raises:
             RuntimeError: If the provided device does not have a `serial_number`.
@@ -299,7 +299,7 @@ class OasisMqttClient(OasisClientProtocol):
         if not serial:
             raise RuntimeError("Device has no serial_number set")
 
-        first_status_event = self._first_status_events.setdefault(
+        is_initialized_event = self._initialized_events.setdefault(
             serial, asyncio.Event()
         )
 
@@ -317,7 +317,6 @@ class OasisMqttClient(OasisClientProtocol):
         # Optionally request a status refresh
         if request_status:
             try:
-                first_status_event.clear()
                 await self.async_get_status(device)
             except Exception:  # noqa: BLE001
                 _LOGGER.debug(
@@ -325,13 +324,13 @@ class OasisMqttClient(OasisClientProtocol):
                     serial,
                 )
 
-        # Wait for first status
+        # Wait for initialization
         try:
-            await asyncio.wait_for(first_status_event.wait(), timeout=timeout)
+            await asyncio.wait_for(is_initialized_event.wait(), timeout=timeout)
             return True
         except asyncio.TimeoutError:
             _LOGGER.debug(
-                "Timeout (%.1fs) waiting for first STATUS message from %s",
+                "Timeout (%.1fs) waiting for initialization from %s",
                 timeout,
                 serial,
             )
@@ -765,7 +764,7 @@ class OasisMqttClient(OasisClientProtocol):
         If the topic corresponds to a registered device, extracts the relevant status field and calls
         the device's update_from_status_dict with a mapping of the parsed values. For the "MAC_ADDRESS"
         status, sets the per-device MAC event to signal arrival of the MAC address. Always sets the
-        per-device first-status event once any status is processed for that serial.
+        per-device initialization event once the appropriate messages are processed for that serial.
 
         Parameters:
             msg (aiomqtt.Message): Incoming MQTT message; topic identifies device serial and status.
@@ -865,8 +864,8 @@ class OasisMqttClient(OasisClientProtocol):
         if data:
             device.update_from_status_dict(data)
 
-        first_status_event = self._first_status_events.setdefault(
+        is_initialized_event = self._initialized_events.setdefault(
             serial, asyncio.Event()
         )
-        if not first_status_event.is_set():
-            first_status_event.set()
+        if not is_initialized_event.is_set() and device.is_initialized:
+            is_initialized_event.set()
