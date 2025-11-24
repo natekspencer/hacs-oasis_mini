@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from datetime import datetime, timedelta
 import logging
+from typing import TYPE_CHECKING
 
 import async_timeout
 
@@ -14,6 +15,9 @@ import homeassistant.util.dt as dt_util
 
 from .const import DOMAIN
 from .pyoasiscontrol import OasisCloudClient, OasisDevice, OasisMqttClient
+
+if TYPE_CHECKING:
+    from . import OasisDeviceConfigEntry
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -27,6 +31,7 @@ class OasisDeviceCoordinator(DataUpdateCoordinator[list[OasisDevice]]):
     def __init__(
         self,
         hass: HomeAssistant,
+        config_entry: OasisDeviceConfigEntry,
         cloud_client: OasisCloudClient,
         mqtt_client: OasisMqttClient,
     ) -> None:
@@ -34,12 +39,14 @@ class OasisDeviceCoordinator(DataUpdateCoordinator[list[OasisDevice]]):
         Create an OasisDeviceCoordinator that manages OasisDevice discovery and updates using cloud and MQTT clients.
 
         Parameters:
+            config_entry (OasisDeviceConfigEntry): The config entry whose runtime data contains device serial numbers.
             cloud_client (OasisCloudClient): Client for communicating with the Oasis cloud API and fetching device data.
             mqtt_client (OasisMqttClient): Client for registering devices and coordinating MQTT-based readiness/status.
         """
         super().__init__(
             hass,
             _LOGGER,
+            config_entry=config_entry,
             name=DOMAIN,
             update_interval=timedelta(minutes=10),
             always_update=False,

@@ -110,7 +110,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: OasisDeviceConfigEntry) 
         raise
 
     mqtt_client = OasisMqttClient()
-    coordinator = OasisDeviceCoordinator(hass, cloud_client, mqtt_client)
+    coordinator = OasisDeviceCoordinator(hass, entry, cloud_client, mqtt_client)
 
     try:
         mqtt_client.start()
