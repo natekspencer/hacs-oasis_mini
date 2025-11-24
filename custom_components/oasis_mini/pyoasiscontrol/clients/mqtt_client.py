@@ -633,7 +633,6 @@ class OasisMqttClient(OasisClientProtocol):
                         serial,
                         payload,
                     )
-                    self._command_queue.task_done()
                     continue
 
                 topic = f"{serial}/COMMAND/CMD"
