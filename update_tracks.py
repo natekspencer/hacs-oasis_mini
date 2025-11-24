@@ -18,8 +18,8 @@ def get_author_name(data: dict) -> str:
     Extracts the author's display name from a nested track data dictionary.
 
     Parameters:
-        data (dict): A mapping representing track/result data. Expected shapes include
-            {"author": {"user": {"name": ..., "nickname": ...}}} or {"author": {"name": ..., "nickname": ...}}.
+        data (dict): A mapping representing track/result data. Expected shape is
+            {"author": {"user": {"name": ..., "nickname": ...}}}.
 
     Returns:
         str: The author's `name` if present, otherwise the author's `nickname`, otherwise "Kinetic Oasis".
