@@ -35,10 +35,10 @@ class OasisDeviceConfigFlow(ConfigFlow, domain=DOMAIN):
     ) -> ConfigFlowResult:
         """
         Begin the reauthentication flow for an existing config entry.
-        
+
         Parameters:
             entry_data (Mapping[str, Any]): Data from the existing config entry that triggered the reauthentication flow.
-        
+
         Returns:
             ConfigFlowResult: Result that presents the reauthentication confirmation dialog to the user.
         """
@@ -49,9 +49,9 @@ class OasisDeviceConfigFlow(ConfigFlow, domain=DOMAIN):
     ) -> ConfigFlowResult:
         """
         Present a reauthentication confirmation form to the user.
-        
+
         If `user_input` is provided it will be used as the form values; otherwise the existing entry's data are used as suggested values.
-        
+
         Returns:
             ConfigFlowResult: Result of the config flow step that renders the reauthentication form or advances the flow.
         """
@@ -68,10 +68,10 @@ class OasisDeviceConfigFlow(ConfigFlow, domain=DOMAIN):
     ) -> ConfigFlowResult:
         """
         Handle the initial user configuration step for the Oasis integration.
-        
+
         Parameters:
             user_input (dict[str, Any] | None): Optional prefilled values (e.g., `email`, `password`) submitted by the user.
-        
+
         Returns:
             ConfigFlowResult: Result of the "user" step — a form prompting for credentials, an abort, or a created/updated config entry.
         """
@@ -100,15 +100,15 @@ class OasisDeviceConfigFlow(ConfigFlow, domain=DOMAIN):
     ) -> ConfigFlowResult:
         """
         Handle a single config flow step: validate input, create or update entries, or render the form.
-        
+
         If valid credentials are provided, this will create a new config entry (title set to the provided email) or update an existing entry and trigger a reload. The step will abort if the validated account conflicts with an existing entry's unique ID. If no input is provided or validation fails, the flow returns a form populated with the given schema, any suggested values, and validation errors.
-        
+
         Parameters:
             step_id: Identifier of the flow step to render or process.
             schema: Voluptuous schema used to build the form.
             user_input: Submitted values from the form; when present, used for validation and entry creation/update.
             suggested_values: Values to pre-fill into the form schema when rendering.
-        
+
         Returns:
             A ConfigFlowResult representing either a created entry, an update-and-reload abort, an abort due to a unique-id conflict, or a form to display with errors and suggested values.
         """
@@ -143,12 +143,12 @@ class OasisDeviceConfigFlow(ConfigFlow, domain=DOMAIN):
     async def validate_client(self, user_input: dict[str, Any]) -> dict[str, str]:
         """
         Validate provided credentials by attempting to authenticate with the Oasis API and retrieve the user's identity.
-        
+
         Parameters:
             user_input (dict[str, Any]): Mutable credential mapping containing at least `email` and `password`.
                 On success, this mapping will be updated with `CONF_ACCESS_TOKEN` (the received access token)
                 and the `password` key will be removed.
-        
+
         Returns:
             dict[str, str]: A mapping of form field names to error keys. Common keys:
                 - `"base": "invalid_auth"` when credentials are incorrect or connection refused.
@@ -179,8 +179,8 @@ class OasisDeviceConfigFlow(ConfigFlow, domain=DOMAIN):
             errors["base"] = "invalid_auth"
         except HTTPStatusError as err:
             errors["base"] = str(err)
-        except Exception as ex:  # pylint: disable=broad-except
-            _LOGGER.error(ex)
+        except Exception:
+            _LOGGER.exception("Error while attempting to validate client")
             errors["base"] = "unknown"
         finally:
             await client.async_close()

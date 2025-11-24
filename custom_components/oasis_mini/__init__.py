@@ -46,9 +46,9 @@ def setup_platform_from_coordinator(
 ) -> None:
     """
     Populate entities for devices managed by the coordinator and add entities for any devices discovered later.
-    
+
     This registers a listener on the coordinator to detect newly discovered devices by serial number and calls `make_entities` to construct entity objects for those devices, passing them to `async_add_entities`. The initial device set is processed immediately; subsequent discoveries are handled via the coordinator listener.
-    
+
     Parameters:
         entry: Config entry containing the coordinator in its `runtime_data`.
         async_add_entities: Home Assistant callback to add entities to the platform.
@@ -63,7 +63,7 @@ def setup_platform_from_coordinator(
     def _check_devices() -> None:
         """
         Detect newly discovered Oasis devices from the coordinator and register their entities.
-        
+
         Scans the coordinator's current device list for devices with a serial number that has not
         been seen before. For any newly discovered devices, creates entity instances via
         make_entities and adds them to Home Assistant using async_add_entities with the
@@ -95,7 +95,7 @@ def setup_platform_from_coordinator(
 async def async_setup_entry(hass: HomeAssistant, entry: OasisDeviceConfigEntry) -> bool:
     """
     Initialize Oasis cloud and MQTT integration for a config entry, create and refresh the device coordinator, register update listeners for discovered devices, forward platform setup, and update the entry's metadata as needed.
-    
+
     Returns:
         True if the config entry was set up successfully.
     """
@@ -110,10 +110,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: OasisDeviceConfigEntry) 
 
     coordinator = OasisDeviceCoordinator(hass, cloud_client, mqtt_client)
 
-    try:
-        await coordinator.async_config_entry_first_refresh()
-    except Exception as ex:
-        _LOGGER.exception(ex)
+    await coordinator.async_config_entry_first_refresh()
 
     if entry.unique_id != (user_id := str(user["id"])):
         hass.config_entries.async_update_entry(entry, unique_id=user_id)
@@ -126,13 +123,13 @@ async def async_setup_entry(hass: HomeAssistant, entry: OasisDeviceConfigEntry) 
     def _on_oasis_update() -> None:
         """
         Update the coordinator's last-updated timestamp and notify its listeners.
-        
+
         Sets the coordinator's last_updated to the current time and triggers its update listeners so dependent entities and tasks refresh.
         """
         coordinator.last_updated = dt_util.now()
         coordinator.async_update_listeners()
 
-    for device in coordinator.data:
+    for device in coordinator.data or []:
         device.add_update_listener(_on_oasis_update)
 
     await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
@@ -145,9 +142,9 @@ async def async_unload_entry(
 ) -> bool:
     """
     Cleanly unload an Oasis device config entry.
-    
+
     Closes the MQTT and cloud clients stored on the entry and unloads all supported platforms.
-    
+
     Returns:
         `True` if all platforms were unloaded successfully, `False` otherwise.
     """
@@ -165,29 +162,29 @@ async def async_remove_entry(
 ) -> None:
     """
     Perform logout and cleanup for the cloud client associated with the config entry.
-    
+
     Attempts to call the cloud client's logout method and logs any exception encountered, then ensures the client is closed.
     """
     cloud_client = create_client(hass, entry.data)
     try:
         await cloud_client.async_logout()
-    except Exception as ex:
-        _LOGGER.exception(ex)
+    except Exception:
+        _LOGGER.exception("Error attempting to logout from the cloud")
     await cloud_client.async_close()
 
 
 async def async_migrate_entry(hass: HomeAssistant, entry: OasisDeviceConfigEntry):
     """
     Migrate an Oasis config entry to the current schema (minor version 3).
-    
+
     Performs in-place migrations for older entries:
     - Renames select entity unique IDs ending with `-playlist` to `-queue`.
     - When migrating to the auth-required schema, moves relevant options into entry data and clears options.
     - Updates the config entry's data, options, minor_version, title (from CONF_EMAIL or "Oasis Control"), unique_id, and version.
-    
+
     Parameters:
         entry: The config entry to migrate.
-    
+
     Returns:
         `True` if migration succeeded, `False` if migration could not be performed (e.g., entry.version is greater than supported).
     """
@@ -211,10 +208,10 @@ async def async_migrate_entry(hass: HomeAssistant, entry: OasisDeviceConfigEntry
             ) -> dict[str, Any] | None:
                 """
                 Update a registry entry's unique_id suffix from "-playlist" to "-queue" when applicable.
-                
+
                 Parameters:
                     entity_entry (er.RegistryEntry): Registry entry to inspect.
-                
+
                 Returns:
                     dict[str, Any] | None: A mapping {"new_unique_id": <new id>} if the entry is in the "select" domain and its unique_id ends with "-playlist"; otherwise `None`.
                 """
@@ -256,11 +253,11 @@ async def async_remove_config_entry_device(
 ) -> bool:
     """
     Determine whether the config entry is no longer associated with the given device.
-    
+
     Parameters:
         config_entry (OasisDeviceConfigEntry): The config entry whose runtime data contains device serial numbers.
         device_entry (DeviceEntry): The device registry entry to check for matching identifiers.
-    
+
     Returns:
         bool: `true` if none of the device's identifiers match serial numbers present in the config entry's runtime data, `false` otherwise.
     """

@@ -305,7 +305,7 @@ class OasisDevice:
             if n > 18:
                 status["software_version"] = values[18]
 
-        except Exception:  # noqa: BLE001
+        except Exception:
             _LOGGER.exception(
                 "Error parsing status string for %s: %r", self.serial_number, raw_status
             )
@@ -487,7 +487,7 @@ class OasisDevice:
         for listener in list(self._listeners):
             try:
                 listener()
-            except Exception:  # noqa: BLE001
+            except Exception:
                 _LOGGER.exception("Error in update listener")
 
     async def async_get_mac_address(self) -> str | None:
@@ -751,7 +751,7 @@ class OasisDevice:
 
         try:
             track = await self._cloud.async_get_track_info(track_id)
-        except Exception:  # noqa: BLE001
+        except Exception:
             _LOGGER.exception("Error fetching track info for %s", track_id)
             return
 

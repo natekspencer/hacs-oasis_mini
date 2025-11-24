@@ -234,8 +234,8 @@ class OasisCloudClient:
             raise
         except UnauthenticatedError:
             raise
-        except Exception as ex:  # noqa: BLE001
-            _LOGGER.exception("Error fetching track %s: %s", track_id, ex)
+        except Exception:
+            _LOGGER.exception("Error fetching track %s: %s", track_id)
         return None
 
     async def async_get_tracks(

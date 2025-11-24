@@ -136,7 +136,7 @@ class OasisHttpClient(OasisClientProtocol):
             mac = await self._async_get(params={"GETMAC": ""})
             if isinstance(mac, str):
                 return mac.strip()
-        except Exception:  # noqa: BLE001
+        except Exception:
             _LOGGER.exception(
                 "Failed to get MAC address via HTTP for %s", device.serial_number
             )

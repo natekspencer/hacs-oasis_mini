@@ -44,9 +44,9 @@ class OasisMqttClient(OasisClientProtocol):
         # MQTT connection state
         """
         Initialize internal state for the MQTT transport client.
-        
+
         Sets up connection state, per-device registries and events, subscription bookkeeping, and a bounded pending command queue capped by MAX_PENDING_COMMANDS.
-        
+
         Attributes:
             _client: Active aiomqtt client or None.
             _loop_task: Background MQTT loop task or None.
@@ -86,12 +86,12 @@ class OasisMqttClient(OasisClientProtocol):
     def register_device(self, device: OasisDevice) -> None:
         """
         Register an OasisDevice so MQTT messages for its serial are routed to that device.
-        
+
         Ensures the device has a serial_number (raises ValueError if not), stores the device in the client's registry, creates per-device asyncio.Events for first-status and MAC-address arrival, attaches this client to the device if it has no client, and schedules a subscription for the device's STATUS topics if the MQTT client is currently connected.
-        
+
         Parameters:
             device (OasisDevice): The device instance to register.
-        
+
         Raises:
             ValueError: If `device.serial_number` is not set.
         """
@@ -123,7 +123,7 @@ class OasisMqttClient(OasisClientProtocol):
     def register_devices(self, devices: Iterable[OasisDevice]) -> None:
         """
         Register multiple OasisDevice instances with the client.
-        
+
         Parameters:
             devices (Iterable[OasisDevice]): Iterable of devices to register.
         """
@@ -133,9 +133,9 @@ class OasisMqttClient(OasisClientProtocol):
     def unregister_device(self, device: OasisDevice) -> None:
         """
         Unregisters a device from MQTT routing and cleans up related per-device state.
-        
+
         Removes the device's registration, first-status and MAC events. If there is an active MQTT client and the device's serial is currently subscribed, schedules an asynchronous unsubscription task. If the device has no serial_number, the call is a no-op.
-        
+
         Parameters:
             device (OasisDevice): The device to unregister; must have `serial_number` set.
         """
@@ -161,7 +161,7 @@ class OasisMqttClient(OasisClientProtocol):
     async def _subscribe_serial(self, serial: str) -> None:
         """
         Subscribe to the device's STATUS topic pattern and mark the device as subscribed.
-        
+
         Subscribes to "<serial>/STATUS/#" with QoS 1 and records the subscription; does nothing if the MQTT client is not connected or the serial is already subscribed.
         """
         if not self._client:
@@ -179,7 +179,7 @@ class OasisMqttClient(OasisClientProtocol):
     async def _unsubscribe_serial(self, serial: str) -> None:
         """
         Unsubscribe from the device's STATUS topic and update subscription state.
-        
+
         If there is no active MQTT client or the serial is not currently subscribed, this is a no-op.
         Parameters:
             serial (str): Device serial used to build the topic "<serial>/STATUS/#".
@@ -217,7 +217,7 @@ class OasisMqttClient(OasisClientProtocol):
     async def stop(self) -> None:
         """
         Stop the MQTT client and clean up resources.
-        
+
         Signals the background MQTT loop to stop, cancels the loop task, disconnects the MQTT client if connected, and clears any pending commands from the internal command queue.
         """
         self._stop_event.set()
@@ -250,17 +250,17 @@ class OasisMqttClient(OasisClientProtocol):
     ) -> bool:
         """
         Block until the MQTT client is connected and the device has emitted at least one STATUS message.
-        
+
         If `request_status` is True, a status request is sent after the client is connected to prompt the device to report its state.
-        
+
         Parameters:
             device (OasisDevice): The device to wait for; must have `serial_number` set.
             timeout (float): Maximum seconds to wait for connection and for the first STATUS message.
             request_status (bool): If True, issue a status refresh after connection to encourage a STATUS update.
-        
+
         Returns:
             bool: `True` if the device's first STATUS message was observed within the timeout, `False` otherwise.
-        
+
         Raises:
             RuntimeError: If the provided device does not have a `serial_number`.
         """
@@ -288,7 +288,7 @@ class OasisMqttClient(OasisClientProtocol):
             try:
                 first_status_event.clear()
                 await self.async_get_status(device)
-            except Exception:
+            except Exception:  # noqa: BLE001
                 _LOGGER.debug(
                     "Could not request status for %s (not fully connected yet?)",
                     serial,
@@ -309,15 +309,15 @@ class OasisMqttClient(OasisClientProtocol):
     async def async_get_mac_address(self, device: OasisDevice) -> str | None:
         """
         Request a device's MAC address via an MQTT STATUS refresh and return it if available.
-        
+
         If the device already has a MAC address, it is returned immediately. Otherwise the function requests a status update (which causes the device to publish MAC_ADDRESS) and waits up to 3 seconds for the MAC to arrive.
-        
+
         Parameters:
             device (OasisDevice): The device whose MAC address will be requested.
-        
+
         Returns:
             str | None: The device MAC address if obtained, `None` if the wait timed out and no MAC was received.
-        
+
         Raises:
             RuntimeError: If the provided device has no serial_number set.
         """
@@ -347,7 +347,7 @@ class OasisMqttClient(OasisClientProtocol):
     ) -> None:
         """
         Set the device's automatic cleaning mode.
-        
+
         Parameters:
             device (OasisDevice): Target Oasis device to send the command to.
             auto_clean (bool): True to enable automatic cleaning, False to disable.
@@ -362,7 +362,7 @@ class OasisMqttClient(OasisClientProtocol):
     ) -> None:
         """
         Set the device's ball speed.
-        
+
         Parameters:
             device (OasisDevice): Target device.
             speed (int): Speed value to apply.
@@ -380,9 +380,9 @@ class OasisMqttClient(OasisClientProtocol):
     ) -> None:
         """
         Send an LED configuration command to the device.
-        
+
         If `brightness` is greater than zero, the device is woken before sending the command.
-        
+
         Parameters:
             device (OasisDevice): Target device (must have a serial number).
             led_effect (str): LED effect identifier to apply.
@@ -396,7 +396,7 @@ class OasisMqttClient(OasisClientProtocol):
     async def async_send_sleep_command(self, device: OasisDevice) -> None:
         """
         Send the sleep command to the specified Oasis device.
-        
+
         Parameters:
             device (OasisDevice): Target device; must have a valid serial_number. If the MQTT client is not connected, the command may be queued for delivery when a connection is available.
         """
@@ -410,7 +410,7 @@ class OasisMqttClient(OasisClientProtocol):
     ) -> None:
         """
         Move a job in the device's playlist from one index to another.
-        
+
         Parameters:
             device (OasisDevice): Target device to receive the command.
             from_index (int): Source index of the job in the playlist.
@@ -426,10 +426,10 @@ class OasisMqttClient(OasisClientProtocol):
     ) -> None:
         """
         Change the device's current track to the specified track index.
-        
+
         Parameters:
-        	device (OasisDevice): Target Oasis device.
-        	index (int): Track index to switch to (zero-based).
+            device (OasisDevice): Target Oasis device.
+            index (int): Track index to switch to (zero-based).
         """
         payload = f"CMDCHANGETRACK={index}"
         await self._publish_command(device, payload)
@@ -441,7 +441,7 @@ class OasisMqttClient(OasisClientProtocol):
     ) -> None:
         """
         Send an ADDJOBLIST command to add multiple tracks to the device's job list.
-        
+
         Parameters:
             device (OasisDevice): Target device to receive the command.
             tracks (list[int]): List of track indices to add; elements will be joined as a comma-separated list in the command payload.
@@ -457,7 +457,7 @@ class OasisMqttClient(OasisClientProtocol):
     ) -> None:
         """
         Set the device's playlist to the specified ordered list of track indices.
-        
+
         Parameters:
             device (OasisDevice): Target Oasis device to receive the playlist command.
             playlist (list[int]): Ordered list of track indices to apply as the device's playlist.
@@ -473,7 +473,7 @@ class OasisMqttClient(OasisClientProtocol):
     ) -> None:
         """
         Send a command to enable or disable repeating the device's playlist.
-        
+
         Parameters:
             device (OasisDevice): Target device; must have a serial number.
             repeat (bool): True to enable playlist repeat, False to disable it.
@@ -488,9 +488,9 @@ class OasisMqttClient(OasisClientProtocol):
     ) -> None:
         """
         Set the device's wait-after-job / autoplay option.
-        
+
         Publishes a "WRIWAITAFTER=<option>" command for the specified device to configure how long the device waits after a job or to adjust autoplay behavior.
-        
+
         Parameters:
             device (OasisDevice): Target device (must have a serial_number).
             option (str): Value accepted by the device firmware for the wait-after-job/autoplay setting (typically a numeric string or predefined option token).
@@ -505,9 +505,9 @@ class OasisMqttClient(OasisClientProtocol):
     ) -> None:
         """
         Request a firmware upgrade for the given device.
-        
+
         Sends an upgrade command to the device and selects the beta channel when requested.
-        
+
         Parameters:
             device (OasisDevice): Target device.
             beta (bool): If `True`, request a beta firmware upgrade; if `False`, request the stable firmware.
@@ -524,7 +524,7 @@ class OasisMqttClient(OasisClientProtocol):
     async def async_send_pause_command(self, device: OasisDevice) -> None:
         """
         Sends a pause command to the specified Oasis device.
-        
+
         Publishes the "CMDPAUSE" command to the device's command topic.
         """
         await self._publish_command(device, "CMDPAUSE")
@@ -532,7 +532,7 @@ class OasisMqttClient(OasisClientProtocol):
     async def async_send_stop_command(self, device: OasisDevice) -> None:
         """
         Send the "stop" command to the given Oasis device.
-        
+
         Parameters:
             device (OasisDevice): Target device to receive the stop command; must be registered with a valid serial number.
         """
@@ -541,7 +541,7 @@ class OasisMqttClient(OasisClientProtocol):
     async def async_send_reboot_command(self, device: OasisDevice) -> None:
         """
         Send a reboot command to the specified Oasis device.
-        
+
         Parameters:
             device (OasisDevice): Target device to receive the reboot command; must have a valid serial_number.
         """
@@ -579,7 +579,7 @@ class OasisMqttClient(OasisClientProtocol):
     async def _flush_pending_commands(self) -> None:
         """
         Flush queued commands by publishing them to each device's COMMAND/CMD topic.
-        
+
         This consumes all entries from the internal command queue, skipping entries for devices that are no longer registered, publishing each payload to "<serial>/COMMAND/CMD" with QoS 1, and marking queue tasks done. If a publish fails, the failed command is re-queued and flushing stops so remaining queued commands will be retried on the next reconnect.
         """
         if not self._client:
@@ -605,7 +605,7 @@ class OasisMqttClient(OasisClientProtocol):
                 topic = f"{serial}/COMMAND/CMD"
                 _LOGGER.debug("Flushing queued MQTT command %s => %s", topic, payload)
                 await self._client.publish(topic, payload.encode(), qos=1)
-            except Exception:
+            except Exception:  # noqa: BLE001
                 _LOGGER.debug(
                     "Failed to flush queued command for %s, re-queuing", serial
                 )
@@ -621,14 +621,14 @@ class OasisMqttClient(OasisClientProtocol):
     ) -> None:
         """
         Publish a command payload to the device's MQTT COMMAND topic, queueing it if the client is not connected.
-        
+
         If `wake` is True and the device reports it is sleeping, requests a full status refresh before publishing. If the MQTT client is not connected or publish fails, the command is enqueued for later delivery.
-        
+
         Parameters:
             device (OasisDevice): Target device; must have a valid `serial_number`.
             payload (str): Command payload to send to the device.
             wake (bool): If True, refresh the device state when the device is sleeping before sending the command.
-        
+
         Raises:
             RuntimeError: If the provided device has no serial number set.
         """
@@ -651,7 +651,7 @@ class OasisMqttClient(OasisClientProtocol):
         try:
             _LOGGER.debug("MQTT publish %s => %s", topic, payload)
             await self._client.publish(topic, payload.encode(), qos=1)
-        except Exception:
+        except Exception:  # noqa: BLE001
             _LOGGER.debug(
                 "MQTT publish failed, queueing command for %s: %s", serial, payload
             )
@@ -660,7 +660,7 @@ class OasisMqttClient(OasisClientProtocol):
     async def _mqtt_loop(self) -> None:
         """
         Run the MQTT WebSocket connection loop that maintains connection, subscriptions, and message handling.
-        
+
         This background coroutine establishes a persistent WSS MQTT connection to the configured broker, sets connection state on successful connect, resubscribes to known device STATUS topics, flushes any queued outbound commands, and dispatches incoming MQTT messages to the status handler. On disconnect or error it clears connection state and subscription tracking, and retries connecting after the configured backoff interval until the client is stopped.
         """
         loop = asyncio.get_running_loop()
@@ -698,7 +698,7 @@ class OasisMqttClient(OasisClientProtocol):
 
             except asyncio.CancelledError:
                 break
-            except Exception:
+            except Exception:  # noqa: BLE001
                 _LOGGER.info("MQTT connection error")
 
             finally:
@@ -722,13 +722,13 @@ class OasisMqttClient(OasisClientProtocol):
     async def _handle_status_message(self, msg: aiomqtt.Message) -> None:
         """
         Map an incoming MQTT STATUS message to an OasisDevice state update.
-        
+
         Expects msg.topic in the form "<serial>/STATUS/<STATUS_NAME>" and decodes msg.payload as text.
         If the topic corresponds to a registered device, extracts the relevant status field and calls
         the device's update_from_status_dict with a mapping of the parsed values. For the "MAC_ADDRESS"
         status, sets the per-device MAC event to signal arrival of the MAC address. Always sets the
         per-device first-status event once any status is processed for that serial.
-        
+
         Parameters:
             msg (aiomqtt.Message): Incoming MQTT message; topic identifies device serial and status.
         """
@@ -818,7 +818,7 @@ class OasisMqttClient(OasisClientProtocol):
                     status_name,
                     payload,
                 )
-        except Exception:  # noqa: BLE001
+        except Exception:
             _LOGGER.exception(
                 "Error parsing MQTT payload for %s %s: %r", serial, status_name, payload
             )
