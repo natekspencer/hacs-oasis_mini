@@ -15,7 +15,7 @@ from .pyoasiscontrol import OasisDevice
 
 
 async def async_setup_entry(
-    hass: HomeAssistant,
+    hass: HomeAssistant,  # noqa: ARG001
     entry: OasisDeviceConfigEntry,
     async_add_entities: AddEntitiesCallback,
 ) -> None:
@@ -25,9 +25,9 @@ async def async_setup_entry(
     Creates an OasisDeviceSwitchEntity for each OasisDevice associated with the given config entry (one entity per descriptor in DESCRIPTORS) and registers them with Home Assistant via the coordinator helper.
 
     Parameters:
-        hass: Home Assistant core instance.
-        entry: OasisDeviceConfigEntry containing runtime data and the devices to expose as switch entities.
-        async_add_entities: Callback used to register created entities with Home Assistant.
+        hass (HomeAssistant): Home Assistant core instance.
+        entry (OasisDeviceConfigEntry): Config entry containing runtime data used to create device update entities.
+        async_add_entities (AddEntitiesCallback): Callback to add created entities to Home Assistant.
     """
 
     def make_entities(new_devices: list[OasisDevice]):

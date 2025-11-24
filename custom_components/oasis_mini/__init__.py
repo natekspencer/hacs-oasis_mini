@@ -249,7 +249,9 @@ async def async_migrate_entry(hass: HomeAssistant, entry: OasisDeviceConfigEntry
 
 
 async def async_remove_config_entry_device(
-    hass: HomeAssistant, config_entry: OasisDeviceConfigEntry, device_entry: DeviceEntry
+    hass: HomeAssistant,  # noqa: ARG001
+    config_entry: OasisDeviceConfigEntry,
+    device_entry: DeviceEntry,
 ) -> bool:
     """
     Determine whether the config entry is no longer associated with the given device.

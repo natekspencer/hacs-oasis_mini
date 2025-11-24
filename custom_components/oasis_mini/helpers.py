@@ -23,8 +23,8 @@ def create_client(hass: HomeAssistant, data: dict[str, Any]) -> OasisCloudClient
     Create an Oasis cloud client configured with the Home Assistant HTTP session and access token.
 
     Parameters:
-        hass: Home Assistant instance used to obtain the shared HTTP client session.
-        data: Configuration mapping; the function reads the `CONF_ACCESS_TOKEN` key for the cloud access token.
+        hass (HomeAssistant): Home Assistant instance used to obtain the shared HTTP client session.
+        data (dict[str, Any]): Configuration mapping; the function reads the `CONF_ACCESS_TOKEN` key for the cloud access token.
 
     Returns:
         An `OasisCloudClient` initialized with the Home Assistant HTTP session and the configured access token.

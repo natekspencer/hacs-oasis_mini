@@ -77,7 +77,7 @@ class OasisDevice:
             model (str | None): Device model identifier.
             serial_number (str | None): Device serial number.
             name (str | None): Human-readable device name; if omitted, defaults to "<model> <serial_number>".
-            ssid (str | None): Last-known Wi‑Fi SSID for the device.
+            ssid (str | None): Last-known Wi-Fi SSID for the device.
             ip_address (str | None): Last-known IP address for the device.
             cloud (OasisCloudClient | None): Optional cloud client used to fetch track metadata and remote data.
             client (OasisClientProtocol | None): Optional transport client used to send commands to the device.
@@ -436,11 +436,11 @@ class OasisDevice:
         Returns:
             dict[int, dict[str, str]]: A mapping from track ID to a details dictionary (contains at least a `'name'` key). If track metadata is available from the device cache or built-in TRACKS it is used; otherwise a fallback `{"name": "Unknown Title (#<id>)"}` is provided.
         """
+        base = dict(TRACKS)
+        if (current_id := self.track_id) is not None and self.track:
+            base[current_id] = self.track
         return {
-            track_id: {self.track_id: self.track or {}, **TRACKS}.get(
-                track_id,
-                {"name": f"Unknown Title (#{track_id})"},
-            )
+            track_id: base.get(track_id, {"name": f"Unknown Title (#{track_id})"})
             for track_id in self.playlist
         }
 

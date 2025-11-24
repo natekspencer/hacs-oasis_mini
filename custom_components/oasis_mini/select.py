@@ -82,7 +82,7 @@ def queue_update_handler(entity: OasisDeviceSelectEntity) -> None:
 
 
 async def async_setup_entry(
-    hass: HomeAssistant,
+    hass: HomeAssistant,  # noqa: ARG001
     entry: OasisDeviceConfigEntry,
     async_add_entities: AddEntitiesCallback,
 ) -> None:
@@ -92,9 +92,9 @@ async def async_setup_entry(
     Creates OasisDeviceSelectEntity instances for every device and descriptor and registers them with Home Assistant via the platform setup.
 
     Parameters:
-        hass: Home Assistant instance.
-        entry: Oasis device config entry used to locate coordinator and runtime data.
-        async_add_entities: Callback to add created entities to Home Assistant.
+        hass (HomeAssistant): Home Assistant core object.
+        entry (OasisDeviceConfigEntry): Configuration entry containing runtime data and devices to expose.
+        async_add_entities (AddEntitiesCallback): Callback to add created entities to Home Assistant.
     """
 
     def make_entities(new_devices: list[OasisDevice]):

@@ -6,6 +6,7 @@ import base64
 from datetime import UTC, datetime
 import logging
 import math
+from typing import Any
 from xml.etree.ElementTree import Element, SubElement, tostring
 
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
@@ -27,12 +28,12 @@ def _bit_to_bool(val: str) -> bool:
     return val == "1"
 
 
-def _parse_int(val: str) -> int:
+def _parse_int(val: Any | None) -> int:
     """
     Parse a string into an integer, falling back to 0 when conversion fails.
 
     Parameters:
-        val (str): String potentially containing an integer value.
+        val (Any | None): String potentially containing an integer value.
 
     Returns:
         int: The parsed integer, or 0 if `val` cannot be converted.
