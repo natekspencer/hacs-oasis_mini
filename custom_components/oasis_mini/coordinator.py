@@ -32,7 +32,6 @@ class OasisDeviceCoordinator(DataUpdateCoordinator[list[OasisDevice]]):
         hass: HomeAssistant,
         config_entry: OasisDeviceConfigEntry,
         cloud_client: OasisCloudClient,
-        mqtt_client: OasisMqttClient,
     ) -> None:
         """
         Create an OasisDeviceCoordinator that manages OasisDevice discovery and updates using cloud and MQTT clients.
@@ -40,7 +39,6 @@ class OasisDeviceCoordinator(DataUpdateCoordinator[list[OasisDevice]]):
         Parameters:
             config_entry (OasisDeviceConfigEntry): The config entry whose runtime data contains device serial numbers.
             cloud_client (OasisCloudClient): Client for communicating with the Oasis cloud API and fetching device data.
-            mqtt_client (OasisMqttClient): Client for registering devices and coordinating MQTT-based readiness/status.
         """
         super().__init__(
             hass,
@@ -51,7 +49,7 @@ class OasisDeviceCoordinator(DataUpdateCoordinator[list[OasisDevice]]):
             always_update=False,
         )
         self.cloud_client = cloud_client
-        self.mqtt_client = mqtt_client
+        self.mqtt_client = OasisMqttClient()
 
     async def _async_update_data(self) -> list[OasisDevice]:
         """
@@ -110,14 +108,19 @@ class OasisDeviceCoordinator(DataUpdateCoordinator[list[OasisDevice]]):
                                 remove_config_entry_id=self.config_entry.entry_id,
                             )
 
-                # ✅ Valid state: logged in but no devices on account
+                # If logged in, but no devices on account, return without starting mqtt
                 if not devices:
                     _LOGGER.debug("No Oasis devices found for account")
+                    if self.mqtt_client.is_running:
+                        # Close the mqtt client if it was previously started
+                        await self.mqtt_client.async_close()
                     self.attempt = 0
                     if devices != self.data:
                         self.last_updated = dt_util.now()
                     return []
 
+                if not self.mqtt_client.is_running:
+                    self.mqtt_client.start()
                 self.mqtt_client.register_devices(devices)
 
                 # Best-effort playlists
@@ -182,3 +185,8 @@ class OasisDeviceCoordinator(DataUpdateCoordinator[list[OasisDevice]]):
             self.last_updated = dt_util.now()
 
         return devices
+
+    async def async_close(self) -> None:
+        """Close client connections."""
+        await self.mqtt_client.async_close()
+        await self.cloud_client.async_close()

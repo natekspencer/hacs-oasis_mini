@@ -70,7 +70,6 @@ class OasisDevice:
         cloud: OasisCloudClient | None = None,
         client: OasisClientProtocol | None = None,
     ) -> None:
-        # Transport
         """
         Initialize an OasisDevice with identification, network, transport references, and default state fields.
 

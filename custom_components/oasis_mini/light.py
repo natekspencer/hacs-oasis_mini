@@ -140,7 +140,7 @@ class OasisDeviceLightEntity(OasisDeviceEntity, LightEntity):
             scale = (1, self.device.brightness_max)
             brightness = math.ceil(brightness_to_value(scale, brightness))
         else:
-            brightness = self.device.brightness or self.device.brightness_on
+            brightness = self.device.brightness_on
 
         if color := kwargs.get(ATTR_RGB_COLOR):
             color = f"#{color_rgb_to_hex(*color)}"
