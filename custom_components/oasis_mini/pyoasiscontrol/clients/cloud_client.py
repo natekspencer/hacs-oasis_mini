@@ -231,6 +231,9 @@ class OasisCloudClient:
         except ClientResponseError as err:
             if err.status == 404:
                 return {"id": track_id, "name": f"Unknown Title (#{track_id})"}
+            raise
+        except UnauthenticatedError:
+            raise
         except Exception as ex:  # noqa: BLE001
             _LOGGER.exception("Error fetching track %s: %s", track_id, ex)
         return None
