@@ -60,8 +60,6 @@ class OasisCloudClient:
         self._playlists_next_refresh = {False: now_dt, True: now_dt}
         self._playlists_lock = asyncio.Lock()
 
-        self._playlist_details: dict[int, dict[str, str]] = {}
-
         # software metadata cache
         self._software_details: dict[str, int | str] | None = None
         self._software_next_refresh = now()
@@ -235,7 +233,7 @@ class OasisCloudClient:
         except UnauthenticatedError:
             raise
         except Exception:
-            _LOGGER.exception("Error fetching track %s: %s", track_id)
+            _LOGGER.exception("Error fetching track %s", track_id)
         return None
 
     async def async_get_tracks(

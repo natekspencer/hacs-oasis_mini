@@ -167,6 +167,10 @@ class OasisDeviceCoordinator(DataUpdateCoordinator[list[OasisDevice]]):
                     "Unexpected error talking to Oasis devices "
                     f"after {self.attempt} attempts"
                 ) from ex
+            _LOGGER.warning(
+                "Error updating Oasis devices; reusing previous data", exc_info=ex
+            )
+            return self.data or devices
 
         if devices != self.data:
             self.last_updated = dt_util.now()

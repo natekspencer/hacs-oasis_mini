@@ -39,7 +39,7 @@ def _parse_int(val: str) -> int:
     """
     try:
         return int(val)
-    except Exception:  # noqa: BLE001
+    except (TypeError, ValueError):
         return 0
 
 
