@@ -24,9 +24,9 @@ class OasisDeviceEntity(CoordinatorEntity[OasisDeviceCoordinator]):
     ) -> None:
         """
         Initialize an entity representing an Oasis device.
-        
+
         Sets the entity's unique_id from the device serial number and the provided description key, stores the given device on the entity, and constructs DeviceInfo containing identifiers, name, manufacturer, model, software version, and a network MAC connection if the device exposes a MAC address.
-        
+
         Parameters:
             coordinator: The coordinator responsible for updating the device state.
             device: OasisDevice instance providing metadata and identifiers (serial_number, mac_address, name, manufacturer, model, software_version).

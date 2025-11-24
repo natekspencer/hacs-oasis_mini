@@ -24,11 +24,11 @@ AUTOPLAY_MAP_LIST = list(AUTOPLAY_MAP)
 def playlists_update_handler(entity: OasisDeviceSelectEntity) -> None:
     """
     Update the playlists select options and current option from the device's cloud playlists.
-    
+
     Iterates the device's cloud playlists to build a display list of playlist names (appending " (N)" for duplicate names)
     and sets the entity's options to that list. If the device's current playlist matches a playlist's pattern IDs,
     sets the entity's current option to that playlist's display name; otherwise leaves it None.
-    
+
     Parameters:
         entity (OasisDeviceSelectEntity): The select entity to update.
     """
@@ -52,9 +52,9 @@ def playlists_update_handler(entity: OasisDeviceSelectEntity) -> None:
 def queue_update_handler(entity: OasisDeviceSelectEntity) -> None:
     """
     Update the select options and current selection for the device's playback queue.
-    
+
     Populate the entity's options from the device's current playlist and playlist details, disambiguating duplicate track names by appending a counter (e.g., "Title (2)"). Set the entity's current option to the track at device.playlist_index (or None if the queue is empty).
-    
+
     Parameters:
         entity (OasisDeviceSelectEntity): The select entity whose options and current option will be updated.
     """
@@ -88,9 +88,9 @@ async def async_setup_entry(
 ) -> None:
     """
     Set up select entities for each Oasis device from a config entry.
-    
+
     Creates OasisDeviceSelectEntity instances for every device and descriptor and registers them with Home Assistant via the platform setup.
-    
+
     Parameters:
         hass: Home Assistant instance.
         entry: Oasis device config entry used to locate coordinator and runtime data.
@@ -100,10 +100,10 @@ async def async_setup_entry(
     def make_entities(new_devices: list[OasisDevice]):
         """
         Create select entity instances for each provided Oasis device.
-        
+
         Parameters:
             new_devices (list[OasisDevice]): Devices to create select entities for.
-        
+
         Returns:
             list[OasisDeviceSelectEntity]: A flat list of OasisDeviceSelectEntity objects created for every combination of device and descriptor.
         """
@@ -169,7 +169,7 @@ class OasisDeviceSelectEntity(OasisDeviceEntity, SelectEntity):
     ) -> None:
         """
         Initialize the Oasis device select entity and perform an initial coordinator update.
-        
+
         Parameters:
             coordinator (OasisDeviceCoordinator): Coordinator that manages device updates.
             device (OasisDevice): The Oasis device this entity represents.
@@ -181,7 +181,7 @@ class OasisDeviceSelectEntity(OasisDeviceEntity, SelectEntity):
     async def async_select_option(self, option: str) -> None:
         """
         Select and apply the option identified by its display string.
-        
+
         Parameters:
             option (str): The display string of the option to select; the option's index in the current options list is used to apply the selection.
         """
@@ -191,7 +191,7 @@ class OasisDeviceSelectEntity(OasisDeviceEntity, SelectEntity):
     def _handle_coordinator_update(self) -> None:
         """
         Update the entity's cached value and current option when coordinator data changes.
-        
+
         If the derived current value differs from the stored value, update the stored value.
         If the entity description provides an update_handler, call it with this entity; otherwise,
         set the entity's current option to the string form of the device attribute named by the

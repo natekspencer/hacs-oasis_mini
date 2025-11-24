@@ -31,7 +31,7 @@ async def async_setup_entry(
 ) -> None:
     """
     Set up update entities for Oasis devices from a configuration entry.
-    
+
     Parameters:
         hass (HomeAssistant): Home Assistant core instance.
         entry (OasisDeviceConfigEntry): Config entry containing runtime data used to create device update entities.
@@ -41,10 +41,10 @@ async def async_setup_entry(
     def make_entities(new_devices: list[OasisDevice]):
         """
         Create update entities for the given Oasis devices.
-        
+
         Parameters:
             new_devices (list[OasisDevice]): Devices to create update entities for.
-        
+
         Returns:
             list: A list of OasisDeviceUpdateEntity instances corresponding to each device.
         """
@@ -90,9 +90,9 @@ class OasisDeviceUpdateEntity(OasisDeviceEntity, UpdateEntity):
     ) -> None:
         """
         Trigger installation of the latest available update on the device.
-        
+
         If the latest available version matches the device's currently installed software version, no action is taken. Otherwise an upgrade is started on the device.
-        
+
         Parameters:
             version (str | None): Ignored by this implementation; the entity uses its known latest version.
             backup (bool): Ignored by this implementation.
@@ -105,7 +105,7 @@ class OasisDeviceUpdateEntity(OasisDeviceEntity, UpdateEntity):
     async def async_update(self) -> None:
         """
         Refreshes this entity's latest software metadata.
-        
+
         Fetches the latest software details from the coordinator's cloud client and updates
         the entity's `latest_version`, `release_summary`, and `release_url` attributes.
         If no software details are returned, the entity's attributes are left unchanged.

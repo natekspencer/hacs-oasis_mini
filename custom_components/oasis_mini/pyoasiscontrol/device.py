@@ -418,7 +418,7 @@ class OasisDevice:
         If the current track or its SVG content is unavailable, returns None.
 
         Returns:
-            progress_percent (float | None): Percentage of the drawing completed (0–100), clamped to 100; `None` if no track or SVG content is available.
+            progress_percent (float | None): Percentage of the drawing completed (0-100), clamped to 100; `None` if no track or SVG content is available.
         """
         if not (self.track and (svg_content := self.track.get("svg_content"))):
             return None
