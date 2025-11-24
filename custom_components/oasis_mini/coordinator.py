@@ -30,7 +30,13 @@ class OasisDeviceCoordinator(DataUpdateCoordinator[list[OasisDevice]]):
         cloud_client: OasisCloudClient,
         mqtt_client: OasisMqttClient,
     ) -> None:
-        """Initialize."""
+        """
+        Create an OasisDeviceCoordinator that manages OasisDevice discovery and updates using cloud and MQTT clients.
+        
+        Parameters:
+            cloud_client (OasisCloudClient): Client for communicating with the Oasis cloud API and fetching device data.
+            mqtt_client (OasisMqttClient): Client for registering devices and coordinating MQTT-based readiness/status.
+        """
         super().__init__(
             hass,
             _LOGGER,
@@ -42,7 +48,15 @@ class OasisDeviceCoordinator(DataUpdateCoordinator[list[OasisDevice]]):
         self.mqtt_client = mqtt_client
 
     async def _async_update_data(self) -> list[OasisDevice]:
-        """Update the data."""
+        """
+        Fetch and assemble the current list of OasisDevice objects, reconcile removed devices in Home Assistant, register discovered devices with MQTT, and verify per-device readiness.
+        
+        Returns:
+            A list of OasisDevice instances representing devices currently available for the account.
+        
+        Raises:
+            UpdateFailed: If no devices can be read after repeated attempts or an unexpected error persists past retry limits.
+        """
         devices: list[OasisDevice] = []
         self.attempt += 1
 

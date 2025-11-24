@@ -19,9 +19,27 @@ async def async_setup_entry(
     entry: OasisDeviceConfigEntry,
     async_add_entities: AddEntitiesCallback,
 ) -> None:
-    """Set up Oasis device image using config entry."""
+    """
+    Set up image entities for Oasis devices from a config entry.
+    
+    Creates an OasisDeviceImageEntity for each device in the entry's runtime data and registers them with Home Assistant.
+    
+    Parameters:
+        hass (HomeAssistant): Home Assistant core instance.
+        entry (OasisDeviceConfigEntry): Config entry containing runtime data and device registrations.
+        async_add_entities (AddEntitiesCallback): Callback to add created entities to Home Assistant.
+    """
 
     def make_entities(new_devices: list[OasisDevice]):
+        """
+        Create an Image entity for each OasisDevice using the enclosing config entry's runtime data.
+        
+        Parameters:
+            new_devices (list[OasisDevice]): Devices to create image entities for.
+        
+        Returns:
+            list[OasisDeviceImageEntity]: A list of image entity instances, one per device.
+        """
         return [
             OasisDeviceImageEntity(entry.runtime_data, device, IMAGE)
             for device in new_devices
@@ -45,13 +63,29 @@ class OasisDeviceImageEntity(OasisDeviceEntity, ImageEntity):
         device: OasisDevice,
         description: ImageEntityDescription,
     ) -> None:
-        """Initialize the entity."""
+        """
+        Create an Oasis device image entity tied to a coordinator and a specific device.
+        
+        Initializes the entity with the provided coordinator, device, and image description and synchronizes its initial state from the coordinator.
+        
+        Parameters:
+            coordinator (OasisDeviceCoordinator): Coordinator providing updates and Home Assistant context.
+            device (OasisDevice): The Oasis device this entity represents.
+            description (ImageEntityDescription): Metadata describing the image entity.
+        """
         super().__init__(coordinator, device, description)
         ImageEntity.__init__(self, coordinator.hass)
         self._handle_coordinator_update()
 
     def image(self) -> bytes | None:
-        """Return bytes of image."""
+        """
+        Provide the entity's image bytes, generating and caching an SVG from the device when available.
+        
+        If the device cannot produce an SVG, the entity's image URL and last-updated timestamp are set and no bytes are returned. When an SVG is produced, the content type is set to "image/svg+xml" and the SVG bytes are cached for future calls.
+        
+        Returns:
+            bytes: The image content bytes, or `None` if no image is available yet.
+        """
         if not self._cached_image:
             if (svg := self.device.create_svg()) is None:
                 self._attr_image_url = self.device.track_image_url
@@ -63,7 +97,11 @@ class OasisDeviceImageEntity(OasisDeviceEntity, ImageEntity):
 
     @callback
     def _handle_coordinator_update(self) -> None:
-        """Handle updated data from the coordinator."""
+        """
+        Update image metadata and cached image when the coordinator reports changes to the device's track or progress.
+        
+        If the device's track_id or progress changed and updates are allowed (the device is playing or there is no cached image), update image last-updated timestamp, record the new track_id and progress, clear the cached image to force regeneration, and set the image URL to UNDEFINED when the track contains inline SVG content or to the device's track_image_url otherwise. When Home Assistant is available, propagate the update to the base class handler.
+        """
         device = self.device
 
         track_changed = self._track_id != device.track_id

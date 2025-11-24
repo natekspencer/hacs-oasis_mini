@@ -40,6 +40,15 @@ class OasisCloudClient:
         session: ClientSession | None = None,
         access_token: str | None = None,
     ) -> None:
+        """
+        Initialize the OasisCloudClient.
+        
+        Sets the optional aiohttp session and access token, records whether the client owns the session, and initializes caches and asyncio locks for playlists and software metadata.
+        
+        Parameters:
+            session (ClientSession | None): Optional aiohttp ClientSession to use. If None, the client will create and own a session later.
+            access_token (str | None): Optional initial access token for authenticated requests.
+        """
         self._session = session
         self._owns_session = session is None
         self._access_token = access_token
@@ -58,27 +67,52 @@ class OasisCloudClient:
 
     @property
     def session(self) -> ClientSession:
-        """Return (or lazily create) the aiohttp ClientSession."""
+        """
+        Get the active aiohttp ClientSession, creating and owning a new session if none exists or the existing session is closed.
+        
+        Returns:
+            ClientSession: The active aiohttp ClientSession; a new session is created and marked as owned by this client when necessary.
+        """
         if self._session is None or self._session.closed:
             self._session = ClientSession()
             self._owns_session = True
         return self._session
 
     async def async_close(self) -> None:
-        """Close owned session (call from HA unload / cleanup)."""
+        """
+        Close the aiohttp ClientSession owned by this client if it exists and is open.
+        
+        This should be called during teardown when the client is responsible for the session.
+        """
         if self._session and not self._session.closed and self._owns_session:
             await self._session.close()
 
     @property
     def access_token(self) -> str | None:
+        """
+        Access token used for authenticated requests or None if not set.
+        
+        Returns:
+            The current access token string, or `None` if no token is stored.
+        """
         return self._access_token
 
     @access_token.setter
     def access_token(self, value: str | None) -> None:
+        """
+        Set the access token used for authenticated requests.
+        
+        Parameters:
+            value (str | None): The bearer token to store; pass None to clear the stored token.
+        """
         self._access_token = value
 
     async def async_login(self, email: str, password: str) -> None:
-        """Login via the cloud and store the access token."""
+        """
+        Log in to the Oasis cloud and store the received access token on the client.
+        
+        Performs an authentication request using the provided credentials and saves the returned access token to self.access_token for use in subsequent authenticated requests.
+        """
         response = await self._async_request(
             "POST",
             urljoin(BASE_URL, "api/auth/login"),
@@ -89,25 +123,58 @@ class OasisCloudClient:
         _LOGGER.debug("Cloud login succeeded, token set: %s", bool(token))
 
     async def async_logout(self) -> None:
-        """Logout from the cloud."""
+        """
+        End the current authenticated session with the Oasis cloud.
+        
+        Performs a logout request and clears the stored access token on success.
+        """
         await self._async_auth_request("GET", "api/auth/logout")
         self.access_token = None
 
     async def async_get_user(self) -> dict:
-        """Get current user info."""
+        """
+        Return information about the currently authenticated user.
+        
+        Returns:
+            dict: A mapping containing the user's details as returned by the cloud API.
+        
+        Raises:
+            UnauthenticatedError: If no access token is available or the request is unauthorized.
+        """
         return await self._async_auth_request("GET", "api/auth/user")
 
     async def async_get_devices(self) -> list[dict[str, Any]]:
-        """Get user devices (raw JSON from API)."""
+        """
+        Retrieve the current user's devices from the cloud API.
+        
+        Returns:
+            list[dict[str, Any]]: A list of device objects as returned by the API.
+        """
         return await self._async_auth_request("GET", "api/user/devices")
 
     async def async_get_playlists(
         self, personal_only: bool = False
     ) -> list[dict[str, Any]]:
-        """Get playlists from the cloud (cached by PLAYLISTS_REFRESH_LIMITER)."""
+        """
+        Retrieve playlists from the Oasis cloud, optionally limited to the authenticated user's personal playlists.
+        
+        The result is cached and will be refreshed according to PLAYLISTS_REFRESH_LIMITER to avoid frequent network requests.
+        
+        Parameters:
+            personal_only (bool): If True, return only playlists owned by the authenticated user; otherwise return all available playlists.
+        
+        Returns:
+            list[dict[str, Any]]: A list of playlist objects represented as dictionaries; an empty list if no playlists are available.
+        """
         now_dt = now()
 
         def _is_cache_valid() -> bool:
+            """
+            Determine whether the playlists cache is still valid.
+            
+            Returns:
+                `true` if the playlists cache contains data and the next refresh timestamp is later than the current time, `false` otherwise.
+            """
             return self._playlists_next_refresh > now_dt and bool(self.playlists)
 
         if _is_cache_valid():
@@ -133,7 +200,12 @@ class OasisCloudClient:
             return self.playlists
 
     async def async_get_track_info(self, track_id: int) -> dict[str, Any] | None:
-        """Get single track info from the cloud."""
+        """
+        Retrieve information for a single track from the cloud.
+        
+        Returns:
+            dict: Track detail dictionary. If the track is not found (HTTP 404), returns a dict with keys `id` and `name` where `name` is "Unknown Title (#{id})". Returns `None` on other failures.
+        """
         try:
             return await self._async_auth_request("GET", f"api/track/{track_id}")
         except ClientResponseError as err:
@@ -146,7 +218,15 @@ class OasisCloudClient:
     async def async_get_tracks(
         self, tracks: list[int] | None = None
     ) -> list[dict[str, Any]]:
-        """Get multiple tracks info from the cloud (handles pagination)."""
+        """
+        Retrieve track details for the given track IDs, following pagination until all pages are fetched.
+        
+        Parameters:
+            tracks (list[int] | None): Optional list of track IDs to request. If omitted or None, an empty list is sent to the API.
+        
+        Returns:
+            list[dict[str, Any]]: A list of track detail dictionaries returned by the cloud, aggregated across all pages (may be empty).
+        """
         response = await self._async_auth_request(
             "GET",
             "api/track",
@@ -163,10 +243,24 @@ class OasisCloudClient:
     async def async_get_latest_software_details(
         self, *, force_refresh: bool = False
     ) -> dict[str, int | str] | None:
-        """Get latest software metadata from cloud (cached)."""
+        """
+        Retrieve the latest software metadata from the cloud, using an internal cache to limit requests.
+        
+        Parameters:
+        	force_refresh (bool): If True, bypass the cache and fetch fresh metadata from the cloud.
+        
+        Returns:
+        	details (dict[str, int | str] | None): A mapping of software metadata keys to integer or string values, or `None` if no metadata is available.
+        """
         now_dt = now()
 
         def _is_cache_valid() -> bool:
+            """
+            Determine whether the cached software metadata should be used instead of fetching fresh data.
+            
+            Returns:
+                True if the software cache exists, has not expired, and a force refresh was not requested; False otherwise.
+            """
             return (
                 not force_refresh
                 and self._software_details is not None
@@ -193,7 +287,23 @@ class OasisCloudClient:
             return self._software_details
 
     async def _async_auth_request(self, method: str, url: str, **kwargs: Any) -> Any:
-        """Perform an authenticated cloud request."""
+        """
+        Perform a cloud API request using the stored access token.
+        
+        If `url` is relative it will be joined with the module `BASE_URL`. The method will
+        inject an `Authorization: Bearer <token>` header into the request.
+        
+        Parameters:
+            method (str): HTTP method (e.g., "GET", "POST").
+            url (str): Absolute URL or path relative to `BASE_URL`.
+            **kwargs: Passed through to the underlying request helper.
+        
+        Returns:
+            The parsed response value (JSON object, text, or None) as returned by the underlying request helper.
+        
+        Raises:
+            UnauthenticatedError: If no access token is set.
+        """
         if not self.access_token:
             raise UnauthenticatedError("Unauthenticated")
 
@@ -208,7 +318,30 @@ class OasisCloudClient:
         )
 
     async def _async_request(self, method: str, url: str, **kwargs: Any) -> Any:
-        """Low-level HTTP helper for both cloud and (if desired) device HTTP."""
+        """
+        Perform a single HTTP request and return a normalized response value.
+        
+        Performs the request using the client's session and:
+        - If the response status is 200:
+          - returns parsed JSON for `application/json`.
+          - returns text for `text/plain`.
+          - if `text/html` and the URL targets the cloud base URL and contains a login page, raises UnauthenticatedError.
+          - returns `None` for other content types.
+        - If the response status is 401, raises UnauthenticatedError.
+        - For other non-200 statuses, re-raises the response's HTTP error.
+        
+        Parameters:
+            method: HTTP method to use (e.g., "GET", "POST").
+            url: Request URL or path.
+            **kwargs: Passed through to the session request (e.g., `params`, `json`, `headers`).
+        
+        Returns:
+            The parsed JSON object, response text, or `None` depending on the response content type.
+        
+        Raises:
+            UnauthenticatedError: when the server indicates the client is unauthenticated (401) or a cloud login page is returned.
+            aiohttp.ClientResponseError: for other non-success HTTP statuses raised by `response.raise_for_status()`.
+        """
         session = self.session
         _LOGGER.debug(
             "%s %s",

@@ -33,6 +33,15 @@ async def async_setup_entry(
     """Set up Oasis device media_players using config entry."""
 
     def make_entities(new_devices: list[OasisDevice]):
+        """
+        Create media player entities for the given Oasis devices.
+        
+        Parameters:
+            new_devices (list[OasisDevice]): Devices to wrap as media player entities.
+        
+        Returns:
+            list[OasisDeviceMediaPlayerEntity]: Media player entities corresponding to each device.
+        """
         return [
             OasisDeviceMediaPlayerEntity(entry.runtime_data, device, DESCRIPTOR)
             for device in new_devices
@@ -74,12 +83,22 @@ class OasisDeviceMediaPlayerEntity(OasisDeviceEntity, MediaPlayerEntity):
 
     @property
     def media_image_url(self) -> str | None:
-        """Image url of current playing media."""
+        """
+        URL of the image representing the currently playing media.
+        
+        Returns:
+            The image URL as a string, or `None` if no image is available.
+        """
         return self.device.track_image_url
 
     @property
     def media_position(self) -> int:
-        """Position of current playing media in seconds."""
+        """
+        Playback position of the current media in seconds.
+        
+        Returns:
+            int: Position in seconds of the currently playing media.
+        """
         return self.device.progress
 
     @property
@@ -89,12 +108,22 @@ class OasisDeviceMediaPlayerEntity(OasisDeviceEntity, MediaPlayerEntity):
 
     @property
     def media_title(self) -> str | None:
-        """Title of current playing media."""
+        """
+        Provide the title of the currently playing track.
+        
+        Returns:
+            str | None: The track title, or None if no title is available.
+        """
         return self.device.track_name
 
     @property
     def repeat(self) -> RepeatMode:
-        """Return current repeat mode."""
+        """
+        Get the current repeat mode for the device.
+        
+        Returns:
+            `RepeatMode.ALL` if the device is configured to repeat the playlist, `RepeatMode.OFF` otherwise.
+        """
         return RepeatMode.ALL if self.device.repeat_playlist else RepeatMode.OFF
 
     @property
@@ -125,36 +154,71 @@ class OasisDeviceMediaPlayerEntity(OasisDeviceEntity, MediaPlayerEntity):
             )
 
     async def async_media_pause(self) -> None:
-        """Send pause command."""
+        """
+        Pause playback on the device.
+        
+        Raises:
+            ServiceValidationError: If the device is busy and cannot accept commands.
+        """
         self.abort_if_busy()
         await self.device.async_pause()
 
     async def async_media_play(self) -> None:
-        """Send play command."""
+        """
+        Start playback on the device.
+        
+        Raises:
+            ServiceValidationError: If the device is currently busy.
+        """
         self.abort_if_busy()
         await self.device.async_play()
 
     async def async_media_stop(self) -> None:
-        """Send stop command."""
+        """
+        Stop playback on the Oasis device.
+        
+        Raises:
+            ServiceValidationError: If the device is currently busy.
+        """
         self.abort_if_busy()
         await self.device.async_stop()
 
     async def async_set_repeat(self, repeat: RepeatMode) -> None:
-        """Set repeat mode."""
+        """
+        Set the device playlist repeat behavior.
+        
+        Enables or disables looping of the playlist according to the provided RepeatMode:
+        - RepeatMode.OFF disables playlist repeat.
+        - RepeatMode.ALL enables playlist repeat for the entire playlist.
+        - RepeatMode.ONE enables single-track repeat, except when the device is currently repeating the entire playlist; in that case the playlist repeat is disabled to preserve single-track semantics.
+        
+        Parameters:
+            repeat (RepeatMode): The desired repeat mode to apply to the device playlist.
+        """
         await self.device.async_set_repeat_playlist(
             repeat != RepeatMode.OFF
             and not (repeat == RepeatMode.ONE and self.repeat == RepeatMode.ALL)
         )
 
     async def async_media_previous_track(self) -> None:
-        """Send previous track command."""
+        """
+        Move playback to the previous track in the device's playlist, wrapping to the last track when currently at the first.
+        
+        Raises:
+            ServiceValidationError: If the device is busy.
+        """
         self.abort_if_busy()
         if (index := self.device.playlist_index - 1) < 0:
             index = len(self.device.playlist) - 1
         await self.device.async_change_track(index)
 
     async def async_media_next_track(self) -> None:
-        """Send next track command."""
+        """
+        Advance the device to the next track in its playlist, wrapping to the first track when at the end.
+        
+        Raises:
+            ServiceValidationError: if the device is busy.
+        """
         self.abort_if_busy()
         if (index := self.device.playlist_index + 1) >= len(self.device.playlist):
             index = 0
@@ -167,7 +231,19 @@ class OasisDeviceMediaPlayerEntity(OasisDeviceEntity, MediaPlayerEntity):
         enqueue: MediaPlayerEnqueue | None = None,
         **kwargs: Any,
     ) -> None:
-        """Play a piece of media."""
+        """
+        Play or enqueue one or more Oasis tracks on the device.
+        
+        Validates the media type and parses one or more track identifiers from `media_id`, then updates the device playlist according to `enqueue`. Depending on the enqueue mode the method can replace the playlist, append tracks, move appended tracks to the next play position, and optionally start playback.
+        
+        Parameters:
+            media_type (MediaType | str): The media type being requested.
+            media_id (str): A comma-separated string of track identifiers.
+            enqueue (MediaPlayerEnqueue | None): How to insert the tracks into the playlist; if omitted defaults to NEXT.
+        
+        Raises:
+            ServiceValidationError: If the device is busy, if `media_type` is a playlist (playlists are unsupported), or if `media_id` does not contain any valid track identifiers.
+        """
         self.abort_if_busy()
         if media_type == MediaType.PLAYLIST:
             raise ServiceValidationError(
@@ -209,6 +285,11 @@ class OasisDeviceMediaPlayerEntity(OasisDeviceEntity, MediaPlayerEntity):
             await device.async_play()
 
     async def async_clear_playlist(self) -> None:
-        """Clear players playlist."""
+        """
+        Clear the device's playlist.
+        
+        Raises:
+            ServiceValidationError: If the device is busy and cannot accept commands.
+        """
         self.abort_if_busy()
         await self.device.async_clear_playlist()

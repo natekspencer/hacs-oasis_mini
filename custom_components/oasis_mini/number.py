@@ -27,9 +27,22 @@ async def async_setup_entry(
     entry: OasisDeviceConfigEntry,
     async_add_entities: AddEntitiesCallback,
 ) -> None:
-    """Set up Oasis device numbers using config entry."""
+    """
+    Set up number entities for Oasis devices from a configuration entry.
+    
+    Creates number entities for each discovered Oasis device and each descriptor in DESCRIPTORS, then registers those entities with the platform coordinator so they are added to Home Assistant.
+    """
 
     def make_entities(new_devices: list[OasisDevice]):
+        """
+        Create number entity instances for each provided Oasis device using the module's DESCRIPTORS.
+        
+        Parameters:
+            new_devices (list[OasisDevice]): Devices to create entities for.
+        
+        Returns:
+            list[OasisDeviceNumberEntity]: A flat list of number entities (one per descriptor for each device).
+        """
         return [
             OasisDeviceNumberEntity(entry.runtime_data, device, descriptor)
             for device in new_devices
@@ -64,11 +77,23 @@ class OasisDeviceNumberEntity(OasisDeviceEntity, NumberEntity):
 
     @property
     def native_value(self) -> str | None:
-        """Return the value reported by the number."""
+        """
+        Get the current value of the number entity from the underlying device.
+        
+        Returns:
+            str | None: The current value as a string, or `None` if the device has no value.
+        """
         return getattr(self.device, self.entity_description.key)
 
     async def async_set_native_value(self, value: float) -> None:
-        """Set new value."""
+        """
+        Set the configured numeric value on the underlying Oasis device.
+        
+        The provided value is converted to an integer and applied to the device property indicated by this entity's description key: if the key is "ball_speed" the device's ball speed is updated; if the key is "led_speed" the device's LED speed is updated.
+        
+        Parameters:
+            value (float): New numeric value to apply; will be converted to an integer.
+        """
         value = int(value)
         if self.entity_description.key == "ball_speed":
             await self.device.async_set_ball_speed(value)

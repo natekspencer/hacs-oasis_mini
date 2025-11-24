@@ -21,9 +21,27 @@ async def async_setup_entry(
     entry: OasisDeviceConfigEntry,
     async_add_entities: AddEntitiesCallback,
 ) -> None:
-    """Set up Oasis device sensors using config entry."""
+    """
+    Set up and register sensor entities for each Oasis device in the config entry.
+    
+    Creates sensor entities for every Oasis device available on the provided config entry and adds them to Home Assistant via the provided add-entities callback.
+    
+    Parameters:
+        hass (HomeAssistant): Home Assistant core object.
+        entry (OasisDeviceConfigEntry): Configuration entry containing runtime data and devices to expose.
+        async_add_entities (AddEntitiesCallback): Callback to add created entities to Home Assistant.
+    """
 
     def make_entities(new_devices: list[OasisDevice]):
+        """
+        Create sensor entity instances for each Oasis device and each sensor descriptor.
+        
+        Parameters:
+            new_devices (list[OasisDevice]): Devices to create sensor entities for.
+        
+        Returns:
+            list[OasisDeviceSensorEntity]: A list containing one sensor entity per combination of device and descriptor from DESCRIPTORS.
+        """
         return [
             OasisDeviceSensorEntity(entry.runtime_data, device, descriptor)
             for device in new_devices
@@ -67,5 +85,10 @@ class OasisDeviceSensorEntity(OasisDeviceEntity, SensorEntity):
 
     @property
     def native_value(self) -> str | None:
-        """Return the value reported by the sensor."""
+        """
+        Provide the current sensor value from the underlying device.
+        
+        Returns:
+            `str` with the sensor's current value, or `None` if the attribute is not present or has no value. The value is taken from the device attribute named by the entity description's `key`.
+        """
         return getattr(self.device, self.entity_description.key)

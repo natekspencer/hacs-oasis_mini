@@ -19,13 +19,33 @@ _LOGGER = logging.getLogger(__name__)
 
 
 def create_client(hass: HomeAssistant, data: dict[str, Any]) -> OasisCloudClient:
-    """Create a Oasis cloud client."""
+    """
+    Create an Oasis cloud client configured with the Home Assistant HTTP session and access token.
+    
+    Parameters:
+        hass: Home Assistant instance used to obtain the shared HTTP client session.
+        data: Configuration mapping; the function reads the `CONF_ACCESS_TOKEN` key for the cloud access token.
+    
+    Returns:
+        An `OasisCloudClient` initialized with the Home Assistant HTTP session and the configured access token.
+    """
     session = async_get_clientsession(hass)
     return OasisCloudClient(session=session, access_token=data.get(CONF_ACCESS_TOKEN))
 
 
 async def add_and_play_track(device: OasisDevice, track: int) -> None:
-    """Add and play a track."""
+    """
+    Ensure a track is present in the device playlist, position it as the next item, select it, and start playback if necessary.
+    
+    Adds the specified track to the device playlist if missing, waits up to 10 seconds for the track to appear, moves it to be the next item after the current playlist index if needed, selects that track, and starts playback when the device is not already playing.
+    
+    Parameters:
+        device (OasisDevice): The target Oasis device.
+        track (int): The track id to add and play.
+    
+    Raises:
+        async_timeout.TimeoutError: If the operation does not complete within 10 seconds.
+    """
     async with async_timeout.timeout(10):
         if track not in device.playlist:
             await device.async_add_track_to_playlist(track)
@@ -46,9 +66,14 @@ async def add_and_play_track(device: OasisDevice, track: int) -> None:
 
 
 def get_track_id(track: str) -> int | None:
-    """Get a track id.
-
-    `track` can be either an id or title
+    """
+    Convert a track identifier or title to its integer track id.
+    
+    Parameters:
+        track: A track reference, either a numeric id as a string or a track title.
+    
+    Returns:
+        The integer track id if the input is a valid id or matches a known title, `None` if the input is invalid.
     """
     track = track.lower().strip()
     if track not in map(str, TRACKS):
