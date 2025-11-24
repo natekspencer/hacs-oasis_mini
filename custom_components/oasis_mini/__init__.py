@@ -110,7 +110,12 @@ async def async_setup_entry(hass: HomeAssistant, entry: OasisDeviceConfigEntry) 
 
     coordinator = OasisDeviceCoordinator(hass, cloud_client, mqtt_client)
 
-    await coordinator.async_config_entry_first_refresh()
+    try:
+        await coordinator.async_config_entry_first_refresh()
+    except Exception:
+        await mqtt_client.async_close()
+        await cloud_client.async_close()
+        raise
 
     if entry.unique_id != (user_id := str(user["id"])):
         hass.config_entries.async_update_entry(entry, unique_id=user_id)
