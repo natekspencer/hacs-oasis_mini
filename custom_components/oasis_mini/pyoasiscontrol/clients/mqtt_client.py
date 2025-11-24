@@ -327,7 +327,6 @@ class OasisMqttClient(OasisClientProtocol):
         # Wait for initialization
         try:
             await asyncio.wait_for(is_initialized_event.wait(), timeout=timeout)
-            return True
         except asyncio.TimeoutError:
             _LOGGER.debug(
                 "Timeout (%.1fs) waiting for initialization from %s",
@@ -335,6 +334,8 @@ class OasisMqttClient(OasisClientProtocol):
                 serial,
             )
             return False
+        else:
+            return True
 
     async def async_get_mac_address(self, device: OasisDevice) -> str | None:
         """
