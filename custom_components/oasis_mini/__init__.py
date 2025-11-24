@@ -156,7 +156,10 @@ async def async_unload_entry(
         `True` if all platforms were unloaded successfully, `False` otherwise.
     """
     unload_ok = await hass.config_entries.async_unload_platforms(entry, PLATFORMS)
-    await entry.runtime_data.async_close()
+    try:
+        await entry.runtime_data.async_close()
+    except Exception:
+        _LOGGER.exception("Error closing Oasis coordinator during unload")
     return unload_ok
 
 

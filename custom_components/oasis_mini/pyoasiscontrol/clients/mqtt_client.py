@@ -640,12 +640,13 @@ class OasisMqttClient(OasisClientProtocol):
                 _LOGGER.debug(
                     "Failed to flush queued command for %s, re-queuing", serial
                 )
-                # Put it back and break; we'll try again on next reconnect
+                # Put it back; we'll try again on next reconnect
                 await self._enqueue_command(serial, payload)
+            finally:
+                # Ensure we always balance the get(), even on cancellation
                 self._command_queue.task_done()
-                break
-
-            self._command_queue.task_done()
+                if not self._client:
+                    break
 
     async def _publish_command(
         self, device: OasisDevice, payload: str, wake: bool = False

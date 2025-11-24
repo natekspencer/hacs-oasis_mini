@@ -188,5 +188,8 @@ class OasisDeviceCoordinator(DataUpdateCoordinator[list[OasisDevice]]):
 
     async def async_close(self) -> None:
         """Close client connections."""
-        await self.mqtt_client.async_close()
-        await self.cloud_client.async_close()
+        await asyncio.gather(
+            self.mqtt_client.async_close(),
+            self.cloud_client.async_close(),
+            return_exceptions=True,
+        )
