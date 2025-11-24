@@ -94,14 +94,15 @@ LED_EFFECTS: Final[dict[str, str]] = {
     "41": "Color Comets",
 }
 
-STATUS_CODE_SLEEPING: Final = 6
+STATUS_PLAYING: Final = 4
+STATUS_SLEEPING: Final = 6
 STATUS_CODE_MAP: Final[dict[int, str]] = {
     0: "booting",
     2: "stopped",
     3: "centering",
-    4: "playing",
+    STATUS_PLAYING: "playing",
     5: "paused",
-    STATUS_CODE_SLEEPING: "sleeping",
+    STATUS_SLEEPING: "sleeping",
     9: "error",
     11: "updating",
     13: "downloading",

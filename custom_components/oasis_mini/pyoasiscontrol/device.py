@@ -6,13 +6,7 @@ import asyncio
 import logging
 from typing import TYPE_CHECKING, Any, Callable, Final, Iterable
 
-from .const import (
-    ERROR_CODE_MAP,
-    LED_EFFECTS,
-    STATUS_CODE_MAP,
-    STATUS_CODE_SLEEPING,
-    TRACKS,
-)
+from .const import ERROR_CODE_MAP, LED_EFFECTS, STATUS_CODE_MAP, STATUS_SLEEPING, TRACKS
 from .utils import _bit_to_bool, _parse_int, create_svg, decrypt_svg_content
 
 if TYPE_CHECKING:  # avoid runtime circular imports
@@ -163,7 +157,7 @@ class OasisDevice:
         Returns:
             `true` if the device is sleeping, `false` otherwise.
         """
-        return self.status_code == STATUS_CODE_SLEEPING
+        return self.status_code == STATUS_SLEEPING
 
     def attach_client(self, client: OasisClientProtocol) -> None:
         """Attach a transport client (MQTT, HTTP, etc.) to this device."""

@@ -11,7 +11,7 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 
 from .pyoasiscontrol import OasisCloudClient, OasisDevice
-from .pyoasiscontrol.const import TRACKS
+from .pyoasiscontrol.const import STATUS_PLAYING, TRACKS
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -48,18 +48,20 @@ async def add_and_play_track(device: OasisDevice, track: int) -> None:
         if track not in device.playlist:
             await device.async_add_track_to_playlist(track)
 
+        # Wait for device state to reflect the newly added track
         while track not in device.playlist:
             await asyncio.sleep(0.1)
 
-        # Move track to next item in the playlist and then select it
+        # Ensure the track is positioned immediately after the current track and select it
         if (index := device.playlist.index(track)) != device.playlist_index:
+            # Calculate the position after the current track
             if index != (
                 _next := min(device.playlist_index + 1, len(device.playlist) - 1)
             ):
                 await device.async_move_track(index, _next)
             await device.async_change_track(_next)
 
-        if device.status_code != 4:
+        if device.status_code != STATUS_PLAYING:
             await device.async_play()
 
 
