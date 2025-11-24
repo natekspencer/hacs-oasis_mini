@@ -72,7 +72,7 @@ class OasisDevice:
         # Transport
         """
         Initialize an OasisDevice with identification, network, transport references, and default state fields.
-        
+
         Parameters:
             model (str | None): Device model identifier.
             serial_number (str | None): Device serial number.
@@ -81,7 +81,7 @@ class OasisDevice:
             ip_address (str | None): Last-known IP address for the device.
             cloud (OasisCloudClient | None): Optional cloud client used to fetch track metadata and remote data.
             client (OasisClientProtocol | None): Optional transport client used to send commands to the device.
-        
+
         Notes:
             - Creates an internal listener list for state-change callbacks.
             - Initializes status fields (brightness, playlist, playback state, networking, etc.) with sensible defaults.
@@ -137,7 +137,7 @@ class OasisDevice:
     def brightness(self) -> int:
         """
         Current display brightness adjusted for the device sleep state.
-        
+
         Returns:
             int: 0 when the device is sleeping, otherwise the stored brightness value.
         """
@@ -147,7 +147,7 @@ class OasisDevice:
     def brightness(self, value: int) -> None:
         """
         Set the device brightness and update brightness_on when non-zero.
-        
+
         Parameters:
             value (int): Brightness level to apply; if non-zero, also stored in `brightness_on`.
         """
@@ -159,7 +159,7 @@ class OasisDevice:
     def is_sleeping(self) -> bool:
         """
         Indicates whether the device is currently in the sleeping status.
-        
+
         Returns:
             `true` if the device is sleeping, `false` otherwise.
         """
@@ -173,7 +173,7 @@ class OasisDevice:
     def client(self) -> OasisClientProtocol | None:
         """
         Get the attached transport client, or `None` if no client is attached.
-        
+
         Returns:
             The attached transport client, or `None` if not attached.
         """
@@ -182,10 +182,10 @@ class OasisDevice:
     def _require_client(self) -> OasisClientProtocol:
         """
         Get the attached transport client for this device.
-        
+
         Returns:
             OasisClientProtocol: The attached transport client.
-        
+
         Raises:
             RuntimeError: If no client/transport is attached to the device.
         """
@@ -198,13 +198,13 @@ class OasisDevice:
     def _update_field(self, name: str, value: Any) -> bool:
         """
         Update an attribute on the device if the new value differs from the current value.
-        
+
         Sets the instance attribute named `name` to `value` and logs a debug message when a change occurs.
-        
+
         Parameters:
             name (str): The attribute name to update.
             value (Any): The new value to assign to the attribute.
-        
+
         Returns:
             bool: True if the attribute was changed, False otherwise.
         """
@@ -224,7 +224,7 @@ class OasisDevice:
     def update_from_status_dict(self, data: dict[str, Any]) -> None:
         """
         Update the device's attributes from a status dictionary.
-        
+
         Expects a mapping of attribute names to values; known attributes are applied to the device,
         unknown keys are logged and ignored. If `playlist` or `playlist_index` change, a track
         refresh is scheduled. If any attribute changed, registered update listeners are notified.
@@ -250,20 +250,20 @@ class OasisDevice:
     def parse_status_string(self, raw_status: str) -> dict[str, Any] | None:
         """
         Parse a semicolon-separated device status string into a structured state dictionary.
-        
+
         Expects a semicolon-separated string containing at least 18 fields (device status format returned by the device: e.g., HTTP GETSTATUS or MQTT FULLSTATUS). Returns None for empty input or if the string cannot be parsed into the expected fields.
-        
+
         Parameters:
-        	raw_status (str): Semicolon-separated status string from the device.
-        
+            raw_status (str): Semicolon-separated status string from the device.
+
         Returns:
-        	dict[str, Any] | None: A dictionary with these keys on success:
-        	- `status_code`, `error`, `ball_speed`, `playlist` (list[int]), `playlist_index`,
-        		  `progress`, `led_effect`, `led_color_id`, `led_speed`, `brightness`, `color`,
-        		  `busy`, `download_progress`, `brightness_max`, `wifi_connected`, `repeat_playlist`,
-        		  `autoplay`, `auto_clean`
-        	- `software_version` (str) is included if an additional trailing field is present.
-        	Returns `None` if the input is empty or parsing fails.
+            dict[str, Any] | None: A dictionary with these keys on success:
+            - `status_code`, `error`, `ball_speed`, `playlist` (list[int]), `playlist_index`,
+              `progress`, `led_effect`, `led_color_id`, `led_speed`, `brightness`, `color`,
+              `busy`, `download_progress`, `brightness_max`, `wifi_connected`, `repeat_playlist`,
+              `autoplay`, `auto_clean`
+            - `software_version` (str) is included if an additional trailing field is present.
+            Returns `None` if the input is empty or parsing fails.
         """
         if not raw_status:
             return None
@@ -316,9 +316,9 @@ class OasisDevice:
     def update_from_status_string(self, raw_status: str) -> None:
         """
         Parse a semicolon-separated device status string and apply the resulting fields to the device state.
-        
+
         If the string cannot be parsed into a valid status dictionary, no state is changed.
-        
+
         Parameters:
             raw_status (str): Raw status payload received from the device (semicolon-separated fields).
         """
@@ -328,7 +328,7 @@ class OasisDevice:
     def as_dict(self) -> dict[str, Any]:
         """
         Return a mapping of the device's core state fields to their current values.
-        
+
         Returns:
             dict[str, Any]: A dictionary whose keys are the core state field names (as defined in _STATE_FIELDS)
             and whose values are the current values for those fields.
@@ -339,7 +339,7 @@ class OasisDevice:
     def error_message(self) -> str | None:
         """
         Get the human-readable error message for the current device error code.
-        
+
         Returns:
             str: The mapped error message when the device status indicates an error (status code 9); `None` otherwise.
         """
@@ -351,7 +351,7 @@ class OasisDevice:
     def status(self) -> str:
         """
         Get a human-readable status description for the current status_code.
-        
+
         Returns:
             str: Human-readable status corresponding to the device's status_code, or "Unknown (<code>)" when the code is not recognized.
         """
@@ -361,7 +361,7 @@ class OasisDevice:
     def track(self) -> dict | None:
         """
         Return the cached track metadata when it corresponds to the current track, otherwise retrieve the built-in track metadata.
-        
+
         Returns:
             dict | None: The track metadata dictionary for the current `track_id`, or `None` if no matching track is available.
         """
@@ -373,9 +373,9 @@ class OasisDevice:
     def track_id(self) -> int | None:
         """
         Determine the current track id from the active playlist.
-        
+
         If the playlist index is beyond the end of the playlist, the first track id is returned.
-        
+
         Returns:
             int | None: The current track id, or `None` if there is no playlist.
         """
@@ -388,7 +388,7 @@ class OasisDevice:
     def track_image_url(self) -> str | None:
         """
         Get the full HTTPS URL for the current track's image if available.
-        
+
         Returns:
             str: Full URL to the track image (https://app.grounded.so/uploads/<image>), or `None` if no image is available.
         """
@@ -400,9 +400,9 @@ class OasisDevice:
     def track_name(self) -> str | None:
         """
         Get the current track's display name.
-        
+
         If the current track has no explicit name, returns "Unknown Title (#{track_id})". If there is no current track, returns None.
-        
+
         Returns:
             str | None: The track name, or `None` if no current track is available.
         """
@@ -414,9 +414,9 @@ class OasisDevice:
     def drawing_progress(self) -> float | None:
         """
         Compute drawing progress percentage for the current track.
-        
+
         If the current track or its SVG content is unavailable, returns None.
-        
+
         Returns:
             progress_percent (float | None): Percentage of the drawing completed (0–100), clamped to 100; `None` if no track or SVG content is available.
         """
@@ -432,7 +432,7 @@ class OasisDevice:
     def playlist_details(self) -> dict[int, dict[str, str]]:
         """
         Build a mapping of track IDs in the current playlist to their detail dictionaries, preferring the device's cached/current track data and falling back to built-in TRACKS.
-        
+
         Returns:
             dict[int, dict[str, str]]: A mapping from track ID to a details dictionary (contains at least a `'name'` key). If track metadata is available from the device cache or built-in TRACKS it is used; otherwise a fallback `{"name": "Unknown Title (#<id>)"}` is provided.
         """
@@ -447,7 +447,7 @@ class OasisDevice:
     def create_svg(self) -> str | None:
         """
         Generate an SVG representing the current track at the device's drawing progress.
-        
+
         Returns:
             svg (str | None): SVG content for the current track reflecting current progress, or None if track data is unavailable.
         """
@@ -456,10 +456,10 @@ class OasisDevice:
     def add_update_listener(self, listener: Callable[[], None]) -> Callable[[], None]:
         """
         Register a callback to be invoked whenever the device state changes.
-        
+
         Parameters:
             listener (Callable[[], None]): A zero-argument callback that will be called on state updates.
-        
+
         Returns:
             Callable[[], None]: An unsubscribe function that removes the registered listener; calling the unsubscribe function multiple times is safe.
         """
@@ -468,7 +468,7 @@ class OasisDevice:
         def _unsub() -> None:
             """
             Remove the previously registered listener from the device's listener list if it is present.
-            
+
             This function silently does nothing if the listener is not found.
             """
             try:
@@ -481,7 +481,7 @@ class OasisDevice:
     def _notify_listeners(self) -> None:
         """
         Invoke all registered update listeners in registration order.
-        
+
         Each listener is called synchronously; exceptions raised by a listener are caught and logged so other listeners still run.
         """
         for listener in list(self._listeners):
@@ -493,7 +493,7 @@ class OasisDevice:
     async def async_get_mac_address(self) -> str | None:
         """
         Get the device MAC address, requesting it from the attached transport client if not already known.
-        
+
         Returns:
             mac (str | None): The device MAC address if available, otherwise `None`.
         """
@@ -509,7 +509,7 @@ class OasisDevice:
     async def async_set_auto_clean(self, auto_clean: bool) -> None:
         """
         Set whether the device performs automatic cleaning.
-        
+
         Parameters:
             auto_clean (bool): `True` to enable automatic cleaning, `False` to disable it.
         """
@@ -519,10 +519,10 @@ class OasisDevice:
     async def async_set_ball_speed(self, speed: int) -> None:
         """
         Set the device's ball speed.
-        
+
         Parameters:
             speed (int): Desired ball speed in the allowed range (BALL_SPEED_MIN to BALL_SPEED_MAX, inclusive).
-        
+
         Raises:
             ValueError: If `speed` is outside the allowed range.
         """
@@ -541,16 +541,16 @@ class OasisDevice:
     ) -> None:
         """
         Set the device LED effect, color, speed, and brightness.
-        
+
         Parameters:
-        	led_effect (str | None): LED effect name; if None, the device's current effect is used. Must be one of the supported LED effects.
-        	color (str | None): Hex color string (e.g. "#rrggbb"); if None, the device's current color is used or `#ffffff` if unset.
-        	led_speed (int | None): LED animation speed; if None, the device's current speed is used. Must be within the allowed LED speed range.
-        	brightness (int | None): Brightness level; if None, the device's current brightness is used. Must be between 0 and the device's `brightness_max`.
-        
+            led_effect (str | None): LED effect name; if None, the device's current effect is used. Must be one of the supported LED effects.
+            color (str | None): Hex color string (e.g. "#rrggbb"); if None, the device's current color is used or `#ffffff` if unset.
+            led_speed (int | None): LED animation speed; if None, the device's current speed is used. Must be within the allowed LED speed range.
+            brightness (int | None): Brightness level; if None, the device's current brightness is used. Must be between 0 and the device's `brightness_max`.
+
         Raises:
-        	ValueError: If `led_effect` is not supported, or `led_speed` or `brightness` are outside their valid ranges.
-        	RuntimeError: If no transport client is attached to the device.
+            ValueError: If `led_effect` is not supported, or `led_speed` or `brightness` are outside their valid ranges.
+            RuntimeError: If no transport client is attached to the device.
         """
         if led_effect is None:
             led_effect = self.led_effect
@@ -576,9 +576,9 @@ class OasisDevice:
     async def async_sleep(self) -> None:
         """
         Put the device into sleep mode.
-        
+
         Sends a sleep command to the attached transport client.
-        
+
         Raises:
             RuntimeError: If no client is attached.
         """
@@ -588,10 +588,10 @@ class OasisDevice:
     async def async_move_track(self, from_index: int, to_index: int) -> None:
         """
         Move a track within the device's playlist from one index to another.
-        
+
         Parameters:
-        	from_index (int): Index of the track to move within the current playlist.
-        	to_index (int): Destination index where the track should be placed.
+            from_index (int): Index of the track to move within the current playlist.
+            to_index (int): Destination index where the track should be placed.
         """
         client = self._require_client()
         await client.async_send_move_job_command(self, from_index, to_index)
@@ -599,7 +599,7 @@ class OasisDevice:
     async def async_change_track(self, index: int) -> None:
         """
         Change the device's current track to the track at the given playlist index.
-        
+
         Parameters:
             index (int): Zero-based index of the track in the device's current playlist.
         """
@@ -609,10 +609,10 @@ class OasisDevice:
     async def async_add_track_to_playlist(self, track: int | Iterable[int]) -> None:
         """
         Add one or more tracks to the device's playlist via the attached client.
-        
+
         Parameters:
             track (int | Iterable[int]): A single track id or an iterable of track ids to append to the playlist.
-        
+
         Raises:
             RuntimeError: If no transport client is attached to the device.
         """
@@ -626,9 +626,9 @@ class OasisDevice:
     async def async_set_playlist(self, playlist: int | Iterable[int]) -> None:
         """
         Set the device's playlist to the provided track or tracks.
-        
+
         Accepts a single track ID or an iterable of track IDs and replaces the device's playlist by sending the corresponding command to the attached client.
-        
+
         Parameters:
             playlist (int | Iterable[int]): A single track ID or an iterable of track IDs to set as the new playlist.
         """
@@ -642,7 +642,7 @@ class OasisDevice:
     async def async_set_repeat_playlist(self, repeat: bool) -> None:
         """
         Set whether the device's playlist should repeat.
-        
+
         Parameters:
             repeat (bool): True to enable repeating the playlist, False to disable it.
         """
@@ -652,7 +652,7 @@ class OasisDevice:
     async def async_set_autoplay(self, option: bool | int | str) -> None:
         """
         Set the device's autoplay / wait-after option.
-        
+
         Parameters:
             option (bool | int | str): Desired autoplay/wait-after value. If a `bool` is provided, `True` is converted to `"0"` and `False` to `"1"`. Integer or string values are sent as their string representation.
         """
@@ -664,9 +664,9 @@ class OasisDevice:
     async def async_upgrade(self, beta: bool = False) -> None:
         """
         Initiates a firmware upgrade on the device.
-        
+
         Parameters:
-        	beta (bool): If True, request a beta (pre-release) firmware; otherwise request the stable firmware.
+            beta (bool): If True, request a beta (pre-release) firmware; otherwise request the stable firmware.
         """
         client = self._require_client()
         await client.async_send_upgrade_command(self, beta)
@@ -674,7 +674,7 @@ class OasisDevice:
     async def async_play(self) -> None:
         """
         Send a play command to the device via the attached transport client.
-        
+
         Raises:
             RuntimeError: If no transport client is attached.
         """
@@ -684,7 +684,7 @@ class OasisDevice:
     async def async_pause(self) -> None:
         """
         Pause playback on the device.
-        
+
         Raises:
             RuntimeError: If no transport client is attached.
         """
@@ -694,7 +694,7 @@ class OasisDevice:
     async def async_stop(self) -> None:
         """
         Stop playback on the device by sending a stop command through the attached transport client.
-        
+
         Raises:
             RuntimeError: if no transport client is attached to the device.
         """
@@ -704,9 +704,9 @@ class OasisDevice:
     async def async_reboot(self) -> None:
         """
         Reboots the device using the attached transport client.
-        
+
         Requests the attached client to send a reboot command to the device.
-        
+
         Raises:
             RuntimeError: If no transport client is attached.
         """
@@ -716,7 +716,7 @@ class OasisDevice:
     def schedule_track_refresh(self) -> None:
         """
         Schedule a background refresh of the current track metadata when the device's track may have changed.
-        
+
         Does nothing if no cloud client is attached or if there is no running event loop. If a previous refresh task is still pending, it is cancelled before a new background task is scheduled.
         """
         if not self._cloud:
@@ -736,7 +736,7 @@ class OasisDevice:
     async def _async_refresh_current_track(self) -> None:
         """
         Refresh cached information for the current track by fetching details from the attached cloud client and notify listeners when updated.
-        
+
         If no cloud client is attached, no current track exists, or the cached track already matches the current track id, the method returns without change. On successful fetch, updates the device's track cache and invokes registered update listeners.
         """
         if not self._cloud:
