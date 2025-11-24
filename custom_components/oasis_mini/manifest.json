@@ -6,7 +6,7 @@
   "dhcp": [{ "registered_devices": true }],
   "documentation": "https://github.com/natekspencer/hacs-oasis_mini",
   "integration_type": "hub",
-  "iot_class": "local_polling",
+  "iot_class": "cloud_push",
   "issue_tracker": "https://github.com/natekspencer/hacs-oasis_mini/issues",
   "loggers": ["custom_components.oasis_mini"],
   "requirements": ["aiomqtt"],
