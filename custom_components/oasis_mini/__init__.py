@@ -41,7 +41,7 @@ PLATFORMS = [
 def setup_platform_from_coordinator(
     entry: OasisDeviceConfigEntry,
     async_add_entities: AddEntitiesCallback,
-    make_entities: Callable[[OasisDevice], Iterable[OasisDeviceEntity]],
+    make_entities: Callable[[list[OasisDevice]], Iterable[OasisDeviceEntity]],
     update_before_add: bool = False,
 ) -> None:
     """
@@ -103,7 +103,11 @@ async def async_setup_entry(hass: HomeAssistant, entry: OasisDeviceConfigEntry) 
     try:
         user = await cloud_client.async_get_user()
     except UnauthenticatedError as err:
+        await cloud_client.async_close()
         raise ConfigEntryAuthFailed(err) from err
+    except Exception:
+        await cloud_client.async_close()
+        raise
 
     mqtt_client = OasisMqttClient()
     mqtt_client.start()

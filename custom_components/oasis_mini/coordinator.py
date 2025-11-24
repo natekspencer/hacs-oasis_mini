@@ -125,7 +125,7 @@ class OasisDeviceCoordinator(DataUpdateCoordinator[list[OasisDevice]]):
                 for device in devices:
                     try:
                         ready = await self.mqtt_client.wait_until_ready(
-                            device, timeout=3, request_status=True
+                            device, request_status=True
                         )
                         if not ready:
                             _LOGGER.warning(
