@@ -16,15 +16,15 @@ except (FileNotFoundError, json.JSONDecodeError, OSError):
     TRACKS = {}
 
 AUTOPLAY_MAP: Final[dict[str, str]] = {
-    "0": "on",
-    "1": "off",
-    "2": "5 minutes",
-    "3": "10 minutes",
-    "4": "30 minutes",
-    "6": "1 hour",
-    "7": "6 hours",
-    "8": "12 hours",
-    "5": "24 hours",
+    "1": "Off",  # display off (disabled) first
+    "0": "Immediately",
+    "2": "After 5 minutes",
+    "3": "After 10 minutes",
+    "4": "After 30 minutes",
+    "6": "After 1 hour",
+    "7": "After 6 hours",
+    "8": "After 12 hours",
+    "5": "After 24 hours",  # purposefully placed so time is incrementally displayed
 }
 
 ERROR_CODE_MAP: Final[dict[int, str]] = {
