@@ -30,7 +30,7 @@ async def async_setup_entry(
 ) -> None:
     """
     Create and add button entities for each Oasis device defined in the config entry.
-    
+
     Parameters:
         entry (OasisDeviceConfigEntry): Config entry containing runtime data and registered Oasis devices.
         async_add_entities (AddEntitiesCallback): Callback used to register the created entities with Home Assistant.
@@ -39,10 +39,10 @@ async def async_setup_entry(
     def make_entities(new_devices: list[OasisDevice]):
         """
         Create button entities for each provided Oasis device using the module descriptors.
-        
+
         Parameters:
             new_devices (list[OasisDevice]): Devices to create button entities for.
-        
+
         Returns:
             list[OasisDeviceButtonEntity]: Button entity instances created for each device and each descriptor in DESCRIPTORS.
         """
@@ -58,12 +58,12 @@ async def async_setup_entry(
 async def play_random_track(device: OasisDevice) -> None:
     """
     Play a random track on the given Oasis device.
-    
+
     Selects a track at random from the available TRACKS and attempts to add it to the device's queue and play it. Raises HomeAssistantError if adding the track times out.
-    
+
     Parameters:
         device: The Oasis device on which to play the track.
-    
+
     Raises:
         HomeAssistantError: If adding the selected track to the device's queue times out.
     """
@@ -109,7 +109,7 @@ class OasisDeviceButtonEntity(OasisDeviceEntity, ButtonEntity):
     async def async_press(self) -> None:
         """
         Trigger the button's configured action on the associated device.
-        
+
         Calls the entity description's `press_fn` with the device to perform the button's effect.
         """
         await self.entity_description.press_fn(self.device)
