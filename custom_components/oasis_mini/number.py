@@ -76,12 +76,12 @@ class OasisDeviceNumberEntity(OasisDeviceEntity, NumberEntity):
     """Oasis device number entity."""
 
     @property
-    def native_value(self) -> str | None:
+    def native_value(self) -> float | None:
         """
         Get the current value of the number entity from the underlying device.
 
         Returns:
-            str | None: The current value as a string, or `None` if the device has no value.
+            float | None: The current value as a float, or `None` if the device has no value.
         """
         return getattr(self.device, self.entity_description.key)
 
