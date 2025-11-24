@@ -6,8 +6,6 @@ import asyncio
 import logging
 from typing import Any
 
-import async_timeout
-
 from homeassistant.const import CONF_ACCESS_TOKEN
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
@@ -44,9 +42,9 @@ async def add_and_play_track(device: OasisDevice, track: int) -> None:
         track (int): The track id to add and play.
 
     Raises:
-        async_timeout.TimeoutError: If the operation does not complete within 10 seconds.
+        TimeoutError: If the operation does not complete within 10 seconds.
     """
-    async with async_timeout.timeout(10):
+    async with asyncio.timeout(10):
         if track not in device.playlist:
             await device.async_add_track_to_playlist(track)
 

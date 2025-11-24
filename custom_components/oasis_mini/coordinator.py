@@ -2,11 +2,10 @@
 
 from __future__ import annotations
 
+import asyncio
 from datetime import datetime, timedelta
 import logging
 from typing import TYPE_CHECKING
-
-import async_timeout
 
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers import device_registry as dr
@@ -68,7 +67,7 @@ class OasisDeviceCoordinator(DataUpdateCoordinator[list[OasisDevice]]):
         self.attempt += 1
 
         try:
-            async with async_timeout.timeout(30):
+            async with asyncio.timeout(30):
                 raw_devices = await self.cloud_client.async_get_devices()
 
                 existing_by_serial = {
