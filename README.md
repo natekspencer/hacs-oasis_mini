@@ -58,7 +58,7 @@ After this integration is set up, you can configure the integration to connect t
 
 # Actions
 
-The media player entity supports various actions, including managing the playlist queue. You can specify a track by its ID or name. If using a track name, it must match an entry in the [tracks list](custom_components/oasis_mini/pyoasismini/tracks.json). To specify multiple tracks, separate them with commas. An example is below:
+The media player entity supports various actions, including managing the playlist queue. You can specify a track by its ID or name. If using a track name, it must match an entry in the [tracks list](custom_components/oasis_mini/pyoasiscontrol/tracks.json). To specify multiple tracks, separate them with commas. An example is below:
 
 ```yaml
 action: media_player.play_media
