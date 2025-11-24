@@ -21,9 +21,9 @@ async def async_setup_entry(
 ) -> None:
     """
     Set up Oasis device switch entities for a config entry.
-    
+
     Creates an OasisDeviceSwitchEntity for each OasisDevice associated with the given config entry (one entity per descriptor in DESCRIPTORS) and registers them with Home Assistant via the coordinator helper.
-    
+
     Parameters:
         hass: Home Assistant core instance.
         entry: OasisDeviceConfigEntry containing runtime data and the devices to expose as switch entities.
@@ -33,10 +33,10 @@ async def async_setup_entry(
     def make_entities(new_devices: list[OasisDevice]):
         """
         Create OasisDeviceSwitchEntity instances for each device and descriptor.
-        
+
         Parameters:
             new_devices (list[OasisDevice]): Devices to wrap as switch entities.
-        
+
         Returns:
             list[OasisDeviceSwitchEntity]: A list containing one switch entity per device per descriptor from DESCRIPTORS.
         """
@@ -49,13 +49,13 @@ async def async_setup_entry(
     setup_platform_from_coordinator(entry, async_add_entities, make_entities)
 
 
-DESCRIPTORS = {
+DESCRIPTORS = (
     SwitchEntityDescription(
         key="auto_clean",
         translation_key="auto_clean",
         entity_category=EntityCategory.CONFIG,
     ),
-}
+)
 
 
 class OasisDeviceSwitchEntity(OasisDeviceEntity, SwitchEntity):
@@ -65,7 +65,7 @@ class OasisDeviceSwitchEntity(OasisDeviceEntity, SwitchEntity):
     def is_on(self) -> bool:
         """
         Determine whether the switch entity is currently on.
-        
+
         Returns:
             bool: `True` if the underlying device attribute named by this entity's description key is truthy, `False` otherwise.
         """
@@ -74,7 +74,7 @@ class OasisDeviceSwitchEntity(OasisDeviceEntity, SwitchEntity):
     async def async_turn_off(self, **kwargs: Any) -> None:
         """
         Disable the device's automatic cleaning mode.
-        
+
         Sets the device's auto_clean setting to off.
         """
         await self.device.async_set_auto_clean(False)

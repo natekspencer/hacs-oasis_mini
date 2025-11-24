@@ -23,9 +23,9 @@ async def async_setup_entry(
 ) -> None:
     """
     Set up Oasis device binary sensor entities for a config entry.
-    
+
     Registers a factory that creates an OasisDeviceBinarySensorEntity for each device and descriptor defined in DESCRIPTORS, and forwards those entities to Home Assistant via the provided add-entities callback.
-    
+
     Parameters:
         entry (OasisDeviceConfigEntry): Configuration entry for the Oasis integration containing runtime data and coordinator used to create entities.
     """
@@ -33,10 +33,10 @@ async def async_setup_entry(
     def make_entities(new_devices: list[OasisDevice]):
         """
         Create binary sensor entity instances for each provided Oasis device using the module's descriptors.
-        
+
         Parameters:
             new_devices (list[OasisDevice]): Devices to generate entities for.
-        
+
         Returns:
             list[OasisDeviceBinarySensorEntity]: A list of binary sensor entities pairing each device with every descriptor in DESCRIPTORS.
         """
@@ -49,7 +49,7 @@ async def async_setup_entry(
     setup_platform_from_coordinator(entry, async_add_entities, make_entities)
 
 
-DESCRIPTORS = {
+DESCRIPTORS = (
     BinarySensorEntityDescription(
         key="busy",
         translation_key="busy",
@@ -63,7 +63,7 @@ DESCRIPTORS = {
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
     ),
-}
+)
 
 
 class OasisDeviceBinarySensorEntity(OasisDeviceEntity, BinarySensorEntity):
@@ -73,7 +73,7 @@ class OasisDeviceBinarySensorEntity(OasisDeviceEntity, BinarySensorEntity):
     def is_on(self) -> bool:
         """
         Indicates whether the binary sensor is currently active.
-        
+
         Returns:
             bool: True if the sensor is on, False otherwise.
         """

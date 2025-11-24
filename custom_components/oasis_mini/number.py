@@ -29,17 +29,17 @@ async def async_setup_entry(
 ) -> None:
     """
     Set up number entities for Oasis devices from a configuration entry.
-    
+
     Creates number entities for each discovered Oasis device and each descriptor in DESCRIPTORS, then registers those entities with the platform coordinator so they are added to Home Assistant.
     """
 
     def make_entities(new_devices: list[OasisDevice]):
         """
         Create number entity instances for each provided Oasis device using the module's DESCRIPTORS.
-        
+
         Parameters:
             new_devices (list[OasisDevice]): Devices to create entities for.
-        
+
         Returns:
             list[OasisDeviceNumberEntity]: A flat list of number entities (one per descriptor for each device).
         """
@@ -52,7 +52,7 @@ async def async_setup_entry(
     setup_platform_from_coordinator(entry, async_add_entities, make_entities)
 
 
-DESCRIPTORS = {
+DESCRIPTORS = (
     NumberEntityDescription(
         key="ball_speed",
         translation_key="ball_speed",
@@ -69,7 +69,7 @@ DESCRIPTORS = {
         native_max_value=LED_SPEED_MAX,
         native_min_value=LED_SPEED_MIN,
     ),
-}
+)
 
 
 class OasisDeviceNumberEntity(OasisDeviceEntity, NumberEntity):
@@ -79,7 +79,7 @@ class OasisDeviceNumberEntity(OasisDeviceEntity, NumberEntity):
     def native_value(self) -> str | None:
         """
         Get the current value of the number entity from the underlying device.
-        
+
         Returns:
             str | None: The current value as a string, or `None` if the device has no value.
         """
@@ -88,9 +88,9 @@ class OasisDeviceNumberEntity(OasisDeviceEntity, NumberEntity):
     async def async_set_native_value(self, value: float) -> None:
         """
         Set the configured numeric value on the underlying Oasis device.
-        
+
         The provided value is converted to an integer and applied to the device property indicated by this entity's description key: if the key is "ball_speed" the device's ball speed is updated; if the key is "led_speed" the device's LED speed is updated.
-        
+
         Parameters:
             value (float): New numeric value to apply; will be converted to an integer.
         """

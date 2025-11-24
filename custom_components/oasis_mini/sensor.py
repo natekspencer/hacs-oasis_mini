@@ -23,9 +23,9 @@ async def async_setup_entry(
 ) -> None:
     """
     Set up and register sensor entities for each Oasis device in the config entry.
-    
+
     Creates sensor entities for every Oasis device available on the provided config entry and adds them to Home Assistant via the provided add-entities callback.
-    
+
     Parameters:
         hass (HomeAssistant): Home Assistant core object.
         entry (OasisDeviceConfigEntry): Configuration entry containing runtime data and devices to expose.
@@ -35,10 +35,10 @@ async def async_setup_entry(
     def make_entities(new_devices: list[OasisDevice]):
         """
         Create sensor entity instances for each Oasis device and each sensor descriptor.
-        
+
         Parameters:
             new_devices (list[OasisDevice]): Devices to create sensor entities for.
-        
+
         Returns:
             list[OasisDeviceSensorEntity]: A list containing one sensor entity per combination of device and descriptor from DESCRIPTORS.
         """
@@ -51,7 +51,7 @@ async def async_setup_entry(
     setup_platform_from_coordinator(entry, async_add_entities, make_entities)
 
 
-DESCRIPTORS = {
+DESCRIPTORS = [
     SensorEntityDescription(
         key="download_progress",
         translation_key="download_progress",
@@ -68,7 +68,8 @@ DESCRIPTORS = {
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=1,
     ),
-} | {
+]
+DESCRIPTORS.extend(
     SensorEntityDescription(
         key=key,
         translation_key=key,
@@ -77,7 +78,7 @@ DESCRIPTORS = {
     )
     for key in ("error", "led_color_id", "status")
     # for key in ("error_message", "led_color_id", "status")
-}
+)
 
 
 class OasisDeviceSensorEntity(OasisDeviceEntity, SensorEntity):
@@ -87,7 +88,7 @@ class OasisDeviceSensorEntity(OasisDeviceEntity, SensorEntity):
     def native_value(self) -> str | None:
         """
         Provide the current sensor value from the underlying device.
-        
+
         Returns:
             `str` with the sensor's current value, or `None` if the attribute is not present or has no value. The value is taken from the device attribute named by the entity description's `key`.
         """
