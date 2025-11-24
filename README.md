@@ -10,9 +10,9 @@
   <img alt="Oasis Mini logo" src="https://brands.home-assistant.io/oasis_mini/logo.png">
 </picture>
 
-# Oasis Mini for Home Assistant
+# Oasis Control for Home Assistant
 
-Home Assistant integration for Oasis Mini kinetic sand art devices.
+Home Assistant integration for Oasis kinetic sand art devices.
 
 # Installation
 
@@ -43,13 +43,13 @@ While the manual installation above seems like less steps, it's important to not
 
 [![Open your Home Assistant instance and start setting up a new integration.](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=oasis_mini)
 
-There is a config flow for this Oasis Mini integration. After installing the custom component, use the convenient My Home Assistant link above.
+There is a config flow for this Oasis Control integration. After installing the custom component, use the convenient My Home Assistant link above.
 
 Alternatively:
 
 1. Go to **Configuration**->**Integrations**
 2. Click **+ ADD INTEGRATION** to setup a new integration
-3. Search for **Oasis Mini** and click on it
+3. Search for **Oasis Control** and click on it
 4. You will be guided through the rest of the setup process via the config flow
 
 # Options
@@ -58,7 +58,7 @@ After this integration is set up, you can configure the integration to connect t
 
 # Actions
 
-The media player entity supports various actions, including managing the playlist queue. You can specify a track by its ID or name. If using a track name, it must match an entry in the [tracks list](custom_components/oasis_mini/pyoasismini/tracks.json). To specify multiple tracks, separate them with commas. An example is below:
+The media player entity supports various actions, including managing the playlist queue. You can specify a track by its ID or name. If using a track name, it must match an entry in the [tracks list](custom_components/oasis_mini/pyoasiscontrol/tracks.json). To specify multiple tracks, separate them with commas. An example is below:
 
 ```yaml
 action: media_player.play_media
@@ -76,6 +76,6 @@ data:
 
 I'm not employed by Kinetic Oasis, and provide this custom component purely for your own enjoyment and home automation needs.
 
-If you already own an Oasis Mini, found this integration useful and want to donate, consider [sponsoring me on GitHub](https://github.com/sponsors/natekspencer) or buying me a coffee ☕ (or beer 🍺) instead by using the link below:
+If you already own an Oasis device, found this integration useful and want to donate, consider [sponsoring me on GitHub](https://github.com/sponsors/natekspencer) or buying me a coffee ☕ (or beer 🍺) instead by using the link below:
 
 <a href='https://ko-fi.com/Y8Y57F59S' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://storage.ko-fi.com/cdn/kofi1.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>

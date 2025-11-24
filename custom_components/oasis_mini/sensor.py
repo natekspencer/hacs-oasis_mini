@@ -1,4 +1,4 @@
-"""Oasis Mini sensor entity."""
+"""Oasis device sensor entity."""
 
 from __future__ import annotations
 
@@ -11,30 +11,47 @@ from homeassistant.const import PERCENTAGE, EntityCategory
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
-from . import OasisMiniConfigEntry
-from .coordinator import OasisMiniCoordinator
-from .entity import OasisMiniEntity
+from . import OasisDeviceConfigEntry, setup_platform_from_coordinator
+from .entity import OasisDeviceEntity
+from .pyoasiscontrol import OasisDevice
 
 
 async def async_setup_entry(
-    hass: HomeAssistant,
-    entry: OasisMiniConfigEntry,
+    hass: HomeAssistant,  # noqa: ARG001
+    entry: OasisDeviceConfigEntry,
     async_add_entities: AddEntitiesCallback,
 ) -> None:
-    """Set up Oasis Mini sensors using config entry."""
-    coordinator: OasisMiniCoordinator = entry.runtime_data
-    entities = [
-        OasisMiniSensorEntity(coordinator, descriptor) for descriptor in DESCRIPTORS
-    ]
-    if coordinator.device.access_token:
-        entities.extend(
-            OasisMiniSensorEntity(coordinator, descriptor)
-            for descriptor in CLOUD_DESCRIPTORS
-        )
-    async_add_entities(entities)
+    """
+    Set up and register sensor entities for each Oasis device in the config entry.
+
+    Creates sensor entities for every Oasis device available on the provided config entry and adds them to Home Assistant via the provided add-entities callback.
+
+    Parameters:
+        hass (HomeAssistant): Home Assistant core object.
+        entry (OasisDeviceConfigEntry): Configuration entry containing runtime data and devices to expose.
+        async_add_entities (AddEntitiesCallback): Callback to add created entities to Home Assistant.
+    """
+
+    def make_entities(new_devices: list[OasisDevice]):
+        """
+        Create sensor entity instances for each Oasis device and each sensor descriptor.
+
+        Parameters:
+            new_devices (list[OasisDevice]): Devices to create sensor entities for.
+
+        Returns:
+            list[OasisDeviceSensorEntity]: A list containing one sensor entity per combination of device and descriptor from DESCRIPTORS.
+        """
+        return [
+            OasisDeviceSensorEntity(entry.runtime_data, device, descriptor)
+            for device in new_devices
+            for descriptor in DESCRIPTORS
+        ]
+
+    setup_platform_from_coordinator(entry, async_add_entities, make_entities)
 
 
-DESCRIPTORS = {
+DESCRIPTORS = [
     SensorEntityDescription(
         key="download_progress",
         translation_key="download_progress",
@@ -43,17 +60,6 @@ DESCRIPTORS = {
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
     ),
-} | {
-    SensorEntityDescription(
-        key=key,
-        translation_key=key,
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
-    )
-    for key in ("error", "led_color_id", "status")
-}
-
-CLOUD_DESCRIPTORS = (
     SensorEntityDescription(
         key="drawing_progress",
         translation_key="drawing_progress",
@@ -62,13 +68,27 @@ CLOUD_DESCRIPTORS = (
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=1,
     ),
+]
+DESCRIPTORS.extend(
+    SensorEntityDescription(
+        key=key,
+        translation_key=key,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    )
+    for key in ("error", "led_color_id", "status")
 )
 
 
-class OasisMiniSensorEntity(OasisMiniEntity, SensorEntity):
-    """Oasis Mini sensor entity."""
+class OasisDeviceSensorEntity(OasisDeviceEntity, SensorEntity):
+    """Oasis device sensor entity."""
 
     @property
     def native_value(self) -> str | None:
-        """Return the value reported by the sensor."""
+        """
+        Provide the current sensor value from the underlying device.
+
+        Returns:
+            `str` with the sensor's current value, or `None` if the attribute is not present or has no value. The value is taken from the device attribute named by the entity description's `key`.
+        """
         return getattr(self.device, self.entity_description.key)

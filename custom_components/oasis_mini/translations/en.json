@@ -3,24 +3,29 @@
     "step": {
       "user": {
         "data": {
-          "host": "Host"
+          "email": "Email",
+          "password": "Password"
         }
       },
       "reconfigure": {
         "data": {
-          "host": "Host"
+          "email": "Email",
+          "password": "Password"
         }
       }
     },
     "error": {
       "cannot_connect": "Failed to connect",
+      "invalid_auth": "Invalid authentication",
       "invalid_host": "Invalid hostname or IP address",
       "timeout_connect": "Timeout establishing connection",
       "unknown": "Unexpected error"
     },
     "abort": {
-      "already_configured": "Device is already configured",
-      "reconfigure_successful": "Re-configuration was successful"
+      "already_configured": "Account is already configured",
+      "reauth_successful": "Re-authentication was successful",
+      "reconfigure_successful": "Re-configuration was successful",
+      "wrong_account": "Account used for the integration should not change"
     }
   },
   "options": {
@@ -69,7 +74,18 @@
     },
     "select": {
       "autoplay": {
-        "name": "Autoplay"
+        "name": "Autoplay",
+        "state": {
+          "1": "Off",
+          "0": "Immediately",
+          "2": "After 5 minutes",
+          "3": "After 10 minutes",
+          "4": "After 30 minutes",
+          "6": "After 1 hour",
+          "7": "After 6 hours",
+          "8": "After 12 hours",
+          "5": "After 24 hours"
+        }
       },
       "playlist": {
         "name": "Playlist"
@@ -127,6 +143,11 @@
           "busy": "Busy",
           "live": "Live drawing"
         }
+      }
+    },
+    "switch": {
+      "auto_clean": {
+        "name": "Auto-clean"
       }
     }
   },

@@ -1,4 +1,4 @@
-"""Oasis Mini light entity."""
+"""Oasis device light entity."""
 
 from __future__ import annotations
 
@@ -23,20 +23,54 @@ from homeassistant.util.color import (
     value_to_brightness,
 )
 
-from . import OasisMiniConfigEntry
-from .entity import OasisMiniEntity
-from .pyoasismini import LED_EFFECTS
+from . import OasisDeviceConfigEntry, setup_platform_from_coordinator
+from .entity import OasisDeviceEntity
+from .pyoasiscontrol import OasisDevice
+from .pyoasiscontrol.const import LED_EFFECTS
 
 
-class OasisMiniLightEntity(OasisMiniEntity, LightEntity):
-    """Oasis Mini light entity."""
+async def async_setup_entry(
+    hass: HomeAssistant,  # noqa: ARG001
+    entry: OasisDeviceConfigEntry,
+    async_add_entities: AddEntitiesCallback,
+) -> None:
+    """Set up Oasis device lights using config entry."""
+
+    def make_entities(new_devices: list[OasisDevice]):
+        """
+        Create OasisDeviceLightEntity instances for each provided Oasis device.
+
+        Parameters:
+            new_devices (list[OasisDevice]): Devices to wrap as light entities.
+
+        Returns:
+            list[OasisDeviceLightEntity]: A list of light entity instances corresponding to the input devices.
+        """
+        return [
+            OasisDeviceLightEntity(entry.runtime_data, device, DESCRIPTOR)
+            for device in new_devices
+        ]
+
+    setup_platform_from_coordinator(entry, async_add_entities, make_entities)
+
+
+DESCRIPTOR = LightEntityDescription(key="led", translation_key="led")
+
+
+class OasisDeviceLightEntity(OasisDeviceEntity, LightEntity):
+    """Oasis device light entity."""
 
     _attr_supported_features = LightEntityFeature.EFFECT
 
     @property
     def brightness(self) -> int:
-        """Return the brightness of this light between 0..255."""
-        scale = (1, self.device.max_brightness)
+        """
+        Get the light's brightness on a 0-255 scale.
+
+        Returns:
+            int: Brightness value between 0 and 255.
+        """
+        scale = (1, self.device.brightness_max)
         return value_to_brightness(scale, self.device.brightness)
 
     @property
@@ -82,15 +116,31 @@ class OasisMiniLightEntity(OasisMiniEntity, LightEntity):
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn the entity off."""
         await self.device.async_set_led(brightness=0)
-        await self.coordinator.async_request_refresh()
 
     async def async_turn_on(self, **kwargs: Any) -> None:
-        """Turn the entity on."""
+        """
+        Turn the light on and set its LED state.
+
+        Processes optional keyword arguments to compute the device-specific LED parameters, then updates the device's LEDs with the resulting brightness, color, and effect.
+
+        Parameters:
+            kwargs: Optional control parameters recognized by the method:
+                ATTR_BRIGHTNESS (int): Brightness in the 0-255 Home Assistant scale. When provided,
+                    it is converted and rounded up to the device's brightness scale (1..device.brightness_max).
+                    When omitted, uses self.device.brightness or self.device.brightness_on.
+                ATTR_RGB_COLOR (tuple[int, int, int]): RGB tuple (R, G, B). When provided, it is
+                    converted to a hex color string prefixed with '#'.
+                ATTR_EFFECT (str): Human-readable effect name. When provided, it is mapped to the
+                    device's internal effect key; if no mapping exists, `None` is used.
+
+        Side effects:
+            Updates the underlying device LED state with the computed `brightness`, `color`, and `led_effect`.
+        """
         if brightness := kwargs.get(ATTR_BRIGHTNESS):
-            scale = (1, self.device.max_brightness)
+            scale = (1, self.device.brightness_max)
             brightness = math.ceil(brightness_to_value(scale, brightness))
         else:
-            brightness = self.device.brightness or 100
+            brightness = self.device.brightness or self.device.brightness_on
 
         if color := kwargs.get(ATTR_RGB_COLOR):
             color = f"#{color_rgb_to_hex(*color)}"
@@ -103,16 +153,3 @@ class OasisMiniLightEntity(OasisMiniEntity, LightEntity):
         await self.device.async_set_led(
             brightness=brightness, color=color, led_effect=led_effect
         )
-        await self.coordinator.async_request_refresh()
-
-
-DESCRIPTOR = LightEntityDescription(key="led", translation_key="led")
-
-
-async def async_setup_entry(
-    hass: HomeAssistant,
-    entry: OasisMiniConfigEntry,
-    async_add_entities: AddEntitiesCallback,
-) -> None:
-    """Set up Oasis Mini lights using config entry."""
-    async_add_entities([OasisMiniLightEntity(entry.runtime_data, DESCRIPTOR)])

@@ -5,6 +5,7 @@ PyTurboJPEG
 
 # Integration
 aiohttp # should already be installed with Home Assistant
+aiomqtt # asyncio MQTT client
 cryptography # should already be installed with Home Assistant
 
 # Development

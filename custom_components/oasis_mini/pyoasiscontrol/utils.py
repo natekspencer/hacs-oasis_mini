@@ -1,4 +1,4 @@
-"""Oasis Mini utils."""
+"""Oasis control utils."""
 
 from __future__ import annotations
 
@@ -6,6 +6,7 @@ import base64
 from datetime import UTC, datetime
 import logging
 import math
+from typing import Any
 from xml.etree.ElementTree import Element, SubElement, tostring
 
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
@@ -27,16 +28,35 @@ def _bit_to_bool(val: str) -> bool:
     return val == "1"
 
 
-def _parse_int(val: str) -> int:
-    """Convert an int string to int."""
+def _parse_int(val: Any | None) -> int:
+    """
+    Parse a string into an integer, falling back to 0 when conversion fails.
+
+    Parameters:
+        val (Any | None): String potentially containing an integer value.
+
+    Returns:
+        int: The parsed integer, or 0 if `val` cannot be converted.
+    """
     try:
         return int(val)
-    except Exception:
+    except (TypeError, ValueError):
         return 0
 
 
-def draw_svg(track: dict, progress: int, model_id: str) -> str | None:
-    """Draw SVG."""
+def create_svg(track: dict, progress: int) -> str | None:
+    """
+    Create an SVG visualization of a track showing progress as a completed path and indicator.
+
+    Builds an SVG representation from the track's "svg_content" and the provided progress value. If progress is supplied, the function will decrypt the stored SVG content (if needed), compute which path segments are complete using the track's optional "reduced_svg_content_new" value or the number of path segments, and render a base arc, completed arc, track, completed track segment, background circle, and a ball indicator positioned at the current progress point. Returns None if input is missing or an error occurs.
+
+    Parameters:
+        track (dict): Track data containing at minimum an "svg_content" entry and optionally "reduced_svg_content_new" to indicate total segments.
+        progress (int): Current progress expressed as a count relative to the track's total segments.
+
+    Returns:
+        str | None: Serialized SVG markup as a UTF-8 string when successful, otherwise `None`.
+    """
     if track and (svg_content := track.get("svg_content")):
         try:
             if progress is not None:
@@ -150,8 +170,8 @@ def draw_svg(track: dict, progress: int, model_id: str) -> str | None:
                 )
 
                 return tostring(svg).decode()
-        except Exception as e:
-            _LOGGER.exception(e)
+        except Exception:
+            _LOGGER.exception("Error creating svg")
     return None
 
 
