@@ -74,7 +74,7 @@ def setup_platform_from_coordinator(
 
         for device in devices:
             serial = device.serial_number
-            if not serial or serial in known_serials:
+            if not device.is_initialized or not serial or serial in known_serials:
                 continue
 
             known_serials.add(serial)

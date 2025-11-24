@@ -129,29 +129,18 @@ class OasisDeviceCoordinator(DataUpdateCoordinator[list[OasisDevice]]):
                 except Exception:
                     _LOGGER.exception("Error fetching playlists from cloud")
 
-                any_success = False
-
                 for device in devices:
                     try:
                         ready = await self.mqtt_client.wait_until_ready(
                             device, request_status=True
                         )
                         if not ready:
-                            _LOGGER.warning(
-                                "Timeout waiting for Oasis device %s to be ready",
+                            _LOGGER.debug(
+                                "Oasis device %s not ready yet; will retry on next update",
                                 device.serial_number,
                             )
                             continue
 
-                        mac = await device.async_get_mac_address()
-                        if not mac:
-                            _LOGGER.warning(
-                                "Could not get MAC address for Oasis device %s",
-                                device.serial_number,
-                            )
-                            continue
-
-                        any_success = True
                         device.schedule_track_refresh()
 
                     except Exception:
@@ -159,17 +148,7 @@ class OasisDeviceCoordinator(DataUpdateCoordinator[list[OasisDevice]]):
                             "Error preparing Oasis device %s", device.serial_number
                         )
 
-                if any_success:
-                    self.attempt = 0
-                else:
-                    if self.attempt > 2 or not self.data:
-                        raise UpdateFailed(
-                            "Couldn't read from any Oasis device "
-                            f"after {self.attempt} attempts"
-                        )
-
-        except UpdateFailed:
-            raise
+                self.attempt = 0
         except Exception as ex:
             if self.attempt > 2 or not (devices or self.data):
                 raise UpdateFailed(
