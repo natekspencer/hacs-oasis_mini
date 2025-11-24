@@ -23,6 +23,16 @@ from .const import DOMAIN
 from .entity import OasisDeviceEntity
 from .helpers import get_track_id
 from .pyoasiscontrol import OasisDevice
+from .pyoasiscontrol.const import (
+    STATUS_CENTERING,
+    STATUS_DOWNLOADING,
+    STATUS_ERROR,
+    STATUS_LIVE,
+    STATUS_PAUSED,
+    STATUS_PLAYING,
+    STATUS_STOPPED,
+    STATUS_UPDATING,
+)
 
 
 async def async_setup_entry(
@@ -130,17 +140,17 @@ class OasisDeviceMediaPlayerEntity(OasisDeviceEntity, MediaPlayerEntity):
     def state(self) -> MediaPlayerState:
         """State of the player."""
         status_code = self.device.status_code
-        if self.device.error or status_code in (9, 11):
+        if self.device.error or status_code in (STATUS_ERROR, STATUS_UPDATING):
             return MediaPlayerState.OFF
-        if status_code == 2:
+        if status_code == STATUS_STOPPED:
             return MediaPlayerState.IDLE
-        if status_code in (3, 13):
+        if status_code in (STATUS_CENTERING, STATUS_DOWNLOADING):
             return MediaPlayerState.BUFFERING
-        if status_code == 4:
+        if status_code == STATUS_PLAYING:
             return MediaPlayerState.PLAYING
-        if status_code == 5:
+        if status_code == STATUS_PAUSED:
             return MediaPlayerState.PAUSED
-        if status_code == 15:
+        if status_code == STATUS_LIVE:
             return MediaPlayerState.ON
         return MediaPlayerState.IDLE
 

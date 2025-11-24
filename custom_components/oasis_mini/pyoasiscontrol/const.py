@@ -12,7 +12,7 @@ try:
         TRACKS: Final[dict[int, dict[str, Any]]] = {
             int(k): v for k, v in json.load(file).items()
         }
-except Exception:  # ignore: broad-except
+except (FileNotFoundError, json.JSONDecodeError, OSError):
     TRACKS = {}
 
 AUTOPLAY_MAP: Final[dict[str, str]] = {
@@ -94,18 +94,28 @@ LED_EFFECTS: Final[dict[str, str]] = {
     "41": "Color Comets",
 }
 
-STATUS_PLAYING: Final = 4
-STATUS_SLEEPING: Final = 6
+STATUS_BOOTING: Final[int] = 0
+STATUS_STOPPED: Final[int] = 2
+STATUS_CENTERING: Final[int] = 3
+STATUS_PLAYING: Final[int] = 4
+STATUS_PAUSED: Final[int] = 5
+STATUS_SLEEPING: Final[int] = 6
+STATUS_ERROR: Final[int] = 9
+STATUS_UPDATING: Final[int] = 11
+STATUS_DOWNLOADING: Final[int] = 13
+STATUS_BUSY: Final[int] = 14
+STATUS_LIVE: Final[int] = 15
+
 STATUS_CODE_MAP: Final[dict[int, str]] = {
-    0: "booting",
-    2: "stopped",
-    3: "centering",
+    STATUS_BOOTING: "booting",
+    STATUS_STOPPED: "stopped",
+    STATUS_CENTERING: "centering",
     STATUS_PLAYING: "playing",
-    5: "paused",
+    STATUS_PAUSED: "paused",
     STATUS_SLEEPING: "sleeping",
-    9: "error",
-    11: "updating",
-    13: "downloading",
-    14: "busy",
-    15: "live",
+    STATUS_ERROR: "error",
+    STATUS_UPDATING: "updating",
+    STATUS_DOWNLOADING: "downloading",
+    STATUS_BUSY: "busy",
+    STATUS_LIVE: "live",
 }

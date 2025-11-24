@@ -18,6 +18,7 @@ from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from . import OasisDeviceConfigEntry, setup_platform_from_coordinator
 from .entity import OasisDeviceEntity
 from .pyoasiscontrol import OasisDevice
+from .pyoasiscontrol.const import STATUS_UPDATING
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -71,7 +72,7 @@ class OasisDeviceUpdateEntity(OasisDeviceEntity, UpdateEntity):
     @property
     def in_progress(self) -> bool | int:
         """Update installation progress."""
-        if self.device.status_code == 11:
+        if self.device.status_code == STATUS_UPDATING:
             return self.device.download_progress
         return False
 
