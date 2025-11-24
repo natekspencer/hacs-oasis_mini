@@ -617,6 +617,9 @@ class OasisMqttClient(OasisClientProtocol):
             return
 
         while not self._command_queue.empty():
+            if not self._client:
+                break
+
             try:
                 serial, payload = self._command_queue.get_nowait()
             except asyncio.QueueEmpty:
@@ -645,8 +648,6 @@ class OasisMqttClient(OasisClientProtocol):
             finally:
                 # Ensure we always balance the get(), even on cancellation
                 self._command_queue.task_done()
-                if not self._client:
-                    break
 
     async def _publish_command(
         self, device: OasisDevice, payload: str, wake: bool = False

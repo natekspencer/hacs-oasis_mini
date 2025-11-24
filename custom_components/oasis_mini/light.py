@@ -129,7 +129,7 @@ class OasisDeviceLightEntity(OasisDeviceEntity, LightEntity):
             kwargs: Optional control parameters recognized by the method:
                 ATTR_BRIGHTNESS (int): Brightness in the 0-255 Home Assistant scale. When provided,
                     it is converted and rounded up to the device's brightness scale (1..device.brightness_max).
-                    When omitted, uses self.device.brightness_on (last non‑zero brightness).
+                    When omitted, uses self.device.brightness_on (last non-zero brightness).
                 ATTR_RGB_COLOR (tuple[int, int, int]): RGB tuple (R, G, B). When provided, it is
                     converted to a hex color string prefixed with '#'.
                 ATTR_EFFECT (str): Human-readable effect name. When provided, it is mapped to the
