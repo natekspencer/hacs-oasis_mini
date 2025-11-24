@@ -18,7 +18,7 @@ from .const import DOMAIN
 from .coordinator import OasisDeviceCoordinator
 from .entity import OasisDeviceEntity
 from .helpers import create_client
-from .pyoasiscontrol import OasisDevice, OasisMqttClient, UnauthenticatedError
+from .pyoasiscontrol import OasisDevice, UnauthenticatedError
 
 type OasisDeviceConfigEntry = ConfigEntry[OasisDeviceCoordinator]
 
@@ -94,7 +94,9 @@ def setup_platform_from_coordinator(
 
 async def async_setup_entry(hass: HomeAssistant, entry: OasisDeviceConfigEntry) -> bool:
     """
-    Initialize Oasis cloud and MQTT integration for a config entry, create and refresh the device coordinator, register update listeners for discovered devices, forward platform setup, and update the entry's metadata as needed.
+    Initialize Oasis cloud for a config entry, create and refresh the device
+    coordinator, register update listeners for discovered devices, forward platform
+    setup, and update the entry's metadata as needed.
 
     Returns:
         True if the config entry was set up successfully.
@@ -109,15 +111,12 @@ async def async_setup_entry(hass: HomeAssistant, entry: OasisDeviceConfigEntry) 
         await cloud_client.async_close()
         raise
 
-    mqtt_client = OasisMqttClient()
-    coordinator = OasisDeviceCoordinator(hass, entry, cloud_client, mqtt_client)
+    coordinator = OasisDeviceCoordinator(hass, entry, cloud_client)
 
     try:
-        mqtt_client.start()
         await coordinator.async_config_entry_first_refresh()
     except Exception:
-        await mqtt_client.async_close()
-        await cloud_client.async_close()
+        await coordinator.async_close()
         raise
 
     if entry.unique_id != (user_id := str(user["id"])):
@@ -151,18 +150,17 @@ async def async_unload_entry(
     """
     Cleanly unload an Oasis device config entry.
 
-    Closes the MQTT and cloud clients stored on the entry and unloads all supported platforms.
+    Unloads all supported platforms and closes the coordinator connections.
 
     Returns:
         `True` if all platforms were unloaded successfully, `False` otherwise.
     """
-    mqtt_client = entry.runtime_data.mqtt_client
-    await mqtt_client.async_close()
-
-    cloud_client = entry.runtime_data.cloud_client
-    await cloud_client.async_close()
-
-    return await hass.config_entries.async_unload_platforms(entry, PLATFORMS)
+    unload_ok = await hass.config_entries.async_unload_platforms(entry, PLATFORMS)
+    try:
+        await entry.runtime_data.async_close()
+    except Exception:
+        _LOGGER.exception("Error closing Oasis coordinator during unload")
+    return unload_ok
 
 
 async def async_remove_entry(

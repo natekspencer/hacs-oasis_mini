@@ -121,13 +121,15 @@ class OasisDeviceLightEntity(OasisDeviceEntity, LightEntity):
         """
         Turn the light on and set its LED state.
 
-        Processes optional keyword arguments to compute the device-specific LED parameters, then updates the device's LEDs with the resulting brightness, color, and effect.
+        Processes optional keyword arguments to compute the device-specific LED
+        parameters, then updates the device's LEDs with the resulting brightness, color,
+        and effect.
 
         Parameters:
             kwargs: Optional control parameters recognized by the method:
                 ATTR_BRIGHTNESS (int): Brightness in the 0-255 Home Assistant scale. When provided,
                     it is converted and rounded up to the device's brightness scale (1..device.brightness_max).
-                    When omitted, uses self.device.brightness or self.device.brightness_on.
+                    When omitted, uses self.device.brightness_on (last non-zero brightness).
                 ATTR_RGB_COLOR (tuple[int, int, int]): RGB tuple (R, G, B). When provided, it is
                     converted to a hex color string prefixed with '#'.
                 ATTR_EFFECT (str): Human-readable effect name. When provided, it is mapped to the
@@ -140,7 +142,7 @@ class OasisDeviceLightEntity(OasisDeviceEntity, LightEntity):
             scale = (1, self.device.brightness_max)
             brightness = math.ceil(brightness_to_value(scale, brightness))
         else:
-            brightness = self.device.brightness or self.device.brightness_on
+            brightness = self.device.brightness_on
 
         if color := kwargs.get(ATTR_RGB_COLOR):
             color = f"#{color_rgb_to_hex(*color)}"
