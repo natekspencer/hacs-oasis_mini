@@ -157,9 +157,9 @@ class OasisDeviceConfigFlow(ConfigFlow, domain=DOMAIN):
                 - `"base": "<http error text>"` when the server returns an HTTP error.
         """
         errors = {}
+        client = create_client(self.hass, user_input)
         try:
             async with asyncio.timeout(10):
-                client = create_client(self.hass, user_input)
                 await client.async_login(
                     email=user_input[CONF_EMAIL], password=user_input[CONF_PASSWORD]
                 )
