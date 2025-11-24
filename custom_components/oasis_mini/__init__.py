@@ -41,7 +41,7 @@ PLATFORMS = [
 def setup_platform_from_coordinator(
     entry: OasisDeviceConfigEntry,
     async_add_entities: AddEntitiesCallback,
-    make_entities: Callable[[list[OasisDevice]], Iterable[OasisDeviceEntity]],
+    make_entities: Callable[[Iterable[OasisDevice]], Iterable[OasisDeviceEntity]],
     update_before_add: bool = False,
 ) -> None:
     """
@@ -110,11 +110,10 @@ async def async_setup_entry(hass: HomeAssistant, entry: OasisDeviceConfigEntry) 
         raise
 
     mqtt_client = OasisMqttClient()
-    mqtt_client.start()
-
     coordinator = OasisDeviceCoordinator(hass, cloud_client, mqtt_client)
 
     try:
+        mqtt_client.start()
         await coordinator.async_config_entry_first_refresh()
     except Exception:
         await mqtt_client.async_close()
@@ -182,7 +181,9 @@ async def async_remove_entry(
     await cloud_client.async_close()
 
 
-async def async_migrate_entry(hass: HomeAssistant, entry: OasisDeviceConfigEntry):
+async def async_migrate_entry(
+    hass: HomeAssistant, entry: OasisDeviceConfigEntry
+) -> bool:
     """
     Migrate an Oasis config entry to the current schema (minor version 3).
 

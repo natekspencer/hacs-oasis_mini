@@ -161,7 +161,7 @@ class OasisDeviceCoordinator(DataUpdateCoordinator[list[OasisDevice]]):
 
         except UpdateFailed:
             raise
-        except Exception as ex:  # noqa: BLE001
+        except Exception as ex:
             if self.attempt > 2 or not (devices or self.data):
                 raise UpdateFailed(
                     "Unexpected error talking to Oasis devices "
