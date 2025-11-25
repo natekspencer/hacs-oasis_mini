@@ -495,6 +495,11 @@ class OasisDevice:
             except Exception:
                 _LOGGER.exception("Error in update listener")
 
+    async def async_get_status(self) -> None:
+        """Request that the device update its current status."""
+        client = self._require_client()
+        await client.async_get_status(self)
+
     async def async_get_mac_address(self) -> str | None:
         """
         Get the device MAC address, requesting it from the attached transport client if not already known.

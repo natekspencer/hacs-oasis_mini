@@ -9,6 +9,7 @@ from typing import TYPE_CHECKING
 
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers import device_registry as dr
+from homeassistant.helpers.dispatcher import async_dispatcher_send
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
 import homeassistant.util.dt as dt_util
 
@@ -51,15 +52,56 @@ class OasisDeviceCoordinator(DataUpdateCoordinator[list[OasisDevice]]):
         self.cloud_client = cloud_client
         self.mqtt_client = OasisMqttClient()
 
+        # Track which devices are currently considered initialized
+        self._initialized_serials: set[str] = set()
+
+    @property
+    def _device_initialized_signal(self) -> str:
+        """Dispatcher signal name for device initialization events."""
+        return f"{DOMAIN}_{self.config_entry.entry_id}_device_initialized"
+
+    def _attach_device_listeners(self, device: OasisDevice) -> None:
+        """Attach a listener so we can fire dispatcher events when a device initializes."""
+
+        def _on_device_update() -> None:
+            serial = device.serial_number
+            if not serial:
+                return
+
+            initialized = device.is_initialized
+            was_initialized = serial in self._initialized_serials
+
+            if initialized and not was_initialized:
+                self._initialized_serials.add(serial)
+                _LOGGER.debug("%s ready for setup; dispatching signal", device.name)
+                async_dispatcher_send(
+                    self.hass, self._device_initialized_signal, device
+                )
+
+            elif not initialized and was_initialized:
+                self._initialized_serials.remove(serial)
+                _LOGGER.debug("Oasis device %s no longer initialized", serial)
+
+            self.last_updated = dt_util.now()
+            self.async_update_listeners()
+
+        device.add_update_listener(_on_device_update)
+
+        # Seed the initialized set if the device is already initialized
+        if device.is_initialized and device.serial_number:
+            self._initialized_serials.add(device.serial_number)
+
     async def _async_update_data(self) -> list[OasisDevice]:
         """
-        Fetch and assemble the current list of OasisDevice objects, reconcile removed devices in Home Assistant, register discovered devices with MQTT, and verify per-device readiness.
+        Fetch and assemble the current list of OasisDevice objects, reconcile removed
+        devices in Home Assistant, register discovered devices with MQTT, and
+        best-effort trigger status updates for uninitialized devices.
 
         Returns:
             A list of OasisDevice instances representing devices currently available for the account.
 
         Raises:
-            UpdateFailed: If no devices can be read after repeated attempts or an unexpected error persists past retry limits.
+            UpdateFailed: If an unexpected error persists past retry limits.
         """
         devices: list[OasisDevice] = []
         self.attempt += 1
@@ -86,15 +128,18 @@ class OasisDeviceCoordinator(DataUpdateCoordinator[list[OasisDevice]]):
                             name=raw.get("name"),
                             cloud=self.cloud_client,
                         )
+                        self._attach_device_listeners(device)
 
                     devices.append(device)
 
+                # Handle devices removed from the account
                 new_serials = {d.serial_number for d in devices if d.serial_number}
                 removed_serials = set(existing_by_serial) - new_serials
 
                 if removed_serials:
                     device_registry = dr.async_get(self.hass)
                     for serial in removed_serials:
+                        self._initialized_serials.discard(serial)
                         _LOGGER.info(
                             "Oasis device %s removed from account; cleaning up in HA",
                             serial,
@@ -119,6 +164,7 @@ class OasisDeviceCoordinator(DataUpdateCoordinator[list[OasisDevice]]):
                         self.last_updated = dt_util.now()
                     return []
 
+                # Ensure MQTT is running and devices are registered
                 if not self.mqtt_client.is_running:
                     self.mqtt_client.start()
                 self.mqtt_client.register_devices(devices)
@@ -129,32 +175,28 @@ class OasisDeviceCoordinator(DataUpdateCoordinator[list[OasisDevice]]):
                 except Exception:
                     _LOGGER.exception("Error fetching playlists from cloud")
 
+                # Best-effort: request status for devices that are not yet initialized
                 for device in devices:
                     try:
-                        ready = await self.mqtt_client.wait_until_ready(
-                            device, request_status=True
-                        )
-                        if not ready:
-                            _LOGGER.debug(
-                                "Oasis device %s not ready yet; will retry on next update",
-                                device.serial_number,
-                            )
-                            continue
-
+                        if not device.is_initialized:
+                            await device.async_get_status()
                         device.schedule_track_refresh()
-
                     except Exception:
                         _LOGGER.exception(
-                            "Error preparing Oasis device %s", device.serial_number
+                            "Error requesting status for Oasis device %s; "
+                            "will retry on future updates",
+                            device.serial_number,
                         )
 
                 self.attempt = 0
+
         except Exception as ex:
             if self.attempt > 2 or not (devices or self.data):
                 raise UpdateFailed(
                     "Unexpected error talking to Oasis devices "
                     f"after {self.attempt} attempts"
                 ) from ex
+
             _LOGGER.warning(
                 "Error updating Oasis devices; reusing previous data", exc_info=ex
             )
