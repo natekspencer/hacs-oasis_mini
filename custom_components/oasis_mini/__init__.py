@@ -10,9 +10,9 @@ from homeassistant.const import CONF_EMAIL, Platform
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.exceptions import ConfigEntryAuthFailed
 from homeassistant.helpers.device_registry import DeviceEntry
+from homeassistant.helpers.dispatcher import async_dispatcher_connect
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 import homeassistant.helpers.entity_registry as er
-import homeassistant.util.dt as dt_util
 
 from .const import DOMAIN
 from .coordinator import OasisDeviceCoordinator
@@ -56,19 +56,12 @@ def setup_platform_from_coordinator(
         update_before_add: If true, entities will be updated before being added.
     """
     coordinator = entry.runtime_data
-
     known_serials: set[str] = set()
+    signal = coordinator._device_initialized_signal
 
     @callback
     def _check_devices() -> None:
-        """
-        Detect newly discovered Oasis devices from the coordinator and register their entities.
-
-        Scans the coordinator's current device list for devices with a serial number that has not
-        been seen before. For any newly discovered devices, creates entity instances via
-        make_entities and adds them to Home Assistant using async_add_entities with the
-        update_before_add flag. Does not return a value.
-        """
+        """Add entities for any initialized devices not yet seen."""
         devices = coordinator.data or []
         new_devices: list[OasisDevice] = []
 
@@ -86,10 +79,32 @@ def setup_platform_from_coordinator(
         if entities := make_entities(new_devices):
             async_add_entities(entities, update_before_add)
 
-    # Initial population
+    @callback
+    def _handle_device_initialized(device: OasisDevice) -> None:
+        """
+        Dispatcher callback for when a single device becomes initialized.
+
+        Adds entities immediately for that device if we haven't seen it yet.
+        """
+        serial = device.serial_number
+        if not serial or serial in known_serials or not device.is_initialized:
+            return
+
+        known_serials.add(serial)
+
+        if entities := make_entities([device]):
+            async_add_entities(entities, update_before_add)
+
+    # Initial population from current coordinator data
     _check_devices()
-    # Future updates (new devices discovered)
+
+    # Future changes: new devices / account re-sync via coordinator
     entry.async_on_unload(coordinator.async_add_listener(_check_devices))
+
+    # Device-level initialization events via dispatcher
+    entry.async_on_unload(
+        async_dispatcher_connect(coordinator.hass, signal, _handle_device_initialized)
+    )
 
 
 async def async_setup_entry(hass: HomeAssistant, entry: OasisDeviceConfigEntry) -> bool:
@@ -126,18 +141,6 @@ async def async_setup_entry(hass: HomeAssistant, entry: OasisDeviceConfigEntry) 
         _LOGGER.warning("No devices associated with account")
 
     entry.runtime_data = coordinator
-
-    def _on_oasis_update() -> None:
-        """
-        Update the coordinator's last-updated timestamp and notify its listeners.
-
-        Sets the coordinator's last_updated to the current time and triggers its update listeners so dependent entities and tasks refresh.
-        """
-        coordinator.last_updated = dt_util.now()
-        coordinator.async_update_listeners()
-
-    for device in coordinator.data or []:
-        device.add_update_listener(_on_oasis_update)
 
     await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
 

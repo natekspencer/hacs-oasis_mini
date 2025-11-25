@@ -215,7 +215,8 @@ class OasisMqttClient(OasisClientProtocol):
         self._subscribed_serials.clear()
         for serial, device in self._devices.items():
             await self._subscribe_serial(serial)
-            await self.async_get_all(device)
+            if not device.is_sleeping:
+                await self.async_get_all(device)
 
     def start(self) -> None:
         """Start MQTT connection loop."""
