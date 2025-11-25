@@ -282,7 +282,11 @@ class OasisDevice:
             )
             return None
 
-        playlist = [_parse_int(track) for track in values[3].split(",") if track]
+        playlist = [
+            track_id
+            for track_str in values[3].split(",")
+            if (track_id := _parse_int(track_str))
+        ]
 
         try:
             status: dict[str, Any] = {
@@ -615,6 +619,10 @@ class OasisDevice:
         """
         client = self._require_client()
         await client.async_send_change_track_command(self, index)
+
+    async def async_clear_playlist(self) -> None:
+        """Clear the playlist."""
+        await self.async_set_playlist([])
 
     async def async_add_track_to_playlist(self, track: int | Iterable[int]) -> None:
         """

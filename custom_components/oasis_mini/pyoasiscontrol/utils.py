@@ -200,5 +200,10 @@ def decrypt_svg_content(svg_content: dict[str, str]):
     return decrypted
 
 
+def get_track_ids_from_playlist(playlist: dict[str, Any]) -> list[int]:
+    """Get a list of track ids from a playlist."""
+    return [track["id"] for track in (playlist.get("patterns") or [])]
+
+
 def now() -> datetime:
     return datetime.now(UTC)

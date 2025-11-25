@@ -157,9 +157,6 @@
     },
     "invalid_media": {
       "message": "Invalid media: {media}"
-    },
-    "playlists_unsupported": {
-      "message": "Playlists are not currently supported"
     }
   }
 }

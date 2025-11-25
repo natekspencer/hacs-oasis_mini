@@ -495,7 +495,7 @@ class OasisMqttClient(OasisClientProtocol):
             playlist (list[int]): Ordered list of track indices to apply as the device's playlist.
         """
         track_str = ",".join(map(str, playlist))
-        payload = f"WRIJOBLIST={track_str}"
+        payload = f"WRIJOBLIST={track_str or '0'}"
         await self._publish_command(device, payload)
 
     async def async_send_set_repeat_playlist_command(
@@ -796,7 +796,11 @@ class OasisMqttClient(OasisClientProtocol):
             elif status_name == "OASIS_SPEEED":
                 data["ball_speed"] = int(payload)
             elif status_name == "JOBLIST":
-                data["playlist"] = [int(x) for x in payload.split(",") if x]
+                data["playlist"] = [
+                    track_id
+                    for track_str in payload.split(",")
+                    if (track_id := _parse_int(track_str))
+                ]
             elif status_name == "CURRENTJOB":
                 data["playlist_index"] = int(payload)
             elif status_name == "CURRENTLINE":
