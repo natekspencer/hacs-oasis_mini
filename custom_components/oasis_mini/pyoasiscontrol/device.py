@@ -496,7 +496,7 @@ class OasisDevice:
                 _LOGGER.exception("Error in update listener")
 
     async def async_get_status(self) -> None:
-        """Request the device update it's current status."""
+        """Request that the device update its current status."""
         client = self._require_client()
         await client.async_get_status(self)
 

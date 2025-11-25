@@ -139,6 +139,7 @@ class OasisDeviceCoordinator(DataUpdateCoordinator[list[OasisDevice]]):
                 if removed_serials:
                     device_registry = dr.async_get(self.hass)
                     for serial in removed_serials:
+                        self._initialized_serials.discard(serial)
                         _LOGGER.info(
                             "Oasis device %s removed from account; cleaning up in HA",
                             serial,
