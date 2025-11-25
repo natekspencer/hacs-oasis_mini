@@ -495,7 +495,7 @@ class OasisMqttClient(OasisClientProtocol):
             playlist (list[int]): Ordered list of track indices to apply as the device's playlist.
         """
         track_str = ",".join(map(str, playlist))
-        payload = f"WRIJOBLIST={track_str or '0'}"
+        payload = f"WRIJOBLIST={track_str}"
         await self._publish_command(device, payload)
 
     async def async_send_set_repeat_playlist_command(

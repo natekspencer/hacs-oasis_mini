@@ -324,8 +324,8 @@ class OasisDeviceMediaPlayerEntity(OasisDeviceEntity, MediaPlayerEntity):
             track_ids = [track_id]
 
         else:
-            track = list(filter(None, map(get_track_id, media_id.split(","))))
-            if not track:
+            track_ids = list(filter(None, map(get_track_id, media_id.split(","))))
+            if not track_ids:
                 raise ServiceValidationError(
                     translation_domain=DOMAIN,
                     translation_key="invalid_media",

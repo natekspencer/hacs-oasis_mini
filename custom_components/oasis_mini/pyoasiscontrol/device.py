@@ -14,7 +14,13 @@ from .const import (
     STATUS_SLEEPING,
     TRACKS,
 )
-from .utils import _bit_to_bool, _parse_int, create_svg, decrypt_svg_content
+from .utils import (
+    _bit_to_bool,
+    _parse_int,
+    create_svg,
+    decrypt_svg_content,
+    get_url_for_image,
+)
 
 if TYPE_CHECKING:  # avoid runtime circular imports
     from .clients import OasisCloudClient
@@ -399,10 +405,10 @@ class OasisDevice:
         Get the full HTTPS URL for the current track's image if available.
 
         Returns:
-            str: Full URL to the track image (https://app.grounded.so/uploads/<image>), or `None` if no image is available.
+            str: Full URL to the track image or `None` if no image is available.
         """
-        if (track := self.track) and (image := track.get("image")):
-            return f"https://app.grounded.so/uploads/{image}"
+        if track := self.track:
+            return get_url_for_image(track.get("image"))
         return None
 
     @property

@@ -17,6 +17,7 @@ from homeassistant.components.media_player import (
 
 from .pyoasiscontrol import OasisCloudClient
 from .pyoasiscontrol.const import TRACKS
+from .pyoasiscontrol.utils import get_track_ids_from_playlist, get_url_for_image
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -77,6 +78,7 @@ async def build_playlists_root(cloud: OasisCloudClient) -> BrowseMedia:
             thumbnail=get_first_image_for_playlist(playlist),
         )
         for playlist in playlists
+        if "id" in playlist
     ]
 
     return BrowseMedia(
@@ -100,14 +102,7 @@ async def build_playlist_item(cloud: OasisCloudClient, playlist_id: int) -> Brow
 
     title = playlist.get("name") or f"Playlist #{playlist_id}"
 
-    # Adjust this if the field name differs
-    track_ids = playlist.get("patterns") or []
-    # Normalize to ints
-    try:
-        track_ids = [track["id"] for track in track_ids]
-    except Exception:
-        track_ids = []
-
+    track_ids = get_track_ids_from_playlist(playlist)
     children = [build_track_item(track_id) for track_id in track_ids]
 
     return BrowseMedia(
@@ -133,11 +128,7 @@ def build_tracks_root() -> BrowseMedia:
             media_content_type=MEDIA_TYPE_OASIS_TRACK,
             can_play=True,
             can_expand=False,
-            thumbnail=(
-                f"https://app.grounded.so/uploads/{image}"
-                if (image := meta.get("image"))
-                else None
-            ),
+            thumbnail=get_url_for_image(meta.get("image")),
         )
         for track_id, meta in TRACKS.items()
     ]
@@ -157,25 +148,23 @@ def build_tracks_root() -> BrowseMedia:
 def build_track_item(track_id: int) -> BrowseMedia:
     """Build a single track node for a given track id."""
     meta = TRACKS.get(track_id) or {}
-    title = meta.get("name") or f"Track #{track_id}"
-    image = meta.get("image")
 
     return BrowseMedia(
-        title=title,
+        title=meta.get("name") or f"Track #{track_id}",
         media_class=MediaClass.IMAGE,
         media_content_id=str(track_id),
         media_content_type=MEDIA_TYPE_OASIS_TRACK,
         can_play=True,
         can_expand=False,
-        thumbnail=f"https://app.grounded.so/uploads/{image}",
+        thumbnail=get_url_for_image(meta.get("image")),
     )
 
 
 def get_first_image_for_playlist(playlist: dict[str, Any]) -> str | None:
     """Get the first image from a playlist dictionary."""
-    for track in playlist.get("patterns"):
+    for track in playlist.get("patterns") or []:
         if image := track.get("image"):
-            return f"https://app.grounded.so/uploads/{image}"
+            return get_url_for_image(image)
     return None
 
 
@@ -239,7 +228,7 @@ async def async_search_media(
                         media_content_type=MEDIA_TYPE_OASIS_PLAYLIST,
                         can_play=True,
                         can_expand=True,
-                        thumbnail=None,
+                        thumbnail=get_first_image_for_playlist(pl),
                     )
                 )
 
