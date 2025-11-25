@@ -796,7 +796,11 @@ class OasisMqttClient(OasisClientProtocol):
             elif status_name == "OASIS_SPEEED":
                 data["ball_speed"] = int(payload)
             elif status_name == "JOBLIST":
-                data["playlist"] = [int(x) for x in payload.split(",") if x]
+                data["playlist"] = [
+                    track_id
+                    for track_str in payload.split(",")
+                    if (track_id := _parse_int(track_str))
+                ]
             elif status_name == "CURRENTJOB":
                 data["playlist_index"] = int(payload)
             elif status_name == "CURRENTLINE":

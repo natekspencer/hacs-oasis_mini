@@ -14,7 +14,13 @@ from .const import (
     STATUS_SLEEPING,
     TRACKS,
 )
-from .utils import _bit_to_bool, _parse_int, create_svg, decrypt_svg_content
+from .utils import (
+    _bit_to_bool,
+    _parse_int,
+    create_svg,
+    decrypt_svg_content,
+    get_url_for_image,
+)
 
 if TYPE_CHECKING:  # avoid runtime circular imports
     from .clients import OasisCloudClient
@@ -282,7 +288,11 @@ class OasisDevice:
             )
             return None
 
-        playlist = [_parse_int(track) for track in values[3].split(",") if track]
+        playlist = [
+            track_id
+            for track_str in values[3].split(",")
+            if (track_id := _parse_int(track_str))
+        ]
 
         try:
             status: dict[str, Any] = {
@@ -395,10 +405,10 @@ class OasisDevice:
         Get the full HTTPS URL for the current track's image if available.
 
         Returns:
-            str: Full URL to the track image (https://app.grounded.so/uploads/<image>), or `None` if no image is available.
+            str: Full URL to the track image or `None` if no image is available.
         """
-        if (track := self.track) and (image := track.get("image")):
-            return f"https://app.grounded.so/uploads/{image}"
+        if track := self.track:
+            return get_url_for_image(track.get("image"))
         return None
 
     @property
@@ -615,6 +625,10 @@ class OasisDevice:
         """
         client = self._require_client()
         await client.async_send_change_track_command(self, index)
+
+    async def async_clear_playlist(self) -> None:
+        """Clear the playlist."""
+        await self.async_set_playlist([])
 
     async def async_add_track_to_playlist(self, track: int | Iterable[int]) -> None:
         """
