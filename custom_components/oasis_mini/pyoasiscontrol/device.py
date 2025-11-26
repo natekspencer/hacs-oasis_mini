@@ -19,7 +19,7 @@ from .utils import (
     _parse_int,
     create_svg,
     decrypt_svg_content,
-    get_url_for_image,
+    get_image_url_from_track,
 )
 
 if TYPE_CHECKING:  # avoid runtime circular imports
@@ -407,9 +407,7 @@ class OasisDevice:
         Returns:
             str: Full URL to the track image or `None` if no image is available.
         """
-        if track := self.track:
-            return get_url_for_image(track.get("image"))
-        return None
+        return get_image_url_from_track(self.track)
 
     @property
     def track_name(self) -> str | None:

@@ -22,6 +22,8 @@ COLOR_LIGHT_SHADE = ("#FFFFFF", "#86888F")
 COLOR_MEDIUM_SHADE = ("#E5E2DE", "#86888F")
 COLOR_MEDIUM_TINT = ("#B8B8B8", "#FFFFFF")
 
+IMAGE_URL = "https://app.grounded.so/uploads/{image}"
+
 
 def _bit_to_bool(val: str) -> bool:
     """Convert a bit string to bool."""
@@ -200,14 +202,16 @@ def decrypt_svg_content(svg_content: dict[str, str]):
     return decrypted
 
 
+def get_image_url_from_track(track: dict[str, Any] | None) -> str | None:
+    """Get the image URL from a track."""
+    if not isinstance(track, dict):
+        return None
+    return IMAGE_URL.format(image=image) if (image := track.get("image")) else None
+
+
 def get_track_ids_from_playlist(playlist: dict[str, Any]) -> list[int]:
     """Get a list of track ids from a playlist."""
     return [track["id"] for track in (playlist.get("patterns") or []) if "id" in track]
-
-
-def get_url_for_image(image: str | None) -> str | None:
-    """Get the full URL for an image."""
-    return f"https://app.grounded.so/uploads/{image}" if image else None
 
 
 def now() -> datetime:
