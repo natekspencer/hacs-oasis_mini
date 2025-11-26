@@ -17,7 +17,7 @@ from homeassistant.components.media_player import (
 
 from .pyoasiscontrol import OasisCloudClient
 from .pyoasiscontrol.const import TRACKS
-from .pyoasiscontrol.utils import get_track_ids_from_playlist, get_url_for_image
+from .pyoasiscontrol.utils import get_image_url_from_track, get_track_ids_from_playlist
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -128,7 +128,7 @@ def build_tracks_root() -> BrowseMedia:
             media_content_type=MEDIA_TYPE_OASIS_TRACK,
             can_play=True,
             can_expand=False,
-            thumbnail=get_url_for_image(meta.get("image")),
+            thumbnail=get_image_url_from_track(meta),
         )
         for track_id, meta in TRACKS.items()
     ]
@@ -156,15 +156,15 @@ def build_track_item(track_id: int) -> BrowseMedia:
         media_content_type=MEDIA_TYPE_OASIS_TRACK,
         can_play=True,
         can_expand=False,
-        thumbnail=get_url_for_image(meta.get("image")),
+        thumbnail=get_image_url_from_track(meta),
     )
 
 
 def get_first_image_for_playlist(playlist: dict[str, Any]) -> str | None:
     """Get the first image from a playlist dictionary."""
     for track in playlist.get("patterns") or []:
-        if image := track.get("image"):
-            return get_url_for_image(image)
+        if image := get_image_url_from_track(track):
+            return image
     return None
 
 
