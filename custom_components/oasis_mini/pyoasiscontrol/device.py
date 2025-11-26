@@ -11,6 +11,7 @@ from .const import (
     LED_EFFECTS,
     STATUS_CODE_MAP,
     STATUS_ERROR,
+    STATUS_PLAYING,
     STATUS_SLEEPING,
     TRACKS,
 )
@@ -645,21 +646,33 @@ class OasisDevice:
         client = self._require_client()
         await client.async_send_add_joblist_command(self, tracks)
 
-    async def async_set_playlist(self, playlist: int | Iterable[int]) -> None:
+    async def async_set_playlist(
+        self, playlist: int | Iterable[int], *, start_playing: bool | None = None
+    ) -> None:
         """
         Set the device's playlist to the provided track or tracks.
 
-        Accepts a single track ID or an iterable of track IDs and replaces the device's playlist by sending the corresponding command to the attached client.
+        Accepts a single track ID or an iterable of track IDs, stops the device,
+        replaces the playlist, and resumes playback based on the `start_playing`
+        parameter or, if unspecified, the device's prior playing state.
 
         Parameters:
-            playlist (int | Iterable[int]): A single track ID or an iterable of track IDs to set as the new playlist.
+            playlist (int | Iterable[int]):
+                A single track ID or an iterable of track IDs to set as the new playlist.
+            start_playing (bool | None, keyword-only):
+                Whether to start playback after updating the playlist. If None (default),
+                playback will resume only if the device was previously playing and the
+                new playlist is non-empty.
         """
-        if isinstance(playlist, int):
-            playlist_list = [playlist]
-        else:
-            playlist_list = list(playlist)
+        playlist = [playlist] if isinstance(playlist, int) else list(playlist)
+        if start_playing is None:
+            start_playing = self.status_code == STATUS_PLAYING
+
         client = self._require_client()
-        await client.async_send_set_playlist_command(self, playlist_list)
+        await client.async_send_stop_command(self)  # needed before replacing playlist
+        await client.async_send_set_playlist_command(self, playlist)
+        if start_playing and playlist:
+            await client.async_send_play_command(self)
 
     async def async_set_repeat_playlist(self, repeat: bool) -> None:
         """
