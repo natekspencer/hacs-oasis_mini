@@ -2,7 +2,10 @@
 
 from __future__ import annotations
 
+from datetime import datetime
+
 from homeassistant.components.sensor import (
+    SensorDeviceClass,
     SensorEntity,
     SensorEntityDescription,
     SensorStateClass,
@@ -68,6 +71,13 @@ DESCRIPTORS = [
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=1,
     ),
+    SensorEntityDescription(
+        key="last_updated",
+        translation_key="last_updated",
+        device_class=SensorDeviceClass.TIMESTAMP,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+    ),
 ]
 DESCRIPTORS.extend(
     SensorEntityDescription(
@@ -84,11 +94,6 @@ class OasisDeviceSensorEntity(OasisDeviceEntity, SensorEntity):
     """Oasis device sensor entity."""
 
     @property
-    def native_value(self) -> str | None:
-        """
-        Provide the current sensor value from the underlying device.
-
-        Returns:
-            `str` with the sensor's current value, or `None` if the attribute is not present or has no value. The value is taken from the device attribute named by the entity description's `key`.
-        """
+    def native_value(self) -> str | int | float | datetime | None:
+        """Provide the current sensor value from the underlying device."""
         return getattr(self.device, self.entity_description.key)
