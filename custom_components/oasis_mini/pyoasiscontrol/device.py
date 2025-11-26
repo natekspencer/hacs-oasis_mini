@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import asyncio
+from datetime import datetime
 import logging
 from typing import TYPE_CHECKING, Any, Callable, Final, Iterable
 
@@ -21,6 +22,7 @@ from .utils import (
     create_svg,
     decrypt_svg_content,
     get_image_url_from_track,
+    now,
 )
 
 if TYPE_CHECKING:  # avoid runtime circular imports
@@ -140,6 +142,9 @@ class OasisDevice:
         self._track: dict | None = None
         self._track_task: asyncio.Task | None = None
 
+        # Diagnostic metadata
+        self.last_updated: datetime | None = None
+
     @property
     def brightness(self) -> int:
         """
@@ -258,6 +263,8 @@ class OasisDevice:
 
         if changed:
             self._notify_listeners()
+
+        self.last_updated = now()
 
     def parse_status_string(self, raw_status: str) -> dict[str, Any] | None:
         """

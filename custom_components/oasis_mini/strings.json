@@ -125,6 +125,9 @@
           "18": "Error while downloading the job file"
         }
       },
+      "last_updated": {
+        "name": "Last updated"
+      },
       "led_color_id": {
         "name": "LED color ID"
       },
