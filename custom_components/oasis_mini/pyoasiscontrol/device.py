@@ -671,7 +671,7 @@ class OasisDevice:
         client = self._require_client()
         await client.async_send_stop_command(self)  # needed before replacing playlist
         await client.async_send_set_playlist_command(self, playlist)
-        if start_playing and len(playlist) > 0:
+        if start_playing and playlist:
             await client.async_send_play_command(self)
 
     async def async_set_repeat_playlist(self, repeat: bool) -> None:
