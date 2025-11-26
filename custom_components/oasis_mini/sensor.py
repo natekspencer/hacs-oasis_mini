@@ -95,10 +95,5 @@ class OasisDeviceSensorEntity(OasisDeviceEntity, SensorEntity):
 
     @property
     def native_value(self) -> str | int | float | datetime | None:
-        """
-        Provide the current sensor value from the underlying device.
-
-        Returns:
-            `str` with the sensor's current value, or `None` if the attribute is not present or has no value. The value is taken from the device attribute named by the entity description's `key`.
-        """
+        """Provide the current sensor value from the underlying device."""
         return getattr(self.device, self.entity_description.key)
