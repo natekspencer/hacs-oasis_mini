@@ -11,6 +11,7 @@ from .const import (
     LED_EFFECTS,
     STATUS_CODE_MAP,
     STATUS_ERROR,
+    STATUS_PLAYING,
     STATUS_SLEEPING,
     TRACKS,
 )
@@ -655,11 +656,16 @@ class OasisDevice:
             playlist (int | Iterable[int]): A single track ID or an iterable of track IDs to set as the new playlist.
         """
         if isinstance(playlist, int):
-            playlist_list = [playlist]
-        else:
-            playlist_list = list(playlist)
+            playlist = [playlist]
+
         client = self._require_client()
-        await client.async_send_set_playlist_command(self, playlist_list)
+        was_playing = self.status_code == STATUS_PLAYING
+
+        # We need to stop the device so we can set the full playlist
+        await client.async_send_stop_command(self)
+        await client.async_send_set_playlist_command(self, playlist)
+        if was_playing and len(playlist) > 0:
+            await client.async_send_play_command(self)
 
     async def async_set_repeat_playlist(self, repeat: bool) -> None:
         """

@@ -340,7 +340,6 @@ class OasisDeviceMediaPlayerEntity(OasisDeviceEntity, MediaPlayerEntity):
             return
 
         if enqueue == MediaPlayerEnqueue.REPLACE:
-            await device.async_stop()
             await device.async_set_playlist(track_ids)
             await device.async_play()
             return
